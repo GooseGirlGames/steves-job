@@ -147,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 10
   Jumphight: 10
+  animator: {fileID: 211158497393610317}
 --- !u!95 &211158497393610317
 Animator:
   serializedVersion: 3
