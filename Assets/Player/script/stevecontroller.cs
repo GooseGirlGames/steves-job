@@ -3,7 +3,9 @@ using System;
 
 public class stevecontroller : MonoBehaviour {
 
-    public float MovementSpeed = 1;
+    public float MovementSpeed = 5;
+    public float Jumphight = 3;
+
     private void Start(){
     }
 
