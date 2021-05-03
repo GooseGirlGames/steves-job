@@ -4,42 +4,67 @@ using System;
 
 public class stevecontroller : MonoBehaviour {
 
-    //member variable
+//member variablen
+//===================================================================================================================================
+    public float movement_speed = 100f;
+    float horizontal_move = 0f;
+    public float jump_hight = 3;
+    private bool m_facing_right = true; 
+	private Vector3 m_velocity = Vector3.zero;
+   	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 
-    public float MovementSpeed = 5;
-    public float Jumphight = 3;
-    public Animator animator;
+    public Animator m_animator;
+    private Rigidbody2D m_ridgitbody;
 
-    //float horizontalMove = 0f;
+//Methoden
+//===================================================================================================================================
 
-    private Rigidbody2D _ridgitbody;
 
 	private void Flip(){
 		// Switch the way the player is labelled as facing.
-		m_FacingRight = !m_FacingRight;
+		m_facing_right = !m_facing_right;
 		// Multiply the player's x local scale by -1.
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
 
-//===================================================================================================================================
-
-    private void Start()
-    {
-        _ridgitbody = GetComponent<Rigidbody2D>();
+    public void Move(float move){
+        // the actual movement
+        //Debug.Log(move);
+        //Debug.Log(m_ridgitbody.velocity.y);
+        Vector3 player_velocity = new Vector2(move * 10f, m_ridgitbody.velocity.y);
+        m_ridgitbody.velocity = Vector3.SmoothDamp(m_ridgitbody.velocity, player_velocity, ref m_velocity, m_MovementSmoothing);
     }
 
-    private void Update()
-    {
-        var movement = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;       
+//Start and Update
+//===================================================================================================================================
 
+    private void Start(){
+        m_ridgitbody = GetComponent<Rigidbody2D>();
+        m_animator = GetComponent<Animator>();
+    }
+
+    private void Update(){
+        //Debug.Log(Time.deltaTime);
+        //var movement = Input.GetAxis("Horizontal");
+        //transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;       
+
+        //Flip();
         //animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        horizontal_move = Input.GetAxis("Horizontal") * movement_speed;
+        //Debug.Log(horizontal_move);
+    }
 
-        if (Input.GetButtonDown("Jump") && Mathf.Abs(_ridgitbody.velocity.y) < 0.001f)
+    private void FixedUpdate() {
+        Move(horizontal_move * Time.fixedDeltaTime);
+        //Debug.Log(horizontal_move);
+        //Debug.Log(Time.fixedDeltaTime);
+        //Debug.Log(m_ridgitbody.velocity.y);
+
+        if (Input.GetButtonDown("Jump") && Mathf.Abs(m_ridgitbody.velocity.y) < 0.001f) 
         {
-            _ridgitbody.AddForce(new Vector2(0, Jumphight), ForceMode2D.Impulse);
+            m_ridgitbody.AddForce(new Vector2(0, jump_hight), ForceMode2D.Impulse);
         }
     }
 }
