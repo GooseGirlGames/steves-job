@@ -183,6 +183,9 @@ MonoBehaviour:
   m_movement_smoothing: 0.181
   m_animator: {fileID: 211158497393610317}
   m_ground_check: {fileID: 7109484775959305822}
+  m_WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!95 &211158497393610317
 Animator:
   serializedVersion: 3
