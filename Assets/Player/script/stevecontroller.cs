@@ -11,7 +11,7 @@ public class stevecontroller : MonoBehaviour {
     public float jump_hight = 3;
     private bool m_facing_right = true; 
 	private Vector3 m_velocity = Vector3.zero;
-   	[Range(0, 1f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
+   	[Range(0, 1f)] [SerializeField] private float m_movement_smoothing = .05f;	// How much to smooth out the movement
     public Animator m_animator;
     private Rigidbody2D m_ridgitbody;
 
@@ -33,7 +33,7 @@ public class stevecontroller : MonoBehaviour {
         //Debug.Log(move);
         //Debug.Log(m_ridgitbody.velocity.y);
         Vector3 player_velocity = new Vector2(move * 10f, m_ridgitbody.velocity.y);
-        m_ridgitbody.velocity = Vector3.SmoothDamp(m_ridgitbody.velocity, player_velocity, ref m_velocity, m_MovementSmoothing);
+        m_ridgitbody.velocity = Vector3.SmoothDamp(m_ridgitbody.velocity, player_velocity, ref m_velocity, m_movement_smoothing);
 
         if (move < 0 && m_facing_right){
             Flip();

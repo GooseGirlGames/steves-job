@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement_speed: 25
   jump_hight: 5
-  m_MovementSmoothing: 0.309
+  m_movement_smoothing: 0.181
   m_animator: {fileID: 0}
 --- !u!95 &211158497393610317
 Animator:
