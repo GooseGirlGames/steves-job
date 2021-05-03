@@ -132,7 +132,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &3136791745992653636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,9 +145,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3efe0446084ca24e2b7163d91143e424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 10
-  Jumphight: 10
-  animator: {fileID: 211158497393610317}
+  movement_speed: 30
+  jump_hight: 10
+  m_MovementSmoothing: 0.05
+  m_animator: {fileID: 0}
 --- !u!95 &211158497393610317
 Animator:
   serializedVersion: 3
