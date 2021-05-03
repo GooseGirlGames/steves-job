@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3136791745992653632}
   - component: {fileID: 3136791745992653636}
   - component: {fileID: 211158497393610317}
+  - component: {fileID: 1716948700949047516}
+  - component: {fileID: 3900008067944396837}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -72,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1434216515
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c758a869243b9e540afc97d03b989c94, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,7 +101,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0032745302, y: 0.010924861}
+  m_Offset: {x: -0.0032745302, y: -0.010950677}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -110,7 +112,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15726703, y: 0.5543318}
+  m_Size: {x: 0.15726703, y: 0.28777397}
   m_EdgeRadius: 0
 --- !u!50 &3136791745992653632
 Rigidbody2D:
@@ -145,9 +147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3efe0446084ca24e2b7163d91143e424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement_speed: 30
-  jump_hight: 10
-  m_MovementSmoothing: 0.05
+  movement_speed: 25
+  jump_hight: 5
+  m_MovementSmoothing: 0.309
   m_animator: {fileID: 0}
 --- !u!95 &211158497393610317
 Animator:
@@ -168,3 +170,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &1716948700949047516
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3136791745992653633}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0049999994, y: 0.195529}
+  serializedVersion: 2
+  m_Radius: 0.078
+--- !u!58 &3900008067944396837
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3136791745992653633}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.175}
+  serializedVersion: 2
+  m_Radius: 0.085

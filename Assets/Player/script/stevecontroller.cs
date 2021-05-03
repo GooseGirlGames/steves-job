@@ -11,8 +11,7 @@ public class stevecontroller : MonoBehaviour {
     public float jump_hight = 3;
     private bool m_facing_right = true; 
 	private Vector3 m_velocity = Vector3.zero;
-   	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
-
+   	[Range(0, 1f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
     public Animator m_animator;
     private Rigidbody2D m_ridgitbody;
 
@@ -35,6 +34,13 @@ public class stevecontroller : MonoBehaviour {
         //Debug.Log(m_ridgitbody.velocity.y);
         Vector3 player_velocity = new Vector2(move * 10f, m_ridgitbody.velocity.y);
         m_ridgitbody.velocity = Vector3.SmoothDamp(m_ridgitbody.velocity, player_velocity, ref m_velocity, m_MovementSmoothing);
+
+        if (move < 0 && m_facing_right){
+            Flip();
+        }
+        else if (move > 0 && !m_facing_right){
+            Flip();
+        }
     }
 
 //Start and Update
@@ -52,8 +58,9 @@ public class stevecontroller : MonoBehaviour {
 
         //Flip();
         //animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-        horizontal_move = Input.GetAxis("Horizontal") * movement_speed;
         //Debug.Log(horizontal_move);
+        horizontal_move = Input.GetAxis("Horizontal") * movement_speed;
+        m_animator.SetFloat("Speed", Mathf.Abs(horizontal_move));
     }
 
     private void FixedUpdate() {
