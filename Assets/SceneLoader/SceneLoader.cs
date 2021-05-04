@@ -29,6 +29,11 @@ public class SceneLoader : MonoBehaviour
     [SerializeField]
     public bool PreservePlayerPosition = true;
 
+    [SerializeField]
+    public Animator transition;
+
+    public float animationDelay = 0.5f;
+
     private bool playerInTrigger = false;
     private Vector3 playerPosition;
     private Vector3 playerVelocity;  // FIXME velocity still ends up at 0 for some reason
@@ -41,9 +46,15 @@ public class SceneLoader : MonoBehaviour
             playerVelocity = rigidBody.velocity;
         }
 
-        
+        StartCoroutine(WaitForSceneLoadAnimation());
+
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.LoadScene(targetSceneName);
+    }
+
+    IEnumerator WaitForSceneLoadAnimation() {
+        transition.SetTrigger("ExitScene");
+        yield return new WaitForSeconds(animationDelay);
     }
 
     void OnTriggerEnter2D(Collider2D other) {
