@@ -19,7 +19,7 @@ public class stevecontroller : MonoBehaviour {
     [SerializeField] private Transform m_ground_check;
     [SerializeField] private LayerMask ground_layer;
     //public UnityEvent OnLandEvent;
-    [SerializeField] private bool is_groundet = false;
+    [SerializeField] private bool is_grounded = false;
     const float k_GroundedRadius = .2f;
     
 
@@ -54,10 +54,10 @@ public class stevecontroller : MonoBehaviour {
     }
 
     private void Ground_check(){
-        is_groundet = false;
+        is_grounded = false;
         Collider2D[] collider = Physics2D.OverlapCircleAll(m_ground_check.position, k_GroundedRadius, ground_layer);
         if(collider.Length > 0){
-            is_groundet = true;
+            is_grounded = true;
         }
     }
 
@@ -75,14 +75,14 @@ public class stevecontroller : MonoBehaviour {
 
         horizontal_move = Input.GetAxis("Horizontal") * movement_speed;
         m_animator.SetFloat("Speed", Mathf.Abs(horizontal_move));
-        m_animator.SetBool("is_grounded", is_groundet);       
+        m_animator.SetBool("is_grounded", is_grounded);       
     }
 
 
     private void FixedUpdate() {
         Ground_check();
         Move(horizontal_move * Time.fixedDeltaTime);
-        Debug.Log(is_groundet);
+        Debug.Log(is_grounded);
         //Debug.Log(horizontal_move);
         //Debug.Log(Time.fixedDeltaTime);
         //Debug.Log(m_ridgitbody.velocity.y);
