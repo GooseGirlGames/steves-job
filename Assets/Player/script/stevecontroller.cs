@@ -17,9 +17,9 @@ public class stevecontroller : MonoBehaviour {
     public Animator m_animator;
     private Rigidbody2D m_rigitbody;
     [SerializeField] private Transform m_ground_check;
-    [SerializeField] private LayerMask m_WhatIsGround;
-    public UnityEvent OnLandEvent;
-    private bool is_groundet;
+    [SerializeField] private LayerMask ground_layer;
+    //public UnityEvent OnLandEvent;
+    [SerializeField] private bool is_groundet = false;
     const float k_GroundedRadius = .2f;
     
 
@@ -53,13 +53,20 @@ public class stevecontroller : MonoBehaviour {
         }
     }
 
+    private void Ground_check(){
+        is_groundet = false;
+        Collider2D[] collider = Physics2D.OverlapCircleAll(m_ground_check.position, k_GroundedRadius, ground_layer);
+        if(collider.Length > 0){
+            is_groundet = true;
+        }
+    }
+
 //Start and Update
 //===================================================================================================================================
 
     private void Start(){
         m_rigitbody = GetComponent<Rigidbody2D>();
         m_animator = GetComponent<Animator>();
-        m_ground_check = GetComponent<Transform>();
     }
 
     private void Update(){
@@ -68,15 +75,15 @@ public class stevecontroller : MonoBehaviour {
 
         horizontal_move = Input.GetAxis("Horizontal") * movement_speed;
         m_animator.SetFloat("Speed", Mathf.Abs(horizontal_move));
-        m_animator.SetBool("is_grounded", is_groundet);
-
-
-        
-
+        m_animator.SetBool("is_grounded", is_groundet);       
     }
 
+
+
     private void FixedUpdate() {
+        Ground_check();
         Move(horizontal_move * Time.fixedDeltaTime);
+        Debug.Log(is_groundet);
         //Debug.Log(horizontal_move);
         //Debug.Log(Time.fixedDeltaTime);
         //Debug.Log(m_ridgitbody.velocity.y);
@@ -85,22 +92,32 @@ public class stevecontroller : MonoBehaviour {
         {
             m_rigitbody.AddForce(new Vector2(0, jump_hight), ForceMode2D.Impulse);
         }
-        bool wasGrounded = is_groundet;
-        // is_groundet = false;
+
+        //bool wasGrounded = is_groundet;
+        //is_groundet = false;
 
         //Debug.Log(m_ground_check.position);
-        Debug.Log(m_WhatIsGround);
+        // Debug.Log(m_WhatIsGround);
 
-        Collider2D[] collider = Physics2D.OverlapCircleAll(m_ground_check.position, k_GroundedRadius, m_WhatIsGround);
-        for (int i = 0; i < collider.Length; i++){
-            //Debug.Log(i);
-            if (collider[i].gameObject != gameObject){
-                is_groundet = true;
-                if (!wasGrounded){
-                    OnLandEvent.Invoke();
-                }
-            }
-        }
-        Debug.Log(is_groundet);
+        // Collider2D[] collider = Physics2D.OverlapCircleAll(m_ground_check.position, k_GroundedRadius, m_WhatIsGround);
+        // for (int i = 0; i < collider.Length; i++){
+        //     //Debug.Log([i]);
+        //     if (collider[i].gameObject != gameObject){
+        //         is_groundet = true;
+        //         if (!wasGrounded){
+        //             OnLandEvent.Invoke();
+        //         }
+        //     }
+        // }
+        // Debug.Log(is_groundet);
+
+        // if(Physics2D.OverlapCircle(m_ground_check.position, k_GroundedRadius, m_WhatIsGround)){
+        //      is_groundet=true;
+        // }
+        // else{
+        //     is_groundet = false;
+        // }
+        // Debug.Log(is_groundet);
+
     }
 }
