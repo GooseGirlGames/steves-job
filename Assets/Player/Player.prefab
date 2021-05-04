@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement_speed: 25
-  jump_hight: 10
+  jump_hight: 5
   m_movement_smoothing: 0.181
   m_animator: {fileID: 211158497393610317}
   m_ground_check: {fileID: 7109484775959305822}
