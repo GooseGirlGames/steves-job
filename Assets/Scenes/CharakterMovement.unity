@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 416079371}
   - component: {fileID: 416079370}
   - component: {fileID: 416079372}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: coloer (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 984020239}
   - component: {fileID: 984020238}
   - component: {fileID: 984020237}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: coloer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 1266020737}
   - component: {fileID: 1266020736}
   - component: {fileID: 1266020735}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: coloer (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
