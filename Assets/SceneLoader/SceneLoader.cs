@@ -26,21 +26,24 @@ public class SceneLoader : MonoBehaviour
     [SerializeField]
     public SpriteRenderer debugSpriteRenderer = null;
 
+    [SerializeField]
+    public bool PreservePlayerPosition = true;
+
     private bool playerInTrigger = false;
     private Vector3 playerPosition;
     private Vector3 playerVelocity;  // FIXME velocity still ends up at 0 for some reason
 
     void TriggerSceneLoad() {
-        GameObject playerPreLoad = GameObject.Find("Player");
-        playerPosition = playerPreLoad.transform.position;
-        Rigidbody2D rigidBody = playerPreLoad.GetComponent<Rigidbody2D>();
-        playerVelocity = rigidBody.velocity;
+        if (PreservePlayerPosition) {
+            GameObject playerPreLoad = GameObject.Find("Player");
+            playerPosition = playerPreLoad.transform.position;
+            Rigidbody2D rigidBody = playerPreLoad.GetComponent<Rigidbody2D>();
+            playerVelocity = rigidBody.velocity;
+        }
+
         
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.LoadScene(targetSceneName);
-
-
-
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -68,11 +71,13 @@ public class SceneLoader : MonoBehaviour
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-        GameObject playerPostLoad = GameObject.Find("Player");
-        playerPostLoad.transform.position = playerPosition;
+        if (PreservePlayerPosition) {
+            GameObject playerPostLoad = GameObject.Find("Player");
+            playerPostLoad.transform.position = playerPosition;
 
-        Rigidbody2D rigidBody = playerPostLoad.GetComponent<Rigidbody2D>();
-        rigidBody.velocity = playerVelocity;
+            Rigidbody2D rigidBody = playerPostLoad.GetComponent<Rigidbody2D>();
+            rigidBody.velocity = playerVelocity;
+        }
     }
 
 }
