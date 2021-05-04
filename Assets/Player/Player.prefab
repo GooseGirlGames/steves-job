@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7109484775959305822}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Groundcheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706089275224319520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.254, z: 0}
+  m_LocalPosition: {x: 0, y: -0.268, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3136791745992653637}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 211158497393610317}
   - component: {fileID: 1716948700949047516}
   - component: {fileID: 3900008067944396837}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -179,16 +179,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement_speed: 25
-  jump_hight: 5
+  jump_hight: 10
   m_movement_smoothing: 0.181
   m_animator: {fileID: 211158497393610317}
   m_ground_check: {fileID: 7109484775959305822}
-  m_WhatIsGround:
+  ground_layer:
     serializedVersion: 2
-    m_Bits: 4294967295
-  OnLandEvent:
-    m_PersistentCalls:
-      m_Calls: []
+    m_Bits: 64
+  is_groundet: 0
 --- !u!95 &211158497393610317
 Animator:
   serializedVersion: 3
