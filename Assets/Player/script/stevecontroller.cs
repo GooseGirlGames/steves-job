@@ -70,18 +70,9 @@ public class stevecontroller : MonoBehaviour {
         m_animator.SetFloat("Speed", Mathf.Abs(horizontal_move));
         m_animator.SetBool("is_grounded", is_groundet);
 
-        bool wasGrounded = is_groundet;
-        is_groundet = false;
 
-        Collider2D[] collider = Physics2D.OverlapCircleAll(m_ground_check.position, k_GroundedRadius, m_WhatIsGround);
-        for (int i = 0; i < collider.Length; i++){
-            if (collider[i].gameObject != gameObject){
-                is_groundet = true;
-                if (!wasGrounded){
-                    OnLandEvent.Invoke();
-                }
-            }
-        }
+        
+
     }
 
     private void FixedUpdate() {
@@ -94,5 +85,22 @@ public class stevecontroller : MonoBehaviour {
         {
             m_rigitbody.AddForce(new Vector2(0, jump_hight), ForceMode2D.Impulse);
         }
+        bool wasGrounded = is_groundet;
+        // is_groundet = false;
+
+        //Debug.Log(m_ground_check.position);
+        Debug.Log(m_WhatIsGround);
+
+        Collider2D[] collider = Physics2D.OverlapCircleAll(m_ground_check.position, k_GroundedRadius, m_WhatIsGround);
+        for (int i = 0; i < collider.Length; i++){
+            //Debug.Log(i);
+            if (collider[i].gameObject != gameObject){
+                is_groundet = true;
+                if (!wasGrounded){
+                    OnLandEvent.Invoke();
+                }
+            }
+        }
+        Debug.Log(is_groundet);
     }
 }
