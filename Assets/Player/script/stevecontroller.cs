@@ -11,8 +11,8 @@ public class stevecontroller : MonoBehaviour {
     float horizontal_move = 0f;
     public float jump_hight = 3;
     private bool m_facing_right = true; 
-	private Vector3 m_velocity = Vector3.zero;
-    [Range(0, 1f)] [SerializeField] private float m_movement_smoothing = .05f;	// How much to smooth out the movement
+    private Vector3 m_velocity = Vector3.zero;
+    [Range(0, 1f)] [SerializeField] private float m_movement_smoothing = .05f;    // How much to smooth out the movement
 
     public Animator m_animator;
     private Rigidbody2D m_rigitbody;
@@ -28,14 +28,14 @@ public class stevecontroller : MonoBehaviour {
 //===================================================================================================================================
 
 
-	private void Flip(){
-		// Switch the way the player is labelled as facing.
-		m_facing_right = !m_facing_right;
-		// Multiply the player's x local scale by -1.
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
-	}
+    private void Flip(){
+        // Switch the way the player is labelled as facing.
+        m_facing_right = !m_facing_right;
+        // Multiply the player's x local scale by -1.
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
 
     public void Move(float move){
         // the actual movement
