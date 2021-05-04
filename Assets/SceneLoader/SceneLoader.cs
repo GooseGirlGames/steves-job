@@ -30,13 +30,25 @@ public class SceneLoader : MonoBehaviour
     public bool PreservePlayerPosition = true;
 
     [SerializeField]
-    public Animator transition;
+    public Animator transitionAnimation;
 
-    public float animationDelay = 0.5f;
+    [Tooltip("Factor to scale animation speed.")]
+    public float animationSpeedFactor = 1.0f;
+
+    [Tooltip("Additional delay, i.e. for how long the screen stays black.")]
+    public float animationDelay = 0.0f;
+    /** Duration of the animations themselves */
+    private const float ANIMATION_DURATION = 0.5f;
 
     private bool playerInTrigger = false;
     private Vector3 playerPosition;
     private Vector3 playerVelocity;  // FIXME velocity still ends up at 0 for some reason
+
+    private void Awake() {
+        if (transitionAnimation) {
+            transitionAnimation.SetFloat("Speed", animationSpeedFactor);
+        }
+    }
 
     void TriggerSceneLoad() {
         if (PreservePlayerPosition) {
@@ -47,14 +59,17 @@ public class SceneLoader : MonoBehaviour
         }
 
         StartCoroutine(WaitForSceneLoadAnimation());
-
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.LoadScene(targetSceneName);
     }
 
     IEnumerator WaitForSceneLoadAnimation() {
-        transition.SetTrigger("ExitScene");
-        yield return new WaitForSeconds(animationDelay);
+        if (transitionAnimation) {
+            transitionAnimation.SetTrigger("ExitScene");
+            // Wait for FadeOut animation plus additional delay
+            yield return new WaitForSeconds(ANIMATION_DURATION / animationSpeedFactor + animationDelay);   
+        }
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.LoadScene(targetSceneName);
     }
 
     void OnTriggerEnter2D(Collider2D other) {

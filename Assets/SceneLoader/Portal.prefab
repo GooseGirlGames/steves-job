@@ -131,6 +131,10 @@ MonoBehaviour:
   Type: 0
   targetSceneName: 
   debugSpriteRenderer: {fileID: 2339826698647817229}
+  PreservePlayerPosition: 1
+  transition: {fileID: 0}
+  animationSpeedFactor: 1
+  animationDelay: 0.2
 --- !u!222 &2339826698647817230
 CanvasRenderer:
   m_ObjectHideFlags: 0
