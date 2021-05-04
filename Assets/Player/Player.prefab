@@ -186,7 +186,7 @@ MonoBehaviour:
   ground_layer:
     serializedVersion: 2
     m_Bits: 64
-  is_groundet: 0
+  is_grounded: 0
 --- !u!95 &211158497393610317
 Animator:
   serializedVersion: 3
