@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 
 public class TextTimer : MonoBehaviour
 {
+    public SceneLoader sceneLoader;
     public float timeValue = 30f;
     public Text timeText;
 
@@ -27,6 +28,8 @@ public class TextTimer : MonoBehaviour
     void DisplayTime(float stringTime){
         if(stringTime < 0){
             stringTime = 0;
+            sceneLoader.TriggerSceneLoad();
+
         }
         float seconds = Mathf.FloorToInt(stringTime%60);
         float minutes = Mathf.FloorToInt(stringTime/60);

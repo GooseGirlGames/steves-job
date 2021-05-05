@@ -50,7 +50,7 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
-    void TriggerSceneLoad() {
+    public void TriggerSceneLoad() {
         if (PreservePlayerPosition) {
             GameObject playerPreLoad = GameObject.Find("Player");
             playerPosition = playerPreLoad.transform.position;
