@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Mini-Steve
   description: An inventory-sized Steve! How convenient!
   visible: 1
-  icon: {fileID: 21300000, guid: 61214f671fb6c0014bdd97c3d5d04694, type: 3}
+  icon: {fileID: 21300000, guid: 318c1bba2502be46faea319a446e8542, type: 3}
   originWorld: 0
