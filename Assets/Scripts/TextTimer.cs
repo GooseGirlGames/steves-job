@@ -10,6 +10,7 @@ public class TextTimer : MonoBehaviour
     public SceneLoader sceneLoader;
     public float timeValue = 30f;
     public Text timeText;
+    public Item winItem;
 
     void Update()
     {
@@ -28,6 +29,7 @@ public class TextTimer : MonoBehaviour
     void DisplayTime(float stringTime){
         if(stringTime < 0){
             stringTime = 0;
+            Inventory.Instance.AddItem(winItem);
             sceneLoader.TriggerSceneLoad();
 
         }

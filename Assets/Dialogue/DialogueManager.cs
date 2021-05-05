@@ -28,6 +28,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue) {
 
+        Debug.Log("Starting Dialogue");
+
         dialogueCanvas.enabled = true;
 
         sentences.Clear();

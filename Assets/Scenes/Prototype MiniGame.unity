@@ -440,6 +440,7 @@ MonoBehaviour:
   sceneLoader: {fileID: 492108828}
   timeValue: 30
   timeText: {fileID: 492108826}
+  winItem: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
 --- !u!114 &492108826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,12 +496,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 0
-  targetSceneName: SampleA
+  targetSceneName: mal_creep
   debugSpriteRenderer: {fileID: 0}
   PreservePlayerPosition: 0
   transitionAnimation: {fileID: 532019475}
   animationSpeedFactor: 1
   animationDelay: 0
+  disableCollider: 0
 --- !u!1001 &532019474
 PrefabInstance:
   m_ObjectHideFlags: 0
