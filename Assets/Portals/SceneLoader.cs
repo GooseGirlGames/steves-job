@@ -43,6 +43,7 @@ public class SceneLoader : MonoBehaviour
     private bool playerInTrigger = false;
     private Vector3 playerPosition;
     private Vector3 playerVelocity;  // FIXME velocity still ends up at 0 for some reason
+    public bool disableCollider = false;
 
     private void Awake() {
         if (transitionAnimation) {
@@ -73,6 +74,9 @@ public class SceneLoader : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
+        if (disableCollider) {
+            return;
+        }
         if (other.gameObject.CompareTag("Player")) {
             playerInTrigger = true;
             if (Type == SceneLoaderType.Immediate) {
@@ -82,6 +86,9 @@ public class SceneLoader : MonoBehaviour
     }
 
     void OnTriggerExit2D(Collider2D other) {
+        if (disableCollider) {
+            return;
+        }
         if(other.gameObject.CompareTag("Player")) {
             playerInTrigger = false;
         }
@@ -93,7 +100,10 @@ public class SceneLoader : MonoBehaviour
         if (Type == SceneLoaderType.OnInputPressed && playerInTrigger && Input.GetKeyDown(KeyCode.E)) {
             TriggerSceneLoad();
         }
-        debugSpriteRenderer.color = playerInTrigger ? Color.green : Color.magenta;
+        if (debugSpriteRenderer) {
+            debugSpriteRenderer.color = playerInTrigger ? Color.green : Color.magenta;
+        }
+        
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {

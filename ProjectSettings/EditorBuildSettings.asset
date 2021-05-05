@@ -14,4 +14,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneChangeTest/SampleA.unity
     guid: 4254c16ea4d22ac0bb676b7fe54762bf
+  - enabled: 1
+    path: Assets/Scenes/Creep/mal_creep.unity
+    guid: 0f14af3910b51d0cf99981057a9ffb86
+  - enabled: 1
+    path: Assets/Scenes/Prototype MiniGame.unity
+    guid: 3ce6dffe9511b83f2b9c122b74c8f1c2
+  - enabled: 1
+    path: Assets/Scenes/Cute/mal_cute.unity
+    guid: 8dbaac0d84e4cdcf5a3c39e8e2662217
+  - enabled: 1
+    path: Assets/Scenes/Normal/mal_normal.unity
+    guid: 7d828070eedac7e62a406a06e9310144
+  - enabled: 1
+    path: Assets/Scenes/Void/mal_void.unity
+    guid: 2cea58780ff76e5eeb885eaaf1d6cbcc
   m_configObjects: {}
