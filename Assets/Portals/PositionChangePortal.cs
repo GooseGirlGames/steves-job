@@ -27,7 +27,7 @@ public class PositionChangePortal : MonoBehaviour
     public SpriteRenderer debugSpriteRenderer = null;
 
     [SerializeField]
-    public bool PreservePlayerPosition = true;
+    public const bool PreservePlayerPosition = false;
 
     [SerializeField]
     public Animator transitionAnimation;
