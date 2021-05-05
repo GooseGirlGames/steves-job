@@ -474,6 +474,7 @@ GameObject:
   - component: {fileID: 730475039}
   - component: {fileID: 730475043}
   - component: {fileID: 730475042}
+  - component: {fileID: 730475044}
   m_Layer: 0
   m_Name: sprite_0 (1)
   m_TagString: Untagged
@@ -632,6 +633,21 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+--- !u!114 &730475044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730475038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cbec839fd6e353e5a4230d7a85a6e80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nipple_animator: {fileID: 730475039}
+  shirt: {fileID: 11400000, guid: af649a5495a8420779024c628d1042c9, type: 2}
+  shirt_on: 1
 --- !u!1 &828164093
 GameObject:
   m_ObjectHideFlags: 0
