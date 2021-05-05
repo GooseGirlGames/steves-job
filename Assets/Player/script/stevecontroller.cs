@@ -82,7 +82,6 @@ public class stevecontroller : MonoBehaviour {
     private void FixedUpdate() {
         Ground_check();
         Move(horizontal_move * Time.fixedDeltaTime);
-        Debug.Log(is_grounded);
         //Debug.Log(horizontal_move);
         //Debug.Log(Time.fixedDeltaTime);
         //Debug.Log(m_ridgitbody.velocity.y);
