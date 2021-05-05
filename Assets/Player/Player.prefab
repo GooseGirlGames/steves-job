@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7109484775959305822}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Groundcheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 211158497393610317}
   - component: {fileID: 1716948700949047516}
   - component: {fileID: 3900008067944396837}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1434216515
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c758a869243b9e540afc97d03b989c94, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_ground_check: {fileID: 7109484775959305822}
   ground_layer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 8
   is_grounded: 0
 --- !u!95 &211158497393610317
 Animator:
