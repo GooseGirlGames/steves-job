@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a384481017c7d11e6be52b993588aa4a, type: 3}
   m_Name: CoolesTestItem
   m_EditorClassIdentifier: 
-  name: Cooles Unsichtbares Item
-  description: Oh wow, es ist so cool!
-  visible: 0
-  icon: {fileID: 0}
+  name: Mini-Steve
+  description: An inventory-sized Steve! How convenient!
+  visible: 1
+  icon: {fileID: 21300000, guid: 61214f671fb6c0014bdd97c3d5d04694, type: 3}
   originWorld: 0

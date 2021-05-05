@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -7,6 +8,7 @@ public class Inventory : MonoBehaviour
     public static Inventory Instance = null;
 
     public List<Item> items = new List<Item>();
+    public InventoryCanvasSlots inventoryCanvasSlots;
 
     private void Awake() {
         if (Instance != null) {
@@ -19,12 +21,18 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(Item item) {
         items.Add(item);
+        InventoryChanged();
     }
 
     public string RemoveItem(Item item) {
         string name = item.name;
         items.Remove(item);
+        InventoryChanged();
         return name;
+    }
+
+    private void InventoryChanged() {
+        inventoryCanvasSlots.DisplayItems(items);
     }
 
     public bool HasItem(Item item) {
