@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
  * Usage: Create an empty object, add the SceneLoader component and
  * a 2D collider.  Set "Target Scene Name" of the SceneLoader
  * and tick "Is Trigger" for the collider.
+ *
+ * Deprecated by `Portal`.
  */
 public class SceneLoader : MonoBehaviour
 {
