@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Void/mal_void.unity
     guid: 2cea58780ff76e5eeb885eaaf1d6cbcc
+  - enabled: 1
+    path: Assets/Scenes/PortalTest/PortalTest.unity
+    guid: d35317aa48dab34cd80103b0fb71f305
+  - enabled: 1
+    path: Assets/Scenes/PortalTest/PortalTestB.unity
+    guid: 49d3f7e06814b688cad6becd455caa53
   m_configObjects: {}
