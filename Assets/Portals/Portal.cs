@@ -14,6 +14,7 @@ public class Portal : MonoBehaviour
     public enum TriggerType {
         OnInputPressed,
         Immediate,
+        OnlyThroughCode,
     };
     public enum DestinationType {
         SameScene,
@@ -26,7 +27,12 @@ public class Portal : MonoBehaviour
 
 
     public string targetSceneName = "";
+    [Tooltip("Position to teleport to.  Also works across scenes, but only makes sense for " +
+             "scenes that are aligned (e.g. the malls).  Otherwise, use targetName.")]
     public Transform target = null;
+    [Tooltip("If this is specified and destinationType is ChangeScene, teleport the player to " +
+            "the GameObject with this name.")]
+    public string targetName = "";
     
     [Tooltip("Store pre-transition player position and teleport player there after transition.")]
     public bool teleportAfterSceneChange = false;
@@ -133,6 +139,13 @@ public class Portal : MonoBehaviour
             rigidBody.velocity = playerVelocity;
         } else if (targetPosition is Vector3 pos) {
             player.transform.position = pos;
+        } else if (targetName != "") {
+            GameObject target = GameObject.Find(targetName);
+            if (target) {
+                player.transform.position = target.transform.position;
+            } else {
+                Debug.LogWarning("Cannot find teleportatiob target " + targetName);
+            }
         }
     }
 

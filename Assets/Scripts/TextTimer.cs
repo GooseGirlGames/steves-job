@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class TextTimer : MonoBehaviour
 {
-    public SceneLoader sceneLoader;
+    public Portal portalBackToMall;
     public float timeValue = 30f;
     public Text timeText;
     public Item winItem;
@@ -30,7 +30,7 @@ public class TextTimer : MonoBehaviour
         if(stringTime < 0){
             stringTime = 0;
             Inventory.Instance.AddItem(winItem);
-            sceneLoader.TriggerSceneLoad();
+            portalBackToMall.TriggerTeleport();
 
         }
         float seconds = Mathf.FloorToInt(stringTime%60);

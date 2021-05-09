@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class JimmyDialogue : MonoBehaviour
 {
-    public SceneLoader sceneLoader;
-    public 
+    public Portal portalToMiniGame;
+    public Item bucket;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,12 +27,15 @@ public class JimmyDialogue : MonoBehaviour
     }
 
     public void EnterMiniGame() {
-        sceneLoader.TriggerSceneLoad();
+        portalToMiniGame.TriggerTeleport();
     }
 
     [SerializeField]
     public Dialogue dialogue;
     public void Trigger() {
+        if (Inventory.Instance.HasItem(bucket)) {
+            return;
+        }
         DialogueManager.Instance.StartDialogue(dialogue);
     }
 }
