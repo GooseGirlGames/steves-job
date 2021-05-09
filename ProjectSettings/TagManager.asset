@@ -44,12 +44,15 @@ TagManager:
   - name: Background
     uniqueID: 1522346743
     locked: 0
+  - name: NPC
+    uniqueID: 1036289319
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Foreground
-    uniqueID: 324653559
-    locked: 0
   - name: Player
     uniqueID: 144849827
+    locked: 0
+  - name: Foreground
+    uniqueID: 324653559
     locked: 0
