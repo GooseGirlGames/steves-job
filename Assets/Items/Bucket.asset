@@ -17,3 +17,4 @@ MonoBehaviour:
   visible: 1
   icon: {fileID: 21300000, guid: 384cb83dd8e7d2a38a56752470238a02, type: 3}
   originWorld: 0
+  unique: 1

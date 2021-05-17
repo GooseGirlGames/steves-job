@@ -63,6 +63,7 @@ public class BloodFalling : MonoBehaviour {
         
         if(countSplat == 3){
             GameLost();
+            countSplat = 4;
             Debug.Log("Game Over");
         }
     }
