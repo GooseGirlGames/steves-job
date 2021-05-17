@@ -2137,8 +2137,8 @@ GameObject:
   - component: {fileID: 4673518012577945325}
   - component: {fileID: 4673518012577945326}
   - component: {fileID: 4673518012577945245}
-  - component: {fileID: 4673518012577945316}
   - component: {fileID: 4673518012577945315}
+  - component: {fileID: 4673518012577945317}
   m_Layer: 0
   m_Name: SampleNPC
   m_TagString: Untagged
@@ -2158,7 +2158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705721f93b1c7871a83e88f057aac6ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4673518012577945316
+--- !u!114 &4673518012577945317
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2167,35 +2167,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4673518012577945314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35b13d415966e26a4abcc08f1cc75788, type: 3}
+  m_Script: {fileID: 11500000, guid: d9a7d5c88517b2f5790bc9b5af10535d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
+  defaultDialogue:
     sentences:
-    - name: Hexagon Flat-Top
-      text: Heyo
-      onComplete: []
-      options: []
-    - name: Hexagon Flat-Top
-      text: BUH!
-      onComplete:
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 4673518012577945315}
-            m_TargetAssemblyTypeName: SteveYeet, Assembly-CSharp
-            m_MethodName: Yeet
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      options: []
-    - name: Hexagon Flat-Top
-      text: AAAAHHHH!
+    - name: Hexagon
+      text: Hi
       onComplete: []
       options:
       - dialogueOptionType: 0
@@ -2216,16 +2194,32 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
-        - m_PersistentCalls:
-            m_Calls: []
-      - dialogueOptionType: 0
-        text: Give
-        item: {fileID: 11400000, guid: 4ede00896a3a06c1c8663f783437d87e, type: 2}
-        onChose: []
       - dialogueOptionType: 1
         text: Sample Text
         item: {fileID: 0}
         onChose: []
+    diaboxPosition: {fileID: 1272155520}
+    background: {fileID: 0}
+  bye:
+    sentences:
+    - name: Hexagon
+      text: Bye!
+      onComplete:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 4673518012577945315}
+            m_TargetAssemblyTypeName: SteveYeet, Assembly-CSharp
+            m_MethodName: Yeet
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      options: []
     diaboxPosition: {fileID: 1272155520}
     background: {fileID: 0}
 --- !u!212 &4673518012577945325
