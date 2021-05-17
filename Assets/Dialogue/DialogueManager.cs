@@ -101,9 +101,13 @@ public class DialogueManager : MonoBehaviour
                 TextMeshProUGUI text = actionBox.text;
                 Image image = actionBox.image;
 
-                text.text = option.verb + ' ' + option.item.name;
-                image.sprite = option.item.icon;
-                
+                if (option.dialogueOptionType == DialogueOption.DialogueOptionType.ItemAction) {
+                    text.text = option.text + ' ' + option.item.name;
+                    image.sprite = option.item.icon;
+                } else if (option.dialogueOptionType == DialogueOption.DialogueOptionType.TextAction) {
+                    text.text = option.text;
+                    image.gameObject.SetActive(false);
+                }
             }
         } else {
             foreach (var actionBox in actionBoxes)
