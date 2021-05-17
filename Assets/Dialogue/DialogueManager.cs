@@ -104,6 +104,8 @@ public class DialogueManager : MonoBehaviour
                 if (option.dialogueOptionType == DialogueOption.DialogueOptionType.ItemAction) {
                     text.text = option.text + ' ' + option.item.name;
                     image.sprite = option.item.icon;
+                    if (Inventory.Instance)
+                        actionBox.button.interactable = Inventory.Instance.HasItem(option.item);
                 } else if (option.dialogueOptionType == DialogueOption.DialogueOptionType.TextAction) {
                     text.text = option.text;
                     image.gameObject.SetActive(false);
