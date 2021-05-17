@@ -11,5 +11,6 @@ public class Sentence
     public string name;
     public string text;
     public List<UnityEvent> onComplete;
+    public List<DialogueOption> options;
 
 }
