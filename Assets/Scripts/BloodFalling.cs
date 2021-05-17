@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class BloodFalling : MonoBehaviour {
-
+    public Portal loserPortal;
     public Progressbar progressbar;
     Rigidbody2D rigidbody2D;
     public Sprite splatter;
@@ -48,8 +49,8 @@ public class BloodFalling : MonoBehaviour {
         }
     }
 
-    void NewScene(){
-        SceneManager.LoadScene("blood_lost");
+    void GameLost(){
+        loserPortal.TriggerTeleport();
     }
 
     void Update(){
@@ -57,7 +58,7 @@ public class BloodFalling : MonoBehaviour {
         int countSplat = objectsSplat.Length;
         
         if(countSplat == 3){
-            NewScene();
+            GameLost();
             Debug.Log("Game Over");
         }
     }
