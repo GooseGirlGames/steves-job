@@ -5,10 +5,13 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField]
-    public Dialogue dialogue;
+    public Dialogue defaultDialogue;
     private bool playerInTrigger = false;
+
+    public virtual Dialogue GetActiveDialogue() => defaultDialogue;
+    
     public void Trigger() {
-        DialogueManager.Instance.StartDialogue(dialogue);
+        DialogueManager.Instance.StartDialogue(GetActiveDialogue());
     }
 
     private void Update() {
