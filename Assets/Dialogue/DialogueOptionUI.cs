@@ -8,6 +8,7 @@ public class DialogueOptionUI : MonoBehaviour
 {
     public TextMeshProUGUI text;
     public Image image;
+    public Button button;
     [HideInInspector]
     public DialogueOption option;
     public void OptionChosen() {

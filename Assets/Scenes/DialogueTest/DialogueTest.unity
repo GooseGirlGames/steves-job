@@ -443,6 +443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1320538767}
   image: {fileID: 564094173}
+  button: {fileID: 501837254}
   option:
     dialogueOptionType: 0
     text: 
@@ -1118,6 +1119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 218123928}
   image: {fileID: 282879544}
+  button: {fileID: 1133105528}
   option:
     dialogueOptionType: 0
     text: 
@@ -1666,6 +1668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 588692726}
   image: {fileID: 1374404832}
+  button: {fileID: 1452845484}
   option:
     dialogueOptionType: 0
     text: 
