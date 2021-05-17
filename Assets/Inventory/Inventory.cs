@@ -9,13 +9,13 @@ public class Inventory : MonoBehaviour
 
     public List<Item> items = new List<Item>();
     public InventoryCanvasSlots inventoryCanvasSlots;
+    public bool has_shirt = false;
 
     private void Awake() {
         if (Instance != null) {
             Debug.LogWarning("Multiple instances of inventory created.");
             return;
         }
-
         Instance = this;
     }
 

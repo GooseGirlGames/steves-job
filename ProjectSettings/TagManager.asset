@@ -3,15 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - splatter
+  - bloodDrop
+  - BloodManager
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - Ground
   - Water
   - UI
-  - Ground
+  - Player
   - 
   - 
   - 
@@ -38,15 +41,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Forground
-    uniqueID: 2615311187
+  - name: Background
+    uniqueID: 1522346743
+    locked: 0
+  - name: NPC
+    uniqueID: 1036289319
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 3159179747
-    locked: 0
   - name: Player
-    uniqueID: 1434216515
+    uniqueID: 144849827
+    locked: 0
+  - name: Foreground
+    uniqueID: 324653559
     locked: 0

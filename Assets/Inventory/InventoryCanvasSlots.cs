@@ -7,7 +7,7 @@ public class InventoryCanvasSlots : MonoBehaviour
 {
     public List<InventorySlot> slots;
     public Canvas canvas;
-    private bool visible = false;
+    public bool visible = false;
 
     private void Awake() {
         Clear();
