@@ -20,8 +20,16 @@ public class Inventory : MonoBehaviour
     }
 
     public void AddItem(Item item) {
+        if (item.unique && HasItem(item)){
+            return;
+        }
+        foreach (Item conflict in item.conflictingItems){
+            if (HasItem(conflict)){
+                RemoveItem(conflict);
+            } 
+        }
         items.Add(item);
-        InventoryChanged();
+        InventoryChanged();    
     }
 
     public string RemoveItem(Item item) {
