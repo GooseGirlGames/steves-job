@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8119379149461662971}
   - component: {fileID: 8119379149461662970}
   - component: {fileID: 8119379149461662969}
+  - component: {fileID: 8940451053746552948}
   m_Layer: 0
   m_Name: blood
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8119379149461662919}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.4847355, y: 5.2, z: 0}
+  m_LocalPosition: {x: -7.906736, y: 5.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -161,5 +162,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab833941f081bb6c2b11aaccc87af4c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loserPortal: {fileID: 8940451053746552948}
   progressbar: {fileID: 0}
   splatter: {fileID: 21300000, guid: a0ab56d1db9825871ac9e8683312c85b, type: 3}
+  lostItem: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
+--- !u!114 &8940451053746552948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8119379149461662919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860dadad14504505aa499103186cef8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerType: 2
+  destinationType: 1
+  targetSceneName: mal_creep
+  target: {fileID: 0}
+  targetName: sprite_0
+  teleportAfterSceneChange: 0
+  transitionAnimation: {fileID: 0}
+  animationSpeedFactor: 1
+  animationDelay: 0
+  debugSpriteRenderer: {fileID: 0}

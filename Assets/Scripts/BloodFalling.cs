@@ -11,6 +11,8 @@ public class BloodFalling : MonoBehaviour {
     Rigidbody2D rigidbody2D;
     public Sprite splatter;
     private Vector2 screenbounds;
+    public Item lostItem;
+
 
     void Start() {
         //progressbar.minBlood(counter);
@@ -51,6 +53,8 @@ public class BloodFalling : MonoBehaviour {
 
     void GameLost(){
         loserPortal.TriggerTeleport();
+        Inventory.Instance.AddItem(lostItem);
+        Debug.Log("bucket");
     }
 
     void Update(){
