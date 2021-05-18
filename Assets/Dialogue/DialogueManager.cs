@@ -109,7 +109,9 @@ public class DialogueManager : MonoBehaviour
                 } else if (option.dialogueOptionType == DialogueOption.DialogueOptionType.TextAction) {
                     text.text = option.text;
                     image.gameObject.SetActive(false);
+                    actionBox.button.interactable = true;
                 }
+    
             }
         } else {
             foreach (var actionBox in actionBoxes)
@@ -135,7 +137,6 @@ public class DialogueManager : MonoBehaviour
     private void PositionDiabox() {
         
         Vector3 diaboxPositionScreen = cam.WorldToScreenPoint(activeDialogue.diaboxPosition.position);
-        Debug.Log(diaboxPositionScreen);
         // i think this sucks, but it works
         float scale = dialogueCanvas.scaleFactor;
         Vector2 diaboxRect = scale * textBox.GetComponentInChildren<RectTransform>().rect.size;
