@@ -17,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     public Transform textBox;
     public Sprite defaultBackground;
     public List<DialogueOptionUI> actionBoxes;
+    public bool instantTrigger = false;
 
     private Queue<Sentence> sentences;
     private Queue<UnityEvent> nextEvents;

@@ -20,6 +20,7 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue defaultDialogue;
     private bool playerInTrigger = false;
 
+
     /** Dialogue to be triggered. */
     public virtual Dialogue GetActiveDialogue() => defaultDialogue;
 
@@ -27,11 +28,18 @@ public class DialogueTrigger : MonoBehaviour
         DialogueManager.Instance.StartDialogue(GetActiveDialogue());
     }
 
+
     private void Update() {
         if (playerInTrigger && Input.GetKeyDown(DialogueManager.DIALOGUE_KEY)) {
             if(!DialogueManager.Instance.IsDialogueActive()) {
                 Trigger();
             }
+        }
+        if (!DialogueManager.Instance.instantTrigger && playerInTrigger){
+            if(!DialogueManager.Instance.IsDialogueActive()) {
+                Trigger();
+            }
+            Debug.Log("Trigger");
         }
     }
 
