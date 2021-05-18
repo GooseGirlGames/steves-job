@@ -1525,6 +1525,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9920cbabb7365088f93017d4fd20b210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1950536809 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1300187296440827173, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+  m_PrefabInstance: {fileID: 1300187296904966336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &2112084485 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6661882498269455674, guid: 44301c185d3b3afdf8abae4ecf64aba1, type: 3}
@@ -1601,6 +1606,10 @@ PrefabInstance:
       propertyPath: portalToMiniGame
       value: 
       objectReference: {fileID: 1950536804}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: dialogue.diaboxPosition
+      value: 
+      objectReference: {fileID: 1950536809}
     - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
       propertyPath: loserdia.sentences.Array.size
       value: 2
