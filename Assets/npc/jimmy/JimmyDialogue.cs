@@ -32,14 +32,12 @@ public class JimmyDialogue : DialogueTrigger
             return winlogue;
         }
         else if (Inventory.Instance.HasItem(empty)){
-            DialogueManager.Instance.instantTrigger = true;
+            DialogueManager.Instance.setInstantTrue();
             Debug.Log("true");
             return loserdia;
         }
         else if (!interaction){
-            interaction = true;
             return dialogue;
-            
         }
            return tmp; 
 

@@ -64,6 +64,10 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence();
     }
 
+    public void setInstantTrue(){
+        instantTrigger = true;
+    }
+
     public void DisplayNextSentence(DialogueOption chosenOption = null) {
         while (nextEvents.Count != 0) {
             nextEvents.Dequeue().Invoke();

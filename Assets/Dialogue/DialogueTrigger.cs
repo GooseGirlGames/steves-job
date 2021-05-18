@@ -37,10 +37,15 @@ public class DialogueTrigger : MonoBehaviour
         }
         if (!DialogueManager.Instance.instantTrigger && playerInTrigger){
             if(!DialogueManager.Instance.IsDialogueActive()) {
+                if(!DialogueManager.Instance.IsDialogueActive()) {
+                    return;
+                }
                 Trigger();
             }
-            Debug.Log("Trigger");
+                Debug.Log("Trigger");
+                Debug.Log(DialogueManager.Instance.instantTrigger);
         }
+
     }
 
     void OnTriggerEnter2D(Collider2D other) {

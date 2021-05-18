@@ -1747,6 +1747,7 @@ MonoBehaviour:
   - {fileID: 419032059}
   - {fileID: 1411695862}
   - {fileID: 770584436}
+  instantTrigger: 0
 --- !u!95 &2112084485 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6661882498269455674, guid: 44301c185d3b3afdf8abae4ecf64aba1, type: 3}
@@ -1832,8 +1833,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1358873155}
     - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: winlogue.diaboxPosition
+      value: 
+      objectReference: {fileID: 1358873155}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
       propertyPath: loserdia.sentences.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: winlogue.sentences.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
       propertyPath: loserdia.sentences.Array.data[0].name
@@ -1852,6 +1861,14 @@ PrefabInstance:
       value: You should try again!
       objectReference: {fileID: 0}
     - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: winlogue.sentences.Array.data[0].name
+      value: Laundr-O-Man
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: winlogue.sentences.Array.data[0].text
+      value: Thanks for the help!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
       propertyPath: dialogue.sentences.Array.data[1].options.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -1864,8 +1881,16 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: winlogue.sentences.Array.data[0].options.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
       propertyPath: loserdia.sentences.Array.data[1].onComplete.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: winlogue.sentences.Array.data[0].onComplete.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
       propertyPath: loserdia.sentences.Array.data[0].options.Array.data[0].text
@@ -1904,7 +1929,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: winlogue.sentences.Array.data[0].onComplete.Array.data[0].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
       propertyPath: loserdia.sentences.Array.data[1].onComplete.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: winlogue.sentences.Array.data[0].onComplete.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: winlogue.sentences.Array.data[0].onComplete.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
@@ -1913,6 +1950,14 @@ PrefabInstance:
       objectReference: {fileID: 1950536806}
     - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
       propertyPath: loserdia.sentences.Array.data[1].onComplete.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: winlogue.sentences.Array.data[0].onComplete.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: winlogue.sentences.Array.data[0].onComplete.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
