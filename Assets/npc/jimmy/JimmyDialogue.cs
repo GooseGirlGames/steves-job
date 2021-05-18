@@ -33,7 +33,6 @@ public class JimmyDialogue : DialogueTrigger
         }
         else if (Inventory.Instance.HasItem(empty)){
             DialogueManager.Instance.setInstantTrue();
-            Debug.Log("true");
             return loserdia;
         }
         else if (!interaction){
