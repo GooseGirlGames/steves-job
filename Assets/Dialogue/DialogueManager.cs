@@ -131,11 +131,13 @@ public class DialogueManager : MonoBehaviour
         foreach (UnityEvent ev in sentence.onComplete) {
             nextEvents.Enqueue(ev);
         }
+        Debug.Log(sentences);
     }
 
     private void DialogueEnded() {
         dialogueCanvas.enabled = false;
         activeDialogue = null;
+        Debug.Log("Dialog Ended");
     }
 
     private void OnGUI() {
@@ -171,7 +173,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update() {
         if (Time.fixedTime - lastKeyPress < KEY_PRESS_TIME_DELTA) {
-            Debug.Log("Too fast " + Time.fixedTime + ", " + lastKeyPress);
+            //Debug.Log("Too fast " + Time.fixedTime + ", " + lastKeyPress);
             return;
         }
         if (canBeAdvancedByKeypress && Input.GetKeyDown(DIALOGUE_KEY)) {
@@ -179,11 +181,11 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("Displaying next sentence");
             DisplayNextSentence();
         }
-        Debug.Log(activeDialogue);
     }
 
     public bool IsDialogueActive() {
         return activeDialogue != null;
+        Debug.Log(activeDialogue);
     }
  
 }

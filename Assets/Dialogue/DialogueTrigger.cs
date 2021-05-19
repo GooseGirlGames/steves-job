@@ -31,7 +31,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update() {
         if (Time.fixedTime - DialogueManager.lastKeyPress < DialogueManager.KEY_PRESS_TIME_DELTA) {
-            Debug.Log("Too fast");
+            //Debug.Log("Too fast");
             return;
         }
 
@@ -47,10 +47,10 @@ public class DialogueTrigger : MonoBehaviour
             if(!DialogueManager.Instance.IsDialogueActive()) {
                 Trigger();
                 DialogueManager.Instance.instantTrigger = false;
+                
                 DialogueManager.lastKeyPress = Time.fixedTime;
             }
-                //Debug.Log("Trigger");
-                
+
         }
         //Debug.Log(DialogueManager.Instance.instantTrigger + " instant trigger");
         //Debug.Log(playerInTrigger + " in trigger");
