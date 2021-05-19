@@ -10,6 +10,8 @@ public class Sentence
     [SerializeField]
     public string name;
     public string text;
+    [Tooltip("Events triggered when the sentence after this one is triggered or the dialogue ends.")]
     public List<UnityEvent> onComplete;
+    public List<DialogueOption> options;
 
 }

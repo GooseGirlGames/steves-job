@@ -6,6 +6,7 @@ public class JimmyDialogue : MonoBehaviour
 {
     public Portal portalToMiniGame;
     public Item bucket;
+    public Item empty;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,10 +33,14 @@ public class JimmyDialogue : MonoBehaviour
 
     [SerializeField]
     public Dialogue dialogue;
+    public Dialogue loserdia;
     public void Trigger() {
         if (Inventory.Instance.HasItem(bucket)) {
             return;
         }
-        DialogueManager.Instance.StartDialogue(dialogue);
+        else if (Inventory.Instance.HasItem(empty)){
+            DialogueManager.Instance.StartDialogue(loserdia);
+        }
+        else DialogueManager.Instance.StartDialogue(dialogue);
     }
 }

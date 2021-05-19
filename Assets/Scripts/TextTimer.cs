@@ -11,7 +11,7 @@ public class TextTimer : MonoBehaviour
     public float timeValue = 30f;
     public Text timeText;
     public Item winItem;
-
+    
     void Update()
     {
         if(timeValue > 0f){
