@@ -17,12 +17,16 @@ public class DialogueManager : MonoBehaviour
     public Transform textBox;
     public Sprite defaultBackground;
     public List<DialogueOptionUI> actionBoxes;
+    public bool instantTrigger = false;
 
     private Queue<Sentence> sentences;
     private Queue<UnityEvent> nextEvents;
     private Dialogue activeDialogue = null;
     private Camera cam;
     private bool canBeAdvancedByKeypress = true;  // false iff an action must be chosen to continue
+
+    public static float lastKeyPress = -1.0f;
+    public const float KEY_PRESS_TIME_DELTA = 0.3f;  // seconds
 
     private void Awake() {
         if (Instance != null) {
@@ -61,6 +65,10 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
         DisplayNextSentence();
+    }
+
+    public void setInstantTrue(){
+        instantTrigger = true;
     }
 
     public void DisplayNextSentence(DialogueOption chosenOption = null) {
@@ -109,7 +117,9 @@ public class DialogueManager : MonoBehaviour
                 } else if (option.dialogueOptionType == DialogueOption.DialogueOptionType.TextAction) {
                     text.text = option.text;
                     image.gameObject.SetActive(false);
+                    actionBox.button.interactable = true;
                 }
+    
             }
         } else {
             foreach (var actionBox in actionBoxes)
@@ -121,11 +131,13 @@ public class DialogueManager : MonoBehaviour
         foreach (UnityEvent ev in sentence.onComplete) {
             nextEvents.Enqueue(ev);
         }
+        Debug.Log(sentences);
     }
 
     private void DialogueEnded() {
         dialogueCanvas.enabled = false;
         activeDialogue = null;
+        Debug.Log("Dialog Ended");
     }
 
     private void OnGUI() {
@@ -135,7 +147,6 @@ public class DialogueManager : MonoBehaviour
     private void PositionDiabox() {
         
         Vector3 diaboxPositionScreen = cam.WorldToScreenPoint(activeDialogue.diaboxPosition.position);
-
         // i think this sucks, but it works
         float scale = dialogueCanvas.scaleFactor;
         Vector2 diaboxRect = scale * textBox.GetComponentInChildren<RectTransform>().rect.size;
@@ -161,13 +172,20 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void Update() {
+        if (Time.fixedTime - lastKeyPress < KEY_PRESS_TIME_DELTA) {
+            //Debug.Log("Too fast " + Time.fixedTime + ", " + lastKeyPress);
+            return;
+        }
         if (canBeAdvancedByKeypress && Input.GetKeyDown(DIALOGUE_KEY)) {
+            lastKeyPress = Time.fixedTime;
+            Debug.Log("Displaying next sentence");
             DisplayNextSentence();
         }
     }
 
     public bool IsDialogueActive() {
         return activeDialogue != null;
+        Debug.Log(activeDialogue);
     }
  
 }

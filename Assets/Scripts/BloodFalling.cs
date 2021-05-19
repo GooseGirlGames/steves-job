@@ -53,6 +53,7 @@ public class BloodFalling : MonoBehaviour {
 
     void GameLost(){
         loserPortal.TriggerTeleport();
+        DialogueManager.Instance.setInstantTrue();
         Inventory.Instance.AddItem(lostItem);
         Debug.Log("bucket");
     }

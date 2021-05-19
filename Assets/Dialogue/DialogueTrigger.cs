@@ -20,6 +20,7 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue defaultDialogue;
     private bool playerInTrigger = false;
 
+
     /** Dialogue to be triggered. */
     public virtual Dialogue GetActiveDialogue() => defaultDialogue;
 
@@ -27,12 +28,34 @@ public class DialogueTrigger : MonoBehaviour
         DialogueManager.Instance.StartDialogue(GetActiveDialogue());
     }
 
+
     private void Update() {
-        if (playerInTrigger && Input.GetKeyDown(DialogueManager.DIALOGUE_KEY)) {
+        if (Time.fixedTime - DialogueManager.lastKeyPress < DialogueManager.KEY_PRESS_TIME_DELTA) {
+            //Debug.Log("Too fast");
+            return;
+        }
+
+        if (playerInTrigger && Input.GetKeyDown(DialogueManager.DIALOGUE_KEY)){
             if(!DialogueManager.Instance.IsDialogueActive()) {
+                Debug.Log("yes");
+                DialogueManager.lastKeyPress = Time.fixedTime;
                 Trigger();
             }
+            
         }
+        if (DialogueManager.Instance.instantTrigger && playerInTrigger){
+            if(!DialogueManager.Instance.IsDialogueActive()) {
+                Trigger();
+                DialogueManager.Instance.instantTrigger = false;
+                
+                DialogueManager.lastKeyPress = Time.fixedTime;
+            }
+
+        }
+        //Debug.Log(DialogueManager.Instance.instantTrigger + " instant trigger");
+        //Debug.Log(playerInTrigger + " in trigger");
+        //Debug.Log(Input.GetKeyDown(DialogueManager.DIALOGUE_KEY) + " key");
+
     }
 
     void OnTriggerEnter2D(Collider2D other) {
