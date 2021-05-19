@@ -1508,6 +1508,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1078719242 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6661882498269455674, guid: 44301c185d3b3afdf8abae4ecf64aba1, type: 3}
+  m_PrefabInstance: {fileID: 1413485976}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1090066953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2591,9 +2596,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4787009656741641142, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+      propertyPath: destinationType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787009656741641142, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
       propertyPath: targetSceneName
       value: mal_creep
       objectReference: {fileID: 0}
+    - target: {fileID: 4787009656741641142, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+      propertyPath: transitionAnimation
+      value: 
+      objectReference: {fileID: 1078719242}
     - target: {fileID: 4787009656741641157, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
