@@ -8,14 +8,7 @@ public class JimmyDialogue : DialogueTrigger
     public Item bucket;
     public Item empty;
 
-/*     public void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("Collided!");
-        if (other.gameObject.CompareTag("Player")) {
-            Debug.Log("with player");
-            Trigger();
-        }
-    }
- */
+
     public void EnterMiniGame() {
         portalToMiniGame.TriggerTeleport();
     }
@@ -24,21 +17,14 @@ public class JimmyDialogue : DialogueTrigger
     public Dialogue dialogue;
     public Dialogue winlogue;
     public Dialogue loserdia;
-    public Dialogue tmp;
-    public bool interaction = false;
 
     public override Dialogue GetActiveDialogue() {
         if (Inventory.Instance.HasItem(bucket)) {
             return winlogue;
         }
         else if (Inventory.Instance.HasItem(empty)){
-            DialogueManager.Instance.setInstantTrue();
             return loserdia;
         }
-        else if (!interaction){
-            return dialogue;
-        }
-           return tmp; 
-
+       return dialogue; 
     }
 }

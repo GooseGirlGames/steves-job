@@ -170,6 +170,7 @@ public class DialogueManager : MonoBehaviour
         if (canBeAdvancedByKeypress && Input.GetKeyDown(DIALOGUE_KEY)) {
             DisplayNextSentence();
         }
+        //Debug.Log(canBeAdvancedByKeypress);
     }
 
     public bool IsDialogueActive() {

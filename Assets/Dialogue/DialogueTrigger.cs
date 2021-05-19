@@ -30,20 +30,24 @@ public class DialogueTrigger : MonoBehaviour
 
 
     private void Update() {
-        if (playerInTrigger && Input.GetKeyDown(DialogueManager.DIALOGUE_KEY)) {
+        if (playerInTrigger && Input.GetKeyDown(DialogueManager.DIALOGUE_KEY)){
             if(!DialogueManager.Instance.IsDialogueActive()) {
+                Debug.Log("yes");
                 Trigger();
             }
+            
         }
-        if (!DialogueManager.Instance.instantTrigger && playerInTrigger){
+        if (DialogueManager.Instance.instantTrigger && playerInTrigger){
             if(!DialogueManager.Instance.IsDialogueActive()) {
-                if(!DialogueManager.Instance.IsDialogueActive()) {
-                    Trigger();
-                }
+                Trigger();
+                DialogueManager.Instance.instantTrigger = false;
             }
-                Debug.Log("Trigger");
-                Debug.Log(DialogueManager.Instance.instantTrigger);
+                //Debug.Log("Trigger");
+                
         }
+        //Debug.Log(DialogueManager.Instance.instantTrigger + " instant trigger");
+        //Debug.Log(playerInTrigger + " in trigger");
+        //Debug.Log(Input.GetKeyDown(DialogueManager.DIALOGUE_KEY) + " key");
 
     }
 
