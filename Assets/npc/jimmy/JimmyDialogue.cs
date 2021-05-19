@@ -21,6 +21,7 @@ public class JimmyDialogue : DialogueTrigger
     public override Dialogue GetActiveDialogue() {
         if (Inventory.Instance.HasItem(bucket)) {
             return winlogue;
+            
         }
         else if (Inventory.Instance.HasItem(empty)){
             return loserdia;
