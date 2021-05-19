@@ -59,22 +59,13 @@ public class menucontroller : MonoBehaviour {
     }
 
     private void Update(){
-        //Debug.Log(Time.deltaTime);
-        //Debug.Log(horizontal_move);
-
-        //horizontal_move = Input.GetAxis("Horizontal") * movement_speed;
         m_animator.SetFloat("Speed", Mathf.Abs(horizontal_move));
     }
 
 
     private void FixedUpdate() {
-        Debug.Log(active);
         if(active){
             Move(horizontal_move * Time.fixedDeltaTime);
         }
-        
-        //Debug.Log(horizontal_move);
-        //Debug.Log(Time.fixedDeltaTime);
-        //Debug.Log(m_ridgitbody.velocity.y);
     }
 }
