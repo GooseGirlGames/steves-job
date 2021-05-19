@@ -25,6 +25,9 @@ public class DialogueManager : MonoBehaviour
     private Camera cam;
     private bool canBeAdvancedByKeypress = true;  // false iff an action must be chosen to continue
 
+    public static float lastKeyPress = -1.0f;
+    public const float KEY_PRESS_TIME_DELTA = 0.3f;  // seconds
+
     private void Awake() {
         if (Instance != null) {
             return;
@@ -167,7 +170,13 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void Update() {
+        if (Time.fixedTime - lastKeyPress < KEY_PRESS_TIME_DELTA) {
+            Debug.Log("Too fast " + Time.fixedTime + ", " + lastKeyPress);
+            return;
+        }
         if (canBeAdvancedByKeypress && Input.GetKeyDown(DIALOGUE_KEY)) {
+            lastKeyPress = Time.fixedTime;
+            Debug.Log("Displaying next sentence");
             DisplayNextSentence();
         }
         Debug.Log(activeDialogue);
