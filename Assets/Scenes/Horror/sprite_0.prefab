@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 0
-  targetSceneName: Prototype MiniGame
+  targetSceneName: BloodFalling
   debugSpriteRenderer: {fileID: 0}
   PreservePlayerPosition: 0
   transitionAnimation: {fileID: 0}

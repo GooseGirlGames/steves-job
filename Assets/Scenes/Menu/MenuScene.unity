@@ -2601,7 +2601,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4787009656741641142, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
       propertyPath: targetSceneName
-      value: mal_creep
+      value: mall_horror
       objectReference: {fileID: 0}
     - target: {fileID: 4787009656741641142, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
       propertyPath: transitionAnimation
