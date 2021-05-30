@@ -180,9 +180,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerType: 2
   destinationType: 1
-  targetSceneName: mal_creep
+  targetSceneName: mall_horror
   target: {fileID: 0}
-  targetName: sprite_0
+  targetName: Jimmy
   teleportAfterSceneChange: 0
   transitionAnimation: {fileID: 0}
   animationSpeedFactor: 1
