@@ -98,7 +98,7 @@ public class Portal : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
             playerInTrigger = true;
-            GameManager.Instance.hintUI.Hint(this.gameObject.transform, "E");
+            GameManager.Instance.hintUI.Hint(this.gameObject.transform, "E", new Vector3(0, 30, 0));
         }
     }
 
