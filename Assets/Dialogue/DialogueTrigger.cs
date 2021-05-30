@@ -64,11 +64,15 @@ public class DialogueTrigger : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
             playerInTrigger = true;
+            if (!DialogueManager.Instance.IsDialogueActive()) {
+                DialogueManager.Instance.HintAt(GetActiveDialogue());
+            }
         }
     }
     void OnTriggerExit2D(Collider2D other) {
         if(other.gameObject.CompareTag("Player")) {
             playerInTrigger = false;
+            DialogueManager.Instance.ClearHint();
         }
     }
 }
