@@ -22,7 +22,6 @@ public class DialogueManager : MonoBehaviour
     public Sprite defaultBackground;
     public List<DialogueOptionUI> actionBoxes;
     public InteractionHintUI hintUI;
-    private Transform hintTarget;
     public bool instantTrigger = false;
 
     private Queue<Sentence> sentences;
@@ -209,7 +208,6 @@ public class DialogueManager : MonoBehaviour
         hintUI.Hint(dialogue.diaboxPosition, DIALOGUE_KEY_STR);
     }
     public void ClearHint() {
-        hintTarget = null;
         hintUI.ClearHint();
     }
  
