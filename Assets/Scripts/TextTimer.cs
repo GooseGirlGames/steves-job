@@ -29,7 +29,7 @@ public class TextTimer : MonoBehaviour
     void DisplayTime(float stringTime){
         if(stringTime < 0){
             stringTime = 0;
-            DialogueManager.Instance.setInstantTrue();
+            DialogueManager.Instance.SetInstantTrue();
             Inventory.Instance.AddItem(winItem);
             portalBackToMall.TriggerTeleport();
 

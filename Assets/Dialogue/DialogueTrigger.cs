@@ -18,44 +18,47 @@ public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField]
     public Dialogue defaultDialogue;
-    private bool playerInTrigger = false;
+    [SerializeField] private bool playerInTrigger = false;
 
 
     /** Dialogue to be triggered. */
     public virtual Dialogue GetActiveDialogue() => defaultDialogue;
 
     public void Trigger() {
+        DialogueManager.Log("Triggering dialogue");
+        DialogueManager.Instance.lastKeyPress = Time.fixedTime;
         DialogueManager.Instance.StartDialogue(GetActiveDialogue());
     }
 
 
     private void Update() {
-        if (Time.fixedTime - DialogueManager.lastKeyPress < DialogueManager.KEY_PRESS_TIME_DELTA) {
-            //Debug.Log("Too fast");
+        if (!playerInTrigger) {
             return;
         }
 
-        if (playerInTrigger && Input.GetKeyDown(DialogueManager.DIALOGUE_KEY)){
-            if(!DialogueManager.Instance.IsDialogueActive()) {
-                Debug.Log("yes");
-                DialogueManager.lastKeyPress = Time.fixedTime;
-                Trigger();
-            }
-            
+        if(DialogueManager.Instance.IsDialogueActive()) {
+            DialogueManager.Log("Won't trigger dialogue; another one is still active");
+            return;
         }
-        if (DialogueManager.Instance.instantTrigger && playerInTrigger){
-            if(!DialogueManager.Instance.IsDialogueActive()) {
-                Trigger();
-                DialogueManager.Instance.instantTrigger = false;
-                
-                DialogueManager.lastKeyPress = Time.fixedTime;
-            }
 
+        if (DialogueManager.Instance.instantTrigger) {
+            DialogueManager.Log("Triggering instant dialogue");
+            DialogueManager.Instance.instantTrigger = false;
+            Trigger();
+            return;
         }
-        //Debug.Log(DialogueManager.Instance.instantTrigger + " instant trigger");
-        //Debug.Log(playerInTrigger + " in trigger");
-        //Debug.Log(Input.GetKeyDown(DialogueManager.DIALOGUE_KEY) + " key");
 
+        float keypressDelta = Time.fixedTime - DialogueManager.Instance.lastKeyPress;
+        if (keypressDelta < DialogueManager.KEY_PRESS_TIME_DELTA) {
+            DialogueManager.Log("Won't trigger dialogue; too fast (" + keypressDelta + " < min delta)");
+            return;
+        }
+
+        if (Input.GetKeyDown(DialogueManager.DIALOGUE_KEY)){
+            DialogueManager.Log("Triggering dialogue from keypress");
+            Trigger();
+            return;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other) {
