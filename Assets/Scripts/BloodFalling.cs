@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class BloodFalling : MonoBehaviour {
     public Portal loserPortal;
     public Progressbar progressbar;
-    Rigidbody2D rigidbody2D;
+    new Rigidbody2D rigidbody2D;
     public Sprite splatter;
     private Vector2 screenbounds;
     public Item lostItem;
