@@ -1,3 +1,6 @@
+// uncomment to enable debug logging for the dialogue system
+// #define DEBUG_DIALOGUE_SYSTEM
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -5,12 +8,12 @@ using UnityEngine.Events;
 using UnityEngine;
 using TMPro;
 
-
 public class DialogueManager : MonoBehaviour
 {
     // FIXME hardcoding keybinds sucks an I am ashamed of myself
     public const KeyCode DIALOGUE_KEY = KeyCode.E;
     public static DialogueManager Instance;
+
     public TextMeshProUGUI nameField;
     public TextMeshProUGUI textField;
     public Canvas dialogueCanvas;
@@ -25,8 +28,14 @@ public class DialogueManager : MonoBehaviour
     private Camera cam;
     private bool canBeAdvancedByKeypress = true;  // false iff an action must be chosen to continue
 
-    public static float lastKeyPress = -1.0f;
+    public float lastKeyPress = -1.0f;
     public const float KEY_PRESS_TIME_DELTA = 0.3f;  // seconds
+
+    public static void Log(string msg) {
+        #if DEBUG_DIALOGUE_SYSTEM
+            Debug.Log(msg);
+        #endif
+    }
 
     private void Awake() {
         if (Instance != null) {
@@ -56,8 +65,8 @@ public class DialogueManager : MonoBehaviour
         cam = GameObject.FindObjectOfType<Camera>();
         PositionDiabox();
 
-        Debug.Log("Starting Dialogue");
-
+        DialogueManager.Log("Starting Dialogue");
+        
         dialogueCanvas.enabled = true;
 
         sentences.Clear();
@@ -67,11 +76,12 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence();
     }
 
-    public void setInstantTrue(){
+    public void SetInstantTrue(){
         instantTrigger = true;
     }
 
     public void DisplayNextSentence(DialogueOption chosenOption = null) {
+        DialogueManager.Log("Displaying next sentence...");
         while (nextEvents.Count != 0) {
             nextEvents.Dequeue().Invoke();
         }
@@ -88,6 +98,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         Sentence sentence = sentences.Dequeue();
+        DialogueManager.Log(sentence.name + " says: '" + sentence.text + "'");
         nameField.text = sentence.name;
         textField.text = sentence.text;
 
@@ -131,13 +142,12 @@ public class DialogueManager : MonoBehaviour
         foreach (UnityEvent ev in sentence.onComplete) {
             nextEvents.Enqueue(ev);
         }
-        Debug.Log(sentences);
     }
 
     private void DialogueEnded() {
+        DialogueManager.Log("Dialog Ended");
         dialogueCanvas.enabled = false;
         activeDialogue = null;
-        Debug.Log("Dialog Ended");
     }
 
     private void OnGUI() {
@@ -172,20 +182,22 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void Update() {
+        if (!IsDialogueActive()) {
+            return;
+        }
+        
         if (Time.fixedTime - lastKeyPress < KEY_PRESS_TIME_DELTA) {
-            //Debug.Log("Too fast " + Time.fixedTime + ", " + lastKeyPress);
+            DialogueManager.Log("Too fast " + Time.fixedTime + ", " + lastKeyPress);
             return;
         }
         if (canBeAdvancedByKeypress && Input.GetKeyDown(DIALOGUE_KEY)) {
             lastKeyPress = Time.fixedTime;
-            Debug.Log("Displaying next sentence");
             DisplayNextSentence();
         }
     }
 
     public bool IsDialogueActive() {
         return activeDialogue != null;
-        Debug.Log(activeDialogue);
     }
  
 }
