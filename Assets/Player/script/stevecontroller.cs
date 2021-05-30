@@ -53,13 +53,31 @@ public class stevecontroller : MonoBehaviour {
         }
     }
 
-    private void Ground_check(){
-        is_grounded = false;
+    void OnCollisionEnter2D(Collision2D collision){
+        if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground")){
+            is_grounded = true;
+        }
+        Debug.Log(collision.gameObject.name);
+    }
+
+    void OnCollisionExit2D(Collision2D collision){
+        if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground")){
+            is_grounded = false;
+            
+        }
+        Debug.Log(collision.collider.gameObject.layer);
+        
+    }
+/*     private void Ground_check(){
+
         Collider2D[] collider = Physics2D.OverlapCircleAll(m_ground_check.position, k_GroundedRadius, ground_layer);
+        is_grounded = false;
+        Debug.Log(collider.Length);
         if(collider.Length > 0){
             is_grounded = true;
         }
-    }
+        
+    } */
 
 //Start and Update
 //===================================================================================================================================
@@ -72,7 +90,7 @@ public class stevecontroller : MonoBehaviour {
     private void Update(){
         //Debug.Log(Time.deltaTime);
         //Debug.Log(horizontal_move);
-
+        //Debug.Log(is_grounded);
         horizontal_move = Input.GetAxis("Horizontal") * movement_speed;
         m_animator.SetFloat("Speed", Mathf.Abs(horizontal_move));
         m_animator.SetBool("is_grounded", is_grounded);       
@@ -80,7 +98,7 @@ public class stevecontroller : MonoBehaviour {
 
 
     private void FixedUpdate() {
-        Ground_check();
+        //Ground_check();
         Move(horizontal_move * Time.fixedDeltaTime);
         //Debug.Log(horizontal_move);
         //Debug.Log(Time.fixedDeltaTime);
