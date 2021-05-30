@@ -1952,6 +1952,19 @@ MonoBehaviour:
   hintUI: {fileID: 248060487}
   instantTrigger: 0
   lastKeyPress: -1
+--- !u!114 &2012026767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012026762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac1dd54e1e22df1aca47139b47c96cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hintUI: {fileID: 248060487}
 --- !u!95 &2112084485 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6661882498269455674, guid: 44301c185d3b3afdf8abae4ecf64aba1, type: 3}
