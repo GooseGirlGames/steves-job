@@ -293,6 +293,7 @@ MonoBehaviour:
   destinationType: 0
   targetSceneName: 
   target: {fileID: 2339826698994481458}
+  targetName: 
   teleportAfterSceneChange: 0
   transitionAnimation: {fileID: 1170219637}
   animationSpeedFactor: 1
@@ -530,6 +531,7 @@ MonoBehaviour:
   destinationType: 1
   targetSceneName: PortalTestB
   target: {fileID: 0}
+  targetName: 
   teleportAfterSceneChange: 0
   transitionAnimation: {fileID: 1170219637}
   animationSpeedFactor: 1
@@ -910,9 +912,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4787009656741641159, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787009656741641159, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787009656741641159, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4787009656741641160, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
       propertyPath: m_Name
       value: Portal A
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+--- !u!1 &7067946718707925752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4787009656741641160, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+  m_PrefabInstance: {fileID: 7067946718707925751}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7067946718707925753
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7067946718707925752}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 100196b282e66732281e728becbb3500, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
