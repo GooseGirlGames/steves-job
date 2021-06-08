@@ -21,6 +21,8 @@ public class stevecontroller : MonoBehaviour {
     //public UnityEvent OnLandEvent;
     [SerializeField] private bool is_grounded = false;
     const float k_GroundedRadius = .2f;
+    [SerializeField] private bool crouch = false;
+    [SerializeField] private bool shift;
     
 
 
@@ -93,7 +95,14 @@ public class stevecontroller : MonoBehaviour {
         //Debug.Log(is_grounded);
         horizontal_move = Input.GetAxis("Horizontal") * movement_speed;
         m_animator.SetFloat("Speed", Mathf.Abs(horizontal_move));
-        m_animator.SetBool("is_grounded", is_grounded);       
+        m_animator.SetBool("is_grounded", is_grounded);  
+        m_animator.SetBool("crouch", crouch);   
+        while (Input.GetKeyDown(KeyCode.LeftShift) && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f){
+            shift = true;
+        }  
+        if (!Input.GetKeyDown(KeyCode.LeftShift) && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f){
+            shift = false;
+        } 
     }
 
 
@@ -108,5 +117,14 @@ public class stevecontroller : MonoBehaviour {
         {
             m_rigitbody.AddForce(new Vector2(0, jump_hight), ForceMode2D.Impulse);
         }
+        if (shift){
+            crouch = true;
+            Debug.Log("crouch");
+        } 
+        if (!shift){
+            crouch = false;
+            Debug.Log("no crouch");
+        } 
+
     }
 }
