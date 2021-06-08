@@ -1437,6 +1437,10 @@ PrefabInstance:
       propertyPath: transitionAnimation
       value: 
       objectReference: {fileID: 2112084485}
+    - target: {fileID: 4787009656741641142, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+      propertyPath: teleportAfterSceneChange
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4787009656741641157, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
