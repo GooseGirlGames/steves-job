@@ -296,7 +296,6 @@ MonoBehaviour:
   targetName: 
   teleportAfterSceneChange: 0
   transitionAnimation: {fileID: 1170219637}
-  portalAnimator: {fileID: 0}
   animationSpeedFactor: 1
   animationDelay: 0
   debugSpriteRenderer: {fileID: 962011323}
@@ -535,7 +534,6 @@ MonoBehaviour:
   targetName: 
   teleportAfterSceneChange: 0
   transitionAnimation: {fileID: 1170219637}
-  portalAnimator: {fileID: 0}
   animationSpeedFactor: 1
   animationDelay: 0
   debugSpriteRenderer: {fileID: 1357466388}
@@ -748,7 +746,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.9886773
+  orthographic size: 2.232762
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -772,7 +770,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779726631}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.83, y: 0.35, z: -10}
+  m_LocalPosition: {x: -6.56, y: 0.85, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -842,6 +840,22 @@ PrefabInstance:
       propertyPath: transitionAnimation
       value: 
       objectReference: {fileID: 1170219637}
+    - target: {fileID: 4787009656741641143, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+      propertyPath: m_Size.x
+      value: 0.37358072
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787009656741641143, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+      propertyPath: m_Size.y
+      value: 0.80577403
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787009656741641143, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0860868
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787009656741641143, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.021979596
+      objectReference: {fileID: 0}
     - target: {fileID: 4787009656741641157, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -879,6 +893,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4787009656741641157, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787009656741641157, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787009656741641157, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -908,11 +930,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4787009656741641157, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -8.687038
+      value: -8.39
       objectReference: {fileID: 0}
     - target: {fileID: 4787009656741641157, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.059913814
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4787009656741641157, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -926,6 +948,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4787009656741641159, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 95566e4d91a22522dbec0ba577e3189e, type: 3}
     - target: {fileID: 4787009656741641159, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
       propertyPath: m_Color.b
       value: 1
