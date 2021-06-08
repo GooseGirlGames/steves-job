@@ -40,6 +40,8 @@ public class Portal : MonoBehaviour
 
     public Animator transitionAnimation;
 
+    public Animator portal_animator;
+
     [Tooltip("Factor to scale animation speed.")]
     public float animationSpeedFactor = 1.0f;
 
@@ -127,6 +129,9 @@ public class Portal : MonoBehaviour
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+
+        portal_animator = GetComponent<Animator>();
+
         if (destinationType != DestinationType.ChangeScene) {
             Debug.LogWarning("OnSceneLoaded called even though scene was not changed");
             return;
