@@ -40,7 +40,7 @@ public class Portal : MonoBehaviour
 
     public Animator transitionAnimation;
 
-    public Animator portal_animator;
+    private Animator portalAnimator;
 
     [Tooltip("Factor to scale animation speed.")]
     public float animationSpeedFactor = 1.0f;
@@ -48,7 +48,7 @@ public class Portal : MonoBehaviour
     [Tooltip("Additional delay, i.e. for how long the screen stays black.")]
     public float animationDelay = 0.0f;
 
-    public SpriteRenderer debugSpriteRenderer = null;
+    public SpriteRenderer? debugSpriteRenderer = null;
 
     private const float ANIMATION_DURATION = 0.5f;  // Duration of the animations themselves
 
@@ -62,6 +62,8 @@ public class Portal : MonoBehaviour
         if (transitionAnimation) {
             transitionAnimation.SetFloat("Speed", animationSpeedFactor);
         }
+
+        portalAnimator = GetComponent<Animator>();
     }
 
     public void TriggerTeleport() {
@@ -113,6 +115,9 @@ public class Portal : MonoBehaviour
     }
 
     void Update() {
+        portalAnimator.SetBool("PlayerNearby", playerInTrigger);
+        //Debug.Log("Set PlayerNearby to " + playerInTrigger);
+
         if (playerInTrigger) {
             // FIXME Do not hard code keycode
             if (triggerType == TriggerType.OnInputPressed && Input.GetKeyDown(triggerButton)) {
@@ -122,15 +127,12 @@ public class Portal : MonoBehaviour
             }
         }
 
-        if (debugSpriteRenderer) {
-            debugSpriteRenderer.color = playerInTrigger ? Color.green : Color.magenta;
+        if (debugSpriteRenderer is SpriteRenderer r) {
+            r.color = playerInTrigger ? Color.green : Color.magenta;
         }
-        
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-
-        portal_animator = GetComponent<Animator>();
 
         if (destinationType != DestinationType.ChangeScene) {
             Debug.LogWarning("OnSceneLoaded called even though scene was not changed");

@@ -296,6 +296,7 @@ MonoBehaviour:
   targetName: 
   teleportAfterSceneChange: 0
   transitionAnimation: {fileID: 1170219637}
+  portalAnimator: {fileID: 0}
   animationSpeedFactor: 1
   animationDelay: 0
   debugSpriteRenderer: {fileID: 962011323}
@@ -534,6 +535,7 @@ MonoBehaviour:
   targetName: 
   teleportAfterSceneChange: 0
   transitionAnimation: {fileID: 1170219637}
+  portalAnimator: {fileID: 0}
   animationSpeedFactor: 1
   animationDelay: 0
   debugSpriteRenderer: {fileID: 1357466388}
@@ -746,7 +748,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 1.9886773
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -770,7 +772,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779726631}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -6.83, y: 0.35, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -824,6 +826,18 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 962011324}
+    - target: {fileID: 4787009656741641142, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+      propertyPath: portalAnimator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787009656741641142, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+      propertyPath: portal_animator
+      value: 
+      objectReference: {fileID: 7067946718707925753}
+    - target: {fileID: 4787009656741641142, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+      propertyPath: debugSpriteRenderer
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4787009656741641142, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
       propertyPath: transitionAnimation
       value: 
@@ -945,7 +959,7 @@ Animator:
   m_GameObject: {fileID: 7067946718707925752}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 100196b282e66732281e728becbb3500, type: 2}
+  m_Controller: {fileID: 9100000, guid: d0717c99631ca3a8aac7cf32054d9a86, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
