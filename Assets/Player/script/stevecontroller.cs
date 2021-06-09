@@ -21,6 +21,10 @@ public class stevecontroller : MonoBehaviour {
     //public UnityEvent OnLandEvent;
     [SerializeField] private bool is_grounded = false;
     const float k_GroundedRadius = .2f;
+    public float crouchspeed = 10f;
+    private Transform crouchTransform;
+    private float characterHeight; //Initial height
+    [SerializeField] private bool crouch = false;
     
 
 
@@ -53,13 +57,37 @@ public class stevecontroller : MonoBehaviour {
         }
     }
 
-    private void Ground_check(){
-        is_grounded = false;
+    public void Crouch(){
+        
+    }
+
+    void OnCollisionEnter2D(Collision2D collision){
+        if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground")){
+            is_grounded = true;
+        }
+        Debug.Log(collision.gameObject.name);
+    }
+
+    void OnCollisionExit2D(Collision2D collision){
+        if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground")){
+            is_grounded = false;
+            
+        }
+        Debug.Log(collision.collider.gameObject.layer);
+        
+    }
+
+    
+/*     private void Ground_check(){
+
         Collider2D[] collider = Physics2D.OverlapCircleAll(m_ground_check.position, k_GroundedRadius, ground_layer);
+        is_grounded = false;
+        Debug.Log(collider.Length);
         if(collider.Length > 0){
             is_grounded = true;
         }
-    }
+        
+    } */
 
 //Start and Update
 //===================================================================================================================================
@@ -67,28 +95,45 @@ public class stevecontroller : MonoBehaviour {
     private void Start(){
         m_rigitbody = GetComponent<Rigidbody2D>();
         m_animator = GetComponent<Animator>();
+
+        
     }
 
     private void Update(){
         //Debug.Log(Time.deltaTime);
         //Debug.Log(horizontal_move);
-
+        //Debug.Log(is_grounded);
+        Debug.Log(crouch);
         horizontal_move = Input.GetAxis("Horizontal") * movement_speed;
         m_animator.SetFloat("Speed", Mathf.Abs(horizontal_move));
-        m_animator.SetBool("is_grounded", is_grounded);       
+        m_animator.SetBool("is_grounded", is_grounded);  
+        m_animator.SetBool("crouch", crouch);   
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f){
+            GetComponent<SpriteRenderer>().flipX = true;
+            crouch = true; 
+            
+        }  
+        if (Input.GetKeyUp(KeyCode.LeftShift) && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f){
+            GetComponent<SpriteRenderer>().flipX = false;
+            crouch = false; 
+        }  
+
+
     }
 
 
     private void FixedUpdate() {
-        Ground_check();
+        //Ground_check();
         Move(horizontal_move * Time.fixedDeltaTime);
         //Debug.Log(horizontal_move);
         //Debug.Log(Time.fixedDeltaTime);
         //Debug.Log(m_ridgitbody.velocity.y);
-
+        
         if (Input.GetButtonDown("Jump") && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f) 
         {
             m_rigitbody.AddForce(new Vector2(0, jump_hight), ForceMode2D.Impulse);
         }
+
     }
 }
