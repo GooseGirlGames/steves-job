@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: void_portal_animator
+  m_Controller: {fileID: 9100000, guid: d0717c99631ca3a8aac7cf32054d9a86, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 98b51e1b4744505dbb13e94b861acee3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8415e5d8f57f13feebb71b0caddb39dd, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 741b2d4bf08c1be2a8329e80393a7f21, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ef6be25d2e6fbd1bcb6fdb7ad820fb9f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 630cc2a87e070536e81c3a98a38b4088, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4e65962b738793744aefcca840224fad, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 957b2e65a06001053a5860b789fa11de, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6d6446737ba755e63ae2383b46bba05e, type: 2}
