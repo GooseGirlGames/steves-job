@@ -82,6 +82,8 @@ public class Portal : MonoBehaviour
             targetPosition = target.position;
         }
 
+        GameManager.Instance.hintUI.ClearHint();
+
         StartCoroutine(WaitForTransitionAnimation());
     }
 
