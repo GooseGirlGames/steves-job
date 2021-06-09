@@ -134,6 +134,7 @@ MonoBehaviour:
   targetName: 
   teleportAfterSceneChange: 0
   transitionAnimation: {fileID: 0}
+  portalAnimator: {fileID: 3353194639687552417}
   transitionAnimationSpeedFactor: 1
   portalAnimationSpeedFactor: 0.6
   animationDelay: 0

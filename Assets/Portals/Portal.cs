@@ -41,12 +41,12 @@ public class Portal : MonoBehaviour
 
     public Animator transitionAnimation;
 
-    private Animator portalAnimator;
+    public Animator portalAnimator;
 
     [Tooltip("Factor to scale transition animation speed.")]
     public float transitionAnimationSpeedFactor = 1.0f;
-    [Tooltip("Factor to scale door animation speed.")]
-    public float portalAnimationSpeedFactor = 0.6f;
+    //[Tooltip("Factor to scale door animation speed.")]
+    //public float portalAnimationSpeedFactor = 0.6f;
 
     [Tooltip("Additional delay, i.e. for how long the screen stays black.")]
     public float animationDelay = 0.0f;
@@ -64,11 +64,9 @@ public class Portal : MonoBehaviour
         if (transitionAnimation) {
             transitionAnimation.SetFloat("Speed", transitionAnimationSpeedFactor);
         }
-        if (portalAnimator) {
-            portalAnimator.SetFloat("Speed", portalAnimationSpeedFactor);
-        }
-
-        portalAnimator = GetComponent<Animator>();
+        //if (portalAnimator) {
+        //    portalAnimator.SetFloat("Speed", portalAnimationSpeedFactor);
+        //}
     }
 
     public void TriggerTeleport() {
@@ -107,7 +105,7 @@ public class Portal : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
             playerInTrigger = true;
-            GameManager.Instance.hintUI.Hint(this.gameObject.transform, "E", new Vector3(0, 30, 0));
+            GameManager.Instance.hintUI.Hint(this.gameObject.transform, "E", new Vector3(0, 20, 0));
         }
     }
 
