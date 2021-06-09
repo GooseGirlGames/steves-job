@@ -9,7 +9,9 @@ using UnityEngine.SceneManagement;
  */
 public class Portal : MonoBehaviour
 {
-    public const KeyCode triggerButton = KeyCode.E; 
+    public const KeyCode TRIGGER_BUTTON = KeyCode.E;
+    public const KeyCode UP_BUTTON = KeyCode.W;
+    public const KeyCode DOWN_BUTTON = KeyCode.S;
     public const float DOOR_ANIMATION_MIN_DISTANCE = 3.0f;
 
     public enum TriggerType {
@@ -31,6 +33,9 @@ public class Portal : MonoBehaviour
     [Tooltip("Position to teleport to.  Also works across scenes, but only makes sense for " +
              "scenes that are aligned (e.g. the malls).  Otherwise, use targetName.")]
     public Transform target = null;
+    public Transform targetUp = null;
+    public Transform targetDown = null;
+    private bool elevator = false;
     [Tooltip("If this is specified and destinationType is ChangeScene, teleport the player to " +
             "the GameObject with this name.")]
     public string targetName = "";
@@ -69,6 +74,7 @@ public class Portal : MonoBehaviour
         //if (portalAnimator) {
         //    portalAnimator.SetFloat("Speed", portalAnimationSpeedFactor);
         //}
+        elevator = (targetDown != null) || (targetUp != null);
     }
 
     public void TriggerTeleport() {
@@ -81,6 +87,7 @@ public class Portal : MonoBehaviour
         if (target) {
             targetPosition = target.position;
         }
+        // for elevators, targetPosition is set elsewhere
 
         GameManager.Instance.hintUI.ClearHint();
 
@@ -101,15 +108,29 @@ public class Portal : MonoBehaviour
             SceneManager.LoadScene(targetSceneName);
         } else if (destinationType == DestinationType.SameScene) {
             GameObject player = GameObject.Find("Player");
-            player.transform.position = target.position;
-            transitionAnimation.SetTrigger("EnterScene");
+            if (targetPosition is Vector3 v) {
+                player.transform.position = v;
+            } else {
+                player.transform.position = target.position;
+            }
+            
+            if (transitionAnimation) {
+                transitionAnimation.SetTrigger("EnterScene");
+            }
         }
     }
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
             playerInTrigger = true;
-            GameManager.Instance.hintUI.Hint(hintPosition, "E");
+            if (elevator) {
+                string hint = "W\nS";
+                if (targetUp && !targetDown) hint = "W";
+                if (!targetUp && targetDown) hint = "S";
+                GameManager.Instance.hintUI.Hint(hintPosition, hint);
+            } else {
+                GameManager.Instance.hintUI.Hint(hintPosition, "E");
+            }
         }
     }
 
@@ -132,7 +153,16 @@ public class Portal : MonoBehaviour
 
         if (playerInTrigger) {
             // FIXME Do not hard code keycode
-            if (triggerType == TriggerType.OnInputPressed && Input.GetKeyDown(triggerButton)) {
+            if (elevator) {
+                if (targetUp && Input.GetKeyDown(UP_BUTTON)) {
+                    targetPosition = targetUp.transform.position;
+                    TriggerTeleport();
+                }
+                if (targetDown && Input.GetKeyDown(DOWN_BUTTON)) {
+                    targetPosition = targetDown.transform.position;
+                    TriggerTeleport();
+                }
+            } else if (triggerType == TriggerType.OnInputPressed && Input.GetKeyDown(TRIGGER_BUTTON)) {
                 TriggerTeleport();
             } else if (triggerType == TriggerType.Immediate) {
                 TriggerTeleport();
