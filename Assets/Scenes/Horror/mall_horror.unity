@@ -1169,7 +1169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3136791745992653634, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3136791745992653634, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
       propertyPath: m_SortingLayerID
@@ -1491,11 +1491,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7847011257354892906, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.62
+      value: -0.866
       objectReference: {fileID: 0}
     - target: {fileID: 7847011257354892906, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.68
+      value: 0.359
       objectReference: {fileID: 0}
     - target: {fileID: 7847011257354892906, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1608,8 +1608,8 @@ MonoBehaviour:
   targetName: 
   teleportAfterSceneChange: 0
   transitionAnimation: {fileID: 2112084485}
+  portalAnimator: {fileID: 0}
   transitionAnimationSpeedFactor: 1
-  portalAnimationSpeedFactor: 0.6
   animationDelay: 0
   playerLayer:
     serializedVersion: 2

@@ -51,6 +51,8 @@ public class Portal : MonoBehaviour
     [Tooltip("Additional delay, i.e. for how long the screen stays black.")]
     public float animationDelay = 0.0f;
 
+    public Transform hintPosition;
+
     private const float ANIMATION_DURATION = 0.5f;  // Duration of the animations themselves
 
     private bool playerInTrigger = false;
@@ -105,7 +107,7 @@ public class Portal : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
             playerInTrigger = true;
-            GameManager.Instance.hintUI.Hint(this.gameObject.transform, "E", new Vector3(0, 20, 0));
+            GameManager.Instance.hintUI.Hint(hintPosition, "E");
         }
     }
 
@@ -125,7 +127,6 @@ public class Portal : MonoBehaviour
         );
         bool playerNearby = collidersNearby.Length > 0;
         portalAnimator.SetBool("PlayerNearby", playerNearby);
-        //Debug.Log("Set PlayerNearby to " + playerInTrigger);
 
         if (playerInTrigger) {
             // FIXME Do not hard code keycode
