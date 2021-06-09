@@ -299,6 +299,9 @@ MonoBehaviour:
   animationSpeedFactor: 1
   animationDelay: 0
   debugSpriteRenderer: {fileID: 962011323}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!70 &962011321
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -537,6 +540,9 @@ MonoBehaviour:
   animationSpeedFactor: 1
   animationDelay: 0
   debugSpriteRenderer: {fileID: 1357466388}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!70 &1357466386
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -832,6 +838,10 @@ PrefabInstance:
       propertyPath: portal_animator
       value: 
       objectReference: {fileID: 7067946718707925753}
+    - target: {fileID: 4787009656741641142, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 4787009656741641142, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
       propertyPath: debugSpriteRenderer
       value: 
