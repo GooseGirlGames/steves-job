@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
 {
     // FIXME hardcoding keybinds sucks an I am ashamed of myself
     public const KeyCode DIALOGUE_KEY = KeyCode.E;
+    public const string DIALOGUE_KEY_STR = "E";
     public static DialogueManager Instance;
 
     public TextMeshProUGUI nameField;
@@ -20,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     public Transform textBox;
     public Sprite defaultBackground;
     public List<DialogueOptionUI> actionBoxes;
+    public InteractionHintUI hintUI;
     public bool instantTrigger = false;
 
     private Queue<Sentence> sentences;
@@ -54,6 +56,8 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void StartDialogue(Dialogue dialogue) {
+
+        ClearHint();
 
         activeDialogue = dialogue;
         if (dialogue.background) {
@@ -198,6 +202,13 @@ public class DialogueManager : MonoBehaviour
 
     public bool IsDialogueActive() {
         return activeDialogue != null;
+    }
+
+    public void HintAt(Dialogue dialogue) {
+        hintUI.Hint(dialogue.diaboxPosition, DIALOGUE_KEY_STR);
+    }
+    public void ClearHint() {
+        hintUI.ClearHint();
     }
  
 }
