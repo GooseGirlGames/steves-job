@@ -7,6 +7,7 @@ public class sweets : MonoBehaviour
     public float speed = 10.0f;
     private Rigidbody2D candy;
     private Vector2 screenBounds;
+    public Transform player;
     void Start()
     {
         candy = this.GetComponent<Rigidbody2D>();
@@ -17,7 +18,8 @@ public class sweets : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.x < - screenBounds.x){
+        Debug.Log(screenBounds.x);
+        if(transform.position.x < screenBounds.x){
             Destroy(this.gameObject);
         }
     }
