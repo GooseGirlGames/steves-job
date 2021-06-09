@@ -43,8 +43,10 @@ public class Portal : MonoBehaviour
 
     private Animator portalAnimator;
 
-    [Tooltip("Factor to scale animation speed.")]
-    public float animationSpeedFactor = 1.0f;
+    [Tooltip("Factor to scale transition animation speed.")]
+    public float transitionAnimationSpeedFactor = 1.0f;
+    [Tooltip("Factor to scale door animation speed.")]
+    public float portalAnimationSpeedFactor = 0.6f;
 
     [Tooltip("Additional delay, i.e. for how long the screen stays black.")]
     public float animationDelay = 0.0f;
@@ -60,7 +62,10 @@ public class Portal : MonoBehaviour
 
     private void Awake() {
         if (transitionAnimation) {
-            transitionAnimation.SetFloat("Speed", animationSpeedFactor);
+            transitionAnimation.SetFloat("Speed", transitionAnimationSpeedFactor);
+        }
+        if (portalAnimator) {
+            portalAnimator.SetFloat("Speed", portalAnimationSpeedFactor);
         }
 
         portalAnimator = GetComponent<Animator>();
@@ -85,7 +90,7 @@ public class Portal : MonoBehaviour
             transitionAnimation.SetTrigger("ExitScene");
             // Wait for FadeOut animation plus additional delay
             yield return new WaitForSeconds(
-                ANIMATION_DURATION / animationSpeedFactor + animationDelay
+                ANIMATION_DURATION / transitionAnimationSpeedFactor + animationDelay
             );   
         }
 
