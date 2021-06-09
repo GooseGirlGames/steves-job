@@ -261,7 +261,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   candyPrefab: {fileID: 5568731884954774783, guid: e13ed10e47103c881b21cfe1417cdbe7, type: 3}
-  respawnTime: 3
+  candyPrefab2: {fileID: 6810234081739629159, guid: 81914f33cb702d490825796ad90fa021, type: 3}
+  respawnTime: 4
   player: {fileID: 63461469}
 --- !u!1001 &465432612
 PrefabInstance:
@@ -273,6 +274,14 @@ PrefabInstance:
     - target: {fileID: 3136791745992653633, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136791745992653634, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136791745992653634, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
+      propertyPath: m_FlipY
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3136791745992653636, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
       propertyPath: jump_hight
@@ -292,7 +301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3136791745992653637, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 23.923256
+      value: 24.43
       objectReference: {fileID: 0}
     - target: {fileID: 3136791745992653637, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
       propertyPath: m_LocalPosition.x

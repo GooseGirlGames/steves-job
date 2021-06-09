@@ -21,8 +21,10 @@ public class stevecontroller : MonoBehaviour {
     //public UnityEvent OnLandEvent;
     [SerializeField] private bool is_grounded = false;
     const float k_GroundedRadius = .2f;
+    public float crouchspeed = 10f;
+    private Transform crouchTransform;
+    private float characterHeight; //Initial height
     [SerializeField] private bool crouch = false;
-    [SerializeField] private bool shift;
     
 
 
@@ -55,6 +57,10 @@ public class stevecontroller : MonoBehaviour {
         }
     }
 
+    public void Crouch(){
+        
+    }
+
     void OnCollisionEnter2D(Collision2D collision){
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground")){
             is_grounded = true;
@@ -70,6 +76,8 @@ public class stevecontroller : MonoBehaviour {
         Debug.Log(collision.collider.gameObject.layer);
         
     }
+
+    
 /*     private void Ground_check(){
 
         Collider2D[] collider = Physics2D.OverlapCircleAll(m_ground_check.position, k_GroundedRadius, ground_layer);
@@ -87,22 +95,31 @@ public class stevecontroller : MonoBehaviour {
     private void Start(){
         m_rigitbody = GetComponent<Rigidbody2D>();
         m_animator = GetComponent<Animator>();
+
+        
     }
 
     private void Update(){
         //Debug.Log(Time.deltaTime);
         //Debug.Log(horizontal_move);
         //Debug.Log(is_grounded);
+        Debug.Log(crouch);
         horizontal_move = Input.GetAxis("Horizontal") * movement_speed;
         m_animator.SetFloat("Speed", Mathf.Abs(horizontal_move));
         m_animator.SetBool("is_grounded", is_grounded);  
         m_animator.SetBool("crouch", crouch);   
+
         if (Input.GetKeyDown(KeyCode.LeftShift) && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f){
-            shift = true;
+            GetComponent<SpriteRenderer>().flipX = true;
+            crouch = true; 
+            
         }  
-        if (!Input.GetKeyDown(KeyCode.LeftShift) && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f){
-            shift = false;
-        } 
+        if (Input.GetKeyUp(KeyCode.LeftShift) && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f){
+            GetComponent<SpriteRenderer>().flipX = false;
+            crouch = false; 
+        }  
+
+
     }
 
 
@@ -112,19 +129,11 @@ public class stevecontroller : MonoBehaviour {
         //Debug.Log(horizontal_move);
         //Debug.Log(Time.fixedDeltaTime);
         //Debug.Log(m_ridgitbody.velocity.y);
-
+        
         if (Input.GetButtonDown("Jump") && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f) 
         {
             m_rigitbody.AddForce(new Vector2(0, jump_hight), ForceMode2D.Impulse);
         }
-        if (shift){
-            crouch = true;
-            Debug.Log("crouch");
-        } 
-        if (!shift){
-            crouch = false;
-            Debug.Log("no crouch");
-        } 
 
     }
 }
