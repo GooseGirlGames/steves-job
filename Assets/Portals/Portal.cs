@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 public class Portal : MonoBehaviour
 {
     public const KeyCode triggerButton = KeyCode.E; 
+    public const float DOOR_ANIMATION_MIN_DISTANCE = 3.0f;
 
     public enum TriggerType {
         OnInputPressed,
@@ -53,6 +54,7 @@ public class Portal : MonoBehaviour
     private const float ANIMATION_DURATION = 0.5f;  // Duration of the animations themselves
 
     private bool playerInTrigger = false;
+    public LayerMask playerLayer;
     private Vector3 playerPosition;
     private Vector3 playerVelocity;  // may or may not work
     private Vector3? targetPosition = null;  // After scene change, `target` will be null,
@@ -115,7 +117,13 @@ public class Portal : MonoBehaviour
     }
 
     void Update() {
-        portalAnimator.SetBool("PlayerNearby", playerInTrigger);
+        Collider2D[] collidersNearby = Physics2D.OverlapCircleAll(
+                gameObject.transform.position,
+                DOOR_ANIMATION_MIN_DISTANCE,
+                playerLayer
+        );
+        bool playerNearby = collidersNearby.Length > 0;
+        portalAnimator.SetBool("PlayerNearby", playerNearby);
         //Debug.Log("Set PlayerNearby to " + playerInTrigger);
 
         if (playerInTrigger) {
