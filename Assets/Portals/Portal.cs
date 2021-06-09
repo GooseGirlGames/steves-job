@@ -47,6 +47,7 @@ public class Portal : MonoBehaviour
     public Animator transitionAnimation;
 
     public Animator portalAnimator;
+    private static bool animateDoorOpening = false;
 
     [Tooltip("Factor to scale transition animation speed.")]
     public float transitionAnimationSpeedFactor = 1.0f;
@@ -83,6 +84,7 @@ public class Portal : MonoBehaviour
         playerPosition = player.transform.position;
         Rigidbody2D rigidBody = player.GetComponent<Rigidbody2D>();
         playerVelocity = rigidBody.velocity;
+        animateDoorOpening = true;
 
         if (target) {
             targetPosition = target.position;
@@ -138,8 +140,8 @@ public class Portal : MonoBehaviour
         if(other.gameObject.CompareTag("Player")) {
             playerInTrigger = false;
             GameManager.Instance.hintUI.ClearHint();
+            animateDoorOpening = false;
         }
-
     }
 
     void Update() {
@@ -150,6 +152,7 @@ public class Portal : MonoBehaviour
         );
         bool playerNearby = collidersNearby.Length > 0;
         portalAnimator.SetBool("PlayerNearby", playerNearby);
+        portalAnimator.SetBool("PlayerJustTeleported", animateDoorOpening);
 
         if (playerInTrigger) {
             // FIXME Do not hard code keycode
