@@ -49,8 +49,6 @@ public class Portal : MonoBehaviour
     [Tooltip("Additional delay, i.e. for how long the screen stays black.")]
     public float animationDelay = 0.0f;
 
-    public SpriteRenderer? debugSpriteRenderer = null;
-
     private const float ANIMATION_DURATION = 0.5f;  // Duration of the animations themselves
 
     private bool playerInTrigger = false;
@@ -133,10 +131,6 @@ public class Portal : MonoBehaviour
             } else if (triggerType == TriggerType.Immediate) {
                 TriggerTeleport();
             }
-        }
-
-        if (debugSpriteRenderer is SpriteRenderer r) {
-            r.color = playerInTrigger ? Color.green : Color.magenta;
         }
     }
 
