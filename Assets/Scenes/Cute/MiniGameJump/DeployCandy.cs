@@ -20,11 +20,11 @@ public class DeployCandy : MonoBehaviour
     }
     private void spawnCandylow(){
         GameObject tmp = Instantiate(candyPrefab) as GameObject;
-        tmp.transform.position = new Vector2(player.position.x + 40, -screenBounds.y);    
+        tmp.transform.position = new Vector2(player.position.x + 40, -screenBounds.y-3);    
     }
     private void spawnCandyhigh(){
         GameObject tmp2 = Instantiate(candyPrefab2) as GameObject;
-        tmp2.transform.position = new Vector2(player.position.x + 40, screenBounds.y);
+        tmp2.transform.position = new Vector2(player.position.x + 40, screenBounds.y-7);
     }
 
     IEnumerator timedSpawn(){
