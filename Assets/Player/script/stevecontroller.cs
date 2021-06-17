@@ -25,7 +25,6 @@ public class stevecontroller : MonoBehaviour {
     private Transform crouchTransform;
     private float characterHeight; //Initial height
     [SerializeField] private bool crouch = false;
-    
 
 
 //Methoden
@@ -111,10 +110,14 @@ public class stevecontroller : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f){
             crouch = true; 
+            GetComponent<CircleCollider2D>().offset = new Vector2(0.035f,0.11f);
+            
             
         }  
         if (Input.GetKeyUp(KeyCode.LeftShift)){
             crouch = false; 
+            GetComponent<CircleCollider2D>().offset = new Vector2(0.00499999942f,0.195528999f);
+
         }  
 
         if (Input.GetButtonDown("Jump") && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f) 
