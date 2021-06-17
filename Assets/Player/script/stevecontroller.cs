@@ -64,7 +64,7 @@ public class stevecontroller : MonoBehaviour {
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground")){
             is_grounded = true;
         }
-        Debug.Log(collision.gameObject.name);
+        //Debug.Log(collision.gameObject.name);
     }
 
     void OnCollisionExit2D(Collision2D collision){
@@ -72,7 +72,7 @@ public class stevecontroller : MonoBehaviour {
             is_grounded = false;
             
         }
-        Debug.Log(collision.collider.gameObject.layer);
+        //Debug.Log(collision.collider.gameObject.layer);
         
     }
 

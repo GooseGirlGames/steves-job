@@ -10,6 +10,7 @@ public class DeployCandy : MonoBehaviour
     public int respawnTime = 1;
     private Vector2 screenBounds;
     public Transform player;
+    int collisionCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,17 @@ public class DeployCandy : MonoBehaviour
             spawnCandyhigh();
         }
         
+    }
+
+    void OnCollisionEnter2D(Collision2D col){
+        Debug.Log(col.gameObject.tag);
+        if (col.gameObject.tag =="player"){
+            collisionCount +=1;
+            Debug.Log("HIT");
+        }
+    }
+    public void Update(){
+        //Debug.Log(collisionCount);
     }
 
 
