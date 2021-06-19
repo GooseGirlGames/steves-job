@@ -448,6 +448,54 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7847011257354892906, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
   m_PrefabInstance: {fileID: 273284305}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &312897512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 312897514}
+  - component: {fileID: 312897513}
+  m_Layer: 0
+  m_Name: PostProcessing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &312897513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312897512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 6a5d0a2eaa516425e8249869812ffe1a, type: 2}
+--- !u!4 &312897514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312897512}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.9541655, y: 10.980688, z: -10.006596}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &691772699
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,7 +753,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3290849758222690374, guid: faf7736362fd4b89988dbe73d0538a48, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249439821213065477, guid: faf7736362fd4b89988dbe73d0538a48, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8062396612284725521, guid: faf7736362fd4b89988dbe73d0538a48, type: 3}
       propertyPath: inventoryCanvasSlots
