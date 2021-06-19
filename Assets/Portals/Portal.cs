@@ -125,13 +125,15 @@ public class Portal : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
             playerInTrigger = true;
-            if (elevator) {
-                string hint = "W\nS";
-                if (targetUp && !targetDown) hint = "W";
-                if (!targetUp && targetDown) hint = "S";
-                GameManager.Instance.hintUI.Hint(hintPosition, hint);
-            } else {
-                GameManager.Instance.hintUI.Hint(hintPosition, "E");
+            if (triggerType == TriggerType.OnInputPressed) {
+                if (elevator) {
+                    string hint = "W\nS";
+                    if (targetUp && !targetDown) hint = "W";
+                    if (!targetUp && targetDown) hint = "S";
+                    GameManager.Instance.hintUI.Hint(hintPosition, hint);
+                } else {
+                    GameManager.Instance.hintUI.Hint(hintPosition, "E");
+                }
             }
         }
     }
@@ -151,8 +153,11 @@ public class Portal : MonoBehaviour
                 playerLayer
         );
         bool playerNearby = collidersNearby.Length > 0;
-        portalAnimator.SetBool("PlayerNearby", playerNearby);
-        portalAnimator.SetBool("PlayerJustTeleported", animateDoorOpening);
+
+        if (portalAnimator) {
+            portalAnimator.SetBool("PlayerNearby", playerNearby);
+            portalAnimator.SetBool("PlayerJustTeleported", animateDoorOpening);
+        }
 
         if (playerInTrigger) {
             // FIXME Do not hard code keycode
