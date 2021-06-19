@@ -110,12 +110,10 @@ public class stevecontroller : MonoBehaviour {
         m_animator.SetBool("crouch", crouch);   
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f){
-            GetComponent<SpriteRenderer>().flipX = true;
             crouch = true; 
             
         }  
         if (Input.GetKeyUp(KeyCode.LeftShift) && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f){
-            GetComponent<SpriteRenderer>().flipX = false;
             crouch = false; 
         }  
 
