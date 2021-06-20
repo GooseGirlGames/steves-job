@@ -113,7 +113,7 @@ public class stevecontroller : MonoBehaviour {
             crouch = true; 
             
         }  
-        if (Input.GetKeyUp(KeyCode.LeftShift) && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f){
+        if (Input.GetKeyUp(KeyCode.LeftShift)){
             crouch = false; 
         }  
 
