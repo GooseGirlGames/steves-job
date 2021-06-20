@@ -117,6 +117,10 @@ public class stevecontroller : MonoBehaviour {
             crouch = false; 
         }  
 
+        if (Input.GetButtonDown("Jump") && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f) 
+        {
+            m_rigitbody.AddForce(new Vector2(0, jump_hight), ForceMode2D.Impulse);
+        }
 
     }
 
@@ -127,11 +131,5 @@ public class stevecontroller : MonoBehaviour {
         //Debug.Log(horizontal_move);
         //Debug.Log(Time.fixedDeltaTime);
         //Debug.Log(m_ridgitbody.velocity.y);
-        
-        if (Input.GetButtonDown("Jump") && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f) 
-        {
-            m_rigitbody.AddForce(new Vector2(0, jump_hight), ForceMode2D.Impulse);
-        }
-
     }
 }
