@@ -17,6 +17,7 @@ public class DialogueManager : MonoBehaviour
 
     public TextMeshProUGUI nameField;
     public TextMeshProUGUI textField;
+    public Image npcAvatar;
     public Canvas dialogueCanvas;
     public Transform textBox;
     public Sprite defaultBackground;
@@ -27,7 +28,6 @@ public class DialogueManager : MonoBehaviour
     private Queue<Sentence> sentences;
     private Queue<UnityEvent> nextEvents;
     private Dialogue activeDialogue = null;
-    private Camera cam;
     private bool canBeAdvancedByKeypress = true;  // false iff an action must be chosen to continue
 
     public float lastKeyPress = -1.0f;
@@ -66,9 +66,6 @@ public class DialogueManager : MonoBehaviour
             SetTextboxBackground(defaultBackground);
         }
 
-        cam = GameObject.FindObjectOfType<Camera>();
-        PositionDiabox();
-
         DialogueManager.Log("Starting Dialogue");
         
         dialogueCanvas.enabled = true;
@@ -85,6 +82,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void DisplayNextSentence(DialogueOption chosenOption = null) {
+
         DialogueManager.Log("Displaying next sentence...");
         while (nextEvents.Count != 0) {
             nextEvents.Dequeue().Invoke();
@@ -105,6 +103,10 @@ public class DialogueManager : MonoBehaviour
         DialogueManager.Log(sentence.name + " says: '" + sentence.text + "'");
         nameField.text = sentence.name;
         textField.text = sentence.text;
+        npcAvatar.sprite = sentence.avatar;
+        if (sentence.background) {
+            SetTextboxBackground(sentence.background);
+        }
 
         if (sentence.options.Count != 0) {
             canBeAdvancedByKeypress = false;
@@ -154,32 +156,6 @@ public class DialogueManager : MonoBehaviour
         activeDialogue = null;
     }
 
-    private void OnGUI() {
-        if (IsDialogueActive())
-            PositionDiabox();
-    }
-    private void PositionDiabox() {
-        
-        Vector3 diaboxPositionScreen = cam.WorldToScreenPoint(activeDialogue.diaboxPosition.position);
-        // i think this sucks, but it works
-        float scale = dialogueCanvas.scaleFactor;
-        Vector2 diaboxRect = scale * textBox.GetComponentInChildren<RectTransform>().rect.size;
-
-        Vector3 pos = diaboxPositionScreen;
-        
-        pos.y -= -diaboxRect.y/2;
-        
-        float marginX = 25.0f;
-        float screenWidth = cam.pixelWidth;
-
-        float minX = marginX + diaboxRect.x/2;
-        float maxX = screenWidth - marginX - diaboxRect.x/2;
-        
-        pos.x = Mathf.Clamp(pos.x + diaboxRect.x/5, minX, maxX);
-
-        textBox.position = pos;
-    }
-
     private void SetTextboxBackground(Sprite sprite) {
         Image bg = textBox.GetComponentInChildren<Image>();
         bg.sprite = sprite;
@@ -205,7 +181,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void HintAt(Dialogue dialogue) {
-        hintUI.Hint(dialogue.diaboxPosition, DIALOGUE_KEY_STR);
+        hintUI.Hint(dialogue.hintPosition, DIALOGUE_KEY_STR);
     }
     public void ClearHint() {
         hintUI.ClearHint();

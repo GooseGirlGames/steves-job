@@ -16,9 +16,8 @@ using UnityEngine;
 public class Dialogue
 {
     public List<Sentence> sentences;
-    [Tooltip("Position of the dialogue box's bottom within the scene.")]
-    public Transform diaboxPosition;
+    [Tooltip("Position of the interaction hint.")]
+    public Transform hintPosition;
     [Tooltip("Leave empty to use the default background.")]
     public Sprite background;
-
 }
