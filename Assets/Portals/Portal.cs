@@ -79,6 +79,12 @@ public class Portal : MonoBehaviour
     }
 
     public void TriggerTeleport() {
+
+        // for same-scene teleports, we only want to update the hint, not clear it
+        if (destinationType != DestinationType.SameScene) {
+            GameManager.Instance.hintUI.ClearHint();
+        } 
+        
         // store pre-teleport player position
         GameObject player = GameObject.Find("Player");
         playerPosition = player.transform.position;
@@ -90,8 +96,6 @@ public class Portal : MonoBehaviour
             targetPosition = target.position;
         }
         // for elevators, targetPosition is set elsewhere
-
-        GameManager.Instance.hintUI.ClearHint();
 
         StartCoroutine(WaitForTransitionAnimation());
     }
@@ -125,15 +129,18 @@ public class Portal : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
             playerInTrigger = true;
-            if (triggerType == TriggerType.OnInputPressed) {
-                if (elevator) {
-                    string hint = "W\nS";
-                    if (targetUp && !targetDown) hint = "W";
-                    if (!targetUp && targetDown) hint = "S";
-                    GameManager.Instance.hintUI.Hint(hintPosition, hint);
-                } else {
-                    GameManager.Instance.hintUI.Hint(hintPosition, "E");
-                }
+        }
+    }
+
+    void HintKeyPress() {
+        if (triggerType == TriggerType.OnInputPressed) {
+            if (elevator) {
+                string hint = "W\nS";
+                if (targetUp && !targetDown) hint = "W";
+                if (!targetUp && targetDown) hint = "S";
+                GameManager.Instance.hintUI.Hint(hintPosition, hint);
+            } else {
+                GameManager.Instance.hintUI.Hint(hintPosition, "E");
             }
         }
     }
@@ -174,6 +181,12 @@ public class Portal : MonoBehaviour
                 TriggerTeleport();
             } else if (triggerType == TriggerType.Immediate) {
                 TriggerTeleport();
+            }
+        }
+
+        if (playerInTrigger) {
+            if (!GameManager.Instance.hintUI.IsHinting()) {
+                HintKeyPress();
             }
         }
     }
