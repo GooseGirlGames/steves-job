@@ -67,6 +67,7 @@ public class Portal : MonoBehaviour
     private Vector3 playerVelocity;  // may or may not work
     private Vector3? targetPosition = null;  // After scene change, `target` will be null,
                                              // so we need to cache its position
+    private Coroutine destinationHintCoroutine = null;
 
     private void Awake() {
         if (transitionAnimation) {
@@ -126,9 +127,20 @@ public class Portal : MonoBehaviour
         }
     }
 
+    IEnumerator WaitWithDestinationHint() {
+        yield return new WaitForSeconds(2);
+        HintDestination();
+        yield return new WaitForSeconds(TargetCamera.IN_TRANSITION_ANIMATION_DURATION);
+        yield return new WaitForSeconds(1);
+        TargetCamera.Disable();
+    }
+
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
             playerInTrigger = true;
+            if (destinationHintCoroutine == null) {
+                destinationHintCoroutine = StartCoroutine(WaitWithDestinationHint());
+            }
         }
     }
 
@@ -145,11 +157,27 @@ public class Portal : MonoBehaviour
         }
     }
 
+    void HintDestination() {
+        if (destinationType == DestinationType.SameScene) {
+            if (elevator) {
+                if (targetUp && !targetDown) TargetCamera.Target(targetUp);
+                if (!targetUp && targetDown) TargetCamera.Target(targetDown);
+            } else {
+                TargetCamera.Target(target);
+            }
+        }
+    }
+
     void OnTriggerExit2D(Collider2D other) {
         if(other.gameObject.CompareTag("Player")) {
             playerInTrigger = false;
             GameManager.Instance.hintUI.ClearHint();
             animateDoorOpening = false;
+            if (destinationHintCoroutine != null) {
+                StopCoroutine(destinationHintCoroutine);
+                destinationHintCoroutine = null;
+            }
+            TargetCamera.Disable();
         }
     }
 
