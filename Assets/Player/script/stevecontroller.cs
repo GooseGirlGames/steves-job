@@ -103,7 +103,7 @@ public class stevecontroller : MonoBehaviour {
         //Debug.Log(Time.deltaTime);
         //Debug.Log(horizontal_move);
         //Debug.Log(is_grounded);
-        Debug.Log(crouch);
+        //Debug.Log(crouch);
         horizontal_move = Input.GetAxis("Horizontal") * movement_speed;
         m_animator.SetFloat("Speed", Mathf.Abs(horizontal_move));
         m_animator.SetBool("is_grounded", is_grounded);  
