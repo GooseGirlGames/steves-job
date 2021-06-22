@@ -110,7 +110,7 @@ public class stevecontroller : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f){
             crouch = true; 
-            GetComponent<CircleCollider2D>().offset = new Vector2(0.035f,0.11f);
+            GetComponent<CircleCollider2D>().offset = new Vector2(0.1f,0.05f);
             
             
         }  
