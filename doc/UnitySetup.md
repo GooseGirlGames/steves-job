@@ -84,3 +84,8 @@ installation.  After that, you can launch Unity Hub without it.
 [key]: https://id.unity.com/en/subscriptions
 [archive]: https://unity3d.com/get-unity/download/archive
 [vscodeguide]: https://gist.github.com/jakobbbb/a15d2505a37ca632601d147fd5d91836
+
+### some more useful hints:
+
+Unity Editor just keeps on crashing, esp. when opening Package Manager:
+If you are on Intel graphics, revert Mesa from 21 to 20.
