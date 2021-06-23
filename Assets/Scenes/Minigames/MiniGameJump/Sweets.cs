@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class sweets : MonoBehaviour
+public class Sweets : MonoBehaviour
 {
     public float speed = 10.0f;
     private Rigidbody2D candy;
