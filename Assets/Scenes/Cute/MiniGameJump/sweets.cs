@@ -18,6 +18,9 @@ public class sweets : MonoBehaviour
  
     void Update()
     {
+        if(gameObject.GetComponent<Collider2D>().isTrigger){
+            Debug.Log(gameObject.active);
+        }
         
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         if(transform.position.x < screenBounds.x - 45){

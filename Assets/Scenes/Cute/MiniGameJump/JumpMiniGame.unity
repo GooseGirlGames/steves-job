@@ -409,6 +409,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2102405378911567630, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
+      propertyPath: m_Lens.NearClipPlane
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102405378911567630, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_Lens.OrthographicSize
       value: 11
       objectReference: {fileID: 0}
@@ -426,7 +430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284514, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: near clip plane
-      value: 0.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284514, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: orthographic size
