@@ -7,6 +7,7 @@ public class sweets : MonoBehaviour
     public float speed = 10.0f;
     private Rigidbody2D candy;
     private Vector2 screenBounds;
+    public bool trigger = false;
 
 
     public float delay = 4.0f;
@@ -16,11 +17,15 @@ public class sweets : MonoBehaviour
         candy.velocity = new Vector2(-speed, 0);
     }
  
+    private void OnTriggerEnter2D(Collider2D col){
+        if (col.gameObject.tag == "Player"){
+            trigger = true;
+            //Debug.Log("HIT");
+        }
+    }
+    
     void Update()
     {
-        if(gameObject.GetComponent<Collider2D>().isTrigger){
-            Debug.Log(gameObject.active);
-        }
         
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         if(transform.position.x < screenBounds.x - 45){

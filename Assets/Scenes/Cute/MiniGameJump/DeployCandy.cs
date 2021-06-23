@@ -11,7 +11,10 @@ public class DeployCandy : MonoBehaviour
     public int respawnTime = 1;
     private Vector2 screenBounds;
     public Transform player;
-    int collisionCount = 0;
+    private bool hit = false;
+    private int collisionCount = 0;
+    private GameObject tmp;
+    private GameObject tmp2;
     
     [SerializeField] private HealthBar healthbar;
     private float health;
@@ -33,11 +36,12 @@ public class DeployCandy : MonoBehaviour
 
     }
     private void spawnCandylow(){
-        GameObject tmp = Instantiate(candyPrefab) as GameObject;
-        tmp.transform.position = new Vector2(player.position.x + 40, -screenBounds.y-2);    
+        tmp = Instantiate(candyPrefab) as GameObject;
+        tmp.transform.position = new Vector2(player.position.x + 40, -screenBounds.y-2);
+           
     }
     private void spawnCandyhigh(){
-        GameObject tmp2 = Instantiate(candyPrefab2) as GameObject;
+        tmp2 = Instantiate(candyPrefab2) as GameObject;
         tmp2.transform.position = new Vector2(player.position.x + 40, screenBounds.y-9);
     }
 
@@ -60,20 +64,17 @@ public class DeployCandy : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D col){
-        Debug.Log("Trigger");
-        /* if (col.attached){
-            collisionCount +=1;
-            Debug.Log("HIT");
-        } */
-    }
     public void Update(){
         /* if(health <= .3f){
             Debug.Log("OH NO ALMOST DEAD");
             StartCoroutine(healthbarFlash());
         } */
+        
         moveBar = new Vector3(player.position.x, player.position.y +5, 1);
         bar.transform.position = moveBar;
+        if(tmp.GetComponent<sweets>().trigger || tmp2.GetComponent<sweets>().trigger){
+            Debug.Log("hi");
+        }
         //Debug.Log(collisionCount);
     }
 
