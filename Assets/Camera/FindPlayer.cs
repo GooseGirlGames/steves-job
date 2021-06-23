@@ -6,8 +6,8 @@ using Cinemachine;
 public class FindPlayer : MonoBehaviour
 {
     void Awake() {
-        GameObject player = GameObject.Find("Player");
-        CinemachineVirtualCamera cam = GetComponent<CinemachineVirtualCamera>();
-        cam.Follow = player.transform;
+        GameObject f_cam = GameObject.Find("CameraFixed");
+        CinemachineVirtualCamera v_cam = GetComponent<CinemachineVirtualCamera>();
+        v_cam.Follow = f_cam.transform;
     }
 }

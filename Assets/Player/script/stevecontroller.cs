@@ -9,13 +9,15 @@ public class stevecontroller : MonoBehaviour {
     
     public float movement_speed = 100f;
     float horizontal_move = 0f;
-    public float jump_hight = 3;
+    public float jump_height = 3;
     private bool m_facing_right = true; 
     private Vector3 m_velocity = Vector3.zero;
+    private Vector3 m_cam_vec = Vector3.zero;
     [Range(0, 1f)] [SerializeField] private float m_movement_smoothing = .05f;    // How much to smooth out the movement
 
     public Animator m_animator;
     private Rigidbody2D m_rigitbody;
+    public Transform m_cam;
     [SerializeField] private Transform m_ground_check;
     [SerializeField] private LayerMask ground_layer;
     //public UnityEvent OnLandEvent;
@@ -47,6 +49,8 @@ public class stevecontroller : MonoBehaviour {
 
         Vector3 player_velocity = new Vector2(move * 10f, m_rigitbody.velocity.y);
         m_rigitbody.velocity = Vector3.SmoothDamp(m_rigitbody.velocity, player_velocity, ref m_velocity, m_movement_smoothing);
+        m_cam_vec.x = m_rigitbody.position.x;
+        m_cam.transform.position = m_cam_vec;
 
         if (move < 0 && m_facing_right){
             Flip();
@@ -63,14 +67,15 @@ public class stevecontroller : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision){
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground")){
             is_grounded = true;
+            m_cam_vec.y = m_rigitbody.position.y;
+            m_cam.transform.position = m_cam_vec;
         }
         //Debug.Log(collision.gameObject.name);
     }
 
     void OnCollisionExit2D(Collision2D collision){
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground")){
-            is_grounded = false;
-            
+            is_grounded = false; 
         }
         //Debug.Log(collision.collider.gameObject.layer);
         
@@ -95,7 +100,6 @@ public class stevecontroller : MonoBehaviour {
         m_rigitbody = GetComponent<Rigidbody2D>();
         m_animator = GetComponent<Animator>();
 
-        
     }
 
     private void Update(){
@@ -122,7 +126,9 @@ public class stevecontroller : MonoBehaviour {
 
         if (Input.GetButtonDown("Jump") && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f) 
         {
-            m_rigitbody.AddForce(new Vector2(0, jump_hight), ForceMode2D.Impulse);
+            m_rigitbody.AddForce(new Vector2(0, jump_height), ForceMode2D.Impulse);
+            m_cam_vec.x = m_rigitbody.position.x;
+            m_cam.transform.position = m_cam_vec;
         }
 
     }
@@ -131,6 +137,7 @@ public class stevecontroller : MonoBehaviour {
     private void FixedUpdate() {
         //Ground_check();
         Move(horizontal_move * Time.fixedDeltaTime);
+        Debug.Log(m_cam.position.x + " " + m_cam.position.y + "\n");
         //Debug.Log(horizontal_move);
         //Debug.Log(Time.fixedDeltaTime);
         //Debug.Log(m_ridgitbody.velocity.y);
