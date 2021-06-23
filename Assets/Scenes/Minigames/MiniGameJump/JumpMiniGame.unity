@@ -294,6 +294,34 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8166448268194895689, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
   m_PrefabInstance: {fileID: 547590923}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &402623968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402623966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860dadad14504505aa499103186cef8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerType: 2
+  destinationType: 1
+  targetSceneName: mall_cute
+  target: {fileID: 0}
+  targetUp: {fileID: 0}
+  targetDown: {fileID: 0}
+  targetName: 
+  teleportAfterSceneChange: 0
+  transitionAnimation: {fileID: 0}
+  portalAnimator: {fileID: 0}
+  transitionAnimationSpeedFactor: 1
+  animationDelay: 0
+  hintPosition: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &402623969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22850dbcb2e58ea2b84d37620fd85bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loserPortal: {fileID: 402623968}
   candyPrefab: {fileID: 5568731884954774783, guid: e13ed10e47103c881b21cfe1417cdbe7, type: 3}
   candyPrefab2: {fileID: 6810234081739629159, guid: 81914f33cb702d490825796ad90fa021, type: 3}
   respawnTime: 4

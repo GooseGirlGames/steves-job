@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeployCandy : MonoBehaviour
 {
+    public Portal loserPortal;
     public GameObject candyPrefab;
     public GameObject candyPrefab2;
     private GameObject bar;
@@ -12,7 +13,6 @@ public class DeployCandy : MonoBehaviour
     private Vector2 screenBounds;
     public Transform player;
     private bool hit = false;
-    private int collisionCount = 0;
     private GameObject tmp;
     private GameObject tmp2;
     
@@ -25,15 +25,9 @@ public class DeployCandy : MonoBehaviour
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         StartCoroutine(timedSpawn());
         bar = GameObject.Find("Healthbar");
-        health = .2f;
+        health = 0.1f;
         healthbar.SetSize(health);
         healthbar.SetColour(Color.green);
-
-        if(health <= .3f){
-            StartCoroutine(healthbarFlash());
-        }
-        
-
     }
     private void spawnCandylow(){
         tmp = Instantiate(candyPrefab) as GameObject;
@@ -63,19 +57,48 @@ public class DeployCandy : MonoBehaviour
         }
         
     }
+    public void GameLost(){
+        loserPortal.TriggerTeleport();
+        //DialogueManager.Instance.SetInstantTrue();
+    }
+    public void FixedUpdate()
+    {
+        if(tmp != null){
+            if(tmp.GetComponent<sweets>().trigger){
+                if(tmp.GetComponent<sweets>().wasTriggered){
+                    health -= .1f; 
+                }
+                tmp.GetComponent<sweets>().wasTriggered = false;
+            }
+        }
+        if(tmp2 != null){
+            if(tmp2.GetComponent<sweets>().trigger){
+                if(tmp2.GetComponent<sweets>().wasTriggered){
+                    health -= .1f; 
+                }
+                tmp2.GetComponent<sweets>().wasTriggered = false;
+            }
+        }
+    }
 
     public void Update(){
-        /* if(health <= .3f){
+        healthbar.SetSize(health);
+        if(health <= .5f){
+            healthbar.SetColour(Color.yellow);
+        } 
+        if(health <= .3f){
+            healthbar.SetColour(Color.red);
+        } 
+        if(health <= .2f){
             Debug.Log("OH NO ALMOST DEAD");
             StartCoroutine(healthbarFlash());
-        } */
-        
+        } 
+        if(health == 0.0f){
+            GameLost();
+        } 
         moveBar = new Vector3(player.position.x, player.position.y +5, 1);
         bar.transform.position = moveBar;
-        if(tmp.GetComponent<sweets>().trigger || tmp2.GetComponent<sweets>().trigger){
-            Debug.Log("hi");
-        }
-        //Debug.Log(collisionCount);
+
     }
 
 
