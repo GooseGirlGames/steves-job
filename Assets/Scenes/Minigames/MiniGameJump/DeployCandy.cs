@@ -83,19 +83,19 @@ public class DeployCandy : MonoBehaviour
     public void FixedUpdate()
     {
         if(tmp != null){
-            if(tmp.GetComponent<sweets>().trigger){
-                if(tmp.GetComponent<sweets>().notYetTriggered){
+            if(tmp.GetComponent<Sweets>().trigger){
+                if(tmp.GetComponent<Sweets>().notYetTriggered){
                     health -= .1f; 
                 }
-                tmp.GetComponent<sweets>().notYetTriggered = false;
+                tmp.GetComponent<Sweets>().notYetTriggered = false;
             }
         }
         if(tmp2 != null){
-            if(tmp2.GetComponent<sweets>().trigger){
-                if(tmp2.GetComponent<sweets>().notYetTriggered){
+            if(tmp2.GetComponent<Sweets>().trigger){
+                if(tmp2.GetComponent<Sweets>().notYetTriggered){
                     health -= .1f; 
                 }
-                tmp2.GetComponent<sweets>().notYetTriggered = false;
+                tmp2.GetComponent<Sweets>().notYetTriggered = false;
             }
         }
     }
