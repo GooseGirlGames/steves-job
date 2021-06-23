@@ -72,11 +72,12 @@ public class DeployCandy : MonoBehaviour
         GameWon();
     }
     public void GameLost(){
-        Debug.Log("Lost");
+        Debug.Log("Lost Jump MiniGame");
         Portal.TriggerTeleport();
         //DialogueManager.Instance.SetInstantTrue();
     }
     public void GameWon(){
+        Debug.Log("Won Jump MiniGame");
         Portal.TriggerTeleport();
     }
     public void FixedUpdate()
@@ -108,7 +109,7 @@ public class DeployCandy : MonoBehaviour
             healthbar.SetColour(Color.red);
         } 
         if(health <= .2f){
-            Debug.Log("OH NO ALMOST DEAD");
+            //Debug.Log("OH NO ALMOST DEAD");
             StartCoroutine(healthbarFlash());
         } 
         if(health <= 0.0f){
