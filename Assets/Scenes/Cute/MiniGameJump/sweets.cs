@@ -7,7 +7,7 @@ public class sweets : MonoBehaviour
     public float speed = 10.0f;
     private Rigidbody2D candy;
     private Vector2 screenBounds;
-    public GameObject cam;
+
 
     public float delay = 4.0f;
     void Start()
@@ -19,8 +19,8 @@ public class sweets : MonoBehaviour
  
     void Update()
     {
-        //screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-        if(transform.position.x < cam.transform.position.x*1/2){
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        if(transform.position.x < screenBounds.x - 45){
             Destroy(this.gameObject);
         }
     }
