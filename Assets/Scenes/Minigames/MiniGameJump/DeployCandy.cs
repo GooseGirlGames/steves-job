@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class DeployCandy : MonoBehaviour
 {
-    public Portal loserPortal;
+    public Portal Portal;
+
     public GameObject candyPrefab;
     public GameObject candyPrefab2;
+    private GameObject tmp;
+    private GameObject tmp2;
+
     private GameObject bar;
     private Vector3 moveBar;
+
     public int respawnTime = 1;
+    public int winSeconds;
     private Vector2 screenBounds;
     public Transform player;
     private bool hit = false;
-    private GameObject tmp;
-    private GameObject tmp2;
+    
     
     [SerializeField] private HealthBar healthbar;
     private float health;
@@ -25,9 +30,11 @@ public class DeployCandy : MonoBehaviour
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         StartCoroutine(timedSpawn());
         bar = GameObject.Find("Healthbar");
-        health = 0.1f;
+        health = 1f;
         healthbar.SetSize(health);
         healthbar.SetColour(Color.green);
+        winSeconds = respawnTime*15;
+        StartCoroutine(winTime());
     }
     private void spawnCandylow(){
         tmp = Instantiate(candyPrefab) as GameObject;
@@ -57,9 +64,20 @@ public class DeployCandy : MonoBehaviour
         }
         
     }
+    IEnumerator winTime(){
+        while(winSeconds != 0){
+            yield return new WaitForSeconds(1);
+            winSeconds -= 1;
+        }
+        GameWon();
+    }
     public void GameLost(){
-        loserPortal.TriggerTeleport();
+        Debug.Log("Lost");
+        Portal.TriggerTeleport();
         //DialogueManager.Instance.SetInstantTrue();
+    }
+    public void GameWon(){
+        Portal.TriggerTeleport();
     }
     public void FixedUpdate()
     {
@@ -93,9 +111,10 @@ public class DeployCandy : MonoBehaviour
             Debug.Log("OH NO ALMOST DEAD");
             StartCoroutine(healthbarFlash());
         } 
-        if(health == 0.0f){
+        if(health <= 0.0f){
             GameLost();
         } 
+        
         moveBar = new Vector3(player.position.x, player.position.y +5, 1);
         bar.transform.position = moveBar;
 
