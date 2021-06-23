@@ -7,6 +7,7 @@ public class parallax : MonoBehaviour
     private float length, startpos;
     public GameObject camera;
     public float parallaxEffect;
+
     void Start()
     {
         startpos = camera.transform.position.x;
@@ -22,9 +23,6 @@ public class parallax : MonoBehaviour
 
         if(tmp > startpos + length) startpos += length;
         else if(tmp < startpos) startpos -= length;
-        Debug.Log(tmp);
-        Debug.Log("cam");
-        Debug.Log(camera.transform.position.x);
-        //Debug.Log(startpos);
+
     }
 }
