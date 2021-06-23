@@ -432,6 +432,10 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 8166448267601284514, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -439,6 +443,10 @@ PrefabInstance:
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8166448267601284540, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
+      propertyPath: m_VolumeLayerMask.m_Bits
+      value: 127
       objectReference: {fileID: 0}
     - target: {fileID: 8166448268194895689, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_Name

@@ -12,13 +12,13 @@ public class sweets : MonoBehaviour
     public float delay = 4.0f;
     void Start()
     {   
-        
         candy = this.GetComponent<Rigidbody2D>();
         candy.velocity = new Vector2(-speed, 0);
     }
  
     void Update()
     {
+        
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         if(transform.position.x < screenBounds.x - 45){
             Destroy(this.gameObject);
