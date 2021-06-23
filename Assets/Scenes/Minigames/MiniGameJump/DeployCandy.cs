@@ -84,18 +84,18 @@ public class DeployCandy : MonoBehaviour
     {
         if(tmp != null){
             if(tmp.GetComponent<sweets>().trigger){
-                if(tmp.GetComponent<sweets>().wasTriggered){
+                if(tmp.GetComponent<sweets>().notYetTriggered){
                     health -= .1f; 
                 }
-                tmp.GetComponent<sweets>().wasTriggered = false;
+                tmp.GetComponent<sweets>().notYetTriggered = false;
             }
         }
         if(tmp2 != null){
             if(tmp2.GetComponent<sweets>().trigger){
-                if(tmp2.GetComponent<sweets>().wasTriggered){
+                if(tmp2.GetComponent<sweets>().notYetTriggered){
                     health -= .1f; 
                 }
-                tmp2.GetComponent<sweets>().wasTriggered = false;
+                tmp2.GetComponent<sweets>().notYetTriggered = false;
             }
         }
     }

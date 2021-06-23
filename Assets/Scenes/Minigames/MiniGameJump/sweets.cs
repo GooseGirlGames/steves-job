@@ -8,7 +8,7 @@ public class sweets : MonoBehaviour
     private Rigidbody2D candy;
     private Vector2 screenBounds;
     public bool trigger = false;
-    public bool wasTriggered = true;
+    public bool notYetTriggered = true;
 
 
     public float delay = 4.0f;
