@@ -334,8 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22850dbcb2e58ea2b84d37620fd85bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loserPortal: {fileID: 402623968}
-  winnerPortal: {fileID: 402623968}
+  Portal: {fileID: 402623968}
   candyPrefab: {fileID: 5568731884954774783, guid: e13ed10e47103c881b21cfe1417cdbe7, type: 3}
   candyPrefab2: {fileID: 6810234081739629159, guid: 81914f33cb702d490825796ad90fa021, type: 3}
   respawnTime: 4
