@@ -22,15 +22,23 @@ Requirements:
 * Conditions:
   * player has item/does not have item
   * NPC in a specific world
+  * counter values
 * Actions:
   * give/remove item
   * teleport
   * trigger arbitrary UnityEvent
+  * increment/decrement counters
 * Give player options to choose from:
   * text-based options
   * Allow selection of items
   * supports conditions
 * Instant and keypress triggered dialogues
+* Sentence pools:  Instead of a single sentence, allow a set of
+  sentences to be defined, from which one sentence is selected at
+  random.
+  * Optional: Only show sentences that have not yet been said.
+  * Optional: If all sentences have been said, output a default
+    sentence.
 
 Example:
 ```
