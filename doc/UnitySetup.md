@@ -3,10 +3,8 @@
 ## Installing Unity Hub
 
 First, install `unityhub`
-(
-[AppImage for any distro][hubappimg],
-[AUR for Arch][hubaur]
-)
+([AppImage for any distro][hubappimg],
+[AUR for Arch][hubaur])
 
 Sign into Unity Hub, then
 under *Settings > License Management*,
@@ -21,6 +19,11 @@ You must install this specific version to work with the project.
 Note:
 If you wish to use VS Code as an editor, check [this guide][vscodeguide]
 to properly set everything up after the Unity Editor is installed.
+
+### ...from AUR
+
+If your distro makes use of the AUR, you can install the correct version
+of unity from [jreeee's AUR package][jreaur].
 
 ### ...the easy way
 
@@ -79,13 +82,18 @@ TEMP=$HOME/cool_directory unityhub
 Note that the environment variable only needs to be passed for
 installation.  After that, you can launch Unity Hub without it.
 
+### some more useful hints:
+
+If Unity Editor just keeps on crashing, esp. when opening Package
+Manager: If you are on Intel graphics, revert Mesa from 21 to 20, e.g.
+like this:
+```
+pacman -U /var/cache/pacman/pkg/mesa-20.3.4-3-x86_64.pkg.tar.zst /var/cache/pacman/pkg/lib32-mesa-20.3.4-3-x86_64.pkg.tar.zst
+```
+
 [hubaur]: https://aur.archlinux.org/packages/unityhub/
 [hubappimg]: https://docs.unity3d.com/Manual/GettingStartedInstallingHub.html
 [key]: https://id.unity.com/en/subscriptions
 [archive]: https://unity3d.com/get-unity/download/archive
 [vscodeguide]: https://gist.github.com/jakobbbb/a15d2505a37ca632601d147fd5d91836
-
-### some more useful hints:
-
-Unity Editor just keeps on crashing, esp. when opening Package Manager:
-If you are on Intel graphics, revert Mesa from 21 to 20.
+[jreaur]: https://github.com/jreeee/unity-editor-2020-3-6f1
