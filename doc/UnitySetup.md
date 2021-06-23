@@ -20,11 +20,6 @@ Note:
 If you wish to use VS Code as an editor, check [this guide][vscodeguide]
 to properly set everything up after the Unity Editor is installed.
 
-### ...from AUR
-
-If your distro makes use of the AUR, you can install the correct version
-of unity from [jreeee's AUR package][jreaur].
-
 ### ...the easy way
 
 Clone the `steves-job` repository:
@@ -96,4 +91,3 @@ pacman -U /var/cache/pacman/pkg/mesa-20.3.4-3-x86_64.pkg.tar.zst /var/cache/pacm
 [key]: https://id.unity.com/en/subscriptions
 [archive]: https://unity3d.com/get-unity/download/archive
 [vscodeguide]: https://gist.github.com/jakobbbb/a15d2505a37ca632601d147fd5d91836
-[jreaur]: https://github.com/jreeee/unity-editor-2020-3-6f1
