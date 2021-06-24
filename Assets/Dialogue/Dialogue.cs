@@ -15,7 +15,8 @@ using UnityEngine;
 [Serializable]
 public class Dialogue
 {
-    public List<Sentence> sentences;
+    // no conditions!  GetActiveDialogue handles this
+    public List<Sentence> sentences;  // linear; branching = triggering new dialogues
     [Tooltip("Position of the interaction hint.")]
     public Transform hintPosition;
     [Tooltip("Leave empty to use the default background.")]
