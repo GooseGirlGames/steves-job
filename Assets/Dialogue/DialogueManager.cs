@@ -25,9 +25,9 @@ public class DialogueManager : MonoBehaviour
     public InteractionHintUI hintUI;
     public bool instantTrigger = false;
 
-    //private Queue<OldSentence> sentences;
-    //private Queue<UnityEvent> nextEvents;
-    private DialogueElement root = null;
+    private Queue<Sentence> sentences;
+    private Queue<UnityEvent> nextEvents;
+    private Dialogue activeDialogue = null;
     private bool canBeAdvancedByKeypress = true;  // false iff an action must be chosen to continue
 
     public float lastKeyPress = -1.0f;
@@ -47,29 +47,33 @@ public class DialogueManager : MonoBehaviour
     }
 
     void Start() {
+        sentences = new Queue<Sentence>();
+        nextEvents = new Queue<UnityEvent>();
         dialogueCanvas.enabled = false;
         foreach (var actionBox in actionBoxes) {
             actionBox.gameObject.SetActive(false);
         }
     }
 
-    public void StartDialogue(DialogueElement dialogueRoot) {
-
-        root = dialogueRoot;
+    public void StartDialogue(Dialogue dialogue) {
 
         ClearHint();
 
-        /* TODO
+        activeDialogue = dialogue;
         if (dialogue.background) {
             SetTextboxBackground(dialogue.background);
         } else {
             SetTextboxBackground(defaultBackground);
-        } */
+        }
 
-        DialogueManager.Log("Starting Dialogue " + root.ToString());
+        DialogueManager.Log("Starting Dialogue");
         
         dialogueCanvas.enabled = true;
 
+        sentences.Clear();
+        foreach (Sentence sentence in dialogue.sentences) {
+            sentences.Enqueue(sentence);
+        }
         DisplayNextSentence();
     }
 
@@ -77,52 +81,33 @@ public class DialogueManager : MonoBehaviour
         instantTrigger = true;
     }
 
-    public void DisplayNextSentence(Option chosenOption = null) {
+    public void DisplayNextSentence(DialogueOption chosenOption = null) {
 
         DialogueManager.Log("Displaying next sentence...");
-        /* TODO?
         while (nextEvents.Count != 0) {
             nextEvents.Dequeue().Invoke();
-        } */
+        }
 
         if (chosenOption != null) {
-            if (root.current is Options) {
-                ((Options) root).OptionChosen(chosenOption);
-            } else {
-                Debug.Log("chose option but we're not at Options!");
+            foreach(UnityEvent ev in chosenOption.onChose) {
+                ev.Invoke();
             }
         }
 
-        if (!root.HasNext()) {
+        if (sentences.Count == 0) {
             DialogueEnded();
             return;
         }
 
-        DialogueElement elem = root.Next();
-
-
-        Debug.Log("base? " + elem.IsBase());
-        if (!elem.ConditionsMet() || (elem.IsBase())) {
-            DisplayNextSentence();
-        }
-
-        nameField.text = "TODO";
-        if (elem is Sentence) {
-            Sentence s = (Sentence) elem;
-            textField.text = s.Text;
-        }
-        if (elem is Action) {
-            Action a = (Action) elem;
-            a.run();
-            DisplayNextSentence();
-        }
-        // TODO npcAvatar.sprite = sentence.avatar;
-        /* TODO
+        Sentence sentence = sentences.Dequeue();
+        DialogueManager.Log(sentence.name + " says: '" + sentence.text + "'");
+        nameField.text = sentence.name;
+        textField.text = sentence.text;
+        npcAvatar.sprite = sentence.avatar;
         if (sentence.background) {
             SetTextboxBackground(sentence.background);
-        } */
+        }
 
-        /* TODO!!
         if (sentence.options.Count != 0) {
             canBeAdvancedByKeypress = false;
 
@@ -158,19 +143,17 @@ public class DialogueManager : MonoBehaviour
                 actionBox.gameObject.SetActive(false);
             canBeAdvancedByKeypress = true;
         }
-        */
         
 
-        /* TODO?
         foreach (UnityEvent ev in sentence.onComplete) {
             nextEvents.Enqueue(ev);
-        } */
+        }
     }
 
     private void DialogueEnded() {
         DialogueManager.Log("Dialog Ended");
         dialogueCanvas.enabled = false;
-        root = null;
+        activeDialogue = null;
     }
 
     private void SetTextboxBackground(Sprite sprite) {
@@ -194,7 +177,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public bool IsDialogueActive() {
-        return root != null;
+        return activeDialogue != null;
     }
 
     public void HintAt(Dialogue dialogue) {

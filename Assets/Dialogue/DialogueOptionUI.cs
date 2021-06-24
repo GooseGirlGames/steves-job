@@ -12,6 +12,6 @@ public class DialogueOptionUI : MonoBehaviour
     [HideInInspector]
     public DialogueOption option;
     public void OptionChosen() {
-        DialogueManager.Instance.DisplayNextSentence(); // TODO!!
+        DialogueManager.Instance.DisplayNextSentence(option);
     }
 }
