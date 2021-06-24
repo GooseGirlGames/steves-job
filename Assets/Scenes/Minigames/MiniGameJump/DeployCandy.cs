@@ -17,8 +17,10 @@ public class DeployCandy : MonoBehaviour
     public int respawnTime = 1;
     public int winSeconds;
     private Vector2 screenBounds;
+    private Vector2 bounds;
     public Transform player;
     private bool hit = false;
+    public GameObject stop;
     
     
     [SerializeField] private HealthBar healthbar;
@@ -118,6 +120,11 @@ public class DeployCandy : MonoBehaviour
         
         moveBar = new Vector3(player.position.x, player.position.y + 0.8f, 1);
         bar.transform.position = moveBar;
+        Vector2 bound_pos = new Vector2(stop.transform.position.x,player.position.y);
+        if(player.position.x > bound_pos.x + 1.0f){
+            bound_pos.x = player.position.x - 1.0f; 
+        }
+        stop.transform.position = bound_pos;
 
     }
 
