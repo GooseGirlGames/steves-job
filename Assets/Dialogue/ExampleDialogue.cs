@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ExampleDialogue : MonoBehaviour {
-    public Item bucket;
+    public static Item bucket;
+    public Item fuckit;
     public static DialogueElement root =
-        new Sentence("Rude")
+        new Sentence("Ruoode")
         .Append(new Sentence("Dude"))
-        .Append(new Sentence("Yo, Du hast nen Eimer!")).Condition(new Condition().MustHave(bucket))
-        .Append(new Sentence("Kein Eimer, tjap!")).Condition(new Condition().MustNotHave(bucket))
+        .Append(new Action(() => {Debug.Log("Debug logging ist tol");}))
+        .Append(new Sentence("Yo, Du hast nen Eimer!").Condition(new Condition().MustHave(bucket)))
+        .Append(new Sentence("Kein Eimer, tjap!").Condition(new Condition().MustNotHave(bucket)))
         .Append(new Options("Wie geht's?")
             .AddOption(
                 (Option) new TextOption("Blubb")
                 .Append(new Sentence("A"))
-                .Append(new Action(() => Debug.Log("Blubb")))
+                .Append(new Action(() => {Debug.Log("Blubb");}))
             )
             .AddOption(
                 (Option) new ItemOption(bucket)
-                .Append(new Action(() => Inventory.Instance.RemoveItem(bucket)))
+                .Append(new Action(() => {Inventory.Instance.RemoveItem(bucket);}))
                 .Append(new Sentence("Danke fuer den Eimer!"))
             )
             .AddOption(
@@ -26,7 +28,8 @@ public class ExampleDialogue : MonoBehaviour {
             )
         );
 
-    public void Awake() {
+    public void Start() {
+        ExampleDialogue.bucket = fuckit;
         while (root.HasNext()) {
             DialogueElement elem = root.Next();
 
@@ -38,6 +41,11 @@ public class ExampleDialogue : MonoBehaviour {
                 Sentence s = (Sentence) elem;
                 Debug.Log(s.Text);
             }
+            if (elem is Action) {
+                Action a = (Action) elem;
+                a.run();
+            }
+            // TODO Options
         }
     }
 }
