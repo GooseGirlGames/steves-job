@@ -37,7 +37,7 @@ public class DialogueTrigger : MonoBehaviour
         }
 
         if(DialogueManager.Instance.IsDialogueActive()) {
-            DialogueManager.Log("Won't trigger dialogue; another one is still active");
+            //DialogueManager.Log("Won't trigger dialogue; another one is still active");
             return;
         }
 
@@ -50,7 +50,7 @@ public class DialogueTrigger : MonoBehaviour
 
         float keypressDelta = Time.fixedTime - DialogueManager.Instance.lastKeyPress;
         if (keypressDelta < DialogueManager.KEY_PRESS_TIME_DELTA) {
-            DialogueManager.Log("Won't trigger dialogue; too fast (" + keypressDelta + " < min delta)");
+            //DialogueManager.Log("Won't trigger dialogue; too fast (" + keypressDelta + " < min delta)");
             return;
         }
 

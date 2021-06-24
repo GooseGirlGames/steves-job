@@ -1,5 +1,5 @@
 // uncomment to enable debug logging for the dialogue system
-// #define DEBUG_DIALOGUE_SYSTEM
+#define DEBUG_DIALOGUE_SYSTEM
 
 using System.Collections;
 using System.Collections.Generic;
@@ -28,6 +28,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<Sentence> sentences;
     private Queue<UnityEvent> nextEvents;
     private Dialogue activeDialogue = null;
+    private Sentence currentSentence = null;
     private bool canBeAdvancedByKeypress = true;  // false iff an action must be chosen to continue
 
     public float lastKeyPress = -1.0f;
@@ -57,7 +58,12 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue) {
 
+        bool otherDialogueWasActive = IsDialogueActive();
+
+        //lastKeyPress = Time.fixedTime + 0.1f;
+
         ClearHint();
+        currentSentence = null;
 
         activeDialogue = dialogue;
         if (dialogue.background) {
@@ -74,7 +80,12 @@ public class DialogueManager : MonoBehaviour
         foreach (Sentence sentence in dialogue.sentences) {
             sentences.Enqueue(sentence);
         }
-        DisplayNextSentence();
+
+        // E.g. for triggering via DialogueAction, we only want to enqueue the sentences.
+        // Otherwise, pressing E will skip the first sentence.
+        // So this basically debounces the keypress.
+        if (!otherDialogueWasActive)
+            DisplayNextSentence();
     }
 
     public void SetInstantTrue(){
@@ -87,15 +98,18 @@ public class DialogueManager : MonoBehaviour
     public void DisplayNextSentence(DialogueOption chosenOption = null) {
 
         DialogueManager.Log("Displaying next sentence...");
-        while (nextEvents.Count != 0) {
-            nextEvents.Dequeue().Invoke();
-        }
+        //while (nextEvents.Count != 0) {
+        //    nextEvents.Dequeue().Invoke();
+        //}
 
-        if (chosenOption != null) {
-            foreach(UnityEvent ev in chosenOption.onChose) {
-                ev.Invoke();
-            }
-        }
+        //if (chosenOption != null) {
+        //    foreach(UnityEvent ev in chosenOption.onChose) {
+        //        ev.Invoke();
+        //    }
+        //}
+
+        if (currentSentence != null)
+            currentSentence.Act();
 
         if (sentences.Count == 0) {
             DialogueEnded();
@@ -103,13 +117,11 @@ public class DialogueManager : MonoBehaviour
         }
 
         Sentence sentence = sentences.Dequeue();
-        DialogueManager.Log(sentence.name + " says: '" + sentence.text + "'");
-        nameField.text = sentence.name;
+        currentSentence = sentence;
+        DialogueManager.Log( activeDialogue.name + " says: '" + sentence.text + "'");
+        nameField.text =  activeDialogue.name;
         textField.text = sentence.text;
-        npcAvatar.sprite = sentence.avatar;
-        if (sentence.background) {
-            SetTextboxBackground(sentence.background);
-        }
+        // npcAvatar.sprite = activeDialogue.avatar; TODO
 
         if (sentence.options.Count != 0) {
             canBeAdvancedByKeypress = false;
@@ -146,17 +158,18 @@ public class DialogueManager : MonoBehaviour
                 actionBox.gameObject.SetActive(false);
             canBeAdvancedByKeypress = true;
         }
-        
+    }
 
-        foreach (UnityEvent ev in sentence.onComplete) {
-            nextEvents.Enqueue(ev);
-        }
+    public void EndDialogue() {
+        sentences.Clear();
+        DialogueEnded();
     }
 
     private void DialogueEnded() {
         DialogueManager.Log("Dialog Ended");
         dialogueCanvas.enabled = false;
         activeDialogue = null;
+        currentSentence = null;
     }
 
     private void SetTextboxBackground(Sprite sprite) {
@@ -170,7 +183,7 @@ public class DialogueManager : MonoBehaviour
         }
         
         if (Time.fixedTime - lastKeyPress < KEY_PRESS_TIME_DELTA) {
-            DialogueManager.Log("Too fast " + Time.fixedTime + ", " + lastKeyPress);
+            //DialogueManager.Log("Too fast " + Time.fixedTime + ", " + lastKeyPress);
             return;
         }
         if (canBeAdvancedByKeypress && Input.GetKeyDown(DIALOGUE_KEY)) {
