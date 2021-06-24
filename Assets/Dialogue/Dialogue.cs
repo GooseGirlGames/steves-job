@@ -13,12 +13,20 @@ using UnityEngine;
  * the dialogue box will touch the `diaboxPosition` object.
  */
 [Serializable]
-public class Dialogue
+public abstract class Dialogue
 {
     // no conditions!  GetActiveDialogue handles this
-    public List<Sentence> sentences;  // linear; branching = triggering new dialogues
+    public List<Sentence> sentences = new List<Sentence>();  // linear; branching = triggering new dialogues
     [Tooltip("Position of the interaction hint.")]
     public Transform hintPosition;
     [Tooltip("Leave empty to use the default background.")]
     public Sprite background;
+    public Sprite avatar;
+    public string name;
+
+    protected Sentence Say(string text) {
+        Sentence sentence = new Sentence(text);
+        sentences.Add(sentence);
+        return sentence;
+    }
 }

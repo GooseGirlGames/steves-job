@@ -9,13 +9,34 @@ using UnityEngine.UI;
 public class Sentence
 {
     [SerializeField]
-    public string name;  // move to dialogue or dialoguetrigger
     public string text;
-    public Sprite avatar;
-    [Tooltip("Events triggered when the sentence after this one is triggered or the dialogue ends.")]
-    public List<UnityEvent> onComplete;  // replace with actions
-    // conditions
-    public List<DialogueOption> options;
-    [Tooltip("Leave empty to use the default background.  Overrides background set in Dialogue if set.")]
-    public Sprite background;
+    private List<DialogueAction> actions = new List<DialogueAction>(); 
+    private List<DialogueCondition> conditions = new List<DialogueCondition>();
+    public List<DialogueOption> options = new List<DialogueOption>();
+    public Sentence(string text) {
+        this.text = text;
+    }
+
+    public bool Available() {
+        return DialogueCondition.ConditionsFullFilled(conditions);
+    }
+
+    public void Act() {
+        foreach (DialogueAction a in actions) {
+            a.Run();
+        }
+    }
+
+    public Sentence If(DialogueCondition condition) {
+        conditions.Add(condition);
+        return this;
+    }
+    public Sentence Do(DialogueAction.RunFunc func) {
+        DialogueAction action = new DialogueAction(func);
+        return Do(action);
+    }
+    public Sentence Do(DialogueAction action) {
+        actions.Add(action);
+        return this;
+    }
 }
