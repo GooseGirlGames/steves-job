@@ -335,8 +335,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Portal: {fileID: 402623968}
-  candyPrefab: {fileID: 5568731884954774783, guid: e13ed10e47103c881b21cfe1417cdbe7, type: 3}
-  candyPrefab2: {fileID: 6810234081739629159, guid: 81914f33cb702d490825796ad90fa021, type: 3}
   candyPrefabs:
   - {fileID: 5568731884954774783, guid: e13ed10e47103c881b21cfe1417cdbe7, type: 3}
   - {fileID: 6810234081739629159, guid: 81914f33cb702d490825796ad90fa021, type: 3}
@@ -353,7 +351,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3136791745992653632, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
       propertyPath: m_Mass
-      value: 1.2
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3136791745992653632, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
       propertyPath: m_BodyType
@@ -381,11 +379,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3136791745992653636, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
       propertyPath: jump_height
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3136791745992653636, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
       propertyPath: movement_speed
-      value: 50
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3136791745992653637, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
       propertyPath: m_RootOrder
