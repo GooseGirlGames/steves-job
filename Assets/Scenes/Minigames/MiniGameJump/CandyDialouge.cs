@@ -33,7 +33,7 @@ public class CandyDialouge : DialogueTrigger
         racoonActivated();
         Destroy(this.gameObject);
     }
-
+    [SerializeField]
     public Dialogue hasMopDia;
     public Dialogue needMopDia;
 
