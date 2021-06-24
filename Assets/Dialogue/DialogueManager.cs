@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour
     public InteractionHintUI hintUI;
     public bool instantTrigger = false;
 
-    private Queue<Sentence> sentences;
+    private Queue<OldSentence> sentences;
     private Queue<UnityEvent> nextEvents;
     private Dialogue activeDialogue = null;
     private bool canBeAdvancedByKeypress = true;  // false iff an action must be chosen to continue
@@ -47,7 +47,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     void Start() {
-        sentences = new Queue<Sentence>();
+        sentences = new Queue<OldSentence>();
         nextEvents = new Queue<UnityEvent>();
         dialogueCanvas.enabled = false;
         foreach (var actionBox in actionBoxes) {
@@ -71,7 +71,7 @@ public class DialogueManager : MonoBehaviour
         dialogueCanvas.enabled = true;
 
         sentences.Clear();
-        foreach (Sentence sentence in dialogue.sentences) {
+        foreach (OldSentence sentence in dialogue.sentences) {
             sentences.Enqueue(sentence);
         }
         DisplayNextSentence();
@@ -99,7 +99,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        Sentence sentence = sentences.Dequeue();
+        OldSentence sentence = sentences.Dequeue();
         DialogueManager.Log(sentence.name + " says: '" + sentence.text + "'");
         nameField.text = sentence.name;
         textField.text = sentence.text;

@@ -15,7 +15,7 @@ using UnityEngine;
 [Serializable]
 public class Dialogue
 {
-    public List<Sentence> sentences;
+    public List<OldSentence> sentences;
     [Tooltip("Position of the interaction hint.")]
     public Transform hintPosition;
     [Tooltip("Leave empty to use the default background.")]

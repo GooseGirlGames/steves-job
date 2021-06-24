@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [Serializable]
-public class Sentence
+public class OldSentence
 {
     [SerializeField]
     public string name;
