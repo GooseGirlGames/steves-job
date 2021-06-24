@@ -17,15 +17,17 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField]
-    public DialogueElement Root() {
-        return ExampleDialogue.ExampleRoot();
-    }    [SerializeField] private bool playerInTrigger = false;
+    public Dialogue defaultDialogue;
+    [SerializeField] private bool playerInTrigger = false;
 
+
+    /** Dialogue to be triggered. */
+    public virtual Dialogue GetActiveDialogue() => defaultDialogue;
 
     public void Trigger() {
         DialogueManager.Log("Triggering dialogue");
         DialogueManager.Instance.lastKeyPress = Time.fixedTime;
-        DialogueManager.Instance.StartDialogue(Root());
+        DialogueManager.Instance.StartDialogue(GetActiveDialogue());
     }
 
 
@@ -35,7 +37,7 @@ public class DialogueTrigger : MonoBehaviour
         }
 
         if(DialogueManager.Instance.IsDialogueActive()) {
-            //DialogueManager.Log("Won't trigger dialogue; another one is still active");
+            DialogueManager.Log("Won't trigger dialogue; another one is still active");
             return;
         }
 
@@ -63,7 +65,7 @@ public class DialogueTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Player")) {
             playerInTrigger = true;
             if (!DialogueManager.Instance.IsDialogueActive()) {
-                // TODO DialogueManager.Instance.HintAt(dialogueRoot);
+                DialogueManager.Instance.HintAt(GetActiveDialogue());
             }
         }
     }
