@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Sentence : DialogueElement {
+    
     public string Text;
     public Sentence(string text) {
         Text = text;
+        m_isBase = false;
     } 
 }
