@@ -6,10 +6,10 @@ public class DeployCandy : MonoBehaviour
 {
     public Portal Portal;
 
-    public GameObject candyPrefab;
-    public GameObject candyPrefab2;
+    public GameObject[] candyPrefabs;
     private GameObject tmp;
-    private GameObject tmp2;
+    private GameObject spawn;
+    private GameObject spawn2;
 
     private GameObject bar;
     private Vector3 moveBar;
@@ -24,7 +24,6 @@ public class DeployCandy : MonoBehaviour
     [SerializeField] private HealthBar healthbar;
     private float health;
 
-    // Start is called before the first frame update
     void Start()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
@@ -36,34 +35,36 @@ public class DeployCandy : MonoBehaviour
         winSeconds = respawnTime*15;
         StartCoroutine(winTime());
     }
-    private void spawnCandylow(){
-        tmp = Instantiate(candyPrefab) as GameObject;
-        tmp.transform.position = new Vector2(player.position.x + 40, -screenBounds.y-2);
-           
-    }
-    private void spawnCandyhigh(){
-        tmp2 = Instantiate(candyPrefab2) as GameObject;
-        tmp2.transform.position = new Vector2(player.position.x + 40, screenBounds.y-9);
+
+    private void spawnCandy(){
+        Vector2 candyPrefab_pos = new Vector2(player.position.x + 40, -screenBounds.y-2);
+        Vector2 candyPrefab2_pos = new Vector2(player.position.x + 40, screenBounds.y-9);
+        int random = Random.Range(0,candyPrefabs.Length);
+        tmp = candyPrefabs[random];
+        if(random == 0){
+           spawn = Instantiate(tmp, candyPrefab_pos, Quaternion.identity) as GameObject;
+        }
+        if(random == 1){
+           spawn2 = Instantiate(tmp, candyPrefab2_pos, Quaternion.identity) as GameObject;
+        }       
     }
 
     IEnumerator timedSpawn(){
         while(true){
-            yield return new WaitForSeconds(respawnTime);
-            spawnCandylow();
-            yield return new WaitForSeconds(respawnTime);
-            spawnCandyhigh();
+            yield return new WaitForSeconds(Random.Range(0.7f,4.0f));
+            spawnCandy();
         }
-        
     }
+
     IEnumerator healthbarFlash(){
         while(health > 0){
             healthbar.SetColour(Color.red);
             yield return new WaitForSeconds(.1f);
             healthbar.SetColour(Color.white);
             yield return new WaitForSeconds(.1f);
-        }
-        
+        }    
     }
+
     IEnumerator winTime(){
         while(winSeconds != 0){
             yield return new WaitForSeconds(1);
@@ -71,10 +72,10 @@ public class DeployCandy : MonoBehaviour
         }
         GameWon();
     }
+
     public void GameLost(){
         Debug.Log("Lost Jump MiniGame");
         Portal.TriggerTeleport();
-        //DialogueManager.Instance.SetInstantTrue();
     }
     public void GameWon(){
         Debug.Log("Won Jump MiniGame");
@@ -82,20 +83,20 @@ public class DeployCandy : MonoBehaviour
     }
     public void FixedUpdate()
     {
-        if(tmp != null){
-            if(tmp.GetComponent<Sweets>().trigger){
-                if(tmp.GetComponent<Sweets>().notYetTriggered){
+        if(spawn != null){
+            if(spawn.GetComponent<Sweets>().trigger){
+                if(spawn.GetComponent<Sweets>().notYetTriggered){
                     health -= .1f; 
                 }
-                tmp.GetComponent<Sweets>().notYetTriggered = false;
+                spawn.GetComponent<Sweets>().notYetTriggered = false;
             }
         }
-        if(tmp2 != null){
-            if(tmp2.GetComponent<Sweets>().trigger){
-                if(tmp2.GetComponent<Sweets>().notYetTriggered){
+        if(spawn2 != null){
+            if(spawn2.GetComponent<Sweets>().trigger){
+                if(spawn2.GetComponent<Sweets>().notYetTriggered){
                     health -= .1f; 
                 }
-                tmp2.GetComponent<Sweets>().notYetTriggered = false;
+                spawn2.GetComponent<Sweets>().notYetTriggered = false;
             }
         }
     }
@@ -109,7 +110,6 @@ public class DeployCandy : MonoBehaviour
             healthbar.SetColour(Color.red);
         } 
         if(health <= .2f){
-            //Debug.Log("OH NO ALMOST DEAD");
             StartCoroutine(healthbarFlash());
         } 
         if(health <= 0.0f){
