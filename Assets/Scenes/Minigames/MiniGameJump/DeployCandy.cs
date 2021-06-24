@@ -37,8 +37,8 @@ public class DeployCandy : MonoBehaviour
     }
 
     private void spawnCandy(){
-        Vector2 candyPrefab_pos = new Vector2(player.position.x + 40, -screenBounds.y-2);
-        Vector2 candyPrefab2_pos = new Vector2(player.position.x + 40, screenBounds.y-9);
+        Vector2 candyPrefab2_pos = new Vector2(player.position.x + 6, screenBounds.y - 1.3f);
+        Vector2 candyPrefab_pos = new Vector2(player.position.x + 6, screenBounds.y - 3.0f);
         int random = Random.Range(0,candyPrefabs.Length);
         tmp = candyPrefabs[random];
         if(random == 0){
@@ -116,7 +116,7 @@ public class DeployCandy : MonoBehaviour
             GameLost();
         } 
         
-        moveBar = new Vector3(player.position.x, player.position.y +5, 1);
+        moveBar = new Vector3(player.position.x, player.position.y + 0.8f, 1);
         bar.transform.position = moveBar;
 
     }
