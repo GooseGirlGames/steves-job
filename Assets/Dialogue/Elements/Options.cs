@@ -30,4 +30,7 @@ public class Options : Sentence {
         options.Add(option);
         return this;
     }
+    public void OptionChosen(Option option) {
+        Append(option);
+    }
 }

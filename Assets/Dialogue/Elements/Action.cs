@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Action : DialogueElement {
     public delegate void Run();
-    Run run;
+    public Run run;
     public Action(Run func) {
         run = func;
     }

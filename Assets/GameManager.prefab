@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8062396612284725521}
   - component: {fileID: 1023172755399256061}
   - component: {fileID: 7768402660243230814}
-  - component: {fileID: 2699083384941351454}
+  - component: {fileID: 3919672459871454328}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -105,7 +105,7 @@ MonoBehaviour:
   hintUI: {fileID: 8690730898434587857}
   instantTrigger: 0
   lastKeyPress: -1
---- !u!114 &2699083384941351454
+--- !u!114 &3919672459871454328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,12 +117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d1c1cda261a00399a1a2fda3b47054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shirt: {fileID: 11400000, guid: af649a5495a8420779024c628d1042c9, type: 2}
-  shirt_dirty: {fileID: 11400000, guid: 68f5019aedda0061a831b85a013d06a4, type: 2}
-  shirt_clean: {fileID: 11400000, guid: 2b4050f9a23fa289d9242de4e365c15d, type: 2}
-  bucked: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
-  bloody_bucked: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
-  Mop: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
 --- !u!1001 &1757713240428649451
 PrefabInstance:
   m_ObjectHideFlags: 0
