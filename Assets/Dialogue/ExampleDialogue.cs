@@ -5,9 +5,19 @@ using UnityEngine;
 public class ExampleDialogue : MonoBehaviour {
     public static Item bucket;
     public Item fuckit;
-    public static DialogueElement root =
-        new Sentence("Ruoode")
-        .Append(new Sentence("Dude"))
+
+    public static DialogueElement ExampleRoot() {
+        return new DialogueElement()
+        .Append(new Sentence("Dude")
+            .Append(new Sentence("...")
+                .Append(new Sentence("..,,,,.")
+                    .Append(new Sentence(".!!!!!!!!!!!!!!!!!!."))
+                )
+            )
+        )
+        .Append(new Sentence("Dude 2"))
+        .Append(new LazyDialogue(Boop))
+        .Append(new Sentence("Dude 3"))
         .Append(new Action(() => {Debug.Log("Debug logging ist tol");}))
         .Append(new Sentence("Yo, Du hast nen Eimer!").Condition(new Condition().MustHave(bucket)))
         .Append(new Sentence("Kein Eimer, tjap!").Condition(new Condition().MustNotHave(bucket)))
@@ -24,11 +34,20 @@ public class ExampleDialogue : MonoBehaviour {
             )
             .AddOption(
                 (Option) new TextOption("Wie bitte")
-                .Append(ExampleDialogue.root)
+                .Append(new LazyDialogue(ExampleRoot))
             )
-        );
+        )
+        .Append(new LazyDialogue(ExampleRoot));
+        
+    }
+
+    public static DialogueElement Boop() {
+        return new DialogueElement()
+        .Append(new Sentence("Boop"));
+    }
 
     public void Start() {
+        /*
         ExampleDialogue.bucket = fuckit;
         while (root.HasNext()) {
             DialogueElement elem = root.Next();
@@ -47,5 +66,6 @@ public class ExampleDialogue : MonoBehaviour {
             }
             // TODO Options
         }
+        */
     }
 }

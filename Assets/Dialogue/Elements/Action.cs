@@ -7,5 +7,6 @@ public class Action : DialogueElement {
     public Run run;
     public Action(Run func) {
         run = func;
+        m_isBase = false;
     }
 }

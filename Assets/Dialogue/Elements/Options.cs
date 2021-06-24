@@ -1,12 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum Type {
-  Text, Item
-}
 
 public abstract class Option : DialogueElement {
-
+    
 }
 
 public class TextOption : Option {
