@@ -10,29 +10,13 @@ public class DialogueAction {
     }
 }
 
-/*
-public class TriggerDialogueAction : DialogueAction  {
-    public TriggerDialogueAction() : base(() => {}) {}
-
-    public TriggerDialogueAction<T>() : base(() => {
-            Dialogue d = new Dialogue();
-            DialogueManager.Instance.StartDialogue(dialogue);
-    }) {} 
-}*/
-
-
 public class TriggerDialogueAction<T> : DialogueAction where T: Dialogue, new() {
     public TriggerDialogueAction() : base(() => {
             Debug.Log("building new dialogue");
+            // TODO: Maybe move this into a helper method of Dialogue?  could be useful elsewhere.
             Dialogue d = (Dialogue) new T();
             DialogueManager.Instance.StartDialogue(d);
     }) {
         Debug.Log("Building new triggerdialogueaction");
     }
-    /*{
-        Run = () => {
-            Dialogue d = (Dialogue) new T();
-            DialogueManager.Instance.StartDialogue(d);
-        };
-    }*/
 }

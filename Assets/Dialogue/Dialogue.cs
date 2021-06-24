@@ -29,4 +29,16 @@ public abstract class Dialogue
         sentences.Add(sentence);
         return sentence;
     }
+
+    protected DialogueAction GiveItem(Item item) {
+        return new DialogueAction(() => {
+            Inventory.Instance.AddItem(item);
+        });
+    }
+
+    protected DialogueCondition DoesNotHaveItem(Item item) { // this one saves a 'new'! how efficient!
+        return new HasItem(item);
+    }
+
+    // TODO more of these shorthands?
 }
