@@ -81,6 +81,9 @@ public class DialogueManager : MonoBehaviour
         instantTrigger = true;
     }
 
+    // Clicking an item while in a dialogue triggers DisplayNextSentence,
+    // with the DialogueOption holding whatever item was seletced.
+    // The item may or may not trigger a specific or useful action/respoonse.
     public void DisplayNextSentence(DialogueOption chosenOption = null) {
 
         DialogueManager.Log("Displaying next sentence...");
