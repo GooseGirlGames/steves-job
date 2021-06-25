@@ -7,5 +7,5 @@ using UnityEngine;
 [Serializable]
 public class InventorySlot {
     public Image image;
-    
+    public Button button;
 }
