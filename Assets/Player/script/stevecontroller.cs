@@ -139,9 +139,12 @@ public class stevecontroller : MonoBehaviour {
     }
 
     private void Update(){
-        // Ignore all input if movement is locked.
-        if (movementLocked) return;
 
+        // Ignore all input if movement is locked.
+        if (movementLocked) {
+            SetAnimatorVars();
+            return;
+        }
         //Debug.Log(Time.deltaTime);
         //Debug.Log(horizontal_move);
         //Debug.Log(is_grounded);
