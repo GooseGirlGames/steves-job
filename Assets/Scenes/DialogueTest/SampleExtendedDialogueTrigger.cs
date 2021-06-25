@@ -44,15 +44,14 @@ public class HexagonDialogue : Dialogue
 
         Say("Na ja, hier ist ein Shirt")
             .Choice(
-                new TextOption("Cooler Text")
-                .IfChosen(new TriggerDialogueAction<CoolerTextDialogue>())
+                new TextOption("Cooler Text (kein Bye)")
+                .IfChosen(new TriggerDialogueAction<CoolerTextDialogue>(exitCurrent: true))
             )
             .Choice(
                 new ItemOption(trigger.shirt)
                 .IfChosen(RemoveItem(trigger.shirt))
                 .IfChosen(new TriggerDialogueAction<ShirtGivenDialogue>())
             );
-
         Say("Bye!!!!");
     }
 }

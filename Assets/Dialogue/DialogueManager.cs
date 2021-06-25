@@ -56,7 +56,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartDialogue(Dialogue dialogue) {
+    public void StartDialogue(Dialogue dialogue, bool clearCurrent = false) {
 
         bool otherDialogueWasActive = IsDialogueActive();
 
@@ -76,9 +76,17 @@ public class DialogueManager : MonoBehaviour
         
         dialogueCanvas.enabled = true;
 
-        sentences.Clear();
-        foreach (Sentence sentence in dialogue.sentences) {
-            sentences.Enqueue(sentence);
+        if (otherDialogueWasActive && clearCurrent) {
+            sentences.Clear();
+        }
+        if (otherDialogueWasActive && !clearCurrent) {
+            List<Sentence> newSentences = new List<Sentence>(dialogue.sentences);
+            newSentences.AddRange(sentences);
+            sentences = new Queue<Sentence>(newSentences);
+        } else {
+            foreach (Sentence sentence in dialogue.sentences) {
+                sentences.Enqueue(sentence);
+            }
         }
 
         // E.g. for triggering via DialogueAction, we only want to enqueue the sentences.
