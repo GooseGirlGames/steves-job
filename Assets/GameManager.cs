@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
 
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
