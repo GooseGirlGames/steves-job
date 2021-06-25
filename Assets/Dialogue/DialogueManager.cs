@@ -196,7 +196,10 @@ public class DialogueManager : MonoBehaviour
                     image.gameObject.SetActive(false);
                     actionBox.button.interactable = true;
                 }
-    
+                if (i == 0) {
+                    //GameManager.Instance.EventSystem.SetSelectedGameObject(actionBox.button.gameObject);
+                    StartCoroutine(SelectContinueButtonLater(actionBox.button));
+                }
             }
         } else {
             foreach (var actionBox in actionBoxes)
@@ -207,6 +210,14 @@ public class DialogueManager : MonoBehaviour
         if (currentSentence != null)
             currentSentence.Act(sentenceStillOnScreen: true);
 
+    }
+
+    // https://answers.unity.com/questions/1142958/buttonselect-doesnt-highlight.html
+    IEnumerator SelectContinueButtonLater(Button button)
+    {
+        yield return null;
+        GameManager.Instance.EventSystem.SetSelectedGameObject(null);
+        GameManager.Instance.EventSystem.SetSelectedGameObject(button.gameObject);
     }
 
     public void EndDialogue() {
