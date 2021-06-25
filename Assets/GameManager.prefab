@@ -97,7 +97,6 @@ MonoBehaviour:
   npcAvatar: {fileID: 0}
   dialogueCanvas: {fileID: 4249439821213065478}
   textBox: {fileID: 4249439821197581099}
-  defaultBackground: {fileID: 0}
   actionBoxes:
   - {fileID: 4249439820459485008}
   - {fileID: 4249439820275933058}
@@ -105,6 +104,7 @@ MonoBehaviour:
   - {fileID: 6992108173128509085}
   hintUI: {fileID: 8690730898434587857}
   instantTrigger: 0
+  defaultBackground: {fileID: 21300000, guid: 16010ec11b536342da9a93d30aa58d8b, type: 3}
   lastKeyPress: -1
 --- !u!114 &2699083384941351454
 MonoBehaviour:
