@@ -13,6 +13,7 @@ public class BloodFalling : MonoBehaviour {
     private Vector2 screenbounds;
     public Item lostItem;
 
+    public static int splatCount;
 
     void Start() {
         //progressbar.minBlood(counter);
@@ -61,6 +62,8 @@ public class BloodFalling : MonoBehaviour {
     void Update(){
         GameObject[] objectsSplat = GameObject.FindGameObjectsWithTag("splatter");
         int countSplat = objectsSplat.Length;
+
+        BloodFalling.splatCount = countSplat;
         
         if(countSplat == 3){
             GameLost();
