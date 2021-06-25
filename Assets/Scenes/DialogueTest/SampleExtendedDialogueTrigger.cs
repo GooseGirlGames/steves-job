@@ -28,12 +28,23 @@ public class HexagonDialogue : Dialogue
         Say("Hewwo")
             .Do(GiveItem(trigger.bucket));
 
-        Say("Uwu")
+        Say("I won't say this")
+            .If(() => false);
+
+        Say("I will say this tho")
+            .If(() => true);
+
+        Say("Has shirt")
+            .If(HasItem(trigger.shirt));
+
+        Say("Uwu (no shirt)")
             .If(DoesNotHaveItem(trigger.shirt))
             .Do(() => { Debug.Log("toll"); });
 
-        Say("Na ja")
-            .Do(new TriggerDialogueAction<OtherHexagonDialogue>());
+        Say("Na ja, hier ist ein Shirt")
+            .Do(new TriggerDialogueAction<OtherHexagonDialogue>())
+            .Do(GiveItem(trigger.shirt))
+            .If(DoesNotHaveItem(trigger.shirt));
             // IDEAS FOR OPTION INTERFACE:
             // Triggers other Dialogue:
             //.Choose(new ItemOption<OtherHexagonDialogue>(ItemManager.bucked))

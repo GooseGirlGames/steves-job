@@ -37,6 +37,10 @@ public abstract class Dialogue
     }
 
     protected DialogueCondition DoesNotHaveItem(Item item) { // this one saves a 'new'! how efficient!
+        return new DoesNotHaveItem(item);
+    }
+
+    protected DialogueCondition HasItem(Item item) { // this one saves a 'new'! how efficient!
         return new HasItem(item);
     }
 
