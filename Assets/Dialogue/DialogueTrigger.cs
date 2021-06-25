@@ -24,6 +24,11 @@ public class DialogueTrigger : MonoBehaviour
     /** Dialogue to be triggered. */
     public virtual Dialogue GetActiveDialogue() => defaultDialogue;
 
+    public static DialogueTrigger Instance;
+    private void Awake() {
+        Instance = this;
+    }
+
     public void Trigger() {
         DialogueManager.Log("Triggering dialogue");
         DialogueManager.Instance.lastKeyPress = Time.fixedTime;
