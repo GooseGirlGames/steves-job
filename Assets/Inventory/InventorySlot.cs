@@ -6,7 +6,6 @@ using UnityEngine;
 
 [Serializable]
 public class InventorySlot {
-    public Text name;
     public Image image;
     
 }
