@@ -43,4 +43,13 @@ public class Sentence
         actions.Add(action);
         return this;
     }
+
+    public Sentence Choice(DialogueOption option) {
+        options.Add(option);
+        return this;
+    }
+}
+
+public class EmptySentence : Sentence {
+    public EmptySentence() : base("") {}
 }
