@@ -12,19 +12,22 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
         return new PourDia(this);
     }
 
-    public const float FLOOR_Y = 7.05f;
+    public const float FLOOR_Y = 7.95f;
 
     private void Awake() {
         renderer = GetComponent<SpriteRenderer>();
         renderer.enabled = false;
     }
     public void Pour() {
-        GameObject player = GameObject.FindWithTag("Player");
+        stevecontroller player = GameObject.FindObjectOfType<stevecontroller>();
         Vector3 playerPos = player.gameObject.transform.position;
-        //this.gameObject.transform.position = new Vector3(
-        //    player.x
-        //);
-        
+        this.gameObject.transform.position = new Vector3(
+            playerPos.x,
+            FLOOR_Y,
+            0
+        );
+        renderer.enabled = true;
+        player.Lock(hide: true);
     }
 }
 
