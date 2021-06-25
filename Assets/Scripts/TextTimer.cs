@@ -20,7 +20,7 @@ public class TextTimer : MonoBehaviour
         else{
             timeValue=0f;
         }
-        if(timeValue == 10f){
+        if(timeValue < 10f){
             timeText.color = Color.red;
 
         }
