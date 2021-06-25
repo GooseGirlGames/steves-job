@@ -183,6 +183,7 @@ MonoBehaviour:
   jump_height: 3
   m_movement_smoothing: 0.181
   m_animator: {fileID: 211158497393610317}
+  spriteRenderer: {fileID: 3136791745992653634}
   m_cam: {fileID: 5250817992332479681}
   m_ground_check: {fileID: 7109484775959305822}
   ground_layer:

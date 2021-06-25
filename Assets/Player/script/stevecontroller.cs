@@ -16,6 +16,7 @@ public class stevecontroller : MonoBehaviour {
     [Range(0, 1f)] [SerializeField] private float m_movement_smoothing = .05f;    // How much to smooth out the movement
 
     public Animator m_animator;
+    public SpriteRenderer spriteRenderer;
     private Rigidbody2D m_rigitbody;
     public Transform m_cam;
     [SerializeField] private Transform m_ground_check;
@@ -27,6 +28,8 @@ public class stevecontroller : MonoBehaviour {
     private Transform crouchTransform;
     private float characterHeight; //Initial height
     [SerializeField] private bool crouch = false;
+
+    private bool movementLocked = false;
 
 
 //Methoden
@@ -102,7 +105,22 @@ public class stevecontroller : MonoBehaviour {
 
     }
 
+    public void Lock(bool hide = false) {
+        movementLocked = true;
+        if (hide) spriteRenderer.enabled = false;
+    }
+
+
+    public void Unlock() {
+        movementLocked = false;
+        spriteRenderer.enabled = true;
+    }
+
     private void Update(){
+
+        // Ignore all input if movement is locked.
+        if (movementLocked) return;
+
         //Debug.Log(Time.deltaTime);
         //Debug.Log(horizontal_move);
         //Debug.Log(is_grounded);
