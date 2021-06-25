@@ -8,10 +8,10 @@ public class ItemManager : MonoBehaviour
 
     //Dictionary<string, Item> item_index;
  
-    public static Item shirt;
-    public static Item shirt_dirty;
-    public static Item shirt_clean;
-    public static Item bucked;
-    public static Item bloody_bucked;
-    public static Item Mop;
+    public Item shirt;
+    public Item shirt_dirty;
+    public Item shirt_clean;
+    public Item bucked;
+    public Item bloody_bucked;
+    public Item Mop;
 }
