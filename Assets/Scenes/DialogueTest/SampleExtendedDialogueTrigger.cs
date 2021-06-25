@@ -36,7 +36,10 @@ public class HexagonDialogue : Dialogue
             .If(() => true);
 
         Say("Has shirt")
-            .If(HasItem(trigger.shirt));
+            .If(HasItem(trigger.shirt))
+            .Choice(new TextOption("I know!"))
+            .Choice(new TextOption("dugh.."));
+
 
         Say("Uwu (no shirt)")
             .If(DoesNotHaveItem(trigger.shirt))
