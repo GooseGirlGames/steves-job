@@ -24,6 +24,7 @@ public class DialogueManager : MonoBehaviour
     public List<DialogueOptionUI> actionBoxes;
     public InteractionHintUI hintUI;
     public bool instantTrigger = false;
+    public Sprite defaultBackground;
 
     private Queue<Sentence> sentences;
     private Queue<UnityEvent> nextEvents;
