@@ -25,6 +25,12 @@ public class HexagonDialogue : Dialogue
         SampleExtendedDialogueTrigger trigger =
                 (SampleExtendedDialogueTrigger) SampleExtendedDialogueTrigger.Instance;
         
+        Say("?")
+            .Choice(new TextOption("I know!"))
+            .Choice(new TextOption("I know!"))
+            .Choice(new TextOption("I know!"))
+            .Choice(new TextOption("I know!"));
+
         Say("Hewwo")
             .Do(GiveItem(trigger.bucket))
             .DoAfter(RemoveItem(trigger.bucket));
