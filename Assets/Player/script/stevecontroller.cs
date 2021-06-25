@@ -106,8 +106,10 @@ public class stevecontroller : MonoBehaviour {
     }
 
     public void Lock(bool hide = false) {
+        horizontal_move = 0f;
         movementLocked = true;
         if (hide) spriteRenderer.enabled = false;
+        SetAnimatorVars();
     }
 
 
@@ -116,8 +118,13 @@ public class stevecontroller : MonoBehaviour {
         spriteRenderer.enabled = true;
     }
 
-    private void Update(){
+    private void SetAnimatorVars() {
+        m_animator.SetFloat("Speed", Mathf.Abs(horizontal_move));
+        m_animator.SetBool("is_grounded", is_grounded);  
+        m_animator.SetBool("crouch", crouch);  
+    }
 
+    private void Update(){
         // Ignore all input if movement is locked.
         if (movementLocked) return;
 
@@ -126,9 +133,8 @@ public class stevecontroller : MonoBehaviour {
         //Debug.Log(is_grounded);
         //Debug.Log(crouch);
         horizontal_move = Input.GetAxis("Horizontal") * movement_speed;
-        m_animator.SetFloat("Speed", Mathf.Abs(horizontal_move));
-        m_animator.SetBool("is_grounded", is_grounded);  
-        m_animator.SetBool("crouch", crouch);   
+
+        SetAnimatorVars();
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f){
             crouch = true; 
