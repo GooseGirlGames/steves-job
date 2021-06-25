@@ -118,7 +118,7 @@ public class DialogueManager : MonoBehaviour
 
         // Trigger Actions *after* sentence is said, and E has been pressed:
         if (currentSentence != null)
-            currentSentence.Act();
+            currentSentence.Act(sentenceStillOnScreen: false);
 
         if (sentences.Count == 0) {
             DialogueEnded();
@@ -188,6 +188,9 @@ public class DialogueManager : MonoBehaviour
                 actionBox.gameObject.SetActive(false);
             canBeAdvancedByKeypress = true;
         }
+
+        if (currentSentence != null)
+            currentSentence.Act(sentenceStillOnScreen: true);
 
     }
 

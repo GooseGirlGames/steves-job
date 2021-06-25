@@ -26,7 +26,8 @@ public class HexagonDialogue : Dialogue
                 (SampleExtendedDialogueTrigger) SampleExtendedDialogueTrigger.Instance;
         
         Say("Hewwo")
-            .Do(GiveItem(trigger.bucket));
+            .Do(GiveItem(trigger.bucket))
+            .DoAfter(RemoveItem(trigger.bucket));
 
         Say("I won't say this")
             .If(() => false);
@@ -39,12 +40,13 @@ public class HexagonDialogue : Dialogue
 
         Say("Uwu (no shirt)")
             .If(DoesNotHaveItem(trigger.shirt))
-            .Do(() => { Debug.Log("toll"); })
-            .Do(GiveItem(trigger.shirt));
+            .Do(() => { Debug.Log("toll"); });
 
         Say("Na ja, hier ist ein Shirt")
             .Choice(
-                new TextOption("Cooler Text (kein Bye)")
+                new TextOption("Shirt klauen")
+                .IfChosen(GiveItem(trigger.shirt))
+                .AddCondition(DoesNotHaveItem(trigger.shirt))
                 .IfChosen(new TriggerDialogueAction<CoolerTextDialogue>(exitCurrent: true))
             )
             .Choice(

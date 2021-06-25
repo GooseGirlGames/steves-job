@@ -10,7 +10,8 @@ public class Sentence
 {
     [SerializeField]
     public string text;
-    private List<DialogueAction> actions = new List<DialogueAction>(); 
+    private List<DialogueAction> actions = new List<DialogueAction>();
+    private List<DialogueAction> actionsAfter = new List<DialogueAction>(); 
     private List<DialogueCondition> conditions = new List<DialogueCondition>();
     public List<DialogueOption> options = new List<DialogueOption>();
     public Sentence(string text) {
@@ -21,10 +22,14 @@ public class Sentence
         return DialogueCondition.ConditionsFullFilled(conditions);
     }
 
-    public void Act() {
-        foreach (DialogueAction a in actions) {
-            a.Run();
+    public void Act(bool sentenceStillOnScreen) {
+        if (sentenceStillOnScreen) {
+            foreach (DialogueAction a in actions) a.Run();
+        } else {
+            // these are run after the sentence was shown, i.e. right as it disappears
+            foreach (DialogueAction a in actionsAfter) a.Run();
         }
+        
     }
 
     public Sentence If(DialogueCondition condition) {
@@ -41,6 +46,15 @@ public class Sentence
     }
     public Sentence Do(DialogueAction action) {
         actions.Add(action);
+        return this;
+    }
+
+    public Sentence DoAfter(DialogueAction.RunFunc func) {
+        DialogueAction action = new DialogueAction(func);
+        return DoAfter(action);
+    }
+    public Sentence DoAfter(DialogueAction action) {
+        actionsAfter.Add(action);
         return this;
     }
 
