@@ -117,6 +117,14 @@ public class DialogueManager : MonoBehaviour
         }
 
         Sentence sentence = sentences.Dequeue();
+
+        if (!sentence.ConditionsFulfilled()) {
+            Debug.Log("Skipping " + sentence.text);
+            DisplayNextSentence();
+            return;
+        }
+            
+
         currentSentence = sentence;
         DialogueManager.Log( activeDialogue.name + " says: '" + sentence.text + "'");
         nameField.text =  activeDialogue.name;

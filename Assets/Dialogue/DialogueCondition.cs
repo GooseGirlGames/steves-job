@@ -32,3 +32,14 @@ public class DoesNotHaveItem : DialogueCondition {
         return !Inventory.Instance.HasItem(requiredNotItem);
     }
 }
+
+public class FunctionCondition : DialogueCondition {
+    public delegate bool ConditionFunc();
+    private ConditionFunc Func;
+    public FunctionCondition(ConditionFunc func) {
+        Func = func;
+    }
+    public override bool IsFulfilled() {
+        return Func();
+    }
+}

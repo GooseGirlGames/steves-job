@@ -17,7 +17,7 @@ public class Sentence
         this.text = text;
     }
 
-    public bool Available() {
+    public bool ConditionsFulfilled() {
         return DialogueCondition.ConditionsFullFilled(conditions);
     }
 
@@ -30,6 +30,10 @@ public class Sentence
     public Sentence If(DialogueCondition condition) {
         conditions.Add(condition);
         return this;
+    }
+    public Sentence If(FunctionCondition.ConditionFunc func) {
+        DialogueCondition condition = new FunctionCondition(func);
+        return If(condition);
     }
     public Sentence Do(DialogueAction.RunFunc func) {
         DialogueAction action = new DialogueAction(func);
