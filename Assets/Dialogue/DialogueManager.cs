@@ -20,7 +20,7 @@ public class DialogueManager : MonoBehaviour
     public Image npcAvatar;
     public Canvas dialogueCanvas;
     public Transform textBox;
-    public Sprite defaultBackground;
+    //public Sprite defaultBackground;
     public List<DialogueOptionUI> actionBoxes;
     public InteractionHintUI hintUI;
     public bool instantTrigger = false;
