@@ -27,7 +27,7 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
             0
         );
         renderer.enabled = true;
-        player.Lock(hide: true);
+        player.Lock("BloodPouring", hide: true);
     }
 }
 

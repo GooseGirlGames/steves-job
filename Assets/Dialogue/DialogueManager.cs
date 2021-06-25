@@ -35,6 +35,7 @@ public class DialogueManager : MonoBehaviour
 
     public float lastKeyPress = -1.0f;
     public const float KEY_PRESS_TIME_DELTA = 0.3f;  // seconds
+    private const string DIALOGUE_LOCK_TAG = "DialogueManager";
 
     public static void Log(string msg) {
         #if DEBUG_DIALOGUE_SYSTEM
@@ -61,7 +62,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue, bool clearCurrent = false, DialogueTrigger trigger = null) {
 
         stevecontroller steve = GameObject.FindObjectOfType<stevecontroller>();
-        steve.Lock();
+        steve.Lock(DIALOGUE_LOCK_TAG);
 
         if (trigger != null) {
             currentTrigger = trigger;
@@ -220,7 +221,7 @@ public class DialogueManager : MonoBehaviour
         currentSentence = null;
         currentTrigger = null;
         stevecontroller steve = GameObject.FindObjectOfType<stevecontroller>();
-        steve.Unlock();
+        steve.Unlock(DIALOGUE_LOCK_TAG);
     }
 
     private void SetTextboxBackground(Sprite sprite) {

@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 public class stevecontroller : MonoBehaviour {
 
@@ -30,6 +32,10 @@ public class stevecontroller : MonoBehaviour {
     [SerializeField] private bool crouch = false;
 
     private bool movementLocked = false;
+    // Whenever Lock() is called, a tag is passed and stored here.
+    // Unlock() clears a tag from this list.
+    // Only if all lock tags are cleared, Steve will be unlocked.
+    private List<string> lockTags = new List<string>();
 
 
 //Methoden
@@ -105,17 +111,25 @@ public class stevecontroller : MonoBehaviour {
 
     }
 
-    public void Lock(bool hide = false) {
+    public void Lock(string tag, bool hide = false) {
+        if (!lockTags.Contains(tag))
+            lockTags.Add(tag);
         horizontal_move = 0f;
+        SetAnimatorVars();
         movementLocked = true;
         if (hide) spriteRenderer.enabled = false;
-        SetAnimatorVars();
     }
 
 
-    public void Unlock() {
-        movementLocked = false;
-        spriteRenderer.enabled = true;
+    public void Unlock(string tag) {
+        if (lockTags.Contains(tag)) {
+            lockTags.Remove(tag);
+        }
+
+        if (lockTags.Count == 0) {
+            movementLocked = false;
+            spriteRenderer.enabled = true;
+        }
     }
 
     private void SetAnimatorVars() {
