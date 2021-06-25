@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 3278197654338862332}
   - component: {fileID: 4353654552542923251}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -333,14 +333,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -390,7 +390,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 3278197654338862332}
+  m_TargetGraphic: {fileID: 8150991301927392667}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 8714943196483772431}
   - component: {fileID: 3987923713969009352}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -558,14 +558,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -632,7 +632,7 @@ GameObject:
   - component: {fileID: 7760781443918277225}
   - component: {fileID: 6885772126555750370}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button1_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -678,14 +678,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -735,7 +735,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 7760781443918277225}
+  m_TargetGraphic: {fileID: 8150991300987681191}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -916,7 +916,7 @@ GameObject:
   - component: {fileID: 8595612892232540458}
   - component: {fileID: 1379548296401553050}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button1_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -962,14 +962,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1019,7 +1019,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 8595612892232540458}
+  m_TargetGraphic: {fileID: 3051035697306527840}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -1371,8 +1371,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slots:
   - image: {fileID: 8150991301589234685}
+    button: {fileID: 3987923713969009352}
   - image: {fileID: 8150991301927392667}
+    button: {fileID: 4353654552542923251}
   - image: {fileID: 8150991300987681191}
+    button: {fileID: 6885772126555750370}
+  - image: {fileID: 8150991300987681191}
+    button: {fileID: 1379548296401553050}
   canvas: {fileID: 8150991301857769805}
   visible: 0
 --- !u!1 &8150991301927392669
