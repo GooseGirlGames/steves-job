@@ -9,12 +9,27 @@ public class InventoryCanvasSlots : MonoBehaviour
     public Canvas canvas;
     public bool visible = false;
 
+    public GameObject dialogueOptionBoxes;
+    public GameObject itemTextBox;
+
+    public void ShowItemLoreBox(Item item) {
+        dialogueOptionBoxes.SetActive(false);
+        // TODO show actual lore
+        itemTextBox.SetActive(true);
+    }
+
+    public void HideItemLoreBox() {
+        dialogueOptionBoxes.SetActive(true);
+        itemTextBox.SetActive(false);
+    }
+
     private void Awake() {
         Clear();
         canvas.enabled = false;
     }
 
     private void Update() {
+            
         if (Input.GetKeyDown(KeyCode.Tab)) {
             visible = !visible;
             canvas.enabled = visible;
