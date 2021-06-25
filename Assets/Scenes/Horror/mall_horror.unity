@@ -507,62 +507,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 093e3b306aff45f33a6127243ee12515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultDialogue:
-    sentences: []
-    diaboxPosition: {fileID: 0}
-    background: {fileID: 0}
   playerInTrigger: 0
+  hintPosition: {fileID: 0}
+  background: {fileID: 0}
+  avatar: {fileID: 0}
+  name: 
   shirt: {fileID: 11400000, guid: af649a5495a8420779024c628d1042c9, type: 2}
-  dialogue:
-    sentences:
-    - name: Frederick the Friendly Pig
-      text: Oink, mate!
-      onComplete: []
-      options: []
-    - name: Frederick the Friendly Pig
-      text: Me apron's fucked!
-      onComplete: []
-      options: []
-    - name: Frederick the Friendly Pig
-      text: Can ya help me out, cunt?
-      onComplete: []
-      options: []
-    - name: Frederick the Friendly Pig
-      text: '*oink*'
-      onComplete:
-      - m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 730475043}
-            m_TargetAssemblyTypeName: FredDialogue, Assembly-CSharp
-            m_MethodName: GiveShirt
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      options: []
-    diaboxPosition: {fileID: 917809638}
-    background: {fileID: 0}
-  shirtNotBackDia:
-    sentences:
-    - name: Frederick the Friendly Pig
-      text: Oink, mate!
-      onComplete: []
-      options: []
-    - name: Frederick the Friendly Pig
-      text: Me tits are freezing of!
-      onComplete: []
-      options: []
-    - name: Frederick the Friendly Pig
-      text: '*oink*'
-      onComplete: []
-      options: []
-    diaboxPosition: {fileID: 917809638}
-    background: {fileID: 0}
 --- !u!114 &730475044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1025,7 +975,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358873154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.215, y: 0.447, z: -0.8622289}
+  m_LocalPosition: {x: -0.143, y: 0.238, z: -0.8622289}
   m_LocalScale: {x: 0.26496893, y: 0.26496893, z: 0.26496893}
   m_Children: []
   m_Father: {fileID: 1950536809}
@@ -1044,7 +994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000003106431
+      value: -0.0000006212862
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1507,6 +1457,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2112084485}
     - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: name
+      value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
       propertyPath: empty
       value: 
       objectReference: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
@@ -1518,6 +1472,10 @@ PrefabInstance:
       propertyPath: interaction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: hintPosition
+      value: 
+      objectReference: {fileID: 1358873155}
     - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
       propertyPath: portalToMiniGame
       value: 

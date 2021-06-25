@@ -29,6 +29,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<UnityEvent> nextEvents;
     private Dialogue activeDialogue = null;
     private Sentence currentSentence = null;
+    private DialogueTrigger currentTrigger = null;  // current trigger
     private bool canBeAdvancedByKeypress = true;  // false iff an action must be chosen to continue
 
     public float lastKeyPress = -1.0f;
@@ -56,7 +57,11 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartDialogue(Dialogue dialogue, bool clearCurrent = false) {
+    public void StartDialogue(Dialogue dialogue, bool clearCurrent = false, DialogueTrigger trigger = null) {
+
+        if (trigger != null) {
+            currentTrigger = trigger;
+        }
 
         bool otherDialogueWasActive = IsDialogueActive();
 
@@ -66,8 +71,8 @@ public class DialogueManager : MonoBehaviour
         currentSentence = null;
 
         activeDialogue = dialogue;
-        if (dialogue.background) {
-            SetTextboxBackground(dialogue.background);
+        if (currentTrigger && currentTrigger.background) {
+            SetTextboxBackground(currentTrigger.background);
         } else {
             SetTextboxBackground(defaultBackground);
         }
@@ -141,10 +146,15 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        DialogueManager.Log( activeDialogue.name + " says: '" + sentence.text + "'");
-        nameField.text =  activeDialogue.name;
+        DialogueManager.Log("Dialogue text: '" + sentence.text + "'");
+        
         textField.text = sentence.text;
-        // npcAvatar.sprite = activeDialogue.avatar; TODO
+        
+        if (currentTrigger != null) {
+            nameField.text = currentTrigger.name;
+            // TODO npcAvatar.sprite = currentTrigger.avatar;
+        }
+        
 
         List<DialogueOption> availableOptions = new List<DialogueOption>();
         foreach (DialogueOption option in sentence.options) {
@@ -204,6 +214,7 @@ public class DialogueManager : MonoBehaviour
         dialogueCanvas.enabled = false;
         activeDialogue = null;
         currentSentence = null;
+        currentTrigger = null;
     }
 
     private void SetTextboxBackground(Sprite sprite) {
@@ -230,8 +241,9 @@ public class DialogueManager : MonoBehaviour
         return activeDialogue != null;
     }
 
-    public void HintAt(Dialogue dialogue) {
-        hintUI.Hint(dialogue.hintPosition, DIALOGUE_KEY_STR);
+    public void HintAt(DialogueTrigger trigger) {
+        Debug.Log("Hinting at dialogue by " + trigger.name);
+        hintUI.Hint(trigger.hintPosition, DIALOGUE_KEY_STR);
     }
     public void ClearHint() {
         hintUI.ClearHint();
