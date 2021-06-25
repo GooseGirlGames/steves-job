@@ -14,25 +14,34 @@ using UnityEngine;
  * `GetGetActiveDialogue` method.  For a simple example of such a behavior, see
  * `Assets/Scenes/DialogueTest/SampleExtendedDialogueTrigger.cs`.
  */
-public class DialogueTrigger : MonoBehaviour
+public abstract class DialogueTrigger : MonoBehaviour
 {
-    [SerializeField]
-    public Dialogue defaultDialogue;
     [SerializeField] private bool playerInTrigger = false;
+
+    [Tooltip("Position of the interaction hint.")]
+    public Transform hintPosition;
+    [Tooltip("Leave empty to use the default background.")]
+    public Sprite background;
+    public Sprite avatar;
+    new public string name;
 
 
     /** Dialogue to be triggered. */
-    public virtual Dialogue GetActiveDialogue() => defaultDialogue;
+    public abstract Dialogue GetActiveDialogue();
 
-    public static DialogueTrigger Instance;
+    public static DialogueTrigger Instance;  // TODO deprecate this, it's fucked
     private void Awake() {
         Instance = this;
     }
 
     public void Trigger() {
+        if (GetActiveDialogue() == null) {
+            Debug.Log("Won't start null Dialogue");
+            return;
+        }
         DialogueManager.Log("Triggering dialogue");
         DialogueManager.Instance.lastKeyPress = Time.fixedTime;
-        DialogueManager.Instance.StartDialogue(GetActiveDialogue());
+        DialogueManager.Instance.StartDialogue(GetActiveDialogue(), trigger: this);
     }
 
 
@@ -70,7 +79,9 @@ public class DialogueTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Player")) {
             playerInTrigger = true;
             if (!DialogueManager.Instance.IsDialogueActive()) {
-                DialogueManager.Instance.HintAt(GetActiveDialogue());
+                if (GetActiveDialogue() != null) {
+                    DialogueManager.Instance.HintAt(this);
+                }
             }
         }
     }
