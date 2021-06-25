@@ -60,6 +60,9 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue, bool clearCurrent = false, DialogueTrigger trigger = null) {
 
+        stevecontroller steve = GameObject.FindObjectOfType<stevecontroller>();
+        steve.Lock();
+
         if (trigger != null) {
             currentTrigger = trigger;
         }
@@ -216,6 +219,8 @@ public class DialogueManager : MonoBehaviour
         activeDialogue = null;
         currentSentence = null;
         currentTrigger = null;
+        stevecontroller steve = GameObject.FindObjectOfType<stevecontroller>();
+        steve.Unlock();
     }
 
     private void SetTextboxBackground(Sprite sprite) {
