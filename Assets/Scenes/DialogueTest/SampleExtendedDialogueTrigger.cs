@@ -39,25 +39,38 @@ public class HexagonDialogue : Dialogue
 
         Say("Uwu (no shirt)")
             .If(DoesNotHaveItem(trigger.shirt))
-            .Do(() => { Debug.Log("toll"); });
+            .Do(() => { Debug.Log("toll"); })
+            .Do(GiveItem(trigger.shirt));
 
         Say("Na ja, hier ist ein Shirt")
-            .Do(new TriggerDialogueAction<OtherHexagonDialogue>())
-            .Do(GiveItem(trigger.shirt))
-            .If(DoesNotHaveItem(trigger.shirt));
-            // IDEAS FOR OPTION INTERFACE:
-            // Triggers other Dialogue:
-            //.Choose(new ItemOption<OtherHexagonDialogue>(ItemManager.bucked))
-            // Triggers arbitrary code:
-            //.Choose(new TextOption("Cooler Text", () => {
-            //        // some code goes here
-            //}))
+            .Choice(
+                new TextOption("Cooler Text")
+                .IfChosen(new TriggerDialogueAction<CoolerTextDialogue>())
+            )
+            .Choice(
+                new ItemOption(trigger.shirt)
+                .IfChosen(RemoveItem(trigger.shirt))
+                .IfChosen(new TriggerDialogueAction<ShirtGivenDialogue>())
+            );
 
+        Say("Bye!!!!");
     }
 }
 
 public class OtherHexagonDialogue : Dialogue {
     public OtherHexagonDialogue() {
-        Say("hm");
+        Say("Danke fürs Shirt!");
+    }
+}
+
+public class CoolerTextDialogue : Dialogue {
+    public CoolerTextDialogue() {
+        Say("Cooler text indeed!");
+    }
+}
+
+public class ShirtGivenDialogue : Dialogue {
+    public ShirtGivenDialogue() {
+        Say("Danke für das Shirt!");
     }
 }

@@ -30,9 +30,21 @@ public abstract class Dialogue
         return sentence;
     }
 
+    protected EmptySentence EmptySentence() {
+        EmptySentence sentence = new EmptySentence();
+        sentences.Add(sentence);
+        return sentence;
+    }
+
     protected DialogueAction GiveItem(Item item) {
         return new DialogueAction(() => {
             Inventory.Instance.AddItem(item);
+        });
+    }
+
+    protected DialogueAction RemoveItem(Item item) {
+        return new DialogueAction(() => {
+            Inventory.Instance.RemoveItem(item);
         });
     }
 

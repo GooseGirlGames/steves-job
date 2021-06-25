@@ -102,12 +102,13 @@ public class DialogueManager : MonoBehaviour
         //    nextEvents.Dequeue().Invoke();
         //}
 
-        //if (chosenOption != null) {
-        //    foreach(UnityEvent ev in chosenOption.onChose) {
-        //        ev.Invoke();
-        //    }
-        //}
+        if (chosenOption != null) {
+            foreach (DialogueAction action in chosenOption.onChose) {
+                action.Run();
+            }
+        }
 
+        // Trigger Actions *after* sentence is said, and E has been pressed:
         if (currentSentence != null)
             currentSentence.Act();
 
@@ -123,39 +124,52 @@ public class DialogueManager : MonoBehaviour
             DisplayNextSentence();
             return;
         }
-            
 
         currentSentence = sentence;
+
+        // Placing this after setting `currentSentence`, so actions will still get exectued
+        if (sentence is EmptySentence) {
+            DisplayNextSentence();
+            return;
+        }
+
         DialogueManager.Log( activeDialogue.name + " says: '" + sentence.text + "'");
         nameField.text =  activeDialogue.name;
         textField.text = sentence.text;
         // npcAvatar.sprite = activeDialogue.avatar; TODO
 
-        if (sentence.options.Count != 0) {
+        List<DialogueOption> availableOptions = new List<DialogueOption>();
+        foreach (DialogueOption option in sentence.options) {
+            if (DialogueCondition.ConditionsFullFilled(option.conditions)) {
+                availableOptions.Add(option);
+            }
+        }
+
+        if (availableOptions.Count != 0) {
             canBeAdvancedByKeypress = false;
 
             foreach (var actionBox in actionBoxes)
                 actionBox.gameObject.SetActive(false);
 
-            int n = Mathf.Min(sentence.options.Count, actionBoxes.Count);
+            int n = Mathf.Min(availableOptions.Count, actionBoxes.Count);
             for (int i = 0; i < n; ++i) {
                 
                 DialogueOptionUI actionBox = actionBoxes[i];
                 actionBox.gameObject.SetActive(true);
-                DialogueOption option = sentence.options[i];
+                DialogueOption option = availableOptions[i];
 
                 actionBox.option = option;
 
                 TextMeshProUGUI text = actionBox.text;
                 Image image = actionBox.image;
 
-                if (option.dialogueOptionType == DialogueOption.DialogueOptionType.ItemAction) {
-                    text.text = option.text + ' ' + option.item.name;
-                    image.sprite = option.item.icon;
-                    if (Inventory.Instance)
-                        actionBox.button.interactable = Inventory.Instance.HasItem(option.item);
-                } else if (option.dialogueOptionType == DialogueOption.DialogueOptionType.TextAction) {
-                    text.text = option.text;
+                if (option is ItemOption) {
+                    ItemOption itemOption = (ItemOption) option;
+                    text.text = itemOption.item.name;
+                    image.sprite = itemOption.item.icon;
+                } else if (option is TextOption) {
+                    TextOption textOption = (TextOption) option;
+                    text.text = textOption.text;
                     image.gameObject.SetActive(false);
                     actionBox.button.interactable = true;
                 }
@@ -166,6 +180,7 @@ public class DialogueManager : MonoBehaviour
                 actionBox.gameObject.SetActive(false);
             canBeAdvancedByKeypress = true;
         }
+
     }
 
     public void EndDialogue() {

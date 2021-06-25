@@ -5,19 +5,30 @@ using UnityEngine.Events;
 using UnityEngine;
 
 [Serializable]
-public class DialogueOption
-{
-    public enum DialogueOptionType {
-        /* Action relating to an item.  An icon of that item will be displayed.
-         * The option will only be available if the player has that item.
-         */
-        ItemAction,
-        /* Action independent of any item. */
-        TextAction
+public abstract class DialogueOption {
+    public List<DialogueAction> onChose = new List<DialogueAction>();
+    public List<DialogueCondition> conditions = new List<DialogueCondition>();
+    public DialogueOption IfChosen(DialogueAction action) {
+        onChose.Add(action);
+        return this;
     }
-    public DialogueOptionType dialogueOptionType = DialogueOptionType.ItemAction;
-    [Tooltip("For ItemActions this typically is a verb.")]
-    public string text;
+    public DialogueOption AddCondition(DialogueCondition condition) {
+        conditions.Add(condition);
+        return this;
+    }
+}
+
+public class TextOption : DialogueOption {
+    public String text;
+    public TextOption(String text) {
+        this.text = text;
+    }
+}
+
+public class ItemOption : DialogueOption {
     public Item item;
-    public List<UnityEvent> onChose;
+    public ItemOption(Item item) {
+        this.item = item;
+        AddCondition(new HasItem(item));
+    }
 }
