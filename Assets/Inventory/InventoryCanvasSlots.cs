@@ -25,8 +25,6 @@ public class InventoryCanvasSlots : MonoBehaviour
         foreach (InventorySlot slot in slots) {
             slot.image.enabled = false;
             slot.image.sprite = null;
-            slot.name.enabled = false;
-            slot.name.text = "";
         }
     }
 
@@ -42,8 +40,6 @@ public class InventoryCanvasSlots : MonoBehaviour
         for (int i = 0; i < n; ++i) {
             slots[i].image.enabled = true;
             slots[i].image.sprite = visibleItems[i].icon;
-            slots[i].name.enabled = true;
-            slots[i].name.text = items[i].name;
         }
     }
 }

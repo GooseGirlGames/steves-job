@@ -349,7 +349,7 @@ MonoBehaviour:
   - name: {fileID: 0}
     image: {fileID: 8150991300987681191}
   canvas: {fileID: 8150991301857769805}
-  visible: 1
+  visible: 0
 --- !u!1 &8150991301927392669
 GameObject:
   m_ObjectHideFlags: 0
