@@ -107,6 +107,8 @@ MonoBehaviour:
   instantTrigger: 0
   defaultBackground: {fileID: 21300000, guid: 16010ec11b536342da9a93d30aa58d8b, type: 3}
   defaultAvatar: {fileID: 21300000, guid: 09ac94f2f5ac28699bf6814fb1c2e8c7, type: 3}
+  uiAnimators:
+  - {fileID: 7001634181030715436}
   lastKeyPress: -1
 --- !u!114 &2699083384941351454
 MonoBehaviour:
@@ -269,6 +271,11 @@ Canvas:
 --- !u!224 &4249439821197581099 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2494340953131811008, guid: 7ab6c6e6d49a5d18abef60071dd30cd8, type: 3}
+  m_PrefabInstance: {fileID: 1757713240428649451}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7001634181030715436 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8741042475911723975, guid: 7ab6c6e6d49a5d18abef60071dd30cd8, type: 3}
   m_PrefabInstance: {fileID: 1757713240428649451}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &4249439821022436100 stripped

@@ -24,6 +24,7 @@ public abstract class DialogueTrigger : MonoBehaviour
     public Sprite background;
     public Sprite avatar;
     new public string name;
+    public World world;
 
 
     /** Dialogue to be triggered. */
