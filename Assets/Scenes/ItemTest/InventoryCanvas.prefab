@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 3051035697306527840}
-  button: {fileID: 1379548296401553050}
+  button: {fileID: 7148124917935166946}
   item: {fileID: 0}
 --- !u!1 &308548366255759137
 GameObject:
@@ -125,7 +125,7 @@ RectTransform:
   - {fileID: 8150991300987681176}
   - {fileID: 3113057850223263576}
   m_Father: {fileID: 8150991301156303344}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -180,14 +180,14 @@ RectTransform:
   m_GameObject: {fileID: 1264101851183795059}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4166617, y: 0.4166617, z: 0.4166617}
+  m_LocalScale: {x: 0.41666165, y: 0.41666165, z: 0.41666165}
   m_Children: []
-  m_Father: {fileID: 8150991301156303344}
+  m_Father: {fileID: 4516329013144832242}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 182.39423, y: 113.65625}
+  m_AnchoredPosition: {x: 182.39423, y: -65.74875}
   m_SizeDelta: {x: 215.3015, y: 284.6221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6260603685394254493
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 3549565676080876899}
   - component: {fileID: 6764537417914415779}
   - component: {fileID: 3278197654338862332}
-  - component: {fileID: 4353654552542923251}
+  - component: {fileID: 5521665703841729949}
   m_Layer: 5
   m_Name: Button1_2
   m_TagString: Untagged
@@ -366,7 +366,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4353654552542923251
+--- !u!114 &5521665703841729949
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1466073511213855484}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b656123a9a05b430bb4dd843eb2c8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -388,10 +388,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-    m_PressedColor: {r: 0.35686275, g: 0.4509804, b: 0.5921569, a: 1}
-    m_SelectedColor: {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 1}
-    m_DisabledColor: {r: 1, g: 0.75686276, b: 0.02745098, a: 0.5019608}
+    m_HighlightedColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+    m_PressedColor: {r: 0.43147027, g: 0.58286387, b: 0.9056604, a: 1}
+    m_SelectedColor: {r: 0.21933319, g: 0.21933319, b: 0.21933319, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -449,14 +449,14 @@ RectTransform:
   m_GameObject: {fileID: 2422684094208291183}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4166617, y: 0.4166617, z: 0.4166617}
+  m_LocalScale: {x: 0.41666165, y: 0.41666165, z: 0.41666165}
   m_Children: []
-  m_Father: {fileID: 8150991301156303344}
+  m_Father: {fileID: 4516329013144832242}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.004180908, y: 220.91666}
+  m_AnchoredPosition: {x: 0.004180908, y: 41.511673}
   m_SizeDelta: {x: 1920, y: 1140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5306693711376131266
@@ -525,7 +525,7 @@ Transform:
   m_LocalScale: {x: 1.4705882, y: 1.4705882, z: 1.4705882}
   m_Children: []
   m_Father: {fileID: 8150991301156303344}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2920138940567046580
 GameObject:
@@ -538,7 +538,7 @@ GameObject:
   - component: {fileID: 6155052330108836795}
   - component: {fileID: 2727316460539815864}
   - component: {fileID: 8714943196483772431}
-  - component: {fileID: 3987923713969009352}
+  - component: {fileID: 6986751558203465208}
   m_Layer: 5
   m_Name: Button1_1
   m_TagString: Untagged
@@ -603,7 +603,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3987923713969009352
+--- !u!114 &6986751558203465208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -612,7 +612,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2920138940567046580}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b656123a9a05b430bb4dd843eb2c8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -625,10 +625,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-    m_PressedColor: {r: 0.35686275, g: 0.4509804, b: 0.5921569, a: 1}
-    m_SelectedColor: {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 1}
-    m_DisabledColor: {r: 1, g: 0.75686276, b: 0.02745098, a: 0.5019608}
+    m_HighlightedColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+    m_PressedColor: {r: 0.43147027, g: 0.58286387, b: 0.9056604, a: 1}
+    m_SelectedColor: {r: 0.21933319, g: 0.21933319, b: 0.21933319, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -670,7 +670,7 @@ GameObject:
   - component: {fileID: 6562266243488801750}
   - component: {fileID: 2960507139118125805}
   - component: {fileID: 7760781443918277225}
-  - component: {fileID: 6885772126555750370}
+  - component: {fileID: 8267873268418445482}
   m_Layer: 5
   m_Name: Button1_3
   m_TagString: Untagged
@@ -735,7 +735,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6885772126555750370
+--- !u!114 &8267873268418445482
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -744,7 +744,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3826380373529828469}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b656123a9a05b430bb4dd843eb2c8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -757,10 +757,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-    m_PressedColor: {r: 0.35686275, g: 0.4509804, b: 0.5921569, a: 1}
-    m_SelectedColor: {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 1}
-    m_DisabledColor: {r: 1, g: 0.75686276, b: 0.02745098, a: 0.5019608}
+    m_HighlightedColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+    m_PressedColor: {r: 0.43147027, g: 0.58286387, b: 0.9056604, a: 1}
+    m_SelectedColor: {r: 0.21933319, g: 0.21933319, b: 0.21933319, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -819,7 +819,7 @@ Transform:
   m_LocalScale: {x: 1.4705882, y: 1.4705882, z: 1.4705882}
   m_Children: []
   m_Father: {fileID: 8150991301156303344}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5031546723787960538
 GameObject:
@@ -848,14 +848,14 @@ RectTransform:
   m_GameObject: {fileID: 5031546723787960538}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4166617, y: 0.4166617, z: 0.4166617}
+  m_LocalScale: {x: 0.41666165, y: 0.41666165, z: 0.41666165}
   m_Children: []
-  m_Father: {fileID: 8150991301156303344}
+  m_Father: {fileID: 4516329013144832242}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 64.586754, y: 49.81151}
+  m_AnchoredPosition: {x: 64.586754, y: -129.59348}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8479082190331302300
@@ -966,7 +966,7 @@ GameObject:
   - component: {fileID: 4016626315835386917}
   - component: {fileID: 7023302624708278013}
   - component: {fileID: 8595612892232540458}
-  - component: {fileID: 1379548296401553050}
+  - component: {fileID: 7148124917935166946}
   m_Layer: 5
   m_Name: Button1_4
   m_TagString: Untagged
@@ -1031,7 +1031,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1379548296401553050
+--- !u!114 &7148124917935166946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1040,7 +1040,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5889533156504966464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b656123a9a05b430bb4dd843eb2c8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1053,10 +1053,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-    m_PressedColor: {r: 0.35686275, g: 0.4509804, b: 0.5921569, a: 1}
-    m_SelectedColor: {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 1}
-    m_DisabledColor: {r: 1, g: 0.75686276, b: 0.02745098, a: 0.5019608}
+    m_HighlightedColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+    m_PressedColor: {r: 0.43147027, g: 0.58286387, b: 0.9056604, a: 1}
+    m_SelectedColor: {r: 0.21933319, g: 0.21933319, b: 0.21933319, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1087,6 +1087,44 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &7990268227168553438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4516329013144832242}
+  m_Layer: 5
+  m_Name: LoreBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4516329013144832242
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7990268227168553438}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8824688128765834317}
+  - {fileID: 5741024182637444081}
+  - {fileID: 7669129718251246483}
+  m_Father: {fileID: 8150991301156303344}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8150991300987681177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,7 +1215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 8150991300987681191}
-  button: {fileID: 6885772126555750370}
+  button: {fileID: 8267873268418445482}
   item: {fileID: 0}
 --- !u!1 &8150991301156303345
 GameObject:
@@ -1208,9 +1246,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8824688128765834317}
-  - {fileID: 5741024182637444081}
-  - {fileID: 7669129718251246483}
+  - {fileID: 4516329013144832242}
   - {fileID: 1867166250676913273}
   - {fileID: 71014147271435630}
   - {fileID: 9111934432966670800}
@@ -1350,7 +1386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 8150991301589234685}
-  button: {fileID: 3987923713969009352}
+  button: {fileID: 6986751558203465208}
   item: {fileID: 0}
 --- !u!1 &8150991301857769792
 GameObject:
@@ -1473,7 +1509,7 @@ MonoBehaviour:
   canvas: {fileID: 8150991301857769805}
   visible: 0
   dialogueOptionBoxes: {fileID: 0}
-  itemTextBox: {fileID: 0}
+  itemLoreBox: {fileID: 7990268227168553438}
 --- !u!1 &8150991301927392669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,5 +1600,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 8150991301927392667}
-  button: {fileID: 4353654552542923251}
+  button: {fileID: 5521665703841729949}
   item: {fileID: 0}
