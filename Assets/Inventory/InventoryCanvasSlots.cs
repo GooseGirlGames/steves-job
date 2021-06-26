@@ -10,7 +10,7 @@ public class InventoryCanvasSlots : MonoBehaviour
     public bool visible = false;
 
     public GameObject dialogueOptionBoxes;
-    public GameObject itemTextBox;
+    public GameObject itemLoreBox;
 
     public static InventoryCanvasSlots Instance = null;
     private void Awake() {
@@ -25,20 +25,32 @@ public class InventoryCanvasSlots : MonoBehaviour
     public void ShowItemLoreBox(Item item) {
         dialogueOptionBoxes.SetActive(false);
         // TODO show actual lore
-        itemTextBox.SetActive(true);
+        itemLoreBox.SetActive(true);
     }
 
     public void HideItemLoreBox() {
         dialogueOptionBoxes.SetActive(true);
-        itemTextBox.SetActive(false);
+        itemLoreBox.SetActive(false);
     }
 
+     public void CheckForSelectedItem() {
+        foreach (InventorySlot slot in slots) {
+            if(slot.button.Selected) {
+                ShowItemLoreBox(slot.item);
+                return;
+            }
+        }
+        HideItemLoreBox();
+    }
 
     private void Update() {
-            
         if (Input.GetKeyDown(KeyCode.Tab) && !DialogueManager.Instance.IsDialogueActive()) {
             if (visible) Hide();
             else Show();
+        }
+
+        if (visible) {
+            CheckForSelectedItem();
         }
     }
 
