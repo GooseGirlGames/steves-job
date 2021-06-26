@@ -10,7 +10,8 @@ public class InventoryCanvasSlots : MonoBehaviour
     public bool visible = false;
 
     public GameObject dialogueOptionBoxes;
-    public GameObject itemLoreBox;
+    public LoreboxUI itemLoreBox;
+    
 
     public static InventoryCanvasSlots Instance = null;
     private bool loreVisible = false;
@@ -34,13 +35,14 @@ public class InventoryCanvasSlots : MonoBehaviour
         Debug.Log("Acraulyy, we're *showing* lroe for " + item.name);
         SetActionBoxVisibility(false);
         // TODO show actual lore
-        itemLoreBox.SetActive(true);
+        itemLoreBox.DisplayLore(item);
+        itemLoreBox.gameObject.SetActive(true);
         loreVisible = true;
     }
 
     public void HideItemLoreBox() {
         SetActionBoxVisibility(true);
-        itemLoreBox.SetActive(false);
+        itemLoreBox.gameObject.SetActive(false);
         loreVisible = false;
     }
 
@@ -75,11 +77,13 @@ public class InventoryCanvasSlots : MonoBehaviour
     }
 
     public void Show() {
+            DisplayItems(Inventory.Instance.items);
             visible = true;
             canvas.enabled = true;
     }
 
     public void Hide() {
+            DisplayItems(Inventory.Instance.items);
             visible = false;
             canvas.enabled = false;
     }
