@@ -554,6 +554,7 @@ MonoBehaviour:
   background: {fileID: 0}
   avatar: {fileID: 0}
   name: Railing
+  world: 1
   BloodBucket: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
   EmptyBucket: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
   PourAnimator: {fileID: 0}
@@ -1492,6 +1493,7 @@ MonoBehaviour:
   background: {fileID: 0}
   avatar: {fileID: 0}
   name: 
+  world: 0
   portalToMiniGame: {fileID: 0}
   sweetDirt: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
   mop: {fileID: 11400000, guid: 4ede00896a3a06c1c8663f783437d87e, type: 2}

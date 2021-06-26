@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: actbox4
+  m_Controller: {fileID: 9100000, guid: cf1252128379a7f0cb065f3218eff80d, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 683e3a8aa68daa3d2b3adade3d1fd9bb, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0e35eb3c8121c86f29bf5f1aa9fd718f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d7a8e43ed671933e0a2b4ae35e238b5f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d22b19f392b87c4639afd0d1fe42d8b1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 848a2409e8de4c8cba827f14ba4d21e9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 134f4da2de8eb131b92e5fc93ef7de14, type: 2}

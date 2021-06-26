@@ -512,6 +512,7 @@ MonoBehaviour:
   background: {fileID: 0}
   avatar: {fileID: 0}
   name: 
+  world: 0
   shirt: {fileID: 11400000, guid: af649a5495a8420779024c628d1042c9, type: 2}
 --- !u!114 &730475044
 MonoBehaviour:
@@ -994,7 +995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000006212862
+      value: 0.00000018638586
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1464,6 +1465,10 @@ PrefabInstance:
       propertyPath: empty
       value: 
       objectReference: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: world
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
       propertyPath: bucket
       value: 

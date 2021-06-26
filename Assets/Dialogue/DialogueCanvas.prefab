@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 2090200251275065588}
   - component: {fileID: 7693390177551504733}
   - component: {fileID: 8749460222905302390}
+  - component: {fileID: 8410637016730127890}
   m_Layer: 5
   m_Name: Actionbox4
   m_TagString: Untagged
@@ -226,6 +227,25 @@ MonoBehaviour:
   text: {fileID: 2283606535213688856}
   image: {fileID: 7623448196007840086}
   button: {fileID: 5453932714534524503}
+--- !u!95 &8410637016730127890
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257367648782996844}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 6193e2e6a22615f7e8ec1da1b294b557, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1537405972831747271
 GameObject:
   m_ObjectHideFlags: 0
