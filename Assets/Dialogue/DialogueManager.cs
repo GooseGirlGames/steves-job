@@ -71,10 +71,6 @@ public class DialogueManager : MonoBehaviour
             currentTrigger = trigger;
         }
 
-        foreach (Animator uiAnimator in uiAnimators) {
-            Debug.Log(currentTrigger.name + " resides in " + (int) currentTrigger.world);
-            uiAnimator.SetInteger("World", (int) currentTrigger.world);
-        }
 
 
         bool otherDialogueWasActive = IsDialogueActive();
@@ -94,6 +90,11 @@ public class DialogueManager : MonoBehaviour
         DialogueManager.Log("Starting Dialogue");
         
         dialogueCanvas.enabled = true;
+
+        foreach (Animator uiAnimator in uiAnimators) {
+            uiAnimator.SetInteger("World", (int) currentTrigger.world);
+        }
+
         InventoryCanvasSlots.Instance.Show();
 
         if (otherDialogueWasActive && clearCurrent) {
@@ -250,6 +251,12 @@ public class DialogueManager : MonoBehaviour
                     //GameManager.Instance.EventSystem.SetSelectedGameObject(actionBox.button.gameObject);
                     StartCoroutine(SelectContinueButtonLater(actionBox.button));
                 }
+            }
+            foreach (Animator uiAnimator in uiAnimators) {
+                Debug.Log("uiAnimator " + uiAnimator.name
+                        + " active" + uiAnimator.gameObject.activeSelf + " set to"
+                        + (int) currentTrigger.world);
+                uiAnimator.SetInteger("World", (int) currentTrigger.world);
             }
         } else {
             foreach (var actionBox in actionBoxes)
