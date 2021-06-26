@@ -705,6 +705,7 @@ GameObject:
   - component: {fileID: 2494340953283904619}
   - component: {fileID: 2494340953283904618}
   - component: {fileID: 2494340953283904617}
+  - component: {fileID: 3765058348529388916}
   m_Layer: 5
   m_Name: Actionbox2
   m_TagString: Untagged
@@ -786,6 +787,25 @@ MonoBehaviour:
   text: {fileID: 2494340954467326856}
   image: {fileID: 2494340954646377256}
   button: {fileID: 1706130302163928218}
+--- !u!95 &3765058348529388916
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2494340953283904614}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cf1252128379a7f0cb065f3218eff80d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2494340953331877789
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,6 +952,7 @@ GameObject:
   - component: {fileID: 2494340953467468986}
   - component: {fileID: 2494340953467468985}
   - component: {fileID: 2494340953467468987}
+  - component: {fileID: 6925558003813028425}
   m_Layer: 5
   m_Name: Actionbox1
   m_TagString: Untagged
@@ -1013,6 +1034,25 @@ MonoBehaviour:
   text: {fileID: 2494340953828829670}
   image: {fileID: 2494340953587865072}
   button: {fileID: 7201892078827406067}
+--- !u!95 &6925558003813028425
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2494340953467468983}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1fb372da7bbf9d42abff36581f448d80, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2494340953587865038
 GameObject:
   m_ObjectHideFlags: 0
