@@ -194,10 +194,10 @@ public class DialogueManager : MonoBehaviour
 
         DialogueManager.Log("Dialogue text: '" + sentence.text + "'");
         
-        textField.text = sentence.text;
+        textField.text = Uwu.OptionalUwufy(sentence.text);
         
         if (currentTrigger != null) {
-            nameField.text = currentTrigger.name;
+            nameField.text = Uwu.OptionalUwufy(currentTrigger.name);
             if (currentTrigger.avatar)
                 npcAvatar.sprite = currentTrigger.avatar;
             else
@@ -239,11 +239,11 @@ public class DialogueManager : MonoBehaviour
 
                 if (option is ItemOption) {
                     ItemOption itemOption = (ItemOption) option;
-                    text.text = itemOption.item.name;
+                    text.text = Uwu.OptionalUwufy(itemOption.item.name);
                     image.sprite = itemOption.item.icon;
                 } else if (option is TextOption) {
                     TextOption textOption = (TextOption) option;
-                    text.text = textOption.text;
+                    text.text = Uwu.OptionalUwufy(textOption.text);
                     image.gameObject.SetActive(false);
                     actionBox.button.interactable = true;
                 }

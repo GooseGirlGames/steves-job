@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a384481017c7d11e6be52b993588aa4a, type: 3}
+  m_Name: Babelfish
+  m_EditorClassIdentifier: 
+  name: Babelfish
+  description: this feews weiwd in my eaw, >_< ugh.
+  visible: 1
+  icon: {fileID: 21300000, guid: 0f0d76cac37f9a81a8f6b579ea0021e5, type: 3}
+  originWorld: 1
+  unique: 1
+  conflictingItems: []

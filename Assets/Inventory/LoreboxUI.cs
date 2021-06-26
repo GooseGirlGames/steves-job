@@ -12,8 +12,8 @@ public class LoreboxUI : MonoBehaviour
     public Image image;
 
     public void DisplayLore(Item item){
-        text.SetText(item.description);
-        name.SetText(item.name);
+        text.SetText(Uwu.OptionalUwufy(item.description));
+        name.SetText(Uwu.OptionalUwufy(item.name));
         image.sprite = item.icon;
     }    
 
