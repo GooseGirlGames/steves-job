@@ -1,6 +1,7 @@
 // uncomment to enable debug logging for the dialogue system
 #define DEBUG_DIALOGUE_SYSTEM
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -26,6 +27,7 @@ public class DialogueManager : MonoBehaviour
     public bool instantTrigger = false;
     public Sprite defaultBackground;
     public Sprite defaultAvatar;
+    public List<Animator> uiAnimators;
 
     private Queue<Sentence> sentences;
     private Queue<UnityEvent> nextEvents;
@@ -68,6 +70,12 @@ public class DialogueManager : MonoBehaviour
         if (trigger != null) {
             currentTrigger = trigger;
         }
+
+        foreach (Animator uiAnimator in uiAnimators) {
+            Debug.Log(currentTrigger.name + " resides in " + (int) currentTrigger.world);
+            uiAnimator.SetInteger("World", (int) currentTrigger.world);
+        }
+
 
         bool otherDialogueWasActive = IsDialogueActive();
 
