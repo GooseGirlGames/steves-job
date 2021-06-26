@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: ShirtClean
   m_EditorClassIdentifier: 
   name: Clean Shirt
-  description: 
+  description: Perfectly clean, smells like cotton candy... hah :D
   visible: 1
   icon: {fileID: 21300000, guid: a43c0c857ee1e65b9b9b5eea91e96f92, type: 3}
   originWorld: 0
+  unique: 0
+  conflictingItems: []
