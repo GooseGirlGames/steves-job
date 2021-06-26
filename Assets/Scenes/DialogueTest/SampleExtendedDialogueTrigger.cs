@@ -24,6 +24,7 @@ public class HexagonDialogue : Dialogue
         // Still, accessing the trigger might come in handy anyway.
         SampleExtendedDialogueTrigger trigger =
                 (SampleExtendedDialogueTrigger) SampleExtendedDialogueTrigger.Instance;
+        ShirtChooseDialogue.trigger = trigger;
         
         Say("?")
             .Choice(new TextOption("I know!"))
@@ -32,8 +33,8 @@ public class HexagonDialogue : Dialogue
             .Choice(new TextOption("I know!"));
 
         Say("Hewwo")
-            .Do(GiveItem(trigger.bucket))
-            .DoAfter(RemoveItem(trigger.bucket));
+            .Do(GiveItem(trigger.bucket));
+            //.DoAfter(RemoveItem(trigger.bucket));
 
         Say("I won't say this")
             .If(() => false);
@@ -50,8 +51,26 @@ public class HexagonDialogue : Dialogue
         Say("Uwu (no shirt)")
             .If(DoesNotHaveItem(trigger.shirt))
             .Do(() => { Debug.Log("toll"); });
+            
+        EmptySentence().DoAfter(new TriggerDialogueAction<ShirtChooseDialogue>());
 
-        Say("Na ja, hier ist ein Shirt")
+        Say("Bye!!!!");
+    }
+}
+
+public class NoUseForThisDialogue : Dialogue {
+    public NoUseForThisDialogue() {
+        Say("Was soll ich denn damit?!")
+            .DoAfter(new TriggerDialogueAction<ShirtChooseDialogue>());
+    }
+}
+
+public class ShirtChooseDialogue : Dialogue {
+
+    public static SampleExtendedDialogueTrigger trigger;
+    public ShirtChooseDialogue() {
+
+            Say("Na ja, hier ist ein Shirt")
             .Choice(
                 new TextOption("Shirt klauen")
                 .IfChosen(GiveItem(trigger.shirt))
@@ -62,8 +81,13 @@ public class HexagonDialogue : Dialogue
                 new ItemOption(trigger.shirt)
                 .IfChosen(RemoveItem(trigger.shirt))
                 .IfChosen(new TriggerDialogueAction<ShirtGivenDialogue>())
+            )
+            .Choice(
+                new TextOption("Bye!!!")
+            )
+            .Choice(
+                new OtherItemOption().IfChosen(new TriggerDialogueAction<NoUseForThisDialogue>())
             );
-        Say("Bye!!!!");
     }
 }
 

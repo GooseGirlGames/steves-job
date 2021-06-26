@@ -32,3 +32,7 @@ public class ItemOption : DialogueOption {
         AddCondition(new HasItem(item));
     }
 }
+
+public class OtherItemOption : DialogueOption {
+    
+}
