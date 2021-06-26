@@ -25,6 +25,7 @@ public class DialogueManager : MonoBehaviour
     public InteractionHintUI hintUI;
     public bool instantTrigger = false;
     public Sprite defaultBackground;
+    public Sprite defaultAvatar;
 
     private Queue<Sentence> sentences;
     private Queue<UnityEvent> nextEvents;
@@ -188,7 +189,10 @@ public class DialogueManager : MonoBehaviour
         
         if (currentTrigger != null) {
             nameField.text = currentTrigger.name;
-            // TODO npcAvatar.sprite = currentTrigger.avatar;
+            if (currentTrigger.avatar)
+                npcAvatar.sprite = currentTrigger.avatar;
+            else
+                npcAvatar.sprite = defaultAvatar;
         }
         
 

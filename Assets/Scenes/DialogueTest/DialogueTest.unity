@@ -585,8 +585,8 @@ MonoBehaviour:
   playerInTrigger: 0
   hintPosition: {fileID: 1272155520}
   background: {fileID: 0}
-  avatar: {fileID: 0}
-  name: 
+  avatar: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  name: SampleExtendedDialogueTrigger
   bucket: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
   shirt: {fileID: 11400000, guid: af649a5495a8420779024c628d1042c9, type: 2}
 --- !u!212 &4673518012577945325
