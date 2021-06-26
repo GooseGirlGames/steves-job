@@ -223,7 +223,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     // https://answers.unity.com/questions/1142958/buttonselect-doesnt-highlight.html
-    IEnumerator SelectContinueButtonLater(Button button)
+    public static IEnumerator SelectContinueButtonLater(Button button)
     {
         yield return null;
         GameManager.Instance.EventSystem.SetSelectedGameObject(null);
