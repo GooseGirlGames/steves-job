@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3113057850223263576}
   - component: {fileID: 5459942266078303641}
   - component: {fileID: 3051035697306527840}
+  - component: {fileID: 1618101628247815772}
   m_Layer: 5
   m_Name: Slot4
   m_TagString: Untagged
@@ -76,6 +77,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1618101628247815772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195556320719029469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5815a424be7007afeb66ccef5b8c1335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 3051035697306527840}
+  button: {fileID: 1379548296401553050}
+  item: {fileID: 0}
 --- !u!1 &308548366255759137
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +409,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8150991301927392667}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8961315310096735106}
+        m_TargetAssemblyTypeName: InventorySlot, Assembly-CSharp
+        m_MethodName: OptionChosen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2422684094208291183
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,7 +646,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8150991301589234685}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6199787075086689085}
+        m_TargetAssemblyTypeName: InventorySlot, Assembly-CSharp
+        m_MethodName: OptionChosen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3826380373529828469
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,7 +778,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8150991300987681191}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1794714969629370638}
+        m_TargetAssemblyTypeName: InventorySlot, Assembly-CSharp
+        m_MethodName: OptionChosen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4153070001445337650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,7 +1074,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3051035697306527840}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1618101628247815772}
+        m_TargetAssemblyTypeName: InventorySlot, Assembly-CSharp
+        m_MethodName: OptionChosen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8150991300987681177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,6 +1098,7 @@ GameObject:
   - component: {fileID: 8150991300987681176}
   - component: {fileID: 8150991300987681190}
   - component: {fileID: 8150991300987681191}
+  - component: {fileID: 1794714969629370638}
   m_Layer: 5
   m_Name: Slot3
   m_TagString: Untagged
@@ -1099,6 +1164,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1794714969629370638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8150991300987681177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5815a424be7007afeb66ccef5b8c1335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 8150991300987681191}
+  button: {fileID: 6885772126555750370}
+  item: {fileID: 0}
 --- !u!1 &8150991301156303345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,6 +1271,7 @@ GameObject:
   - component: {fileID: 8150991301589234686}
   - component: {fileID: 8150991301589234684}
   - component: {fileID: 8150991301589234685}
+  - component: {fileID: 6199787075086689085}
   m_Layer: 5
   m_Name: Slot1
   m_TagString: Untagged
@@ -1256,6 +1337,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6199787075086689085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8150991301589234687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5815a424be7007afeb66ccef5b8c1335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 8150991301589234685}
+  button: {fileID: 3987923713969009352}
+  item: {fileID: 0}
 --- !u!1 &8150991301857769792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,16 +1466,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slots:
-  - image: {fileID: 8150991301589234685}
-    button: {fileID: 3987923713969009352}
-  - image: {fileID: 8150991301927392667}
-    button: {fileID: 4353654552542923251}
-  - image: {fileID: 8150991300987681191}
-    button: {fileID: 6885772126555750370}
-  - image: {fileID: 8150991300987681191}
-    button: {fileID: 1379548296401553050}
+  - {fileID: 6199787075086689085}
+  - {fileID: 8961315310096735106}
+  - {fileID: 1794714969629370638}
+  - {fileID: 1618101628247815772}
   canvas: {fileID: 8150991301857769805}
   visible: 0
+  dialogueOptionBoxes: {fileID: 0}
+  itemTextBox: {fileID: 0}
 --- !u!1 &8150991301927392669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,6 +1485,7 @@ GameObject:
   - component: {fileID: 8150991301927392668}
   - component: {fileID: 8150991301927392666}
   - component: {fileID: 8150991301927392667}
+  - component: {fileID: 8961315310096735106}
   m_Layer: 5
   m_Name: Slot2
   m_TagString: Untagged
@@ -1456,3 +1551,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8961315310096735106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8150991301927392669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5815a424be7007afeb66ccef5b8c1335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 8150991301927392667}
+  button: {fileID: 4353654552542923251}
+  item: {fileID: 0}

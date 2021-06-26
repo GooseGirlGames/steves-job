@@ -12,6 +12,16 @@ public class InventoryCanvasSlots : MonoBehaviour
     public GameObject dialogueOptionBoxes;
     public GameObject itemTextBox;
 
+    public static InventoryCanvasSlots Instance = null;
+    private void Awake() {
+        if (Instance != null) {
+            return;
+        }
+        Instance = this;
+        Clear();
+        canvas.enabled = false;
+    }
+
     public void ShowItemLoreBox(Item item) {
         dialogueOptionBoxes.SetActive(false);
         // TODO show actual lore
@@ -23,23 +33,30 @@ public class InventoryCanvasSlots : MonoBehaviour
         itemTextBox.SetActive(false);
     }
 
-    private void Awake() {
-        Clear();
-        canvas.enabled = false;
-    }
 
     private void Update() {
             
-        if (Input.GetKeyDown(KeyCode.Tab)) {
-            visible = !visible;
-            canvas.enabled = visible;
+        if (Input.GetKeyDown(KeyCode.Tab) && !DialogueManager.Instance.IsDialogueActive()) {
+            if (visible) Hide();
+            else Show();
         }
+    }
+
+    public void Show() {
+            visible = true;
+            canvas.enabled = true;
+    }
+
+    public void Hide() {
+            visible = false;
+            canvas.enabled = false;
     }
 
     private void Clear() {
         foreach (InventorySlot slot in slots) {
             slot.image.enabled = false;
             slot.image.sprite = null;
+            slot.button.gameObject.SetActive(false);
         }
     }
 
@@ -55,6 +72,8 @@ public class InventoryCanvasSlots : MonoBehaviour
         for (int i = 0; i < n; ++i) {
             slots[i].image.enabled = true;
             slots[i].image.sprite = visibleItems[i].icon;
+            slots[i].item = visibleItems[i];
+            slots[i].button.gameObject.SetActive(true);
         }
     }
 }

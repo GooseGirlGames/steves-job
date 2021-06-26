@@ -85,6 +85,7 @@ public class DialogueManager : MonoBehaviour
         DialogueManager.Log("Starting Dialogue");
         
         dialogueCanvas.enabled = true;
+        InventoryCanvasSlots.Instance.Show();
 
         if (otherDialogueWasActive && clearCurrent) {
             sentences.Clear();
@@ -116,15 +117,32 @@ public class DialogueManager : MonoBehaviour
     public void DisplayNextSentence(DialogueOption chosenOption = null, Item item = null) {
 
         if (item != null) {
+            Debug.Log("We've got an item!  It's " + item.name);
             foreach (DialogueOption opt in currentSentence.options) {
                 if (opt is ItemOption) {
                     ItemOption itemOption = (ItemOption) opt;
                     if (item == itemOption.item) {
+                        Debug.Log("Found option for item");
                         chosenOption = opt;
                     }
                 }
             }
+            if (chosenOption == null) {
+                Debug.Log("No option for item, searching OtherItemOption");
+                // Player has chosen an item for which no option is attachted to the sentence.
+                foreach (DialogueOption option in currentSentence.options) {
+                    if (option is OtherItemOption) {
+                        Debug.Log("OtherItemOption found");
+                        chosenOption = option;
+                    }
+                }
+            }
+            if (chosenOption == null) {
+                Debug.Log("Still no item, irgh");
+                return;
+            }
         }
+
         DialogueManager.Log("Displaying next sentence...");
         //while (nextEvents.Count != 0) {
         //    nextEvents.Dequeue().Invoke();
@@ -184,12 +202,19 @@ public class DialogueManager : MonoBehaviour
             foreach (var actionBox in actionBoxes)
                 actionBox.gameObject.SetActive(false);
 
-            int n = Mathf.Min(availableOptions.Count, actionBoxes.Count);
+            List<DialogueOption> shownOptions = new List<DialogueOption>();
+            foreach (DialogueOption availableOption in availableOptions) {
+                if (availableOption is TextOption) {
+                    shownOptions.Add(availableOption);
+                }
+            }
+
+            int n = Mathf.Min(shownOptions.Count, actionBoxes.Count);
             for (int i = 0; i < n; ++i) {
                 
                 DialogueOptionUI actionBox = actionBoxes[i];
                 actionBox.gameObject.SetActive(true);
-                DialogueOption option = availableOptions[i];
+                DialogueOption option = shownOptions[i];
 
                 actionBox.option = option;
 
@@ -243,6 +268,7 @@ public class DialogueManager : MonoBehaviour
         currentTrigger = null;
         stevecontroller steve = GameObject.FindObjectOfType<stevecontroller>();
         steve.Unlock(DIALOGUE_LOCK_TAG);
+        InventoryCanvasSlots.Instance.Hide();
     }
 
     private void SetTextboxBackground(Sprite sprite) {
