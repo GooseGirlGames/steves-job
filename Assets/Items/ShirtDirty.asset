@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: ShirtDirty
   m_EditorClassIdentifier: 
   name: Dirty Shirt
-  description: 
+  description: This "shirt" is beyond cleaning. Uhg ... is that a pice of brain?
   visible: 1
   icon: {fileID: 21300000, guid: ef2d27771d36e22bc9e278133687c1ca, type: 3}
   originWorld: 0
+  unique: 0
+  conflictingItems: []
