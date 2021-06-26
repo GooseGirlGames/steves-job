@@ -11,11 +11,11 @@ public class InventorySlot : MonoBehaviour {
     public void OptionChosen() {
         DialogueManager.Instance.DisplayNextSentence(item: item);
     }
-
+/* 
     public void Hovering() {
         InventoryCanvasSlots.Instance.ShowItemLoreBox(item);
     }
     public void StoppedHovering() {
         InventoryCanvasSlots.Instance.HideItemLoreBox();
-    }
+    } */
 }
