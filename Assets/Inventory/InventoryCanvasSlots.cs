@@ -14,6 +14,9 @@ public class InventoryCanvasSlots : MonoBehaviour
     
 
     public static InventoryCanvasSlots Instance = null;
+
+
+    public Animator toolBeltAnimator;
     private bool loreVisible = false;
     private void Awake() {
         if (Instance != null) {
@@ -104,6 +107,7 @@ public class InventoryCanvasSlots : MonoBehaviour
                 visibleItems.Add(item);
             }
         }
+        toolBeltAnimator.SetInteger("NumItems", visibleItems.Count);
         int n = Mathf.Min(slots.Count, visibleItems.Count);
         for (int i = 0; i < n; ++i) {
             slots[i].image.enabled = true;
