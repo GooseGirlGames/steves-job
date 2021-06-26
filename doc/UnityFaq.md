@@ -5,3 +5,6 @@ the way.  Here's a place to collect some of them.
 
 ## Can't click on anything in the UI
 An `EventSystem` might be missing from the scene.
+
+## Did UI work but everything's broken
+Don't start the game from a Prefab, instead start from a scene.
