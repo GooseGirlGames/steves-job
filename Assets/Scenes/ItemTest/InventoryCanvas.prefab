@@ -1324,6 +1324,7 @@ GameObject:
   - component: {fileID: 8150991301156303344}
   - component: {fileID: 8150991301156303358}
   - component: {fileID: 8150991301156303359}
+  - component: {fileID: 7490606560811692746}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -1392,6 +1393,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &7490606560811692746
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8150991301156303345}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9b747735fa9ef65edb1235cb42985aac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8150991301589234687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,6 +1626,7 @@ MonoBehaviour:
   visible: 0
   dialogueOptionBoxes: {fileID: 0}
   itemLoreBox: {fileID: 2857066172140888912}
+  toolBeltAnimator: {fileID: 7490606560811692746}
 --- !u!1 &8150991301927392669
 GameObject:
   m_ObjectHideFlags: 0
