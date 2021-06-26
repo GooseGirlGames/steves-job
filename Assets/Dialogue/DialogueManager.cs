@@ -117,6 +117,9 @@ public class DialogueManager : MonoBehaviour
     public void DisplayNextSentence(DialogueOption chosenOption = null, Item item = null) {
 
         if (item != null) {
+/*             InventoryCanvasSlots.Instance.SetActionBoxVisibility(true);
+            Debug.Log("DialogueMan is hiding lore");
+            InventoryCanvasSlots.Instance.HideItemLoreBox(); */
             Debug.Log("We've got an item!  It's " + item.name);
             foreach (DialogueOption opt in currentSentence.options) {
                 if (opt is ItemOption) {

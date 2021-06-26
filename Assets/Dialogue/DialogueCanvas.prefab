@@ -1857,6 +1857,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5894468276257197365}
+  - component: {fileID: 1119061438373927268}
   m_Layer: 5
   m_Name: ActionBoxes
   m_TagString: Untagged
@@ -1887,6 +1888,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1119061438373927268
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3440986745280852634}
+  m_CullTransparentMesh: 1
 --- !u!1 &6923478309757448056
 GameObject:
   m_ObjectHideFlags: 0

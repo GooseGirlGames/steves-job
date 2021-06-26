@@ -422,6 +422,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  Selected: 0
 --- !u!1 &2422684094208291183
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,6 +660,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  Selected: 0
 --- !u!1 &3826380373529828469
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,6 +793,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  Selected: 0
 --- !u!1 &4153070001445337650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,6 +1090,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  Selected: 0
 --- !u!1 &7990268227168553438
 GameObject:
   m_ObjectHideFlags: 0

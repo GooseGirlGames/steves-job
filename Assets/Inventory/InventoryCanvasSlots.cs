@@ -13,6 +13,7 @@ public class InventoryCanvasSlots : MonoBehaviour
     public GameObject itemLoreBox;
 
     public static InventoryCanvasSlots Instance = null;
+    private bool loreVisible = false;
     private void Awake() {
         if (Instance != null) {
             return;
@@ -21,21 +22,31 @@ public class InventoryCanvasSlots : MonoBehaviour
         Clear();
         canvas.enabled = false;
     }
-
+    public void SetActionBoxVisibility(bool visible) {
+        // not that big of a problem anymore, huh?
+        dialogueOptionBoxes.transform.localScale =
+                visible ? new Vector3(1, 1, 1) : new Vector3(0, 0, 0);
+    }
     public void ShowItemLoreBox(Item item) {
-        dialogueOptionBoxes.SetActive(false);
+        if (!Inventory.Instance.HasItem(item)) {
+            HideItemLoreBox();
+        }
+        Debug.Log("Acraulyy, we're *showing* lroe for " + item.name);
+        SetActionBoxVisibility(false);
         // TODO show actual lore
         itemLoreBox.SetActive(true);
+        loreVisible = true;
     }
 
     public void HideItemLoreBox() {
-        dialogueOptionBoxes.SetActive(true);
+        SetActionBoxVisibility(true);
         itemLoreBox.SetActive(false);
+        loreVisible = false;
     }
 
      public void CheckForSelectedItem() {
         foreach (InventorySlot slot in slots) {
-            if(slot.button.Selected) {
+            if(slot.button.IsActive() && slot.button.Selected) {
                 ShowItemLoreBox(slot.item);
                 return;
             }
@@ -52,6 +63,15 @@ public class InventoryCanvasSlots : MonoBehaviour
         if (visible) {
             CheckForSelectedItem();
         }
+
+        /*if (loreVisible) {
+            if (Input.GetKeyDown(KeyCode.D)) {
+                foreach (InventorySlot slot in slots) {
+                    slot.button.Selected = false;
+                }
+                HideItemLoreBox();
+            }
+        }*/
     }
 
     public void Show() {
