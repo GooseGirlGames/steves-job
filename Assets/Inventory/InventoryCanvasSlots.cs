@@ -11,6 +11,7 @@ public class InventoryCanvasSlots : MonoBehaviour
 
     public GameObject dialogueOptionBoxes;
     public LoreboxUI itemLoreBox;
+    public Animator itemLoreBoxAnimator;
     
 
     public static InventoryCanvasSlots Instance = null;
@@ -35,9 +36,8 @@ public class InventoryCanvasSlots : MonoBehaviour
         if (!Inventory.Instance.HasItem(item)) {
             HideItemLoreBox();
         }
-        Debug.Log("Acraulyy, we're *showing* lroe for " + item.name);
+        itemLoreBoxAnimator.SetInteger("World", (int) item.originWorld);
         SetActionBoxVisibility(false);
-        // TODO show actual lore
         itemLoreBox.DisplayLore(item);
         itemLoreBox.gameObject.SetActive(true);
         loreVisible = true;

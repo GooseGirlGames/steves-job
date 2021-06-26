@@ -16,6 +16,6 @@ MonoBehaviour:
   description: A dirty shirt. One run through the washingmashine should do the trick
   visible: 1
   icon: {fileID: 21300000, guid: dc1f2bb40259ae9b291bc1efa9670248, type: 3}
-  originWorld: 0
+  originWorld: 2
   unique: 1
   conflictingItems: []
