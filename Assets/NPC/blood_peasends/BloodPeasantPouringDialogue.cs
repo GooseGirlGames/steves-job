@@ -19,14 +19,11 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
         renderer = GetComponent<SpriteRenderer>();
         renderer.enabled = false;
     }
-
-    public void ShowPeasants() {
-        
-    }
     public void Pour() {
         StartCoroutine(PourAnimation());
     }
     private IEnumerator PourAnimation() {
+        TargetCamera.Disable();
         stevecontroller player = GameObject.FindObjectOfType<stevecontroller>();
         Vector3 playerPos = player.gameObject.transform.position;
         this.gameObject.transform.position = new Vector3(
@@ -56,7 +53,11 @@ public class PourDia : Dialogue {
         )
         .Choice(
             new TextOption("Do nothing")
-        );
+        )
+        .Do(() => {
+            Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
+            TargetCamera.Disable();
+        });
     }
 }
 

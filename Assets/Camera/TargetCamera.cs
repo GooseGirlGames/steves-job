@@ -11,8 +11,8 @@ public class TargetCamera : MonoBehaviour
     public CinemachineBlendDefinition overrideBlend;
     private static float? blendTimeOverride = null;
     private static bool hasMovedIn = false;
-    public static float IN_TRANSITION_ANIMATION_DURATION = 2f;  // seconds
-    public static float OUT_TRANSITION_ANIMATION_DURATION = 0.5f;  // seconds
+    public const float IN_TRANSITION_ANIMATION_DURATION = 2f;  // seconds
+    public const float OUT_TRANSITION_ANIMATION_DURATION = 0.5f;  // seconds
 
     public static void Target(Transform target, float? blendTime = null) {
         TargetCamera.blendTimeOverride = blendTime;
