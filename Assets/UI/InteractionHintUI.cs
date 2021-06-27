@@ -36,7 +36,7 @@ public class InteractionHintUI : MonoBehaviour
     }
 
     private void OnGUI() {
-        if (IsHinting())
+        if (IsHinting() && target)  // Ensure we actually have a hint location
             PositionHint();
     }
 
