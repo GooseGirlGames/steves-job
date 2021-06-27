@@ -38,7 +38,7 @@ public class DialogueManager : MonoBehaviour
 
     public float lastKeyPress = -1.0f;
     public const float KEY_PRESS_TIME_DELTA = 0.3f;  // seconds
-    public const float NEW_DIALOGUE_START_COOLDOWN = 1.0f;  // prevents option selection immediately re-triggering dialogue
+    public const float NEW_DIALOGUE_START_COOLDOWN = 0.0f;  // prevents option selection immediately re-triggering dialogue
     private const string DIALOGUE_LOCK_TAG = "DialogueManager";
 
     public static void Log(string msg) {
@@ -129,6 +129,15 @@ public class DialogueManager : MonoBehaviour
 
         /* Happens when an inventory item button is pressed outside of a dialogue */
         if (!IsDialogueActive()) return;
+
+        // When E is pressed to chose an option, the keypress time is not
+        // caught in DialogueManager's Update(), because DisplayNextSentence is
+        // called immedialtely from the button.
+        // This prevents re-triggering a dialogue that was exited by choosing an option.
+        // See #67 fore more info.
+        if (chosenOption != null || item != null) {
+            lastKeyPress = Time.fixedTime;
+        }
 
         if (item != null) {
 /*             InventoryCanvasSlots.Instance.SetActionBoxVisibility(true);
