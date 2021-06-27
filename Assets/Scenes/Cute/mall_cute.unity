@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 338782456}
   - component: {fileID: 338782455}
   m_Layer: 0
-  m_Name: Railing
+  m_Name: RailingAndPouringSteve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -529,13 +529,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338782451}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.37, y: 7.95, z: -12.571866}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.35999966, y: 5.59, z: -12.571866}
   m_LocalScale: {x: 3.708066, y: 3.708066, z: 1}
   m_Children:
   - {fileID: 399461819}
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 754316330}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &338782454
 MonoBehaviour:
@@ -557,8 +557,8 @@ MonoBehaviour:
   world: 1
   BloodBucket: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
   EmptyBucket: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
-  PourAnimator: {fileID: 0}
-  PeasantAnimator: {fileID: 0}
+  PourAnimator: {fileID: 338782455}
+  Peasants: {fileID: 681554902}
 --- !u!95 &338782455
 Animator:
   serializedVersion: 3
@@ -948,7 +948,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &681281031
 GameObject:
@@ -1019,7 +1019,7 @@ GameObject:
   - component: {fileID: 681554904}
   - component: {fileID: 681554903}
   m_Layer: 0
-  m_Name: group1
+  m_Name: Peasants
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1102,12 +1102,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681554902}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.73, y: 2.36, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.708066, y: 3.708066, z: 3.708066}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 754316330}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &725189931
 GameObject:
@@ -1189,7 +1189,39 @@ Transform:
   m_LocalScale: {x: 0.28879166, y: 0.27382624, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &754316329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 754316330}
+  m_Layer: 0
+  m_Name: PeasantBloodStuff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &754316330
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754316329}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.73, y: 2.3599997, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 338782453}
+  - {fileID: 681554905}
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &844735234
 PrefabInstance:
@@ -1200,7 +1232,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2735499171006709760, guid: b97aa0f17da8d4a5688669223a7e5e26, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2735499171006709760, guid: b97aa0f17da8d4a5688669223a7e5e26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1457,7 +1489,7 @@ Transform:
   m_LocalScale: {x: 3.708066, y: 3.708066, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1060849353
 BoxCollider2D:
@@ -1522,7 +1554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!70 &1069043826
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1603,7 +1635,7 @@ Transform:
   m_Children:
   - {fileID: 1114108016}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1069043829
 MonoBehaviour:
@@ -1627,6 +1659,7 @@ MonoBehaviour:
   sweetDirt: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
   mop: {fileID: 11400000, guid: 4ede00896a3a06c1c8663f783437d87e, type: 2}
   racoon: {fileID: 725189931}
+  player: {fileID: 0}
 --- !u!1 &1114108015
 GameObject:
   m_ObjectHideFlags: 0
@@ -2107,7 +2140,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1991194469
 PrefabInstance:
