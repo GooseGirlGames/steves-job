@@ -15,9 +15,11 @@ public class InventoryCanvasSlots : MonoBehaviour
     
 
     public static InventoryCanvasSlots Instance = null;
+    private Button firstItemBoxButton = null;
 
 
     public Animator toolBeltAnimator;
+    private const string INVENTORY_LOCK_TAG = "Inventory";
     private bool loreVisible = false;
     private void Awake() {
         if (Instance != null) {
@@ -61,8 +63,14 @@ public class InventoryCanvasSlots : MonoBehaviour
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Tab) && !DialogueManager.Instance.IsDialogueActive()) {
-            if (visible) Hide();
-            else Show();
+            if (visible) {
+                Hide();
+            } else {
+                Show();
+                if (firstItemBoxButton != null) {
+                    StartCoroutine(UIUtility.SelectButtonLater(firstItemBoxButton));
+                }
+            }
         }
 
         if (visible) {
@@ -80,6 +88,8 @@ public class InventoryCanvasSlots : MonoBehaviour
     }
 
     public void Show() {
+            stevecontroller steve = GameObject.FindObjectOfType<stevecontroller>();
+            steve.Lock(INVENTORY_LOCK_TAG);
             DisplayItems(Inventory.Instance.items);
             visible = true;
             canvas.enabled = true;
@@ -89,6 +99,12 @@ public class InventoryCanvasSlots : MonoBehaviour
             DisplayItems(Inventory.Instance.items);
             visible = false;
             canvas.enabled = false;
+            HideItemLoreBox();
+            foreach (InventorySlot slot in slots) {
+                slot.button.Selected = false;
+            }
+            stevecontroller steve = GameObject.FindObjectOfType<stevecontroller>();
+            steve.Unlock(INVENTORY_LOCK_TAG);
     }
 
     private void Clear() {
@@ -97,6 +113,7 @@ public class InventoryCanvasSlots : MonoBehaviour
             slot.image.sprite = null;
             slot.button.gameObject.SetActive(false);
         }
+        firstItemBoxButton = null;
     }
 
     public void DisplayItems(List<Item> items) {
@@ -114,6 +131,9 @@ public class InventoryCanvasSlots : MonoBehaviour
             slots[i].image.sprite = visibleItems[i].icon;
             slots[i].item = visibleItems[i];
             slots[i].button.gameObject.SetActive(true);
+            if (i == 0) {
+                firstItemBoxButton = slots[i].button;
+            }
         }
     }
 }

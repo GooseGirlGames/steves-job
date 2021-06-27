@@ -7,6 +7,6 @@ public class StartButtonPreSelect : MonoBehaviour
 {
     public Button button;
     private void Awake() {
-        StartCoroutine(DialogueManager.SelectContinueButtonLater(button));
+        StartCoroutine(UIUtility.SelectButtonLater(button));
     }
 }

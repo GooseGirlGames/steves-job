@@ -126,11 +126,15 @@ public class DialogueManager : MonoBehaviour
     // The item may or may not trigger a specific or useful action/respoonse.
     public void DisplayNextSentence(DialogueOption chosenOption = null, Item item = null) {
 
+        /* Happens when an inventory item button is pressed outside of a dialogue */
+        if (!IsDialogueActive()) return;
+
         if (item != null) {
 /*             InventoryCanvasSlots.Instance.SetActionBoxVisibility(true);
             Debug.Log("DialogueMan is hiding lore");
             InventoryCanvasSlots.Instance.HideItemLoreBox(); */
             Debug.Log("We've got an item!  It's " + item.name);
+
             foreach (DialogueOption opt in currentSentence.options) {
                 if (opt is ItemOption) {
                     ItemOption itemOption = (ItemOption) opt;
@@ -248,8 +252,7 @@ public class DialogueManager : MonoBehaviour
                     actionBox.button.interactable = true;
                 }
                 if (i == 0) {
-                    //GameManager.Instance.EventSystem.SetSelectedGameObject(actionBox.button.gameObject);
-                    StartCoroutine(SelectContinueButtonLater(actionBox.button));
+                    StartCoroutine( UIUtility.SelectButtonLater(actionBox.button));
                 }
             }
             foreach (Animator uiAnimator in uiAnimators) {
@@ -267,14 +270,6 @@ public class DialogueManager : MonoBehaviour
         if (currentSentence != null)
             currentSentence.Act(sentenceStillOnScreen: true);
 
-    }
-
-    // https://answers.unity.com/questions/1142958/buttonselect-doesnt-highlight.html
-    public static IEnumerator SelectContinueButtonLater(Button button)
-    {
-        yield return null;
-        GameManager.Instance.EventSystem.SetSelectedGameObject(null);
-        GameManager.Instance.EventSystem.SetSelectedGameObject(button.gameObject);
     }
 
     public void EndDialogue() {
