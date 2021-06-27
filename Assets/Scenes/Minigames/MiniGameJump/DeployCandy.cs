@@ -6,6 +6,10 @@ public class DeployCandy : MonoBehaviour
 {
     public Portal Portal;
 
+    public GameObject racoon;
+    private Vector3 racoon_pos;
+    public RacoonHit racoonHit;
+
     public GameObject[] candyPrefabs;
     public GameObject[] spawns;
     private GameObject tmp;
@@ -38,12 +42,18 @@ public class DeployCandy : MonoBehaviour
     }
 
     private void spawnCandy(){
+        racoonHit = racoon.GetComponent<RacoonHit>();
         int rand_spawn = Random.Range(0, spawns.Length);
+        float rand_x_pos = Random.Range(5.0f,10.0f);
+        float rand_y_pos = Random.Range(0.0f,6.0f);
         Vector2 candyPrefab_pos = new Vector2(spawns[rand_spawn].transform.position.x, spawns[rand_spawn].transform.position.y);        
         int random = Random.Range(0,candyPrefabs.Length);
         tmp = candyPrefabs[random];
-        spawn = Instantiate(tmp, candyPrefab_pos, Quaternion.identity) as GameObject;
+        if(racoonHit.hit == true){
+            spawn = Instantiate(tmp, candyPrefab_pos, Quaternion.identity) as GameObject;
+        }   
     }
+
 
     IEnumerator timedSpawn(){
         while(true){
@@ -103,6 +113,10 @@ public class DeployCandy : MonoBehaviour
         if(health <= 0.0f){
             GameLost();
         } 
+
+        racoon_pos = new Vector3(player.position.x + 4.0f, player.position.y);
+        racoon.transform.position = racoon_pos;
+        
         
         moveBar = new Vector3(player.position.x, player.position.y + 0.8f, 1);
         bar.transform.position = moveBar;
