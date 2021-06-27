@@ -19,7 +19,6 @@ public class DeployCandy : MonoBehaviour
     private Vector2 screenBounds;
     private Vector2 bounds;
     public Transform player;
-    private bool hit = false;
     public GameObject stop;
     
     

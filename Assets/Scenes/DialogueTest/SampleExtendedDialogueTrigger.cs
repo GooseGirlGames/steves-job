@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SampleExtendedDialogueTrigger : DialogueTrigger
 {
-    public Dialogue bye;
-    private bool saidHello = false;
     public Item bucket;
     public Item shirt;
     public override Dialogue GetActiveDialogue() {

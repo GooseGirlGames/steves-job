@@ -136,4 +136,8 @@ public class InventoryCanvasSlots : MonoBehaviour
             }
         }
     }
+
+    public bool IsLoreVisible() {
+        return loreVisible;
+    }
 }
