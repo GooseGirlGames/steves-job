@@ -30,6 +30,7 @@ public class stevecontroller : MonoBehaviour {
     private Transform crouchTransform;
     private float characterHeight; //Initial height
     [SerializeField] private bool crouch = false;
+    [SerializeField] private bool always_walking = false;
 
     private bool movementLocked = false;
     // Whenever Lock() is called, a tag is passed and stored here.
@@ -69,9 +70,6 @@ public class stevecontroller : MonoBehaviour {
         }
     }
 
-    public void Crouch(){
-        
-    }
 
     void OnCollisionEnter2D(Collision2D collision){
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground")){
@@ -149,29 +147,35 @@ public class stevecontroller : MonoBehaviour {
         //Debug.Log(horizontal_move);
         //Debug.Log(is_grounded);
         //Debug.Log(crouch);
-        horizontal_move = Input.GetAxis("Horizontal") * movement_speed;
 
-        SetAnimatorVars();
-
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f){
-            crouch = true; 
-            GetComponent<CircleCollider2D>().offset = new Vector2(0.1f,0.05f);
-            
-            
-        }  
-        if (Input.GetKeyUp(KeyCode.LeftShift)){
-            crouch = false; 
-            GetComponent<CircleCollider2D>().offset = new Vector2(0.00499999942f,0.195528999f);
-
-        }  
-
-        if (Input.GetButtonDown("Jump") && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f) 
-        {
-            m_rigitbody.AddForce(new Vector2(0, jump_height), ForceMode2D.Impulse);
-            m_cam_vec.x = m_rigitbody.position.x;
-            m_cam.transform.position = m_cam_vec;
+        if(always_walking == true){
+            horizontal_move = movement_speed;
+        } else {
+            horizontal_move = Input.GetAxis("Horizontal") * movement_speed;
         }
 
+        SetAnimatorVars();
+        
+        if (Input.GetKey(KeyCode.LeftShift) && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f && is_grounded){
+            crouch = true; 
+            GetComponent<CircleCollider2D>().offset = new Vector2(0.1f,0.05f);  
+        } 
+        if(Input.GetButtonUp("Jump") && Input.GetKey(KeyCode.LeftShift)){
+            crouch = true;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift)){
+            crouch = false; 
+        }  
+        if (Input.GetButtonDown("Jump") && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f) 
+        {   
+            crouch = false;
+            m_rigitbody.AddForce(new Vector2(0, jump_height), ForceMode2D.Impulse);
+            m_cam_vec.x = m_rigitbody.position.x;
+            m_cam.transform.position = m_cam_vec;   
+        }  
+        if(!crouch){
+            GetComponent<CircleCollider2D>().offset = new Vector2(0.00499999942f,0.195528999f);
+        }       
     }
 
 
