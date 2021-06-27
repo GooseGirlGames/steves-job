@@ -7,9 +7,9 @@ public class DeployCandy : MonoBehaviour
     public Portal Portal;
 
     public GameObject[] candyPrefabs;
+    public GameObject[] spawns;
     private GameObject tmp;
     private GameObject spawn;
-    private GameObject spawn2;
 
     private GameObject bar;
     private Vector3 moveBar;
@@ -19,7 +19,6 @@ public class DeployCandy : MonoBehaviour
     private Vector2 screenBounds;
     private Vector2 bounds;
     public Transform player;
-    private bool hit = false;
     public GameObject stop;
     
     
@@ -39,16 +38,11 @@ public class DeployCandy : MonoBehaviour
     }
 
     private void spawnCandy(){
-        Vector2 candyPrefab2_pos = new Vector2(player.position.x + 6, screenBounds.y - 1.3f);
-        Vector2 candyPrefab_pos = new Vector2(player.position.x + 6, screenBounds.y - 3.0f);
+        int rand_spawn = Random.Range(0, spawns.Length);
+        Vector2 candyPrefab_pos = new Vector2(spawns[rand_spawn].transform.position.x, spawns[rand_spawn].transform.position.y);        
         int random = Random.Range(0,candyPrefabs.Length);
         tmp = candyPrefabs[random];
-        if(random == 0){
-           spawn = Instantiate(tmp, candyPrefab_pos, Quaternion.identity) as GameObject;
-        }
-        if(random == 1){
-           spawn2 = Instantiate(tmp, candyPrefab2_pos, Quaternion.identity) as GameObject;
-        }       
+        spawn = Instantiate(tmp, candyPrefab_pos, Quaternion.identity) as GameObject;
     }
 
     IEnumerator timedSpawn(){
@@ -91,14 +85,6 @@ public class DeployCandy : MonoBehaviour
                     health -= .1f; 
                 }
                 spawn.GetComponent<Sweets>().notYetTriggered = false;
-            }
-        }
-        if(spawn2 != null){
-            if(spawn2.GetComponent<Sweets>().trigger){
-                if(spawn2.GetComponent<Sweets>().notYetTriggered){
-                    health -= .1f; 
-                }
-                spawn2.GetComponent<Sweets>().notYetTriggered = false;
             }
         }
     }

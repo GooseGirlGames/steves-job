@@ -8,9 +8,9 @@ public class CandyDialouge : DialogueTrigger
     public Item sweetDirt;
     public Item mop;
     public GameObject racoon;
-/*     public Transform player;
-    private float racoon_pos;
-    private float player_pos; */
+    public Transform player;
+    private Vector2 racoon_pos;
+    private float player_pos;
 
     public void Start()
     {
@@ -20,19 +20,18 @@ public class CandyDialouge : DialogueTrigger
 
     public void racoonActivated(){
         racoon.SetActive(true);
-/*         racoon_pos = racoon.transform.position.x;
-        player_pos = player.position.x;
-        while(racoon_pos != player_pos - 3.0f){
-            racoon.transform.position.x = racoon_pos + 0.1f;
-        } */
-
+        while(racoon_pos.x != player_pos - 3.0f){
+            racoon_pos.x  = racoon.gameObject.transform.position.x + 0.1f;
+        }
     }
 
     public void floorCleaned(){
         Inventory.Instance.AddItem(sweetDirt);
-        racoonActivated();
+        racoonActivated(); 
         Destroy(this.gameObject);
     }
+
+
     [SerializeField]
     public Dialogue hasMopDia;
     public Dialogue needMopDia;
@@ -40,8 +39,13 @@ public class CandyDialouge : DialogueTrigger
     public override Dialogue GetActiveDialogue() {
         if (Inventory.Instance.HasItem(mop)) {
             return hasMopDia;
-            
         }
        return needMopDia; 
+    }
+
+    public void Update()
+    {
+        racoon_pos = racoon.gameObject.transform.position;
+        player_pos = player.position.x;
     }
 }

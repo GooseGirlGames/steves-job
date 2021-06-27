@@ -29,6 +29,8 @@ public class JimmyDefaultDialogue : Dialogue {
 
         JimmyDialogue diaTrigger = (JimmyDialogue) JimmyDialogue.Instance;
 
+        Say("Hey there, Janitor!");
+
         Say("Pipes are busted, can ya help?")
             .Choice(
                 new TextOption("Yes")
