@@ -38,7 +38,6 @@ public class DialogueManager : MonoBehaviour
 
     public float lastKeyPress = -1.0f;
     public const float KEY_PRESS_TIME_DELTA = 0.3f;  // seconds
-    public const float NEW_DIALOGUE_START_COOLDOWN = 0.0f;  // prevents option selection immediately re-triggering dialogue
     private const string DIALOGUE_LOCK_TAG = "DialogueManager";
 
     public static void Log(string msg) {
@@ -288,7 +287,6 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void DialogueEnded() {
-        lastKeyPress += NEW_DIALOGUE_START_COOLDOWN;
         DialogueManager.Log("Dialog Ended");
         dialogueCanvas.enabled = false;
         //canBeAdvancedByKeypress = true;
@@ -307,20 +305,16 @@ public class DialogueManager : MonoBehaviour
 
     private void Update() {
         if (!IsDialogueActive()) {
-            // Set anyway to avoid re-triggering a dialogue when a dialogue is exited 
-            // because an option was chosen.  Also see #67.
-            // TODO if (Input.GetKeyDown(DIALOGUE_KEY)) lastKeyPress = Time.fixedTime;
             return;
         }
         
-        bool tooFast = (Time.fixedTime - lastKeyPress) < KEY_PRESS_TIME_DELTA;
-        
-        if (Input.GetKeyDown(DIALOGUE_KEY)) {
-            DialogueManager.Log("E Pressed!");
+        if (Time.fixedTime - lastKeyPress < KEY_PRESS_TIME_DELTA) {
+            //DialogueManager.Log("Too fast " + Time.fixedTime + ", " + lastKeyPress);
+            return;
+        }
+        if (canBeAdvancedByKeypress && Input.GetKeyDown(DIALOGUE_KEY)) {
             lastKeyPress = Time.fixedTime;
-            if (!tooFast && canBeAdvancedByKeypress) {
-                DisplayNextSentence();
-            }
+            DisplayNextSentence();
         }
     }
 
