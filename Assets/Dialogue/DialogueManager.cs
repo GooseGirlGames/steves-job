@@ -270,9 +270,12 @@ public class DialogueManager : MonoBehaviour
                         + (int) currentTrigger.world);
                 uiAnimator.SetInteger("World", (int) currentTrigger.world);
             }
+            InventoryCanvasSlots.Instance.SetSlotButtonsInteractable(true);
         } else {
-            foreach (var actionBox in actionBoxes)
+            foreach (var actionBox in actionBoxes) {
                 actionBox.gameObject.SetActive(false);
+                InventoryCanvasSlots.Instance.SetSlotButtonsInteractable(false);
+            }
             canBeAdvancedByKeypress = true;
         }
 
