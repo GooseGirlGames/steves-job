@@ -140,4 +140,10 @@ public class InventoryCanvasSlots : MonoBehaviour
     public bool IsLoreVisible() {
         return loreVisible;
     }
+
+    public void SetSlotButtonsInteractable(bool interactable) {
+        foreach (InventorySlot slot in slots) {
+            slot.button.interactable = interactable;
+        }
+    }
 }
