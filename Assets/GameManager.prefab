@@ -64,7 +64,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aaf8ddad01097b9289c10c95b10b0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - {fileID: 11400000, guid: 4ede00896a3a06c1c8663f783437d87e, type: 2}
+  - {fileID: 11400000, guid: 468a6ae257694562f8dbe1fbe00b1916, type: 2}
   inventoryCanvasSlots: {fileID: 3290849758222690369}
   has_shirt: 0
 --- !u!114 &1023172755399256061
