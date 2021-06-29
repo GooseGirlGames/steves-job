@@ -146,4 +146,8 @@ public class InventoryCanvasSlots : MonoBehaviour
             slot.button.interactable = interactable;
         }
     }
+
+    public bool IsShowing() {
+        return canvas.enabled;
+    }
 }
