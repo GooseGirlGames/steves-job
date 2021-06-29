@@ -12,6 +12,7 @@ Dialog1(first Approach):
     - jimmy then he explains his situatuen, that everything is so clean that he is basicly without purpose
     - he dont want money because it is his live purpose
     - !!! giftes ur the bucket because he has no use for it !!!
+    - "Can I do something else for your?"
     - 
     
 Dialogue2*/
