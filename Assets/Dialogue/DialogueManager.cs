@@ -291,6 +291,9 @@ public class DialogueManager : MonoBehaviour
 
     private void DialogueEnded() {
         DialogueManager.Log("Dialog Ended");
+        foreach (var actionBox in actionBoxes) {
+            actionBox.gameObject.SetActive(false);
+        }
         dialogueCanvas.enabled = false;
         //canBeAdvancedByKeypress = true;
         activeDialogue = null;
