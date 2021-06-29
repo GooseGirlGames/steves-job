@@ -6,7 +6,8 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
     public Item BloodBucket;
     public Item EmptyBucket;
     public Animator PourAnimator;
-    public Animator PeasantAnimator;
+    public GameObject Peasants;
+    // public Animator PeasantAnimator;  TODO even Needed?
     new private SpriteRenderer renderer;
     public override Dialogue GetActiveDialogue() {
         return new PourDia(this);
@@ -19,6 +20,10 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
         renderer.enabled = false;
     }
     public void Pour() {
+        StartCoroutine(PourAnimation());
+    }
+    private IEnumerator PourAnimation() {
+        TargetCamera.Disable();
         stevecontroller player = GameObject.FindObjectOfType<stevecontroller>();
         Vector3 playerPos = player.gameObject.transform.position;
         this.gameObject.transform.position = new Vector3(
@@ -28,6 +33,11 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
         );
         renderer.enabled = true;
         player.Lock("BloodPouring", hide: true);
+        TargetCamera.Target(Peasants.gameObject.transform, blendTime: 5.0f);
+        yield return new WaitForSeconds(5);
+        TargetCamera.Disable();
+        yield return new WaitForSeconds(2);
+        PourAnimator.SetTrigger("StartPouring");
     }
 }
 
@@ -43,7 +53,11 @@ public class PourDia : Dialogue {
         )
         .Choice(
             new TextOption("Do nothing")
-        );
+        )
+        .Do(() => {
+            Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
+            TargetCamera.Disable();
+        });
     }
 }
 

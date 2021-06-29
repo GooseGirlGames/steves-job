@@ -129,6 +129,15 @@ public class DialogueManager : MonoBehaviour
         /* Happens when an inventory item button is pressed outside of a dialogue */
         if (!IsDialogueActive()) return;
 
+        // When E is pressed to chose an option, the keypress time is not
+        // caught in DialogueManager's Update(), because DisplayNextSentence is
+        // called immedialtely from the button.
+        // This prevents re-triggering a dialogue that was exited by choosing an option.
+        // See #67 fore more info.
+        if (chosenOption != null || item != null) {
+            lastKeyPress = Time.fixedTime;
+        }
+
         if (item != null) {
 /*             InventoryCanvasSlots.Instance.SetActionBoxVisibility(true);
             Debug.Log("DialogueMan is hiding lore");
@@ -261,9 +270,12 @@ public class DialogueManager : MonoBehaviour
                         + (int) currentTrigger.world);
                 uiAnimator.SetInteger("World", (int) currentTrigger.world);
             }
+            InventoryCanvasSlots.Instance.SetSlotButtonsInteractable(true);
         } else {
-            foreach (var actionBox in actionBoxes)
+            foreach (var actionBox in actionBoxes) {
                 actionBox.gameObject.SetActive(false);
+                InventoryCanvasSlots.Instance.SetSlotButtonsInteractable(false);
+            }
             canBeAdvancedByKeypress = true;
         }
 
@@ -280,6 +292,7 @@ public class DialogueManager : MonoBehaviour
     private void DialogueEnded() {
         DialogueManager.Log("Dialog Ended");
         dialogueCanvas.enabled = false;
+        //canBeAdvancedByKeypress = true;
         activeDialogue = null;
         currentSentence = null;
         currentTrigger = null;

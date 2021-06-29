@@ -431,7 +431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Portal: {fileID: 402623968}
   racoon: {fileID: 544683669}
-  racoonHit: {fileID: 0}
+  racoonHit: {fileID: 544683674}
   candyPrefabs:
   - {fileID: 5568731884954774783, guid: e13ed10e47103c881b21cfe1417cdbe7, type: 3}
   - {fileID: 6810234081739629159, guid: 81914f33cb702d490825796ad90fa021, type: 3}

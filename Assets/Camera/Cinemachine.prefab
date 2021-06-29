@@ -160,6 +160,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35bd60fcdfb285ace98c7ff20d6d2043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  brain: {fileID: 8166448267601284541}
+  overrideBlend:
+    m_Style: 1
+    m_Time: 0
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
 --- !u!1 &7816054204784392251
 GameObject:
   m_ObjectHideFlags: 0
