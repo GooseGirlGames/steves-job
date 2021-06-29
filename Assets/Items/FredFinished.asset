@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a384481017c7d11e6be52b993588aa4a, type: 3}
-  m_Name: Bucket
+  m_Name: FredFinished
   m_EditorClassIdentifier: 
-  name: Empty Bucket
-  description: A simple Bucket. The best place for my mop and and 10 liters of semi
-    clean water.
-  visible: 1
-  icon: {fileID: 21300000, guid: 384cb83dd8e7d2a38a56752470238a02, type: 3}
-  originWorld: 1
+  name: FredFinished
+  description: Ur need for knowing if Fred is comlete
+  visible: 0
+  icon: {fileID: 0}
+  originWorld: 0
   unique: 1
-  conflictingItems:
-  - {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
+  conflictingItems: []
