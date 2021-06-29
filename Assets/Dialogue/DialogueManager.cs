@@ -296,6 +296,7 @@ public class DialogueManager : MonoBehaviour
         activeDialogue = null;
         currentSentence = null;
         currentTrigger = null;
+        InventoryCanvasSlots.Instance.SetSlotButtonsInteractable(true);
         stevecontroller steve = GameObject.FindObjectOfType<stevecontroller>();
         steve.Unlock(DIALOGUE_LOCK_TAG);
         InventoryCanvasSlots.Instance.Hide();
