@@ -16,7 +16,13 @@ public class Uwu {
             .Replace("na", "nya")
             .Replace("No", "Nyo")
             .Replace("Na", "Nya")
-        ;
+            .Replace("small", "smol")
+            .Replace("cute", "kawaii")
+            .Replace("fluff", "floof")
+            .Replace("love", "luv")
+            .Replace("stupid", "baka")
+            .Replace("what", "nani")
+            .Replace("meow", "nya");
     }
         
 }
