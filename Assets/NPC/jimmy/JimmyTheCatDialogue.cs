@@ -12,10 +12,37 @@ Dialog1(first Approach):
     - jimmy then he explains his situatuen, that everything is so clean that he is basicly without purpose
     - he dont want money because it is his live purpose
     - !!! giftes ur the bucket because he has no use for it !!!
-    - "Can I do something else for your?"
-    - 
+    - "well can I do something else for your?"
+    - Itemoptions:
+        - dirty shirt   -> clean shirt
+        - clean shirt   -> clean shirt "nothing to here *cries* "
+        - shirt         -> clean shirt
+        - babelfish     -> "a snack!" (!remove it!)
+        - bloodbucked   -> bucked "i cleaned it for your, it is good to go"
+        - bloody marry  -> "Sorry ... I'm not that.. Thirsty?? ... uff"
     
-Dialogue2*/
+Dialogue2(after having the bucked):
+    - ... (boring idle doialogue)  ...
+    - Hallo ... Do your have something to clean for me?
+    - I really need customers.. if your find someone dirty send him to me!!!
+    - Itemoptions:
+        - dirty shirt   -> clean shirt
+        - clean shirt   -> clean shirt "nothing to here *cries* "
+        - shirt         -> clean shirt
+        - babelfish     -> "a snack!" (!remove it!)
+        - bloodbucked   -> bucked "i cleaned it for your, it is good to go"
+        - bloody marry  -> "Sorry ... I'm not that.. Thirsty?? ... uff"
+
+
+Dialogue3(wenn peasents dirty sind, maybe getriggert durch finalitem or something):
+    - "OMG finaly some custimors, thats all I ever want in my life"
+    - "my purpose is finaly fullfilled"
+    - "Thank your so much janitor"
+    - "here for your hard work, all my money!!" --> gets a single coin
+    - "sorry it is not more i dont take money for claening ever"
+    - "Ah whats happening bild fadet in schwarz und part der mall fehlt"
+    
+    */
 public class JimmyTheCatDialogue : DialogueTrigger{
     public static new JimmyTheCatDialogue Instance = null;
     public Item bucket;
@@ -24,6 +51,7 @@ public class JimmyTheCatDialogue : DialogueTrigger{
     public Item clean_shirt;
     public Item dirty_shirt;
     public Item babelfish;
+    public Item bloody_mary;
     
     
     private void Awake() {
