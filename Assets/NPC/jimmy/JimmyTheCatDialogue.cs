@@ -59,11 +59,11 @@ public class JimmyTheCatDialogue : DialogueTrigger{
     }
 
     public override Dialogue GetActiveDialogue(){
-        if (Inventory.Instance.HasItem(bucket)||Inventory.Instance.HasItem(bucketfull)){
-            return new DefaultDialogue();
-        }
-        else if (Inventory.Instance.HasItem(finished)){
+        if (Inventory.Instance.HasItem(finished)){
             return new FinalDialogue();
+        }
+        else if (Inventory.Instance.HasItem(bucket)||Inventory.Instance.HasItem(bucketfull)){
+            return new DefaultDialogue();
         }
         return new StartDialogue();
     }
