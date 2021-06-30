@@ -5,8 +5,12 @@ using UnityEngine;
 public class BloodPeasantPouringDialogue : DialogueTrigger {
     public Item BloodBucket;
     public Item EmptyBucket;
+    public Item CatFinisher;
     public Animator PourAnimator;
+    public Animator transitionAnimation;
+
     public GameObject Peasants;
+    public GameObject BloodPeasents;
     // public Animator PeasantAnimator;  TODO even Needed?
     new private SpriteRenderer renderer;
     public override Dialogue GetActiveDialogue() {
@@ -18,10 +22,15 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
     private void Awake() {
         renderer = GetComponent<SpriteRenderer>();
         renderer.enabled = false;
+        if (transitionAnimation) {
+            transitionAnimation.SetFloat("Speed", 0.6f);
+        }
     }
     public void Pour() {
         StartCoroutine(PourAnimation());
     }
+
+    
     private IEnumerator PourAnimation() {
         TargetCamera.Disable();
         stevecontroller player = GameObject.FindObjectOfType<stevecontroller>();
@@ -36,8 +45,19 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
         TargetCamera.Target(Peasants.gameObject.transform, blendTime: 5.0f);
         yield return new WaitForSeconds(5);
         TargetCamera.Disable();
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2.6f);
         PourAnimator.SetTrigger("StartPouring");
+        yield return new WaitForSeconds(2);
+        transitionAnimation.SetTrigger("ExitScene");
+        yield return new WaitForSeconds(1);
+        Peasants.GetComponent<Renderer>().enabled = false;
+        BloodPeasents.GetComponent<Renderer>().enabled = true;
+        renderer.enabled = false;
+        yield return new WaitForSeconds(2);
+        player.Unlock("BloodPouring");
+        Inventory.Instance.AddItem(CatFinisher);
+        transitionAnimation.SetTrigger("EnterScene");
+
     }
 }
 
