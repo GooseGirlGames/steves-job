@@ -7,6 +7,7 @@ public class BloodPeasantCameraHint : MonoBehaviour {
     private Coroutine hintCoroutine = null;
     private void OnTriggerEnter2D(Collider2D other) {
         if (!SteveUtil.IsSteve(other)) return;
+        if (Inventory.Instance.HasItemByName("JimmyTheCatFinished")) return;
         if (hintCoroutine == null) {
             hintCoroutine = StartCoroutine(DelayHintingPeasants(1.5f));
         }
