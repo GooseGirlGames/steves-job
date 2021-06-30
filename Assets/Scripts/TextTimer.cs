@@ -11,6 +11,7 @@ public class TextTimer : MonoBehaviour
     public float timeValue = 30f;
     public Text timeText;
     public Item winItem;
+    public Item lostItem;
     
     void Update()
     {
@@ -30,8 +31,10 @@ public class TextTimer : MonoBehaviour
         if(stringTime < 0){
             stringTime = 0;
             DialogueManager.Instance.SetInstantTrue();
+            Inventory.Instance.RemoveItem(lostItem);
             Inventory.Instance.AddItem(winItem);
             portalBackToMall.TriggerTeleport();
+
 
         }
         float seconds = Mathf.FloorToInt(stringTime%60);

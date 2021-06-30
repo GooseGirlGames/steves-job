@@ -56,7 +56,7 @@ public class BloodFalling : MonoBehaviour {
         loserPortal.TriggerTeleport();
         DialogueManager.Instance.SetInstantTrue();
         Inventory.Instance.AddItem(lostItem);
-        Debug.Log("bucket");
+        //Debug.Log("bucket");
     }
 
     void Update(){

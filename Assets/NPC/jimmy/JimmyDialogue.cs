@@ -10,8 +10,8 @@ public class JimmyDialogue : DialogueTrigger
     public Item dirty_shirt;
     public Item bucket;
     public Item empty;
-    public bool gameLost = false;
-    public bool gamePlayed = false;
+    public Item gameLost;
+    public Item gamePlayed;
     public static new JimmyDialogue Instance = null;
 
 
@@ -20,10 +20,10 @@ public class JimmyDialogue : DialogueTrigger
     }
 
     public override Dialogue GetActiveDialogue() {
-        if (gamePlayed) {
+        if (Inventory.Instance.HasItem(gamePlayed)) {
             return new NoBigAnswer();
         }
-        else if (gameLost){
+        else if (Inventory.Instance.HasItem(gameLost)){
             return new JimmyLoseDialogue();
         }
         if (Inventory.Instance.HasItem(bucket)) {
@@ -74,7 +74,8 @@ public class BucketMissing : Dialogue {
 public class CantDoAnythingWithIt : Dialogue {
     public CantDoAnythingWithIt() {
         Say("uhhh...this...uhh..well that is awkward");
-        Say("I just dont know what to do with it");
+        Say("I just dont know what to do with it")
+            .Choice(new TextOption("..."));
     }
 }
 /*----------------------- Game has been won --------------------------------------------*/
@@ -82,6 +83,7 @@ public class NoBigAnswer : Dialogue {
     public NoBigAnswer() {
         Say("What's your problem?");
         Say("You have something to clean?")
+        .Choice(new TextOption("..."))
         .Choice(new ItemOption(JimmyDialogue.Instance.empty)
             .IfChosen(GiveItem(JimmyDialogue.Instance.bucket))
             .IfChosen(new TriggerDialogueAction<BucketFilledUp>()))
@@ -109,21 +111,24 @@ public class CleanShirtDia : Dialogue {
 public class DirtyShirtDia : Dialogue {
     public DirtyShirtDia() {
         Say("looks completely fine to me");
-        Say("I dont know what you want me to do with that");
+        Say("I dont know what you want me to do with that")
+            .Choice(new TextOption("..."));
     }
 }
 /*----------------------- Bucket Dialogue ----------------------------------------------------------*/
 public class BucketFilledUp : Dialogue {
     public BucketFilledUp() {
         Say("There you go");
-        Say("Your bucket is all filled up again");
+        Say("Your bucket is all filled up again")
+        .Choice(new TextOption("..."));
     }
 }
 public class NothingToDoHere : Dialogue{
     public NothingToDoHere() {
         Say("Huh...?");
         Say("All good with that?");
-        Say("Give me something to work with");
+        Say("Give me something to work with")
+        .Choice(new TextOption("..."));
     }
 }
 /*----------------------- Game still needs to be played --------------------------------------------*/
@@ -140,7 +145,7 @@ public class JimmyWinDialogue : Dialogue {
             );
 
         Say("Thank for the help!")
-            .Do(() => {JimmyDialogue.Instance.gamePlayed = true;});
+            .Do(GiveItem(JimmyDialogue.Instance.gamePlayed));
     }
 }
 
@@ -149,7 +154,7 @@ public class JimmyWinDialogue : Dialogue {
 public class JimmyLoseDialogue : Dialogue {
     public JimmyLoseDialogue() {
 
-        JimmyDialogue diaTrigger = (JimmyDialogue) JimmyDialogue.Instance;
+        
 
         Say("Well, that didn't work out too well, did it?");
 
@@ -157,11 +162,8 @@ public class JimmyLoseDialogue : Dialogue {
             .Choice(
                 new TextOption("Yes")
                 .IfChosen(new DialogueAction(() => {
-                    diaTrigger.EnterMiniGame();
+                    JimmyDialogue.Instance.EnterMiniGame();
                 })))
-            .Choice(new TextOption("Later")
-            .IfChosen(new DialogueAction(() => {
-                    JimmyDialogue.Instance.gameLost = true;
-                })));
+            .Choice(new TextOption("Later"));
     }
 }
