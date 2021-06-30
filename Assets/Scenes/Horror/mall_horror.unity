@@ -1667,6 +1667,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
     - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: gameLost
+      value: 
+      objectReference: {fileID: 11400000, guid: 7067d8b8b07f27bc3b40963e02ad51aa, type: 2}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: gamePlayed
+      value: 
+      objectReference: {fileID: 11400000, guid: 2349e6f6715f8121cbcf96f01efd5c88, type: 2}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
       propertyPath: clean_shirt
       value: 
       objectReference: {fileID: 11400000, guid: 2b4050f9a23fa289d9242de4e365c15d, type: 2}
