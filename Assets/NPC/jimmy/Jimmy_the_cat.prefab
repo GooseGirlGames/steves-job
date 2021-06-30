@@ -146,3 +146,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d860057a7b6eb846da2bc7fdae1d095b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInTrigger: 0
+  hintPosition: {fileID: 4588754877766757395}
+  background: {fileID: 0}
+  avatar: {fileID: 21300000, guid: 51a378244bc540be99042c2672efae7e, type: 3}
+  name: Laundr-o-cat
+  world: 0
+  bucket: {fileID: 0}
+  bucketfull: {fileID: 0}
+  shirt: {fileID: 0}
+  clean_shirt: {fileID: 0}
+  dirty_shirt: {fileID: 0}
+  babelfish: {fileID: 0}
