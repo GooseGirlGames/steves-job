@@ -1169,7 +1169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00000024851448
+      value: -0.00000018638586
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1651,6 +1651,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
     - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: shirt
+      value: 
+      objectReference: {fileID: 11400000, guid: af649a5495a8420779024c628d1042c9, type: 2}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
       propertyPath: world
       value: 2
       objectReference: {fileID: 0}
@@ -1662,6 +1666,14 @@ PrefabInstance:
       propertyPath: bucket
       value: 
       objectReference: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: clean_shirt
+      value: 
+      objectReference: {fileID: 11400000, guid: 2b4050f9a23fa289d9242de4e365c15d, type: 2}
+    - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
+      propertyPath: dirty_shirt
+      value: 
+      objectReference: {fileID: 11400000, guid: 68f5019aedda0061a831b85a013d06a4, type: 2}
     - target: {fileID: 1300187296440827176, guid: c54a3a8c61d39c1828b629c6cfb7a4cb, type: 3}
       propertyPath: interaction
       value: 1
