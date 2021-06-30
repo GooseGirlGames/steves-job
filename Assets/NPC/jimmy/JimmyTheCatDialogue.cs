@@ -52,19 +52,153 @@ public class JimmyTheCatDialogue : DialogueTrigger{
     public Item dirty_shirt;
     public Item babelfish;
     public Item bloody_mary;
-    
+    public Item finished;
     
     private void Awake() {
         Instance = this;
     }
 
     public override Dialogue GetActiveDialogue(){
+        if (Inventory.Instance.HasItem(bucket)||Inventory.Instance.HasItem(bucketfull)){
+            return new DefaultDialogue();
+        }
+        else if (Inventory.Instance.HasItem(finished)){
+            return new FinalDialogue();
+        }
         return new StartDialogue();
     }
-
+/* ---------------------------------------------------------------------------------------------------------------- */
     public class StartDialogue : Dialogue {
         public StartDialogue(){
-            Say("Miau");
+            Say("Oh meow ... ");
+            Say("...");
+            Say("Your pretty Dirty! mauz!")
+                .Choice(new TextOption("..."))
+                .Choice(new TextOption("..."))
+                .Choice(new TextOption("..."))
+                .Choice(new TextOption("..."));
+            Say("This is ...");
+            Say("...");
+            Say("MEOW! PURRRRRRRRRRRRRFECT!!!!! UwU");
+            Say("I love cleaning! *purrr* If your have anything, and I mean ANYTHING I should clean for your, just say it :3");
+            Say("I won't even charge your anything, this is just my passion");
+            Say("...");
+            Say("... *sad meoww* ...");
+            Say("*murr* an here is my dilemma, since this world is so clean and sparkely, nobody ever gets dirty....");
+            Say("Im basicly without purpouse in this cute world meow");
+            Say("Ah I wish I could have some customeowrrs...");
+            Say("Anymeow, since I have no use for it, take this bucket *purrr*")
+                .DoAfter(GiveItem(JimmyTheCatDialogue.Instance.bucket));
+            Say("...")
+                .DoAfter(new TriggerDialogueAction<ItemDialogue>());
         }
     }
+    public class ItemDialogue:Dialogue {
+        public ItemDialogue(){
+            Say("So, meeeeow can I help your with anything else out?")
+                .Choice(new TextOption("...")
+                    .IfChosen(new TriggerDialogueAction<Goodbye>()))
+                .Choice(new ItemOption(JimmyTheCatDialogue.Instance.bucketfull)
+                    .IfChosen(new TriggerDialogueAction<bucketfullDialogue>()))
+                .Choice(new ItemOption(JimmyTheCatDialogue.Instance.bloody_mary)
+                    .IfChosen(new TriggerDialogueAction<bloodymaryDialogue>()))
+                .Choice(new ItemOption(JimmyTheCatDialogue.Instance.shirt)
+                    .IfChosen(new TriggerDialogueAction<shirtDialogue>()))
+                .Choice(new ItemOption(JimmyTheCatDialogue.Instance.clean_shirt)
+                    .IfChosen(new TriggerDialogueAction<cleanshirtDialogue>()))
+                .Choice(new ItemOption(JimmyTheCatDialogue.Instance.dirty_shirt)
+                    .IfChosen(new TriggerDialogueAction<dirtyDialogue>()))
+                .Choice(new ItemOption(JimmyTheCatDialogue.Instance.babelfish)
+                    .IfChosen(new TriggerDialogueAction<babelDialogue>()))
+                .Choice(new OtherItemOption()
+                    .IfChosen(new TriggerDialogueAction<otherItemDialogue>()));
+        }
+    }
+    public class Goodbye : Dialogue {
+        public Goodbye(){
+            Say("hmm... well I'll take this as a no, meow");
+            Say("See your soon, *purrrrrr*");
+        }
+    }    
+    public class bucketfullDialogue : Dialogue {
+        public bucketfullDialogue(){
+            Say("Oh This thing is naisty, *hissss*");
+            Say("Here I clean it for you")
+                .DoAfter(GiveItem(JimmyTheCatDialogue.Instance.bucket));
+            Say("meow.. if just all this goo where on some people so I have more customers..");
+            Say("....meow snief...")
+                .DoAfter(new TriggerDialogueAction<ItemDialogue>());
+        }
+    }
+    public class bloodymaryDialogue : Dialogue {
+        public bloodymaryDialogue(){
+            Say("*Hiss* ... meow.. sorry no I'm really not thirsty");
+            Say("But this fish I will take, *purrrrr*")
+                .If(HasItem(JimmyTheCatDialogue.Instance.babelfish));
+            Say(" ... ")
+                .DoAfter(new TriggerDialogueAction<ItemDialogue>());
+        }
+    }
+    public class shirtDialogue : Dialogue {
+        public shirtDialogue(){
+            Say("Oh meow, this thing is filthy... just as I love it :3");
+            Say("*purrr* I clean this for you meow")
+                .DoAfter(GiveItem(JimmyTheCatDialogue.Instance.clean_shirt))
+                .DoAfter(new TriggerDialogueAction<ItemDialogue>());
+        }
+    }
+    public class cleanshirtDialogue : Dialogue {
+        public cleanshirtDialogue(){
+            Say("*seufz* my own work, is purrrfect...");
+            Say("meow not much more to do here sadly");
+            Say("murr ....")
+                .DoAfter(new TriggerDialogueAction<ItemDialogue>());
+        }
+    }
+    public class dirtyDialogue : Dialogue {
+        public dirtyDialogue(){
+            Say("Uhrg.. meow... wow this is.. this is murrrr than dirty meow");
+            Say("A TRUE CHALLANGE!!!");
+            Say("Give me one second");
+            Say("here you go meow meow meow ...")
+                .DoAfter(GiveItem(JimmyTheCatDialogue.Instance.clean_shirt))
+                .DoAfter(new TriggerDialogueAction<ItemDialogue>());
+        }
+    }
+    public class otherItemDialogue : Dialogue {
+        public otherItemDialogue(){
+            Say("sadly I cant clean this murrrrr")
+                .DoAfter(new TriggerDialogueAction<ItemDialogue>());
+        }
+    }
+
+    public class babelDialogue : Dialogue {
+        public babelDialogue(){
+            Say("meeeeow, *purrr* yes give me that");
+            Say("chomp chomp chomp");
+            Say("Delicous, thanks, meow")
+                .DoAfter(RemoveItem(JimmyTheCatDialogue.Instance.babelfish))
+                .DoAfter(new TriggerDialogueAction<ItemDialogue>());
+        }
+    }
+
+/* ---------------------------------------------------------------------------------------------------------------- */
+    public class DefaultDialogue : Dialogue {
+        public DefaultDialogue(){
+            Say("Miau, hey again")
+                .DoAfter(new TriggerDialogueAction<ItemDialogue>());
+        }
+    }
+/* ---------------------------------------------------------------------------------------------------------------- */
+    public class FinalDialogue : Dialogue {
+        public FinalDialogue(){
+            Say("meow Thanks Janitor");
+            Say("*purrr* Now I can finally clean people again");
+            Say("I finally have a purrrrrrrrrrrpuss again");
+            Say("*hissss* Ah, whats happening ...");
+            Say(".....");
+        }
+    }
+/* ---------------------------------------------------------------------------------------------------------------- */
+
 }
