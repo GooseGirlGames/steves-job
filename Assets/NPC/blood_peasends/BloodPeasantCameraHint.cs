@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class BloodPeasantCameraHint : MonoBehaviour {
     public GameObject Peasants;
+    [SerializeField] private Item soaked;
     private Coroutine hintCoroutine = null;
     private void OnTriggerEnter2D(Collider2D other) {
         if (!SteveUtil.IsSteve(other)) return;
+        if (Inventory.Instance.HasItem(soaked)) return;
+        
         if (Inventory.Instance.HasItemByName("JimmyTheCatFinished")) return;
         if (hintCoroutine == null) {
             hintCoroutine = StartCoroutine(DelayHintingPeasants(1.5f));
@@ -22,6 +25,8 @@ public class BloodPeasantCameraHint : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D other) {
         if (!SteveUtil.IsSteve(other)) return;
+        if (Inventory.Instance.HasItem(soaked)) return;
+        
         if (hintCoroutine != null) {
             StopCoroutine(hintCoroutine);
             hintCoroutine = null;

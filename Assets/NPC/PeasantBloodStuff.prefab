@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2255763277559055438}
   - component: {fileID: 2255763277559055439}
   - component: {fileID: 2255763277559055424}
+  - component: {fileID: 4221678681399873861}
   m_Layer: 0
   m_Name: Peasants
   m_TagString: Untagged
@@ -102,6 +103,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4221678681399873861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2255763277559055425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90969375a4738c36e8e08dc0758b3a5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soaked: {fileID: 11400000, guid: 0fe5bc6463845e43ba3993d2dce2782f, type: 2}
+  renderer: {fileID: 2255763277559055439}
 --- !u!1 &2255763277624443838
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +232,7 @@ MonoBehaviour:
   world: 1
   BloodBucket: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
   EmptyBucket: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
-  CatFinisher: {fileID: 11400000, guid: 0fe5bc6463845e43ba3993d2dce2782f, type: 2}
+  PeaseantSoakedCatHappy: {fileID: 11400000, guid: 0fe5bc6463845e43ba3993d2dce2782f, type: 2}
   PourAnimator: {fileID: 2255763277771022176}
   transitionAnimation: {fileID: 0}
   Peasants: {fileID: 2255763277559055425}
@@ -235,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Peasants: {fileID: 2255763277559055425}
+  soaked: {fileID: 0}
 --- !u!212 &2255763277771022191
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -346,8 +362,9 @@ GameObject:
   - component: {fileID: 6781595449896774280}
   - component: {fileID: 5183255772270805472}
   - component: {fileID: 1770857063952118894}
+  - component: {fileID: 7774591461687203870}
   m_Layer: 0
-  m_Name: Fionnbloodfuck4
+  m_Name: PeasantsSoaked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -437,3 +454,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7774591461687203870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6863536443188629572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7131288a675aa0d5a0f611bd3d9d004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soaked: {fileID: 11400000, guid: 0fe5bc6463845e43ba3993d2dce2782f, type: 2}
+  renderer: {fileID: 5183255772270805472}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BloodPeasantPouringDialogue : DialogueTrigger {
     public Item BloodBucket;
     public Item EmptyBucket;
-    public Item CatFinisher;
+    public Item PeaseantSoakedCatHappy;
     public Animator PourAnimator;
     public Animator transitionAnimation;
 
@@ -13,7 +13,10 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
     public GameObject BloodPeasents;
     // public Animator PeasantAnimator;  TODO even Needed?
     new private SpriteRenderer renderer;
-    public override Dialogue GetActiveDialogue() {
+        public override Dialogue GetActiveDialogue() {
+        if (Inventory.Instance.HasItem(PeaseantSoakedCatHappy)) {
+            return null;
+        }
         return new PourDia(this);
     }
 
@@ -27,6 +30,8 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
         }
     }
     public void Pour() {
+        Inventory.Instance.AddItem(PeaseantSoakedCatHappy);
+        Inventory.Instance.AddItem(EmptyBucket);
         StartCoroutine(PourAnimation());
     }
 
@@ -55,7 +60,6 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
         renderer.enabled = false;
         yield return new WaitForSeconds(2);
         player.Unlock("BloodPouring");
-        Inventory.Instance.AddItem(CatFinisher);
         transitionAnimation.SetTrigger("EnterScene");
 
     }
