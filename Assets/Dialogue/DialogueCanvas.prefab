@@ -1937,7 +1937,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2494340953283904617}
+      - m_Target: {fileID: 8749460222905302390}
         m_TargetAssemblyTypeName: DialogueOptionUI, Assembly-CSharp
         m_MethodName: OptionChosen
         m_Mode: 1
