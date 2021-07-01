@@ -38,7 +38,10 @@ public class DialogueManager : MonoBehaviour
 
     public float lastKeyPress = -1.0f;
     public const float KEY_PRESS_TIME_DELTA = 0.3f;  // seconds
+    private bool currentSentenceHasItemOption = false;
     private const string DIALOGUE_LOCK_TAG = "DialogueManager";
+    private Button firstActionBoxButton = null;
+    private Button itemActionBoxButton = null;
 
     public static void Log(string msg) {
         #if DEBUG_DIALOGUE_SYSTEM
@@ -235,6 +238,10 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
+        firstActionBoxButton = null;
+        itemActionBoxButton = null;
+        currentSentenceHasItemOption = false;
+
         if (availableOptions.Count != 0) {
             canBeAdvancedByKeypress = false;
 
@@ -254,6 +261,7 @@ public class DialogueManager : MonoBehaviour
                 Debug.Log("Sentence has an ItemOption");
                 shownOptions.Add(new OpenInventoryOption());
             }
+            currentSentenceHasItemOption = hasItemOption;
 
             int n = Mathf.Min(shownOptions.Count, actionBoxes.Count);
             for (int i = 0; i < n; ++i) {
@@ -280,10 +288,11 @@ public class DialogueManager : MonoBehaviour
                     actionBox.button.interactable = true;
                 }
                 if (option is OpenInventoryOption) {
-                   // actionBox.button.onClick = () => {};
+                   itemActionBoxButton = actionBox.button;
                 }
                 if (i == 0) {
-                    StartCoroutine(UIUtility.SelectButtonLater(actionBox.button));
+                    firstActionBoxButton = actionBox.button;
+                    SelectFirstActionBox();
                 }
             }
             foreach (Animator uiAnimator in uiAnimators) {
@@ -351,12 +360,27 @@ public class DialogueManager : MonoBehaviour
         return activeDialogue != null;
     }
 
+    public bool CurrentSentenceHasItemOption() {
+        return currentSentenceHasItemOption;
+    }
+
     public void HintAt(DialogueTrigger trigger) {
         Debug.Log("Hinting at dialogue by " + trigger.name);
         hintUI.Hint(trigger.hintPosition, DIALOGUE_KEY_STR);
     }
     public void ClearHint() {
         hintUI.ClearHint();
+    }
+
+    public void SelectFirstActionBox() {
+        if (firstActionBoxButton != null) {
+            StartCoroutine(UIUtility.SelectButtonLater(firstActionBoxButton));
+        }
+    }
+    public void SelectItemActionBox() {
+        if (itemActionBoxButton != null) {
+            StartCoroutine(UIUtility.SelectButtonLater(itemActionBoxButton));
+        }
     }
  
 }

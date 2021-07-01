@@ -29,24 +29,28 @@ public class InventoryCanvasSlots : MonoBehaviour
         Clear();
         canvas.enabled = false;
     }
-    public void SetActionBoxVisibility(bool visible) {
+    private void SetActionBoxesActive(bool active) {
         // not that big of a problem anymore, huh?
         dialogueOptionBoxes.transform.localScale =
-                visible ? new Vector3(1, 1, 1) : new Vector3(0, 0, 0);
+                active ? new Vector3(1, 1, 1) : new Vector3(0, 0, 0);
+        var actionButtons = dialogueOptionBoxes.GetComponentsInChildren<Button>();
+        foreach (Button button in actionButtons) {
+            button.interactable = active;
+        }
     }
     public void ShowItemLoreBox(Item item) {
         if (!Inventory.Instance.HasItem(item)) {
             HideItemLoreBox();
         }
         itemLoreBoxAnimator.SetInteger("World", (int) item.originWorld);
-        SetActionBoxVisibility(false);
+        SetActionBoxesActive(false);
         itemLoreBox.DisplayLore(item);
         itemLoreBox.gameObject.SetActive(true);
         loreVisible = true;
     }
 
     public void HideItemLoreBox() {
-        SetActionBoxVisibility(true);
+        SetActionBoxesActive(true);
         itemLoreBox.gameObject.SetActive(false);
         loreVisible = false;
     }
@@ -61,8 +65,15 @@ public class InventoryCanvasSlots : MonoBehaviour
         HideItemLoreBox();
     }
 
+    private bool CanBeOpenend() {
+        if (DialogueManager.Instance.IsDialogueActive()) {
+            return DialogueManager.Instance.CurrentSentenceHasItemOption();
+        }
+        return true;  // no dialogue active
+    }
+
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.Tab) && !DialogueManager.Instance.IsDialogueActive()) {
+        if (Input.GetKeyDown(KeyCode.Tab) && CanBeOpenend()) {
             if (visible) {
                 Hide();
             } else {
@@ -116,6 +127,11 @@ public class InventoryCanvasSlots : MonoBehaviour
 
             stevecontroller steve = GameObject.FindObjectOfType<stevecontroller>();
             steve.Unlock(INVENTORY_LOCK_TAG);
+
+            if (DialogueManager.Instance.IsDialogueActive()) {
+                SetActionBoxesActive(true);
+                DialogueManager.Instance.SelectItemActionBox();
+            }
     }
 
     private void Clear() {
