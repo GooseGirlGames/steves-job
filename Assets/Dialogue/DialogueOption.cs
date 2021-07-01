@@ -1,8 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine;
+using TMPro;
+
 
 [Serializable]
 public abstract class DialogueOption {
@@ -35,4 +38,8 @@ public class ItemOption : DialogueOption {
 
 public class OtherItemOption : DialogueOption {
     
+}
+
+public class OpenInventoryOption : TextOption {
+    public OpenInventoryOption() : base("Select Item") {}
 }

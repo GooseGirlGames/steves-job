@@ -95,7 +95,7 @@ public class DialogueManager : MonoBehaviour
             uiAnimator.SetInteger("World", (int) currentTrigger.world);
         }
 
-        InventoryCanvasSlots.Instance.Show();
+        InventoryCanvasSlots.Instance.Hide();
 
         if (otherDialogueWasActive && clearCurrent) {
             sentences.Clear();
@@ -125,6 +125,14 @@ public class DialogueManager : MonoBehaviour
     // with the DialogueOption holding whatever item was seletced.
     // The item may or may not trigger a specific or useful action/respoonse.
     public void DisplayNextSentence(DialogueOption chosenOption = null, Item item = null) {
+
+        if (chosenOption is OpenInventoryOption) {
+            // Show inventory...
+            InventoryCanvasSlots.Instance.Show();
+            InventoryCanvasSlots.Instance.SelectFirstItemBoxButton();
+            // ...and remain on the current sentence
+            return;
+        }
 
         /* Happens when an inventory item button is pressed outside of a dialogue */
         if (!IsDialogueActive()) return;
@@ -173,6 +181,8 @@ public class DialogueManager : MonoBehaviour
         //while (nextEvents.Count != 0) {
         //    nextEvents.Dequeue().Invoke();
         //}
+
+        InventoryCanvasSlots.Instance.Hide();  // Only shown when OpenInventoryOption is chosen
 
         if (chosenOption != null) {
             foreach (DialogueAction action in chosenOption.onChose) {
@@ -237,6 +247,13 @@ public class DialogueManager : MonoBehaviour
                     shownOptions.Add(availableOption);
                 }
             }
+            bool hasItemOption = availableOptions.Exists(
+                (DialogueOption option) => option is ItemOption || option is OtherItemOption
+            );
+            if (hasItemOption) {
+                Debug.Log("Sentence has an ItemOption");
+                shownOptions.Add(new OpenInventoryOption());
+            }
 
             int n = Mathf.Min(shownOptions.Count, actionBoxes.Count);
             for (int i = 0; i < n; ++i) {
@@ -250,6 +267,8 @@ public class DialogueManager : MonoBehaviour
                 TextMeshProUGUI text = actionBox.text;
                 Image image = actionBox.image;
 
+                
+
                 if (option is ItemOption) {
                     ItemOption itemOption = (ItemOption) option;
                     text.text = Uwu.OptionalUwufy(itemOption.item.name);
@@ -260,8 +279,11 @@ public class DialogueManager : MonoBehaviour
                     image.gameObject.SetActive(false);
                     actionBox.button.interactable = true;
                 }
+                if (option is OpenInventoryOption) {
+                   // actionBox.button.onClick = () => {};
+                }
                 if (i == 0) {
-                    StartCoroutine( UIUtility.SelectButtonLater(actionBox.button));
+                    StartCoroutine(UIUtility.SelectButtonLater(actionBox.button));
                 }
             }
             foreach (Animator uiAnimator in uiAnimators) {

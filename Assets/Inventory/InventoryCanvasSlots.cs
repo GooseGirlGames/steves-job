@@ -90,6 +90,13 @@ public class InventoryCanvasSlots : MonoBehaviour
     public void Show() {
             stevecontroller steve = GameObject.FindObjectOfType<stevecontroller>();
             steve.Lock(INVENTORY_LOCK_TAG);
+
+            foreach (InventorySlot slot in slots) {
+                slot.button.enabled = true;
+                slot.button.Selected = false;
+                slot.button.interactable = true;
+            }
+
             DisplayItems(Inventory.Instance.items);
             visible = true;
             canvas.enabled = true;
@@ -100,9 +107,13 @@ public class InventoryCanvasSlots : MonoBehaviour
             visible = false;
             canvas.enabled = false;
             HideItemLoreBox();
+
             foreach (InventorySlot slot in slots) {
                 slot.button.Selected = false;
+                slot.button.interactable = false;
+                slot.button.enabled = false;
             }
+
             stevecontroller steve = GameObject.FindObjectOfType<stevecontroller>();
             steve.Unlock(INVENTORY_LOCK_TAG);
     }
@@ -149,5 +160,13 @@ public class InventoryCanvasSlots : MonoBehaviour
 
     public bool IsShowing() {
         return canvas.enabled;
+    }
+
+    public void SelectFirstItemBoxButton() {
+        if (firstItemBoxButton == null) {
+            Debug.LogWarning("First item box button of inventory must not be null");
+        } else {
+            StartCoroutine(UIUtility.SelectButtonLater(firstItemBoxButton));
+        }
     }
 }
