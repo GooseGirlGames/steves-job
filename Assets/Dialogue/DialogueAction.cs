@@ -16,7 +16,5 @@ public class TriggerDialogueAction<T> : DialogueAction where T: Dialogue, new() 
             // TODO: Maybe move this into a helper method of Dialogue?  could be useful elsewhere.
             Dialogue d = (Dialogue) new T();
             DialogueManager.Instance.StartDialogue(d, exitCurrent);
-    }) {
-        Debug.Log("Building new triggerdialogueaction");
-    }
+    }) {}
 }
