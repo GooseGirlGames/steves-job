@@ -56,10 +56,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 23.59, y: 4.34}
-      - {x: -13.42, y: 4.34}
-      - {x: -13.42, y: -15.63}
-      - {x: 23.59, y: -15.63}
+    - - {x: 15.120464, y: 4.34}
+      - {x: -4.186, y: 4.34}
+      - {x: -4.1916485, y: -15.684125}
+      - {x: 15.09675, y: -15.683105}
 --- !u!1 &7045892253029675342
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,7 +86,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7045892253029675342}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.52, y: -6.496862, z: 1.2024608}
+  m_LocalPosition: {x: -19.4, y: -6.496862, z: 1.2024608}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2735499171006709760}
@@ -108,8 +108,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -15.74827, y: 1.9138379}
-  - {x: -15.717275, y: 21.896608}
+  - {x: -8.380854, y: 0.56063986}
+  - {x: -8.399978, y: 22.197319}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -130,8 +130,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 21.294422, y: 21.894579}
-  - {x: 21.307661, y: 1.9117193}
+  - {x: 10.281456, y: 22.316174}
+  - {x: 10.311766, y: 1.5763559}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
