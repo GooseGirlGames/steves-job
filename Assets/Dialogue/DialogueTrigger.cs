@@ -49,6 +49,8 @@ public abstract class DialogueTrigger : MonoBehaviour
     private void Update() {
         if (!playerInTrigger) {
             return;
+        } else {
+            Hint();
         }
 
         if(DialogueManager.Instance.IsDialogueActive()) {
@@ -79,17 +81,22 @@ public abstract class DialogueTrigger : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
             playerInTrigger = true;
-            if (!DialogueManager.Instance.IsDialogueActive()) {
-                if (GetActiveDialogue() != null) {
-                    DialogueManager.Instance.HintAt(this);
-                }
-            }
+            Hint();
         }
     }
     void OnTriggerExit2D(Collider2D other) {
         if(other.gameObject.CompareTag("Player")) {
             playerInTrigger = false;
             DialogueManager.Instance.ClearHint();
+        }
+    }
+
+    /** Hint at dialogue, if appropriate */
+    private void Hint() {
+        if (!DialogueManager.Instance.IsDialogueActive()) {
+            if (GetActiveDialogue() != null) {
+                DialogueManager.Instance.HintAt(this);
+            }
         }
     }
 }

@@ -365,7 +365,6 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void HintAt(DialogueTrigger trigger) {
-        Debug.Log("Hinting at dialogue by " + trigger.name);
         hintUI.Hint(trigger.hintPosition, DIALOGUE_KEY_STR);
     }
     public void ClearHint() {
