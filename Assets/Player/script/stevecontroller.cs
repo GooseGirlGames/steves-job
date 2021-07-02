@@ -15,6 +15,7 @@ public class stevecontroller : MonoBehaviour {
     private bool m_facing_right = true; 
     private Vector3 m_velocity = Vector3.zero;
     private Vector3 m_cam_vec = Vector3.zero;
+    private float m_old_y = 0f;
     [Range(0, 1f)] [SerializeField] private float m_movement_smoothing = .05f;    // How much to smooth out the movement
 
     public Animator m_animator;
@@ -60,7 +61,10 @@ public class stevecontroller : MonoBehaviour {
         Vector3 player_velocity = new Vector2(move * 10f, m_rigitbody.velocity.y);
         m_rigitbody.velocity = Vector3.SmoothDamp(m_rigitbody.velocity, player_velocity, ref m_velocity, m_movement_smoothing);
         m_cam_vec.x = m_rigitbody.position.x;
-        m_cam.transform.position = m_cam_vec;
+        if (m_old_y > m_rigitbody.position.y){
+            m_cam_vec.y = m_rigitbody.position.y;
+        } 
+        m_cam.transform.position = m_cam_vec; 
 
         if (move < 0 && m_facing_right){
             Flip();
@@ -74,7 +78,7 @@ public class stevecontroller : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision){
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground")){
             is_grounded = true;
-            m_cam_vec.y = m_rigitbody.position.y;
+            m_cam_vec.y = m_old_y = m_rigitbody.position.y;
             m_cam.transform.position = m_cam_vec;
         }
         //Debug.Log(collision.gameObject.name);
