@@ -42,17 +42,25 @@ public class InventoryCanvasSlots : MonoBehaviour
         if (!Inventory.Instance.HasItem(item)) {
             HideItemLoreBox();
         }
+        itemLoreBox.gameObject.SetActive(true);
         itemLoreBoxAnimator.SetInteger("World", (int) item.originWorld);
         SetActionBoxesActive(false);
         itemLoreBox.DisplayLore(item);
-        itemLoreBox.gameObject.SetActive(true);
+        SetLoreBoxRenderers(true);
         loreVisible = true;
     }
 
     public void HideItemLoreBox() {
+        SetLoreBoxRenderers(false);
         SetActionBoxesActive(true);
         itemLoreBox.gameObject.SetActive(false);
         loreVisible = false;
+    }
+
+    private void SetLoreBoxRenderers(bool enabled) {
+        foreach (Renderer r in itemLoreBox.GetComponentsInChildren<Renderer>()) {
+            r.enabled = enabled;
+        }
     }
 
      public void CheckForSelectedItem() {
