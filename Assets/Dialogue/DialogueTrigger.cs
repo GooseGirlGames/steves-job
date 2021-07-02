@@ -93,10 +93,14 @@ public abstract class DialogueTrigger : MonoBehaviour
 
     /** Hint at dialogue, if appropriate */
     private void Hint() {
-        if (!DialogueManager.Instance.IsDialogueActive()) {
-            if (GetActiveDialogue() != null) {
+        if (playerInTrigger &&
+            !DialogueManager.Instance.IsDialogueActive() &&
+            !InventoryCanvasSlots.Instance.IsShowing() &&
+            GetActiveDialogue() != null) {
+
                 DialogueManager.Instance.HintAt(hintPosition);
+            } else {
+                DialogueManager.Instance.ClearHint();
             }
-        }
     }
 }
