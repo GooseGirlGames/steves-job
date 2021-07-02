@@ -95,7 +95,7 @@ public abstract class DialogueTrigger : MonoBehaviour
     private void Hint() {
         if (!DialogueManager.Instance.IsDialogueActive()) {
             if (GetActiveDialogue() != null) {
-                DialogueManager.Instance.HintAt(this);
+                DialogueManager.Instance.HintAt(hintPosition);
             }
         }
     }

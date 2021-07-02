@@ -364,8 +364,8 @@ public class DialogueManager : MonoBehaviour
         return currentSentenceHasItemOption;
     }
 
-    public void HintAt(DialogueTrigger trigger) {
-        hintUI.Hint(trigger.hintPosition, DIALOGUE_KEY_STR);
+    public void HintAt(Transform hintPosition) {
+        hintUI.Hint(hintPosition, DIALOGUE_KEY_STR);
     }
     public void ClearHint() {
         hintUI.ClearHint();
