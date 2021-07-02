@@ -170,8 +170,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nipple_animator: {fileID: 4595133865181592477}
-  shirt: {fileID: 11400000, guid: af649a5495a8420779024c628d1042c9, type: 2}
-  shirt_on: 1
+  shirts:
+  - {fileID: 11400000, guid: af649a5495a8420779024c628d1042c9, type: 2}
+  - {fileID: 11400000, guid: 2b4050f9a23fa289d9242de4e365c15d, type: 2}
+  - {fileID: 11400000, guid: 68f5019aedda0061a831b85a013d06a4, type: 2}
 --- !u!1 &4595133865638148199
 GameObject:
   m_ObjectHideFlags: 0

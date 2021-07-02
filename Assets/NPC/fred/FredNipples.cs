@@ -2,20 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FredNipples : MonoBehaviour
-{
-    // Start is called before the first frame update
-    public Animator nipple_animator;
-    public Item shirt;
-    [SerializeField] bool shirt_on = true;
+public class FredNipples : MonoBehaviour{
+    [SerializeField] private Animator nipple_animator;
+    [SerializeField] private List<Item> shirts;
     
-
-    // Update is called once per frame
-    void Update()
-    {
-        shirt_on = !Inventory.Instance.HasItem(shirt);
-     
-
-        nipple_animator.SetBool("shirt", shirt_on);
+    void Update() {
+        bool playerHasShirt = false;
+        foreach (var shirt in shirts) {
+            if (Inventory.Instance.HasItem(shirt)) {
+                playerHasShirt = true;
+                break;
+            }
+        }
+        nipple_animator.SetBool("shirt", !playerHasShirt);
     }
 }
