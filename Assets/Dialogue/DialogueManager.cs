@@ -381,5 +381,8 @@ public class DialogueManager : MonoBehaviour
             StartCoroutine(UIUtility.SelectButtonLater(itemActionBoxButton));
         }
     }
+    public bool CanBeAdvancedByKeyPress() {
+        return IsDialogueActive() && canBeAdvancedByKeypress;
+    }
  
 }
