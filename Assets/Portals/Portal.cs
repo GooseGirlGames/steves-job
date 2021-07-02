@@ -243,6 +243,8 @@ public class Portal : MonoBehaviour
                 Debug.LogWarning("Cannot find teleportatiob target " + targetName);
             }
         }
+
+        GameManager.Instance.hintUI.ClearHint();
     }
 
 }
