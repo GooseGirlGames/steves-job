@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/BloodFalling.unity
     guid: 3ce6dffe9511b83f2b9c122b74c8f1c2
+  - enabled: 1
+    path: Assets/Scenes/Minigames/MiniGameJump/JumpMiniGame.unity
+    guid: d534fd9da298380d3888c99cc8c80e02
   m_configObjects: {}
