@@ -179,9 +179,19 @@ public class stevecontroller : MonoBehaviour {
         }  
         if(!crouch){
             GetComponent<CircleCollider2D>().offset = new Vector2(0.00499999942f,0.195528999f);
-        }       
+        }
+        
+        // goes up to about 0.45 when Steve jumps
+        float cameraTargetDistanceY = Math.Abs(m_rigitbody.position.y - m_cam_vec.y);
+        if (cameraTargetDistanceY > 0.6f) {
+            SetCameraTargetToPlayer();
+        }
     }
 
+    public void SetCameraTargetToPlayer() {
+        m_cam_vec = m_rigitbody.position;
+        m_cam.transform.position = m_cam_vec; 
+    }
 
     private void FixedUpdate() {
         //Ground_check();
