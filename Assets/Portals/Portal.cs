@@ -156,7 +156,7 @@ public class Portal : MonoBehaviour
         if (other.gameObject.CompareTag("Player")) {
             playerInTrigger = true;
             if (destinationHintCoroutine == null) {
-                destinationHintCoroutine = StartCoroutine(WaitWithDestinationHint());
+                //destinationHintCoroutine = StartCoroutine(WaitWithDestinationHint());
             }
         }
     }
