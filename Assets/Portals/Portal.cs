@@ -13,6 +13,7 @@ public class Portal : MonoBehaviour
     public const KeyCode UP_BUTTON = KeyCode.W;
     public const KeyCode DOWN_BUTTON = KeyCode.S;
     public const float DOOR_ANIMATION_MIN_DISTANCE = 3.0f;
+    public const float ELEVATOR_ANIMATION_DURATION = 3.0f;
 
     public enum TriggerType {
         OnInputPressed,
@@ -58,6 +59,7 @@ public class Portal : MonoBehaviour
     public float animationDelay = 0.0f;
 
     public Transform hintPosition;
+    public bool animateAsElevator = false;
 
     private const float ANIMATION_DURATION = 0.5f;  // Duration of the animations themselves
 
@@ -98,7 +100,11 @@ public class Portal : MonoBehaviour
         }
         // for elevators, targetPosition is set elsewhere
 
-        StartCoroutine(WaitForTransitionAnimation());
+        if (elevator && animateAsElevator) {
+            StartCoroutine(ElevatorAnimation());
+        } else {
+             StartCoroutine(WaitForTransitionAnimation());
+        }
     }
 
     IEnumerator WaitForTransitionAnimation() {
@@ -135,6 +141,17 @@ public class Portal : MonoBehaviour
         TargetCamera.Disable();
     }
 
+    IEnumerator ElevatorAnimation() {
+        stevecontroller player = GameObject.FindObjectOfType<stevecontroller>();
+        player.Lock(tag: "elevator", hide: true);
+        HintDestination(ELEVATOR_ANIMATION_DURATION);
+        yield return new WaitForSeconds(ELEVATOR_ANIMATION_DURATION);
+        StartCoroutine(WaitForTransitionAnimation());
+        TargetCamera.SetBlendTimeOverride(0.2f);
+        TargetCamera.Disable();
+        player.Unlock(tag: "elevator");
+    }
+
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Player")) {
             playerInTrigger = true;
@@ -157,13 +174,13 @@ public class Portal : MonoBehaviour
         }
     }
 
-    void HintDestination() {
+    void HintDestination(float? blendTime = null) {
         if (destinationType == DestinationType.SameScene) {
             if (elevator) {
-                if (targetUp && !targetDown) TargetCamera.Target(targetUp);
-                if (!targetUp && targetDown) TargetCamera.Target(targetDown);
+                if (targetUp && !targetDown) TargetCamera.Target(targetUp, blendTime);
+                if (!targetUp && targetDown) TargetCamera.Target(targetDown, blendTime);
             } else {
-                TargetCamera.Target(target);
+                TargetCamera.Target(target, blendTime);
             }
         }
     }

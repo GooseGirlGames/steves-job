@@ -56,5 +56,9 @@ public class TargetCamera : MonoBehaviour
         }
         return defaultBlend;
   }
+
+  public static void SetBlendTimeOverride(float blendTime) {
+      TargetCamera.blendTimeOverride = blendTime;
+  }
     
 }
