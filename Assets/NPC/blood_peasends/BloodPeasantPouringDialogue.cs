@@ -24,12 +24,15 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
 
     private void Awake() {
         renderer = GetComponent<SpriteRenderer>();
-        renderer.enabled = false;
+        renderer.enabled = Inventory.Instance.HasItem(PeaseantSoakedCatHappy);
         if (transitionAnimation) {
             transitionAnimation.SetFloat("Speed", 0.6f);
         }
     }
     public void Pour() {
+        if (Inventory.Instance.HasItem(PeaseantSoakedCatHappy)) {
+            return;
+        }
         Inventory.Instance.AddItem(PeaseantSoakedCatHappy);
         Inventory.Instance.AddItem(EmptyBucket);
         StartCoroutine(PourAnimation());
