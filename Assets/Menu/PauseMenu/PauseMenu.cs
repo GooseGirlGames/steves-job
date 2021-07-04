@@ -57,6 +57,9 @@ public class PauseMenu : MonoBehaviour
         StartCoroutine(UIUtility.SelectButtonLater(button));
     }
     public void QuitGame(){
+        paused = false;
+        Time.timeScale = 1.0f;
+        pauseMenuUI.SetActive(false);
         mainMenu.TriggerTeleport();
     }
 }
