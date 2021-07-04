@@ -8,16 +8,14 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool paused = false;
     public GameObject pauseMenuUI;
-    public Button button;
     public GameObject optionsMenu;
-    public Button optionButton;
+    public Button button;
+    public Button optionsButton;
+    public Portal mainMenu;
     private Scene menu;
 
     void Start(){
-        Debug.Log(SceneManager.GetActiveScene().name);
-        if(SceneManager.GetActiveScene().name == "MenuScene"){
-            pauseMenuUI.SetActive(false);
-        }
+        pauseMenuUI.SetActive(false);
     }
     void Awake(){
         StartCoroutine(UIUtility.SelectButtonLater(button));
@@ -51,6 +49,7 @@ public class PauseMenu : MonoBehaviour
     public void LoadOptions(){
         optionsMenu.SetActive(true);
         Time.timeScale = 0.0f;
+        StartCoroutine(UIUtility.SelectButtonLater(optionsButton));
         Debug.Log("Options");
     }
     public void OptionBack(){
@@ -58,6 +57,6 @@ public class PauseMenu : MonoBehaviour
         StartCoroutine(UIUtility.SelectButtonLater(button));
     }
     public void QuitGame(){
-        SceneManager.LoadScene("MenuScene");
+        mainMenu.TriggerTeleport();
     }
 }
