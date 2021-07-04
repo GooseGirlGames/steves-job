@@ -70,9 +70,10 @@ public class RacoonStoryDia : Dialogue {
         Say("...say, could you please help me to stop him?")
             .Choice(
                 new TextOption("of course")
-                    .IfChosen(new DialogueAction(() => {
+                    /*.IfChosen(new DialogueAction(() => {
                         StoreOwnerDialogue.Instance.EnterMiniGame();
-                }))
+                })) */
+                .IfChosen(new TriggerDialogueAction<WarningDia>())
             )
             .Choice(
                 new TextOption("later")
@@ -87,9 +88,10 @@ public class CameBackDia : Dialogue {
         Say("YOU CAME BACK! Will you help?")
             .Choice(
                 new TextOption("..I guess")
-                .IfChosen(new DialogueAction(() => {
+                /*.IfChosen(new DialogueAction(() => {
                     StoreOwnerDialogue.Instance.EnterMiniGame();
-                })))
+                }))) */
+                .IfChosen(new TriggerDialogueAction<WarningDia>()))
             .Choice(
                 new TextOption("maybe later")
                 .IfChosen(new TriggerDialogueAction<CriesDia>())
@@ -103,3 +105,17 @@ public class CriesDia : Dialogue {
     }
 }
 
+//temporary as the minigame isn't finished yet
+
+public class WarningDia : Dialogue {
+    public WarningDia() {
+        Say("Be careful, there are many dangers such as unfinished minigames up ahead");
+        Say("Are you sure you want to continue")
+        .Choice(
+            new TextOption("Can't be hurt to try, right?")
+            .IfChosen(new DialogueAction(() => {
+                    StoreOwnerDialogue.Instance.EnterMiniGame();
+            })))
+        .Choice(new TextOption("Ah, think I'l pass"));
+    }
+}
