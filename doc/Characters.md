@@ -2,7 +2,7 @@
 | --------------- | :----------- | :------------ | :-------- | --------------- |
 | Jimmy           | laundr O man | Jimmy the Cat |           | Laundry Store   |
 | Fred            | Pigeldy      | Frederic      |           | Hot-Dog Store   |
-| Racoon          |              |               |           | Handymans Dream |
+| Racoon          | Big Racoon   |               |           | Handymans Dream |
 | Storeowner      |              |               |           | Handymans Dream |
 | Steve E Wonder  |              |               |           | Tech Shop       |
 |                 |              |               |           |
