@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: marrys Period
   m_EditorClassIdentifier: 
   name: Marrys Period
-  description: 
+  description: That girl sure ain't pregnant!
   visible: 1
   icon: {fileID: 21300000, guid: 9c725ca079e31babcbf651770c8af434, type: 3}
   originWorld: 2
