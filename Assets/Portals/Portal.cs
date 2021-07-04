@@ -70,6 +70,7 @@ public class Portal : MonoBehaviour
     private Vector3? targetPosition = null;  // After scene change, `target` will be null,
                                              // so we need to cache its position
     private Coroutine destinationHintCoroutine = null;
+    private Coroutine elevatorAnimationCoroutine = null;
 
     private void Awake() {
         if (transitionAnimation) {
@@ -101,7 +102,9 @@ public class Portal : MonoBehaviour
         // for elevators, targetPosition is set elsewhere
 
         if (elevator && animateAsElevator) {
-            StartCoroutine(ElevatorAnimation());
+            if (elevatorAnimationCoroutine == null) {
+                elevatorAnimationCoroutine = StartCoroutine(ElevatorAnimation());
+            }
         } else {
              StartCoroutine(WaitForTransitionAnimation());
         }
@@ -150,6 +153,7 @@ public class Portal : MonoBehaviour
         TargetCamera.SetBlendTimeOverride(0.2f);
         TargetCamera.Disable();
         player.Unlock(tag: "elevator");
+        elevatorAnimationCoroutine = null;
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -190,11 +194,14 @@ public class Portal : MonoBehaviour
             playerInTrigger = false;
             GameManager.Instance.hintUI.ClearHint();
             animateDoorOpening = false;
-            if (destinationHintCoroutine != null) {
-                StopCoroutine(destinationHintCoroutine);
-                destinationHintCoroutine = null;
+            if (elevatorAnimationCoroutine == null) {
+                if (destinationHintCoroutine != null) {
+                    StopCoroutine(destinationHintCoroutine);
+                    destinationHintCoroutine = null;
+                }
+                TargetCamera.Disable();
             }
-            TargetCamera.Disable();
+            
         }
     }
 
