@@ -114,7 +114,7 @@ public class DeployCandy : MonoBehaviour
             GameLost();
         } 
 
-        racoon_pos = new Vector3(player.position.x + 4.0f, player.position.y);
+        racoon_pos = new Vector3(player.position.x + 4.0f, racoon.transform.position.y);
         racoon.transform.position = racoon_pos;
         
         
