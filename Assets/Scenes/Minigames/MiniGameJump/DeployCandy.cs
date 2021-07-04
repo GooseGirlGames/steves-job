@@ -92,9 +92,10 @@ public class DeployCandy : MonoBehaviour
         if(spawn != null){
             if(spawn.GetComponent<Sweets>().trigger){
                 if(spawn.GetComponent<Sweets>().notYetTriggered){
+                    spawn.GetComponent<Sweets>().notYetTriggered = false;
                     health -= .1f; 
                 }
-                spawn.GetComponent<Sweets>().notYetTriggered = false;
+                
             }
         }
     }
