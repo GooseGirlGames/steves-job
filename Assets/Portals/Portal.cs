@@ -129,6 +129,7 @@ public class Portal : MonoBehaviour
             } else {
                 player.transform.position = target.position;
             }
+            if (elevator) player.transform.position -= new Vector3(0, stevecontroller.CAMERA_OFFSET_Y, 0);
             
             if (transitionAnimation) {
                 transitionAnimation.SetTrigger("EnterScene");
@@ -148,9 +149,13 @@ public class Portal : MonoBehaviour
         stevecontroller player = GameObject.FindObjectOfType<stevecontroller>();
         player.Lock(tag: "elevator", hide: true);
         HintDestination(ELEVATOR_ANIMATION_DURATION);
-        yield return new WaitForSeconds(ELEVATOR_ANIMATION_DURATION);
+
+        
+        yield return new WaitForSeconds(ELEVATOR_ANIMATION_DURATION * 0.9f);
         StartCoroutine(WaitForTransitionAnimation());
-        TargetCamera.SetBlendTimeOverride(0.2f);
+        yield return new WaitForSeconds(ELEVATOR_ANIMATION_DURATION * 0.1f);
+        
+        TargetCamera.SetBlendTimeOverride(1f);
         TargetCamera.Disable();
         player.Unlock(tag: "elevator");
         elevatorAnimationCoroutine = null;
@@ -237,7 +242,7 @@ public class Portal : MonoBehaviour
         }
 
         if (playerInTrigger) {
-            if (!GameManager.Instance.hintUI.IsHinting()) {
+            if (!GameManager.Instance.hintUI.IsHinting() && elevatorAnimationCoroutine == null) {
                 HintKeyPress();
             }
         }

@@ -32,6 +32,7 @@ public class stevecontroller : MonoBehaviour {
     private float characterHeight; //Initial height
     [SerializeField] private bool crouch = false;
     [SerializeField] private bool always_walking = false;
+    public static float CAMERA_OFFSET_Y = 1.4f;
 
     private bool movementLocked = false;
     // Whenever Lock() is called, a tag is passed and stored here.
@@ -64,7 +65,7 @@ public class stevecontroller : MonoBehaviour {
         if (m_old_y > m_rigitbody.position.y){
             m_cam_vec.y = m_rigitbody.position.y;
         } 
-        m_cam.transform.position = m_cam_vec; 
+        UpdateCameraTarget();
 
         if (move < 0 && m_facing_right){
             Flip();
@@ -79,7 +80,7 @@ public class stevecontroller : MonoBehaviour {
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground")){
             is_grounded = true;
             m_cam_vec.y = m_old_y = m_rigitbody.position.y;
-            m_cam.transform.position = m_cam_vec;
+            UpdateCameraTarget();
         }
         //Debug.Log(collision.gameObject.name);
     }
@@ -175,7 +176,7 @@ public class stevecontroller : MonoBehaviour {
             crouch = false;
             m_rigitbody.AddForce(new Vector2(0, jump_height), ForceMode2D.Impulse);
             m_cam_vec.x = m_rigitbody.position.x;
-            m_cam.transform.position = m_cam_vec;   
+            UpdateCameraTarget();  
         }  
         if(!crouch){
             GetComponent<CircleCollider2D>().offset = new Vector2(0.00499999942f,0.195528999f);
@@ -190,7 +191,7 @@ public class stevecontroller : MonoBehaviour {
 
     public void SetCameraTargetToPlayer() {
         m_cam_vec = m_rigitbody.position;
-        m_cam.transform.position = m_cam_vec; 
+        UpdateCameraTarget();
     }
 
     private void FixedUpdate() {
@@ -199,5 +200,9 @@ public class stevecontroller : MonoBehaviour {
         //Debug.Log(horizontal_move);
         //Debug.Log(Time.fixedDeltaTime);
         //Debug.Log(m_ridgitbody.velocity.y);
+    }
+
+    private void UpdateCameraTarget() {
+        m_cam.transform.position = m_cam_vec + new Vector3(0, CAMERA_OFFSET_Y, 0); 
     }
 }
