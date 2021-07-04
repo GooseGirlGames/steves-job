@@ -345,6 +345,8 @@ public class DialogueManager : MonoBehaviour
         if (!IsDialogueActive()) {
             return;
         }
+
+        if (PauseMenu.IsPausedOrJustUnpaused()) return;
         
         if (Time.fixedTime - lastKeyPress < KEY_PRESS_TIME_DELTA) {
             //DialogueManager.Log("Too fast " + Time.fixedTime + ", " + lastKeyPress);

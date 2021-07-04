@@ -47,6 +47,9 @@ public abstract class DialogueTrigger : MonoBehaviour
 
 
     private void Update() {
+
+        if (PauseMenu.IsPausedOrJustUnpaused()) return;
+
         if (!playerInTrigger) {
             return;
         } else {
