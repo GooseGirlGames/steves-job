@@ -12,7 +12,7 @@ Remember:  You're the janitor, and you'll have to do your job.
 ## Controls
 
 | Key(s)  | Action(s)                                                   |
-|---------+-------------------------------------------------------------|
+|---------|-------------------------------------------------------------|
 | W A S D | Move Steve around; Navigate menus                           |
 | W S     | Use elevators and escalators                                |
 | E       | Press buttons; Use portals; Start and advance conversations |
