@@ -143,6 +143,9 @@ public class stevecontroller : MonoBehaviour {
             SetAnimatorVars();
             return;
         }
+
+        if (PauseMenu.IsPausedOrJustUnpaused()) return;
+
         //Debug.Log(Time.deltaTime);
         //Debug.Log(horizontal_move);
         //Debug.Log(is_grounded);

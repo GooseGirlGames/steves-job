@@ -73,6 +73,8 @@ public class InventoryCanvasSlots : MonoBehaviour
     }
 
     private void Update() {
+        if (PauseMenu.IsPausedOrJustUnpaused()) return;
+
         if (Input.GetKeyDown(KeyCode.Tab) && CanBeOpenend()) {
             if (visible) {
                 Hide();
