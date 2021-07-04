@@ -1,0 +1,65 @@
+.name "Sample Net"
+.type PN
+
+.places
+startcoin
+Goose
+Snack
+grease
+babelfish
+goose_storage
+birds_of_beauty
+laundroman
+instruments_of_torture
+laundrocat
+hangman
+candyman
+power
+repair
+finished
+cleanparts
+Bucket
+marys_periode
+bucket_full
+unbekannte_konstante
+key
+spine
+magpie
+
+.transitions
+Vending
+Clawmaker
+Grease
+take_goose
+restore
+restore
+combine_to_switch
+restore
+tortureman
+minispiel
+horror_racoon
+cute_racoon
+bloodfalling
+givespine
+usekey
+torturedivice
+
+.flows
+Vending: {1*startcoin} -> {1*Snack}
+Clawmaker: {1*startcoin} -> {1*babelfish}
+Grease: {1*startcoin, 1*Goose} -> {1*grease}
+take_goose: {1*goose_storage} -> {1*Goose}
+restore: {1*birds_of_beauty, 1*instruments_of_torture} -> {1*power}
+restore: {1*candyman, 1*hangman} -> {1*repair}
+combine_to_switch: {1*cleanparts, 1*power, 1*repair} -> {1*finished}
+restore: {1*laundroman, 1*laundrocat} -> {1*cleanparts}
+tortureman: {1*babelfish} -> {1*instruments_of_torture, 1*Bucket}
+minispiel: {1*Bucket} -> {1*laundroman, 1*marys_periode, 1*startcoin, 1*bucket_full}
+horror_racoon: {1*marys_periode, 1*magpie} -> {1*key}
+cute_racoon: {1*Snack} -> {1*candyman, 1*unbekannte_konstante, 1*startcoin}
+bloodfalling: {1*unbekannte_konstante, 1*bucket_full} -> {1*laundrocat}
+givespine: {1*spine} -> {1*birds_of_beauty, 1*magpie, 1*startcoin}
+usekey: {1*key} -> {1*hangman}
+torturedivice: {1*grease} -> {1*spine}
+
+.initial_marking {1*startcoin, 2*finished}
