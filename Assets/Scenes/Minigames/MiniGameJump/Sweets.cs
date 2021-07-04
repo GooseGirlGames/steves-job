@@ -21,7 +21,7 @@ public class Sweets : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col){
         if (col.gameObject.tag == "Player"){
             trigger = true;
-            //Debug.Log("HIT");
+            Debug.Log("HIT");
         }
     }
     
