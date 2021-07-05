@@ -1,4 +1,4 @@
-.name "Sample Net"
+.name "Steve Net"
 .type PN
 
 .places
@@ -25,16 +25,19 @@ unbekannte_konstante
 key
 spine
 magpie
+vending_1
+vending_2
+vending_3
 
 .transitions
 Vending
 Clawmaker
 Grease
 take_goose
-restore
-restore
+restore1
+restore2
 combine_to_switch
-restore
+restore3
 tortureman
 minispiel
 horror_racoon
@@ -45,14 +48,14 @@ usekey
 torturedivice
 
 .flows
-Vending: {1*startcoin} -> {1*Snack}
-Clawmaker: {1*startcoin} -> {1*babelfish}
-Grease: {1*startcoin, 1*Goose} -> {1*grease}
+Vending: {1*startcoin, 1*vending_1} -> {1*Snack}
+Clawmaker: {1*startcoin, 1*vending_2} -> {1*babelfish}
+Grease: {1*startcoin, 1*vending_3, 1*Goose} -> {1*grease}
 take_goose: {1*goose_storage} -> {1*Goose}
-restore: {1*birds_of_beauty, 1*instruments_of_torture} -> {1*power}
-restore: {1*candyman, 1*hangman} -> {1*repair}
+restore1: {1*birds_of_beauty, 1*instruments_of_torture} -> {1*power}
+restore2: {1*candyman, 1*hangman} -> {1*repair}
 combine_to_switch: {1*cleanparts, 1*power, 1*repair} -> {1*finished}
-restore: {1*laundroman, 1*laundrocat} -> {1*cleanparts}
+restore3: {1*laundroman, 1*laundrocat} -> {1*cleanparts}
 tortureman: {1*babelfish} -> {1*instruments_of_torture, 1*Bucket}
 minispiel: {1*Bucket} -> {1*laundroman, 1*marys_periode, 1*startcoin, 1*bucket_full}
 horror_racoon: {1*marys_periode, 1*magpie} -> {1*key}
@@ -62,4 +65,4 @@ givespine: {1*spine} -> {1*birds_of_beauty, 1*magpie, 1*startcoin}
 usekey: {1*key} -> {1*hangman}
 torturedivice: {1*grease} -> {1*spine}
 
-.initial_marking {1*startcoin, 2*finished}
+.initial_marking {1*startcoin, 2*finished, 1*vending_1, 1*vending_2, 1*vending_3, 1*goose_storage}
