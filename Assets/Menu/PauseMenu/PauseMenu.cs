@@ -23,14 +23,14 @@ public class PauseMenu : MonoBehaviour
     }
 
     void Update(){
-        if(SceneManager.GetActiveScene().name != "MenuScene"){
-            if(Input.GetKeyDown(KeyCode.Escape)){
-                if(paused){
-                    Continue();
-                }
-                else{
-                    Pause();
-                }
+        if (SceneManager.GetActiveScene().name != "MenuScene"
+                && !DialogueManager.Instance.IsDialogueActive()
+                && Input.GetKeyDown(KeyCode.Escape)) {
+
+            if(paused){
+                Continue();
+            } else {
+                Pause();
             }
         }
     }
