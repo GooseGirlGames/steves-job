@@ -112,7 +112,7 @@ public class WarningDia : Dialogue {
         Say("Be careful, there are many dangers such as unfinished minigames up ahead");
         Say("Are you sure you want to continue")
         .Choice(
-            new TextOption("Can't be hurt to try, right?")
+            new TextOption("Can't hurt to try, right?")
             .IfChosen(new DialogueAction(() => {
                     StoreOwnerDialogue.Instance.EnterMiniGame();
             })))
