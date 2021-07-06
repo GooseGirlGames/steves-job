@@ -6,9 +6,9 @@
 ## Platz für lichtschalte       TODO
 - Teile einsammeln
 
-# Cute 
-## Clawmashine                  TODO
-## Crank port                   TODO
+# Cute
+## Clawmashine
+## Crank port
 ## Jimmy the Cat 
 ## Store Owner
 ## Cut E WOnder                 TODO
