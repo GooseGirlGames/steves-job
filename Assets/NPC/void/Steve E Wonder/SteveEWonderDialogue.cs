@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SteveEWonderDialogue : MonoBehaviour
-{
+public class SteveEWonderDialogue : DialogueTrigger{
     // Start is called before the first frame update
     void Start()
     {
