@@ -37,7 +37,7 @@ public class ItemOption : DialogueOption {
 }
 
 public class OtherItemOption : DialogueOption {
-    
+    public Item item;
 }
 
 public class OpenInventoryOption : TextOption {

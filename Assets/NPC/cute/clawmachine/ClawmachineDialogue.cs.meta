@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: fe8164d2b8283b8a290e06661808c47f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - hintPosition: {instanceID: 0}
+  - background: {instanceID: 0}
+  - avatar: {instanceID: 0}
+  - item_for_sale: {instanceID: 0}
+  - startcoin: {instanceID: 0}
+  - cutecoin: {instanceID: 0}
+  - horrorcoin: {instanceID: 0}
+  - machine_used: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -42,6 +42,7 @@ public class DialogueManager : MonoBehaviour
     private const string DIALOGUE_LOCK_TAG = "DialogueManager";
     private Button firstActionBoxButton = null;
     private Button itemActionBoxButton = null;
+    public Item currentItem = null;  // useful within otheritemoption dialogue
 
     public static void Log(string msg) {
         #if DEBUG_DIALOGUE_SYSTEM
@@ -170,7 +171,10 @@ public class DialogueManager : MonoBehaviour
                 foreach (DialogueOption option in currentSentence.options) {
                     if (option is OtherItemOption) {
                         Debug.Log("OtherItemOption found");
-                        chosenOption = option;
+                        OtherItemOption otherItemOption = (OtherItemOption) option;
+                        otherItemOption.item = item;
+                        currentItem = item;
+                        chosenOption = otherItemOption;
                     }
                 }
             }
