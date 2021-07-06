@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a384481017c7d11e6be52b993588aa4a, type: 3}
-  m_Name: BucketFull
+  m_Name: MarysPeriod
   m_EditorClassIdentifier: 
-  name: Blood Bucket
-  description: Smells... Interesting ...
+  name: Marrys Period
+  description: That girl sure ain't pregnant!
   visible: 1
-  icon: {fileID: 21300000, guid: d454a8da76f920cfaa9d785071beed46, type: 3}
+  icon: {fileID: 21300000, guid: 9c725ca079e31babcbf651770c8af434, type: 3}
   originWorld: 2
   unique: 1
-  conflictingItems:
-  - {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
+  conflictingItems: []
