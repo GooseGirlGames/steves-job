@@ -21,19 +21,47 @@ Dialogue(Final):
 
 public class SwitchDialogue : DialogueTrigger{
 
-    public Item;
-    public Item;
-    public Item;
+    public Item switch_final;
+    public Item switch_dirty;
+    public Item switch_broken;
+    public Item switch_dirty_broken;
+    public Item _powered;
+    public static SwitchDialogue t;
 
     public override Dialogue GetActiveDialogue() {
-        if (Inventory.Instance.CoinBalance() == 0) {
-            return new NoCoins();
+        if (Inventory.Instance.HasItem(switch_broken)||Inventory.Instance.HasItem(switch_dirty)||Inventory.Instance.HasItem(switch_dirty_broken)||Inventory.Instance.HasItem(switch_final)){
+            if (Inventory.Instance.HasItem(_powered)){
+                return new EmptyDialogue();
+            }
+            else{
+                return new EmptyAndPowerlessDialogue();
+            }
         }
+        else if(!_powered){
+            return new PowerlessDialogue();
+        }
+        return new FinalDialogue();
+    }
 
-        if (!Inventory.Instance.HasItem(item_for_sale)) {
-            return new BuyItem(this);
-        } else {
-            return new ItemBought();
+    public class EmptyAndPowerlessDialogue : Dialogue{
+        public EmptyAndPowerlessDialogue(){
+            Say("");
+        }
+    }
+    public class EmptyDialogue : Dialogue{
+        public EmptyDialogue(){
+            Say("");
+        }
+    }
+    public class PowerlessDialogue : Dialogue{
+        public PowerlessDialogue(){
+            Say("");
+        }
+    }
+    
+    public class FinalDialogue : Dialogue{
+        public FinalDialogue(){
+            Say("");
         }
     }
 }

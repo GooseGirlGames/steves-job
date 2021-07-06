@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 333213872}
   - component: {fileID: 333213871}
   m_Layer: 0
-  m_Name: Vending
+  m_Name: Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -629,6 +629,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3efe474b9f561e11918199db375abf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInTrigger: 0
+  hintPosition: {fileID: 1674899706}
+  background: {fileID: 0}
+  avatar: {fileID: 0}
+  name: Switch Hole
+  world: 3
+  switch_final: {fileID: 11400000, guid: adbacbb016bf2dc1ebcc654131ce627b, type: 2}
+  switch_dirty: {fileID: 11400000, guid: 7232ee2789a30a648abb2a8f01176c73, type: 2}
+  switch_broken: {fileID: 11400000, guid: 8ce5a7b88b03f28fbbde7a43796b59fb, type: 2}
+  switch_dirty_broken: {fileID: 11400000, guid: 02201874d20345cc4a81721b09010eff, type: 2}
+  _powered: {fileID: 11400000, guid: a7db27240f1b684c3a4c8d36f379a74e, type: 2}
 --- !u!61 &333213872
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1576,10 +1587,10 @@ MonoBehaviour:
   avatar: {fileID: 0}
   name: Snack-O-Mat
   world: 3
-  item_for_sale: {fileID: 0}
-  startcoin: {fileID: 0}
-  cutecoin: {fileID: 0}
-  horrorcoin: {fileID: 0}
+  item_for_sale: {fileID: 11400000, guid: c4555e7678ae05c63b60689c07dd63c0, type: 2}
+  startcoin: {fileID: 11400000, guid: 893420d5093890ca2bff51a05023f30c, type: 2}
+  cutecoin: {fileID: 11400000, guid: 2fb8e45bc98bdb9949adc0daa6d6c4ec, type: 2}
+  horrorcoin: {fileID: 11400000, guid: 95471e06a7c17fbf7808e9594c76c508, type: 2}
 --- !u!61 &1098028437
 BoxCollider2D:
   m_ObjectHideFlags: 0
