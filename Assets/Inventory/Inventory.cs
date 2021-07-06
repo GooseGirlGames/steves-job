@@ -11,6 +11,8 @@ public class Inventory : MonoBehaviour
     public InventoryCanvasSlots inventoryCanvasSlots;
     public bool has_shirt = false;
 
+    [SerializeField] private List<Item> coins = new List<Item>();
+
     private void Awake() {
         if (Instance != null) {
             Debug.LogWarning("Multiple instances of inventory created.");
@@ -54,5 +56,12 @@ public class Inventory : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public int CoinBalance() {
+        List<Item> coins_in_inventory = items.FindAll(
+            (item) => coins.Contains(item)
+        );
+        return coins_in_inventory.Count;
     }
 }
