@@ -16,6 +16,6 @@ MonoBehaviour:
   description: Well nobody can call me spineless now... haha ...
   visible: 1
   icon: {fileID: 0}
-  originWorld: 0
+  originWorld: 2
   unique: 1
   conflictingItems: []

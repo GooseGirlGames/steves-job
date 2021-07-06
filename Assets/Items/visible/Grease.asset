@@ -16,6 +16,6 @@ MonoBehaviour:
   description: 'you monster D:'
   visible: 1
   icon: {fileID: 0}
-  originWorld: 0
+  originWorld: 2
   unique: 1
   conflictingItems: []

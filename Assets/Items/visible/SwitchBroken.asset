@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SwitchBroken
   m_EditorClassIdentifier: 
   name: Broken Switch
-  description: Well, its still broken but at least it is shiny
+  description: Well, its still broken but at least it is shiny now :D
   visible: 1
   icon: {fileID: 0}
   originWorld: 3

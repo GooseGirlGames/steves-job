@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: SwitchBrokenDirty
   m_EditorClassIdentifier: 
   name: Dirty Broken Switch
-  description: 
-  visible: 0
+  description: This thing is totaly destroyed and messy. I need to find a way to
+    fix it and put it on Power to swich myself out of here
+  visible: 1
   icon: {fileID: 0}
-  originWorld: 0
+  originWorld: 3
   unique: 0
-  conflictingItems: []
+  conflictingItems:
+  - {fileID: 11400000, guid: adbacbb016bf2dc1ebcc654131ce627b, type: 2}
+  - {fileID: 11400000, guid: 8ce5a7b88b03f28fbbde7a43796b59fb, type: 2}
+  - {fileID: 11400000, guid: 7232ee2789a30a648abb2a8f01176c73, type: 2}

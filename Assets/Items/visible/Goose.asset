@@ -16,6 +16,6 @@ MonoBehaviour:
   description: I'll take good care of her
   visible: 1
   icon: {fileID: 0}
-  originWorld: 0
+  originWorld: 3
   unique: 1
   conflictingItems: []
