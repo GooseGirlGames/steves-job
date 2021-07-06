@@ -1,3 +1,32 @@
+# Void 
+## Jim                          TODO
+## Handyman                     TODO
+## Steve E Wonder               TODO
+## Vendingmashine               TODO
+## Platz für lichtschalte       TODO
+- Teile einsammeln
+
+# Cute 
+## Clawmashine                  TODO
+## Crank port                   TODO
+## Jimmy the Cat 
+## Store Owner
+## Cut E WOnder                 TODO
+## Cute Racoon                  TODO (skript)
+## Peasents für goose           TODO (skript)
+- wenn vorher mit blut übergossen, dann bloody goose
+## Cotten Candy Store           TODO
+
+# Horror
+## Geese to grease Mashine      TODO
+## Laundro Man 
+## Horror Racoon                TODO
+## Hangman                      TODO
+## Steve E Horror               TODO
+## Entspined dude (Peasends)    TODO
+## Frederic (Hotdog stand) 
+
+
 | Original        | Cute         | Horror        | Itemslots | category        |
 | --------------- | :----------- | :------------ | :-------- | --------------- |
 | Jimmy           | laundr O man | Jimmy the Cat |           | Laundry Store   |
