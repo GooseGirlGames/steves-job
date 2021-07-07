@@ -11,7 +11,7 @@
 ## Crank port
 ## Jimmy the Cat 
 ## Store Owner
-## Cut E WOnder                 TODO
+## Cut E WOnder
 ## Cute Racoon                  TODO (skript)
 ## Peasents für goose           TODO (skript)
 - wenn vorher mit blut übergossen, dann bloody goose
