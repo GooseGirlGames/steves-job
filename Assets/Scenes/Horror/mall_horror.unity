@@ -130,14 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8062396612284725521, guid: faf7736362fd4b89988dbe73d0538a48, type: 3}
-      propertyPath: items.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8062396612284725521, guid: faf7736362fd4b89988dbe73d0538a48, type: 3}
-      propertyPath: items.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8062396612284725522, guid: faf7736362fd4b89988dbe73d0538a48, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -2032,6 +2024,10 @@ PrefabInstance:
       propertyPath: hintPosition
       value: 
       objectReference: {fileID: 1199393986}
+    - target: {fileID: -8734827406022467668, guid: c3d73f7719717f14d91b17556be4cdb1, type: 3}
+      propertyPath: _hangman_story
+      value: 
+      objectReference: {fileID: 11400000, guid: 00c408858048eec4cb229f8d8a6ce41d, type: 2}
     - target: {fileID: -8273843926880474122, guid: c3d73f7719717f14d91b17556be4cdb1, type: 3}
       propertyPath: m_Size.x
       value: 0.2

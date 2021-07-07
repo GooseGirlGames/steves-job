@@ -7,6 +7,7 @@ public class HangmanDialogue : DialogueTrigger
     public static HangmanDialogue h;
     public Item key;
     public Item _key;
+    public Item _hangman_story;
 
     void Awake() {
         Instance = this;
@@ -20,6 +21,9 @@ public class HangmanDialogue : DialogueTrigger
     public override Dialogue GetActiveDialogue() {
         HangmanDialogue.h = this;
 
+        if (! Inventory.Instance.HasItem(_hangman_story)) {
+            return new Introduction();
+        }
         return new DefaultDialogue();
     }
 
@@ -41,12 +45,16 @@ public class HangmanDialogue : DialogueTrigger
 
     public class Introduction : Dialogue {
         public Introduction() {
+            HangmanDialogue h = HangmanDialogue.h;
+
             Say("When I was ");
             Say("A young boy");
             Say("My father");
             Say("told me to be careful with keys");
             Say("And never loose them");
-            Say("But guess what happened ...");
+            Say("But guess what happened ...")
+            .DoAfter(GiveItem(h._hangman_story))
+            .DoAfter(new TriggerDialogueAction<DefaultDialogue>());
         }
     }
 
