@@ -18,10 +18,10 @@
 ## Cotten Candy Store           TODO
 
 # Horror
-## Geese to grease Mashine      TODO
+## Geese to grease Mashine
 ## Laundro Man 
 ## Horror Racoon                TODO
-## Hangman                      TODO
+## Hangman
 ## Steve E Horror               TODO
 ## Entspined dude (Peasends)    TODO
 ## Frederic (Hotdog stand) 
