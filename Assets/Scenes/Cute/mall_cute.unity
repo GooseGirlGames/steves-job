@@ -1377,6 +1377,10 @@ MonoBehaviour:
   avatar: {fileID: 0}
   name: racoon
   world: 1
+  snack: {fileID: 11400000, guid: c4555e7678ae05c63b60689c07dd63c0, type: 2}
+  coin: {fileID: 11400000, guid: 2fb8e45bc98bdb9949adc0daa6d6c4ec, type: 2}
+  crank: {fileID: 11400000, guid: b5330c7fcf8c7321faded7cd47cc726b, type: 2}
+  _miniGameplayed: {fileID: 0}
 --- !u!61 &725189935
 BoxCollider2D:
   m_ObjectHideFlags: 0

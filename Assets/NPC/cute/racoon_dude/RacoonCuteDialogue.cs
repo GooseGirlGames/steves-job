@@ -42,8 +42,9 @@ public class ChoiceDialogue : Dialogue {
                 .IfChosen(new TriggerDialogueAction<SickRacoonDia>()))
             .Choice(
                 new ItemOption(RacoonCuteDialogue.t.snack)
-                .IfChosen(new TriggerDialogueAction<SnackDialogue>())
-            );
+                .IfChosen(new TriggerDialogueAction<SnackDialogue>()))
+            .Choice(
+                new TextOption("no!"));    
     }
 }
 
