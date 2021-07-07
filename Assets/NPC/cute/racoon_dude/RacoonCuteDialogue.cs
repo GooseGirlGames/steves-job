@@ -58,6 +58,7 @@ public class SnackDialogue : Dialogue {
         Say("Thank you sooooo much my dear janitor")
             .DoAfter(RemoveItem(RacoonCuteDialogue.t.snack));
         Say("Since you helped me I will gift you this beautiful coin!");
+            .DoAfter(GiveItem(RacoonCuteDialogue.t.coin));
     }
 }
 public class SickRacoonDia : Dialogue {
