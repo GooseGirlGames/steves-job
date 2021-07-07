@@ -166,6 +166,7 @@ MonoBehaviour:
   progressbar: {fileID: 0}
   splatter: {fileID: 21300000, guid: a0ab56d1db9825871ac9e8683312c85b, type: 3}
   lostItem: {fileID: 11400000, guid: 7067d8b8b07f27bc3b40963e02ad51aa, type: 2}
+  winItem: {fileID: 11400000, guid: 2349e6f6715f8121cbcf96f01efd5c88, type: 2}
 --- !u!114 &8940451053746552948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +192,7 @@ MonoBehaviour:
   transitionAnimationSpeedFactor: 1
   animationDelay: 0
   hintPosition: {fileID: 0}
+  animateAsElevator: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
