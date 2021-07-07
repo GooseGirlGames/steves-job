@@ -23,46 +23,18 @@ Dialogue5(Steve is Restored and after minigame):
 
 public class SteveEWonderDialogue : DialogueTrigger{
     // Start is called before the first frame update
-    public Item _steve_horror_finished
-    public Item _steve_cute_finished
-    public Item _minigamewon
-    public Item _;
-    public static t;
+    public Item _steve_horror_finished;
+    public Item _steve_cute_finished;
+    public Item _minigamewon;
+    public static SteveEWonderDialogue t;
 
     public override Dialogue GetActiveDialogue() {
-        if (Inventory.Instance.HasItem(switch_broken)||Inventory.Instance.HasItem(switch_dirty)||Inventory.Instance.HasItem(switch_dirty_broken)||Inventory.Instance.HasItem(switch_final)){
-            if (Inventory.Instance.HasItem(_powered)){
-                return new EmptyDialogue();
-            }
-            else{
-                return new EmptyAndPowerlessDialogue();
-            }
-        }
-        else if(!_powered){
-            return new PowerlessDialogue();
-        }
-        return new FinalDialogue();
+        return new NoneExist();
     }
 
-    public class EmptyAndPowerlessDialogue : Dialogue{
-        public EmptyAndPowerlessDialogue(){
-            Say("");
-        }
-    }
-    public class EmptyDialogue : Dialogue{
-        public EmptyDialogue(){
-            Say("");
-        }
-    }
-    public class PowerlessDialogue : Dialogue{
-        public PowerlessDialogue(){
-            Say("");
-        }
-    }
-    
-    public class FinalDialogue : Dialogue{
-        public FinalDialogue(){
-            Say("");
+    public class NoneExist : Dialogue{
+        public NoneExist(){
+            Say("...");
         }
     }
 }
