@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a384481017c7d11e6be52b993588aa4a, type: 3}
-  m_Name: Goose
+  m_Name: GooseBloody
   m_EditorClassIdentifier: 
   name: Goose
-  description: I'll take good care of her
+  description: Has seen better days.  Less blood-soaked ones to be specific.
   visible: 1
   icon: {fileID: 0}
-  originWorld: 3
+  originWorld: 1
   unique: 1
   conflictingItems:
-  - {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
+  - {fileID: 11400000, guid: 198dc408a7afc11f7ba17208cfc0bbd2, type: 2}
