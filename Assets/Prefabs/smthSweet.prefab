@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7656309700608033850}
   m_Layer: 3
   m_Name: smthSweet
-  m_TagString: floor
+  m_TagString: spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
