@@ -10,8 +10,10 @@ public class DeployCandy : MonoBehaviour
     private Vector3 racoon_pos;
     public RacoonHit racoonHit;
 
+    int rand_spawn;
     public GameObject[] candyPrefabs;
     public GameObject[] spawns;
+    private Vector3 spawn_pos;
     private GameObject tmp;
     private GameObject spawn;
 
@@ -43,15 +45,15 @@ public class DeployCandy : MonoBehaviour
 
     private void spawnCandy(){
         racoonHit = racoon.GetComponent<RacoonHit>();
-        int rand_spawn = Random.Range(0, spawns.Length);
-        float rand_x_pos = Random.Range(5.0f,10.0f);
-        float rand_y_pos = Random.Range(0.0f,6.0f);
+        
+        
+        spawn_pos = new Vector3(racoon_pos.x + 4.0f, spawns[rand_spawn].transform.position.y, 1);
         Vector2 candyPrefab_pos = new Vector2(spawns[rand_spawn].transform.position.x, spawns[rand_spawn].transform.position.y);        
+        
+        
         int random = Random.Range(0,candyPrefabs.Length);
         tmp = candyPrefabs[random];
-        if(racoonHit.hit == true){
-            spawn = Instantiate(tmp, candyPrefab_pos, Quaternion.identity) as GameObject;
-        }   
+        spawn = Instantiate(tmp, candyPrefab_pos, Quaternion.identity) as GameObject;   
     }
 
 
@@ -87,8 +89,7 @@ public class DeployCandy : MonoBehaviour
         Debug.Log("Won Jump MiniGame");
         Portal.TriggerTeleport();
     }
-    public void FixedUpdate()
-    {
+    public void FixedUpdate(){
         if(spawn != null){
             if(spawn.GetComponent<Sweets>().trigger){
                 if(spawn.GetComponent<Sweets>().notYetTriggered){
@@ -97,7 +98,7 @@ public class DeployCandy : MonoBehaviour
                 }
                 
             }
-        }
+        } 
     }
 
     public void Update(){
@@ -127,6 +128,10 @@ public class DeployCandy : MonoBehaviour
         }
         stop.transform.position = bound_pos;
 
+        //spawn_pos = new Vector3(racoon_pos.x + 4.0f, spawns.transform.position.y, 1);
+        //spawns[].transform.position = spawn_pos;
+        rand_spawn = Random.Range(0,spawns.Length);
+        spawns[rand_spawn].transform.position.x = spawn_pos.x;
     }
 
 
