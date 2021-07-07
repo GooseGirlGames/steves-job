@@ -12,6 +12,7 @@ public class BloodFalling : MonoBehaviour {
     public Sprite splatter;
     private Vector2 screenbounds;
     public Item lostItem;
+    public Item winItem;
 
     public static int splatCount;
 
@@ -53,9 +54,12 @@ public class BloodFalling : MonoBehaviour {
     }
 
     void GameLost(){
-        loserPortal.TriggerTeleport();
+        if (!Inventory.Instance.HasItem(winItem)) {
+            Inventory.Instance.AddItem(lostItem);
+        }
         DialogueManager.Instance.SetInstantTrue();
-        Inventory.Instance.AddItem(lostItem);
+        loserPortal.TriggerTeleport();
+        
         //Debug.Log("bucket");
     }
 
@@ -67,7 +71,7 @@ public class BloodFalling : MonoBehaviour {
         
         if(countSplat == 3){
             GameLost();
-            countSplat = 4;
+            BloodFalling.splatCount = 4;
             Debug.Log("Game Over");
         }
     }
