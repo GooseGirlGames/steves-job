@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingBloodPrefab: {fileID: 8119379149461662919, guid: ba97fea2be2ed005cb054c0c1641a288, type: 3}
-  secondsBetweenSpawns: 2
+  secondsBetweenSpawns: 2.08
   spawnSizeMinMax: {x: 0.7, y: 1}
   bloodrain:
   - {fileID: 769215027}
@@ -601,6 +601,7 @@ MonoBehaviour:
   transitionAnimationSpeedFactor: 1
   animationDelay: 0
   hintPosition: {fileID: 0}
+  animateAsElevator: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
