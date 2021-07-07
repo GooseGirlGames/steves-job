@@ -56,10 +56,10 @@ public class CuteEWonderDialogue : DialogueTrigger {
 
     public class HelpMe : Dialogue {
         public HelpMe() {
-            Say(
-                "H-Hey you, can I bother you for a sec? "
-                + "There's a big m-monster in my store, a-and I can't go in there anymore."
-            );
+            Say("H-Hey you, can I bother you for a sec?")
+            .If(DoesNotHaveItem(t.problemExplained));
+            
+            Say("There's a big m-monster in my store, a-and I can't go in there anymore.");
 
             Say("It's just I don't-  I don't want to die...");
 
