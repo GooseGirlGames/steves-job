@@ -12,8 +12,10 @@ public class DeployCandy : MonoBehaviour
 
     int rand_spawn;
     public GameObject[] candyPrefabs;
-    public GameObject[] spawns;
+    public GameObject spawns;
+    public Transform[] spawn_arr;
     private Vector3 spawn_pos;
+    private Vector2 candyPrefab_pos;
     private GameObject tmp;
     private GameObject spawn;
 
@@ -45,13 +47,11 @@ public class DeployCandy : MonoBehaviour
 
     private void spawnCandy(){
         racoonHit = racoon.GetComponent<RacoonHit>();
-        
-        
-        spawn_pos = new Vector3(racoon_pos.x + 4.0f, spawns[rand_spawn].transform.position.y, 1);
-        Vector2 candyPrefab_pos = new Vector2(spawns[rand_spawn].transform.position.x, spawns[rand_spawn].transform.position.y);        
-        
-        
+               
+        int rand_spawn = Random.Range(0,spawn_arr.Length);
         int random = Random.Range(0,candyPrefabs.Length);
+        Transform rand_transform = spawn_arr[rand_spawn];
+        candyPrefab_pos = new Vector2(rand_transform.position.x, rand_transform.position.y); 
         tmp = candyPrefabs[random];
         spawn = Instantiate(tmp, candyPrefab_pos, Quaternion.identity) as GameObject;   
     }
@@ -59,7 +59,7 @@ public class DeployCandy : MonoBehaviour
 
     IEnumerator timedSpawn(){
         while(true){
-            yield return new WaitForSeconds(Random.Range(0.7f,4.0f));
+            yield return new WaitForSeconds(Random.Range(2.0f,4.0f));
             spawnCandy();
         }
     }
@@ -91,10 +91,10 @@ public class DeployCandy : MonoBehaviour
     }
     public void FixedUpdate(){
         if(spawn != null){
-            if(spawn.GetComponent<Sweets>().trigger){
-                if(spawn.GetComponent<Sweets>().notYetTriggered){
-                    spawn.GetComponent<Sweets>().notYetTriggered = false;
+            if(spawn.GetComponent<Sweets>().notYetTriggered){
+                if(spawn.GetComponent<Sweets>().trigger){
                     health -= .1f; 
+                    spawn.GetComponent<Sweets>().notYetTriggered = false;
                 }
                 
             }
@@ -128,10 +128,9 @@ public class DeployCandy : MonoBehaviour
         }
         stop.transform.position = bound_pos;
 
-        //spawn_pos = new Vector3(racoon_pos.x + 4.0f, spawns.transform.position.y, 1);
-        //spawns[].transform.position = spawn_pos;
-        rand_spawn = Random.Range(0,spawns.Length);
-        spawns[rand_spawn].transform.position.x = spawn_pos.x;
+        spawn_pos = new Vector3(racoon_pos.x + 1.0f, spawns.transform.position.y, 1);
+        spawns.transform.position = spawn_pos;
+
     }
 
 

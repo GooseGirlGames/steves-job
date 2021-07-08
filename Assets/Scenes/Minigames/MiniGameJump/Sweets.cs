@@ -17,20 +17,27 @@ public class Sweets : MonoBehaviour
         candy = this.GetComponent<Rigidbody2D>();
         candy.velocity = new Vector2(-speed, 0);
     }
- 
+
     private void OnTriggerEnter2D(Collider2D col){
         if (col.gameObject.tag == "Player"){
             trigger = true;
             Debug.Log("HIT");
         }
     }
+
+    void OnTriggerExit2D(Collider2D col){
+        if (col.gameObject.tag == "Player"){
+            notYetTriggered = false;
+        }
+    }
     
     void Update()
     {
-        
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-        if(transform.position.x < screenBounds.x - 10){
+        if(transform.position.x < screenBounds.x - 5){
             Destroy(this.gameObject);
         }
+        float rand_speed = Random.Range(2.0f,5.0f);
+        speed = rand_speed;
     }
 }
