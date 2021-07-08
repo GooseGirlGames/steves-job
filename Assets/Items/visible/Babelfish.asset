@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Babelfish
   description: this feews weiwd in my eaw, >_< ugh.
   visible: 1
-  icon: {fileID: 21300000, guid: 0f0d76cac37f9a81a8f6b579ea0021e5, type: 3}
+  icon: {fileID: 6761164967045977113, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 1
   unique: 0
   conflictingItems: []

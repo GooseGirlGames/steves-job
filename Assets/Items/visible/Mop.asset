@@ -16,7 +16,7 @@ MonoBehaviour:
   description: 38 inch pole of the finest mahagony wood, a core with the last of
     my hair and  a top quality mycrofibre head.  My true best friend!!!
   visible: 1
-  icon: {fileID: 21300000, guid: cea618b9c5720937d8ae1e8455634fbd, type: 3}
+  icon: {fileID: -5428206428529569624, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 3
   unique: 0
   conflictingItems: []

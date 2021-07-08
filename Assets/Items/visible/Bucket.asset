@@ -16,7 +16,7 @@ MonoBehaviour:
   description: A simple Bucket. The best place for my mop and and 10 liters of semi
     clean water.
   visible: 1
-  icon: {fileID: 21300000, guid: 384cb83dd8e7d2a38a56752470238a02, type: 3}
+  icon: {fileID: -732356172534689064, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 1
   unique: 1
   conflictingItems:

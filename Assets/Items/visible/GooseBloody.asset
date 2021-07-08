@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Goose
   description: Has seen better days.  Less blood-soaked ones to be specific.
   visible: 1
-  icon: {fileID: 0}
+  icon: {fileID: -7583409310137716746, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 1
   unique: 1
   conflictingItems:
