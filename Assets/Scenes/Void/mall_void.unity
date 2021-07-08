@@ -640,6 +640,7 @@ MonoBehaviour:
   switch_broken: {fileID: 11400000, guid: 8ce5a7b88b03f28fbbde7a43796b59fb, type: 2}
   switch_dirty_broken: {fileID: 11400000, guid: 02201874d20345cc4a81721b09010eff, type: 2}
   _powered: {fileID: 11400000, guid: a7db27240f1b684c3a4c8d36f379a74e, type: 2}
+  _not_pickedup_with_switch: {fileID: 0}
 --- !u!61 &333213872
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -888,6 +889,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d872675a880e2b5499dc0a37857cd7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInTrigger: 0
+  hintPosition: {fileID: 1006224573}
+  background: {fileID: 0}
+  avatar: {fileID: 0}
+  name: Jim
+  world: 3
+  _jim_horror_finished: {fileID: 0}
+  _jim_cute_finished: {fileID: 0}
+  _minigamewon: {fileID: 0}
 --- !u!61 &355856215
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1270,11 +1280,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3284779
+      value: 3.3301122
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.041188773
+      value: -0.041229647
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1714,16 +1724,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInTrigger: 0
-  hintPosition: {fileID: 0}
+  hintPosition: {fileID: 1919723815}
   background: {fileID: 0}
   avatar: {fileID: 0}
-  name: 
-  world: 0
-  switch_final: {fileID: 0}
-  switch_dirty: {fileID: 0}
-  switch_broken: {fileID: 0}
-  switch_dirty_broken: {fileID: 0}
-  _powered: {fileID: 0}
+  name: Steve E Wonder
+  world: 3
+  _steve_horror_finished: {fileID: 0}
+  _steve_cute_finished: {fileID: 0}
+  _minigamewon: {fileID: 0}
 --- !u!61 &1127039635
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1737,7 +1745,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0038584769, y: -0.018871509}
+  m_Offset: {x: -0.0022502616, y: -0.011224471}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1748,7 +1756,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.19241124, y: 0.19774301}
+  m_Size: {x: 0.1634639, y: 0.18244894}
   m_EdgeRadius: 0
 --- !u!212 &1127039636
 SpriteRenderer:
@@ -2882,7 +2890,7 @@ GameObject:
   - component: {fileID: 2136256381}
   - component: {fileID: 2136256380}
   m_Layer: 0
-  m_Name: Vending
+  m_Name: Handyman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2914,6 +2922,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4508571c31620f18d9585925b9808134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInTrigger: 0
+  hintPosition: {fileID: 1840267817}
+  background: {fileID: 0}
+  avatar: {fileID: 0}
+  name: Handyman
+  world: 3
+  _jim_horror_finished: {fileID: 0}
+  _jim_cute_finished: {fileID: 0}
+  _minigamewon: {fileID: 0}
 --- !u!61 &2136256381
 BoxCollider2D:
   m_ObjectHideFlags: 0

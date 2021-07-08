@@ -26,10 +26,14 @@ public class SwitchDialogue : DialogueTrigger{
     public Item switch_broken;
     public Item switch_dirty_broken;
     public Item _powered;
+    public Item _not_pickedup_with_switch;
     public static SwitchDialogue t;
 
     public override Dialogue GetActiveDialogue() {
-        if (Inventory.Instance.HasItem(switch_broken)||Inventory.Instance.HasItem(switch_dirty)||Inventory.Instance.HasItem(switch_dirty_broken)||Inventory.Instance.HasItem(switch_final)){
+        if (Inventory.Instance.HasItem(_not_pickedup_with_switch)){
+            return new FirstDialogue();
+        }
+        else if (Inventory.Instance.HasItem(switch_broken)||Inventory.Instance.HasItem(switch_dirty)||Inventory.Instance.HasItem(switch_dirty_broken)||Inventory.Instance.HasItem(switch_final)){
             if (Inventory.Instance.HasItem(_powered)){
                 return new EmptyDialogue();
             }
@@ -37,10 +41,21 @@ public class SwitchDialogue : DialogueTrigger{
                 return new EmptyAndPowerlessDialogue();
             }
         }
-        else if(!_powered){
+        else if(!Inventory.Instance.HasItem(_powered)){
             return new PowerlessDialogue();
         }
         return new FinalDialogue();
+    }
+
+    public class FirstDialogue : Dialogue {
+        public FirstDialogue(){
+            Say("Everything what is left of of this stupid switch are some broken remains");
+            Say("with strange goo all over them")
+                .DoAfter(GiveItem(t.switch_dirty_broken));
+            Say("It is needet to repair it, and clean the thing from the sticky mess");
+            Say("The Power is also down, I think Steve E Wonder has a spare generator")
+                .DoAfter(RemoveItem(t._not_pickedup_with_switch));
+        }
     }
 
     public class EmptyAndPowerlessDialogue : Dialogue{

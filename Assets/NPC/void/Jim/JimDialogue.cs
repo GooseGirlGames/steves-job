@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JimDialogue : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+/* 
+
+ */
+public class JimDialogue : DialogueTrigger{
+    public Item _jim_horror_finished;
+    public Item _jim_cute_finished;
+    public Item _minigamewon;
+    public static JimDialogue t;
+
+    public override Dialogue GetActiveDialogue() {
+        return new NoneExist();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public class NoneExist : Dialogue{
+        public NoneExist(){
+            Say("...");
+        }
     }
 }
