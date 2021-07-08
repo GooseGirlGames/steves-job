@@ -2,41 +2,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CuteFionnDialogue : DialogueTrigger {
-    public static CuteFionnDialogue t;
+public class BloodyFionnDialogue : DialogueTrigger {
+    public static BloodyFionnDialogue t;
     public Item joined;
     public Item later;
-    public Item goose;
     public Item grease;
+    public Item later_bloodsoaked;
+    public Item goose;
     public Item bloodygoose;
     public override Dialogue GetActiveDialogue() {
         t = this;
         if (!Inventory.Instance.HasItem(joined)) {
-            if (Inventory.Instance.HasItem(later)) {
+            if (Inventory.Instance.HasItem(later_bloodsoaked)) {
                 return new WannaJoin();
+            } else if (Inventory.Instance.HasItem(later)) {
+                return new HelloAgain();
             }
             return new Hello();
         }
         return new ShowGoose();
     }
 
+    public class HelloAgain : Dialogue {
+        public HelloAgain() {
+            Say("Sorry about the mess, but we are still in fact the cult of GOOSE.")
+            .DoAfter(new TriggerDialogueAction<WannaJoin>());
+        }
+    }
+
     public class Hello : Dialogue {
         public Hello() {
-            Say("Hello! We are the cult of GOOSE.");
+            Say("Hello! Sorry about the mess, but we are the cult of GOOSE.");
             Say(
                 "Interested in joining us? \n"
-                + "We might not be the flashiest cult around, "
+                + "We might not be the cutest cult "
+                + "(anymore, we'll get this whole situation taken care of), "
                 + "but if you decide to join, you will get this "
                 + "lovely GOOSE as a limited-time new member reward!"
             );
             Say("Time is limited though!")
             .Choice(
                 new TextOption("Join cult of GOOSE")
+                .IfChosen(GiveItem(t.joined))
                 .IfChosen(new TriggerDialogueAction<Joined>())
             )
             .Choice(
                 new TextOption("Maybe later")
-                .IfChosen(GiveItem(t.later))
+                .IfChosen(GiveItem(t.later_bloodsoaked))
             );
         }
     }
@@ -45,11 +57,11 @@ public class CuteFionnDialogue : DialogueTrigger {
             Say("So, still want to join us?")
             .Choice(
                 new TextOption("Join cult of GOOSE")
-                .IfChosen(GiveItem(t.joined))
                 .IfChosen(new TriggerDialogueAction<Joined>())
             )
             .Choice(
                 new TextOption("Maybe later")
+                .IfChosen(GiveItem(t.later_bloodsoaked))
             );
         }
     }
@@ -57,10 +69,10 @@ public class CuteFionnDialogue : DialogueTrigger {
     public class Joined : Dialogue {
         public Joined() {
             Say("Welcome to the cult of GOOSE.");
-            
-            Say("Here's your reward. Take good care of her.")
+
+            Say("Here's your reward. Take better care of her than we did.")
             .Do(GiveItem(t.joined))
-            .Do(GiveItem(t.goose));
+            .Do(GiveItem(t.bloodygoose));
         }
     }
 
@@ -72,8 +84,12 @@ public class CuteFionnDialogue : DialogueTrigger {
                 .IfChosen(new TriggerDialogueAction<NiceGoose>())
             )
             .Choice(
+                new ItemOption(t.bloodygoose)
+                .IfChosen(new TriggerDialogueAction<PoorGoose>())
+            )
+            .Choice(
                 new ItemOption(t.grease)
-                .IfChosen(new TriggerDialogueAction<Grease>())
+                .IfChosen(new TriggerDialogueAction<CuteFionnDialogue.Grease>())
             )
             .Choice(
                 new OtherItemOption()
@@ -89,9 +105,9 @@ public class CuteFionnDialogue : DialogueTrigger {
         }
     }
 
-    public class Grease: Dialogue {
-        public Grease() {
-            Say("Is that... Oh my god...");
+    public class PoorGoose : Dialogue {
+        public PoorGoose() {
+            Say("Poor little thing");
         }
     }
 

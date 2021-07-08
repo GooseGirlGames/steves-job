@@ -58,8 +58,8 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
         yield return new WaitForSeconds(2);
         transitionAnimation.SetTrigger("ExitScene");
         yield return new WaitForSeconds(1);
-        Peasants.GetComponent<Renderer>().enabled = false;
-        BloodPeasents.GetComponent<Renderer>().enabled = true;
+        Peasants.GetComponent<PeasentsVisible>().UpdateVisibility();
+        BloodPeasents.GetComponent<SoakedPeasantsVisible>().UpdateVisibility();
         renderer.enabled = false;
         yield return new WaitForSeconds(2);
         player.Unlock("BloodPouring");

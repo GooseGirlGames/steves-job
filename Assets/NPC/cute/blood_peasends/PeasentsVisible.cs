@@ -6,6 +6,12 @@ public class PeasentsVisible : MonoBehaviour {
     [SerializeField] private Item soaked;
     [SerializeField] new private Renderer renderer;
     private void Awake() {
-        renderer.enabled = !Inventory.Instance.HasItem(soaked);
+        UpdateVisibility();
+    }
+    
+    public void UpdateVisibility() {
+        bool visible = !Inventory.Instance.HasItem(soaked);
+        renderer.enabled = visible;
+        this.gameObject.SetActive(visible);
     }
 }
