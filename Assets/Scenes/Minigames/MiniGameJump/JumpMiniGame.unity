@@ -373,9 +373,10 @@ MonoBehaviour:
   candyPrefabs:
   - {fileID: 5568731884954774783, guid: e13ed10e47103c881b21cfe1417cdbe7, type: 3}
   - {fileID: 6810234081739629159, guid: 81914f33cb702d490825796ad90fa021, type: 3}
-  spawns:
-  - {fileID: 1652934464}
-  - {fileID: 1121786793}
+  spawns: {fileID: 1148452}
+  spawn_arr:
+  - {fileID: 1652934465}
+  - {fileID: 1121786794}
   respawnTime: 4
   winSeconds: 0
   player: {fileID: 63461469}
@@ -1510,7 +1511,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1919,7 +1920,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
