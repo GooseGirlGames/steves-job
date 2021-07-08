@@ -640,7 +640,7 @@ MonoBehaviour:
   switch_broken: {fileID: 11400000, guid: 8ce5a7b88b03f28fbbde7a43796b59fb, type: 2}
   switch_dirty_broken: {fileID: 11400000, guid: 02201874d20345cc4a81721b09010eff, type: 2}
   _powered: {fileID: 11400000, guid: a7db27240f1b684c3a4c8d36f379a74e, type: 2}
-  _not_pickedup_with_switch: {fileID: 0}
+  _not_pickedup_with_switch: {fileID: 11400000, guid: fa49013038d0321088f409d9bcac2ab8, type: 2}
 --- !u!61 &333213872
 BoxCollider2D:
   m_ObjectHideFlags: 0

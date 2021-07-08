@@ -29,6 +29,7 @@ public class SteveEWonderDialogue : DialogueTrigger{
     public static SteveEWonderDialogue t;
 
     public override Dialogue GetActiveDialogue() {
+        SteveEWonderDialogue.t = this;
         return new NoneExist();
     }
 

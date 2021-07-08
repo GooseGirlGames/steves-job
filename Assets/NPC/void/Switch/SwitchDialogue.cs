@@ -30,6 +30,7 @@ public class SwitchDialogue : DialogueTrigger{
     public static SwitchDialogue t;
 
     public override Dialogue GetActiveDialogue() {
+        SwitchDialogue.t = this;
         if (Inventory.Instance.HasItem(_not_pickedup_with_switch)){
             return new FirstDialogue();
         }
@@ -60,23 +61,23 @@ public class SwitchDialogue : DialogueTrigger{
 
     public class EmptyAndPowerlessDialogue : Dialogue{
         public EmptyAndPowerlessDialogue(){
-            Say("");
+            Say("...");
         }
     }
     public class EmptyDialogue : Dialogue{
         public EmptyDialogue(){
-            Say("");
+            Say("...");
         }
     }
     public class PowerlessDialogue : Dialogue{
         public PowerlessDialogue(){
-            Say("");
+            Say("...");
         }
     }
     
     public class FinalDialogue : Dialogue{
         public FinalDialogue(){
-            Say("");
+            Say("...");
         }
     }
 }

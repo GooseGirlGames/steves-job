@@ -12,6 +12,7 @@ public class JimDialogue : DialogueTrigger{
     public static JimDialogue t;
 
     public override Dialogue GetActiveDialogue() {
+        JimDialogue.t = this;
         return new NoneExist();
     }
 
