@@ -7,7 +7,6 @@ public class HandymanDialogue : DialogueTrigger{
     public Item _handyman_cute_finished;
     public Item _minigamewon;
     public static HandymanDialogue t;
-
     public override Dialogue GetActiveDialogue() {
         HandymanDialogue.t = this;
         if(Inventory.Instance.HasItem(_handyman_cute_finished)&&Inventory.Instance.HasItem(_handyman_horror_finished)){
