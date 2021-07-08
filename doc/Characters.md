@@ -13,7 +13,7 @@
 ## Store Owner
 ## Cut E WOnder
 ## Cute Racoon                  TODO (skript)
-## Peasents für goose           TODO (skript)
+## Peasents für goose           TODO (cult leader done)
 - wenn vorher mit blut übergossen, dann bloody goose
 ## Cotten Candy Store           TODO
 

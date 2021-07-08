@@ -347,6 +347,7 @@ MonoBehaviour:
   BloodBucket: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
   EmptyBucket: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
   PeaseantSoakedCatHappy: {fileID: 11400000, guid: 0fe5bc6463845e43ba3993d2dce2782f, type: 2}
+  Cranked: {fileID: 11400000, guid: 62c2e79f29dbd909bba31c242cb60f6b, type: 2}
   PourAnimator: {fileID: 2255763277771022176}
   transitionAnimation: {fileID: 0}
   Peasants: {fileID: 2255763277559055425}

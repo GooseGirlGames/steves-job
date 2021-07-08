@@ -6,6 +6,7 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
     public Item BloodBucket;
     public Item EmptyBucket;
     public Item PeaseantSoakedCatHappy;
+    public Item Cranked;
     public Animator PourAnimator;
     public Animator transitionAnimation;
 
@@ -17,6 +18,7 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
         if (Inventory.Instance.HasItem(PeaseantSoakedCatHappy)) {
             return null;
         }
+
         return new PourDia(this);
     }
 
@@ -84,12 +86,40 @@ public class PourDia : Dialogue {
         .Do(() => {
             Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
             TargetCamera.Disable();
-        });
+        })
+        .If(HasItem(trigger.Cranked));
+
+
+        Say("...")
+        .Choice(
+            new ItemOption(trigger.BloodBucket)
+            .IfChosen(new TriggerDialogueAction<MarquueDia>())
+        )
+        .Choice(
+            new ItemOption(trigger.EmptyBucket)
+            .IfChosen(new TriggerDialogueAction<EmptyBucketDia>())
+        )
+        .Choice(
+            new TextOption("Do nothing")
+        )
+        .Do(() => {
+            TargetCamera.Disable();
+        })
+        .If(DoesNotHaveItem(trigger.Cranked));
+
+
     }
 }
 
 public class EmptyBucketDia : Dialogue {
     public EmptyBucketDia() {
         Say("There's nothing in this bucket...");
+    }
+}
+
+
+public class MarquueDia : Dialogue {
+    public MarquueDia() {
+        Say("If only that marquee wasn't in the way...");
     }
 }
