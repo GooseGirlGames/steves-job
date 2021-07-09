@@ -19,3 +19,6 @@ project:
 ```
 find . -name "*.png.meta" -exec sed -i "s/textureCompression: 1/textureCompression: 0/g" {} \;
 ```
+
+## I can't see my sprites! help!
+Make sure that the `z coordinate` is not set to some absurd value (like -75) but rather 0 and you should be good
