@@ -168,11 +168,11 @@ public class FredDialogue : DialogueTrigger
         public Naked_DirtyShirt_Dialogue(){
             Say("Ah thats it, just as yucky as I love it!");
             Say("Good on ya Mate!!")
-                .DoAfter(RemoveItem(t.dirty_shirt));
+                .DoAfter(RemoveItem(t.dirty_shirt))
+                .DoAfter(GiveItem(t.finished));
             Say("Alright me ‘ol cobber, for ya work here's Something from tha kitchtn");
             Say("My dishy Mary made this for ya")
-                .DoAfter(GiveItem(t.disgusting_cocktail))
-                .DoAfter(GiveItem(t.finished));
+                .DoAfter(GiveItem(t.disgusting_cocktail));
             Say("Goodbye krokodyle");
         }
     }
@@ -183,11 +183,11 @@ public class FredDialogue : DialogueTrigger
             Say("...AND it's cute. I love it!");
             Say("Good on ya Mate!!")
                 .DoAfter(GiveItem(t._fred_has_maiddress))
+                .DoAfter(GiveItem(t.finished))
                 .DoAfter(RemoveItem(t.dirty_dress));
             Say("Alright me ‘ol cobber, for ya work here's Something from tha kitchtn");
             Say("My dishy Mary made this for ya")
-                .DoAfter(GiveItem(t.disgusting_cocktail))
-                .DoAfter(GiveItem(t.finished));
+                .DoAfter(GiveItem(t.disgusting_cocktail));
             Say("Goodbye krokodyle");
         }
     }

@@ -28,6 +28,7 @@ public class DeployCandy : MonoBehaviour
     private Vector2 bounds;
     public Transform player;
     public GameObject stop;
+    public Item _miniRacoonGamePlayed;
     
     
     [SerializeField] private HealthBar healthbar;
@@ -87,6 +88,7 @@ public class DeployCandy : MonoBehaviour
     }
     public void GameWon(){
         Debug.Log("Won Jump MiniGame");
+        Inventory.Instance.AddItem(_miniRacoonGamePlayed);
         Portal.TriggerTeleport();
     }
     public void FixedUpdate(){

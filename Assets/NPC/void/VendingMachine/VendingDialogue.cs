@@ -20,6 +20,7 @@ public class VendingDialogue : DialogueTrigger {
 
     private void Awake() {
         this.name = VENDINGMACHINE_NAME;
+        vendingAnimator.SetBool("BeenUsed", Inventory.Instance.HasItem(_used));
     }
 
     public override Dialogue GetActiveDialogue() {
@@ -128,7 +129,7 @@ public class VendingDialogue : DialogueTrigger {
     public class Bye : Dialogue {
         public Bye() {
             t.avatar = t.avatar_thamk;
-            
+
             Say("Thank you for using " + VENDINGMACHINE_NAME + "!");
 
             Say("Hope you'll enjoy your " + t.item_for_sale.name.ToUpper())

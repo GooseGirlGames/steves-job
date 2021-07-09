@@ -6,6 +6,8 @@ public class StoreOwnerDialogue : DialogueTrigger {
     public Portal portalToMiniGame;
     new public static StoreOwnerDialogue Instance = null;
     public Item not_active;
+    public Item _racoonMad;
+    public Item _miniRacoonGamePlayed;
 
     public void EnterMiniGame() {
         portalToMiniGame.TriggerTeleport();
@@ -15,7 +17,13 @@ public class StoreOwnerDialogue : DialogueTrigger {
         if(Inventory.Instance.HasItem(not_active)) {
             return new CameBackDia();
         }
-        return new StoreOwnerDefaultDialogue();
+        if(Inventory.Instance.HasItem(_racoonMad)){
+            return new StoreOwnerDefaultDialogue();
+        }
+        if(Inventory.Instance.HasItem(_miniRacoonGamePlayed)){
+            return new ThankYouDia();
+        }
+        return new HelloIAmStoreOwnerDia();
     }
 
     void Awake()
@@ -24,6 +32,23 @@ public class StoreOwnerDialogue : DialogueTrigger {
     }
 }
 
+public class HelloIAmStoreOwnerDia : Dialogue {
+    public HelloIAmStoreOwnerDia(){
+        Say("Hello, nice to meet you!");
+        Say("I am the sweetest owner of the sweetest store to ever exist");
+        Say("My store is like my child");
+        Say("I would be the saddest but still the sweetest store owner to ever exist if anything ever happens to my delicious child!");
+        Say("Well then, it was nice meeting you, dear janitor!");
+    }
+}
+
+public class ThankYouDia : Dialogue {
+    public ThankYouDia(){
+        Say("*cries*");
+        Say("thank you so sooo soooo much!!!");
+        Say("I thought i had lost my child forever!");
+    }
+}
 
 public class StoreOwnerDefaultDialogue : Dialogue {
     public StoreOwnerDefaultDialogue(){

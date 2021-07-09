@@ -6,6 +6,7 @@ public class FredNipples : MonoBehaviour{
     [SerializeField] private Animator nipple_animator;
     [SerializeField] private List<Item> visible_shirts;
     [SerializeField] private Item _fred_has_maiddress;
+    [SerializeField] private Item _fred_finished;
     
     
     void Update() {
@@ -19,8 +20,12 @@ public class FredNipples : MonoBehaviour{
         State nippleState = State.Shirt;
         if (playerHasShirt) {
             nippleState = State.Nipples;
-        } else if (Inventory.Instance.HasItem(_fred_has_maiddress)) {
-            nippleState = State.Dress;
+        } else if (Inventory.Instance.HasItem(_fred_finished)) {
+            if (Inventory.Instance.HasItem(_fred_has_maiddress)) {
+                nippleState = State.Dress;
+            } else {
+                nippleState = State.DirtyShirt;
+            }
         }
         int currentState = nipple_animator.GetInteger("NippleState");
         int targetState = (int) nippleState;
@@ -34,5 +39,6 @@ public class FredNipples : MonoBehaviour{
         Nipples = 0,
         Shirt = 1,
         Dress = 2,
+        DirtyShirt = 3,
     }
 }

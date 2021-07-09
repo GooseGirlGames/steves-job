@@ -170,11 +170,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3289623
+      value: 3.3284779
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0412024
+      value: -0.041188773
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284540, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_RenderPostProcessing
@@ -1380,8 +1380,11 @@ MonoBehaviour:
   snack: {fileID: 11400000, guid: c4555e7678ae05c63b60689c07dd63c0, type: 2}
   coin: {fileID: 11400000, guid: 2fb8e45bc98bdb9949adc0daa6d6c4ec, type: 2}
   crank: {fileID: 11400000, guid: b5330c7fcf8c7321faded7cd47cc726b, type: 2}
-  _miniGameplayed: {fileID: 0}
+  _miniRacoonGamePlayed: {fileID: 11400000, guid: d5c887a046a9a134a98c66ca0d24ce34, type: 2}
+  _racoonMad: {fileID: 11400000, guid: 1b69354948bf26b7bb2617f4459511b4, type: 2}
   storeOwner: {fileID: 2098456318}
+  sadStoreOwner: {fileID: 21300000, guid: 9b3699cc957c65fe6994f96e2d4be41e, type: 3}
+  neutralStoreOwner: {fileID: 21300000, guid: b5aee192d8a8d4da8b1ac0bdf6f162bb, type: 3}
 --- !u!61 &725189935
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2264,13 +2267,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1498789279191445764, guid: 4246e0fa6a9e3c40c8c69b12e5bae22a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b5aee192d8a8d4da8b1ac0bdf6f162bb, type: 3}
     - target: {fileID: 1498789279191445765, guid: 4246e0fa6a9e3c40c8c69b12e5bae22a, type: 3}
       propertyPath: m_Name
       value: store_owner
       objectReference: {fileID: 0}
     - target: {fileID: 1498789279191445765, guid: 4246e0fa6a9e3c40c8c69b12e5bae22a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1498789279191445767, guid: 4246e0fa6a9e3c40c8c69b12e5bae22a, type: 3}
       propertyPath: m_RootOrder
@@ -2316,6 +2323,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3479531730777241745, guid: 4246e0fa6a9e3c40c8c69b12e5bae22a, type: 3}
+      propertyPath: _racoonMad
+      value: 
+      objectReference: {fileID: 11400000, guid: 1b69354948bf26b7bb2617f4459511b4, type: 2}
+    - target: {fileID: 3479531730777241745, guid: 4246e0fa6a9e3c40c8c69b12e5bae22a, type: 3}
+      propertyPath: _miniRacoonGamePlayed
+      value: 
+      objectReference: {fileID: 11400000, guid: d5c887a046a9a134a98c66ca0d24ce34, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4246e0fa6a9e3c40c8c69b12e5bae22a, type: 3}
 --- !u!1001 &1930045473
