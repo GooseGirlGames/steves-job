@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a384481017c7d11e6be52b993588aa4a, type: 3}
-  m_Name: Snack
+  m_Name: _voidvending_used
   m_EditorClassIdentifier: 
-  name: "\u260E\u260E\u260E\u260E\uFE0F Bar"
-  description: Who the hell buy candy at the rupture of reality... Mmh .. I do appearently.
-    Great buissnes modell
-  visible: 1
+  name: 
+  description: 
+  visible: 0
   icon: {fileID: 0}
-  originWorld: 3
-  unique: 1
+  originWorld: 0
+  unique: 0
   conflictingItems: []
