@@ -6,7 +6,7 @@ public class HangmanDialogue : DialogueTrigger
 {
     public static HangmanDialogue h;
     public Item key;
-    public Item _key;
+    public Item _key_given;
     public Item _hangman_story;
 
     void Awake() {
@@ -20,6 +20,8 @@ public class HangmanDialogue : DialogueTrigger
 
     public override Dialogue GetActiveDialogue() {
         HangmanDialogue.h = this;
+
+        // TODO "thank you"-Dialogue if player has `_key_given`
 
         if (! Inventory.Instance.HasItem(_hangman_story)) {
             return new Introduction();
@@ -64,7 +66,7 @@ public class HangmanDialogue : DialogueTrigger
 
             Say("Oh wow, that is actually my key")
             .DoAfter(RemoveItem(h.key))
-            .DoAfter(GiveItem(h._key));
+            .DoAfter(GiveItem(h._key_given));
             Say("Where did you find it?");
             //silly choice that branches off
         }

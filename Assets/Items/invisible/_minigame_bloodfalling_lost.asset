@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a384481017c7d11e6be52b993588aa4a, type: 3}
-  m_Name: gamePlayed
+  m_Name: _minigame_bloodfalling_lost
   m_EditorClassIdentifier: 
   name: 
   description: 
   visible: 0
   icon: {fileID: 0}
   originWorld: 0
-  unique: 0
-  conflictingItems:
-  - {fileID: 11400000, guid: 7067d8b8b07f27bc3b40963e02ad51aa, type: 2}
+  unique: 1
+  conflictingItems: []

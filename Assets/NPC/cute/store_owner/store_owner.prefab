@@ -127,6 +127,7 @@ MonoBehaviour:
   transitionAnimationSpeedFactor: 1
   animationDelay: 0
   hintPosition: {fileID: 0}
+  animateAsElevator: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -149,7 +150,9 @@ MonoBehaviour:
   name: 
   world: 1
   portalToMiniGame: {fileID: 3479531730777241744}
-  not_active: {fileID: 11400000, guid: 236416539b483d448a66ef258c6b9d4b, type: 2}
+  _storeowner_later: {fileID: 11400000, guid: 236416539b483d448a66ef258c6b9d4b, type: 2}
+  _racoonMad: {fileID: 11400000, guid: 1b69354948bf26b7bb2617f4459511b4, type: 2}
+  _restoredCandyman: {fileID: 11400000, guid: 1fb675725e87cfb71ac764ecb4827f55, type: 2}
 --- !u!1 &2779061103552406641
 GameObject:
   m_ObjectHideFlags: 0

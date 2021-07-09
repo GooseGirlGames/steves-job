@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: _restoredLaundrOMan
   m_EditorClassIdentifier: 
   name: 
-  description: 
+  description: Laundroman's gotten the pipes fixed and is happy
   visible: 0
   icon: {fileID: 0}
   originWorld: 0
   unique: 1
-  conflictingItems: []
+  conflictingItems:
+  - {fileID: 11400000, guid: 7067d8b8b07f27bc3b40963e02ad51aa, type: 2}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: _restoredHangman
   m_EditorClassIdentifier: 
   name: 
-  description: 
+  description: Hangman's got his key back and is happy
   visible: 0
   icon: {fileID: 0}
   originWorld: 0

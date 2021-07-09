@@ -50,11 +50,11 @@ MonoBehaviour:
   hintPosition: {fileID: 0}
   background: {fileID: 0}
   avatar: {fileID: 0}
-  name: 
-  world: 0
-  key: {fileID: 0}
-  _key: {fileID: 0}
-  _hangman_story: {fileID: 0}
+  name: Hangman
+  world: 2
+  key: {fileID: 11400000, guid: 8c8be59d694d3c3b581867f7f234336a, type: 2}
+  _key_given: {fileID: 11400000, guid: c9b97c75e83756fd39f16858838ed937, type: 2}
+  _hangman_story: {fileID: 11400000, guid: 00c408858048eec4cb229f8d8a6ce41d, type: 2}
 --- !u!212 &-9151773972656560245
 SpriteRenderer:
   m_ObjectHideFlags: 0

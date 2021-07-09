@@ -815,11 +815,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7702153313825673984, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
---- !u!4 &1199393986 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4008226921864031154, guid: c3d73f7719717f14d91b17556be4cdb1, type: 3}
-  m_PrefabInstance: {fileID: 3502378165464710421}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1313862715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -895,11 +890,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.6970114
+      value: 1.6975656
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.902176
+      value: -3.9021754
       objectReference: {fileID: 0}
     - target: {fileID: 8166448268194895689, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_Name
@@ -1361,29 +1356,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8734827406022467668, guid: c3d73f7719717f14d91b17556be4cdb1, type: 3}
-      propertyPath: key
-      value: 
-      objectReference: {fileID: 11400000, guid: 8c8be59d694d3c3b581867f7f234336a, type: 2}
-    - target: {fileID: -8734827406022467668, guid: c3d73f7719717f14d91b17556be4cdb1, type: 3}
       propertyPath: _key
       value: 
       objectReference: {fileID: 11400000, guid: 39c593416caff01418389c024e028d76, type: 2}
-    - target: {fileID: -8734827406022467668, guid: c3d73f7719717f14d91b17556be4cdb1, type: 3}
-      propertyPath: name
-      value: Hangman
-      objectReference: {fileID: 0}
-    - target: {fileID: -8734827406022467668, guid: c3d73f7719717f14d91b17556be4cdb1, type: 3}
-      propertyPath: world
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -8734827406022467668, guid: c3d73f7719717f14d91b17556be4cdb1, type: 3}
-      propertyPath: hintPosition
-      value: 
-      objectReference: {fileID: 1199393986}
-    - target: {fileID: -8734827406022467668, guid: c3d73f7719717f14d91b17556be4cdb1, type: 3}
-      propertyPath: _hangman_story
-      value: 
-      objectReference: {fileID: 11400000, guid: 00c408858048eec4cb229f8d8a6ce41d, type: 2}
     - target: {fileID: -8273843926880474122, guid: c3d73f7719717f14d91b17556be4cdb1, type: 3}
       propertyPath: m_Size.x
       value: 0.2
