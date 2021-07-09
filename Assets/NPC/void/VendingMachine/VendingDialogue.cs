@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VendingDialogue : DialogueTrigger{
     
-    public const string BORKED = "☎";
+    public const string BORKED = "□";
     public const string VENDINGMACHINE_NAME = BORKED + BORKED + BORKED + BORKED + "-O-MAT";
     public static VendingDialogue t;
     public Item item_for_sale;
@@ -26,12 +26,37 @@ public class VendingDialogue : DialogueTrigger{
         }
     }
 
+    public class ChooseItem : Dialogue {
+        public ChooseItem() {
+            Say(
+                "Are you feeling hungry? Has reality ruptured? You're in luck, "
+                + "because that just means it's the perfect time for a nice "
+                + t.item_for_sale.name.ToUpper() + "!  Or perhaps a tasty "
+                + t.item_for_sale.name.ToUpper() + " or "
+                + t.item_for_sale.name.ToUpper() + "?"
+            )
+            .Choice(
+                new TextOption(t.item_for_sale.name.ToUpper())
+                .IfChosen(new TriggerDialogueAction<BuyItem>())
+            )
+            .Choice(
+                new TextOption(t.item_for_sale.name.ToUpper())
+                .IfChosen(new TriggerDialogueAction<BuyItem>())
+            )
+            .Choice(
+                new TextOption(t.item_for_sale.name.ToUpper())
+                .IfChosen(new TriggerDialogueAction<BuyItem>())
+            )
+            .Choice(new TextOption("Nope"));
+        }
+    }
+
     public class BuyItem : Dialogue {
         public BuyItem() {
             Say(
-                "Are you feeling hungry? Has reality ruptured? You're in luck, "
-                + "because that just means it's the perfect time for a nicely sweet "
-                + t.item_for_sale.name.ToUpper() + "!"
+                "Unfourtanetley (for you -- not for me) "
+                + "capitalism has turned out to be a constant in our universe. "
+                + "Please feed me currency."
             )
             .Choice(
                 new ItemOption(t.startcoin)
@@ -54,7 +79,7 @@ public class VendingDialogue : DialogueTrigger{
             .Choice(
                 new OtherItemOption()
                 .IfChosen(new TriggerDialogueAction<NotACoin>())
-            )
+             )
             .Choice(
                 new TextOption("No")
             )
@@ -67,8 +92,10 @@ public class VendingDialogue : DialogueTrigger{
     public class NotACoin : Dialogue {
         public NotACoin() {
             Say(
-                "You may only pay me in United States Dollars or "
-                + BORKED + BORKED + BORKED + BORKED + BORKED + BORKED
+                "You may only purchase "
+                + t.item_for_sale.name.ToUpper() + " "
+                + "with United States Dollars or "
+                + BORKED + BORKED + BORKED + BORKED + BORKED + BORKED + BORKED
                 + " coins."
             )
             .DoAfter(
@@ -85,7 +112,7 @@ public class VendingDialogue : DialogueTrigger{
                 + "corporation!"
             )
             .DoAfter(
-                new TriggerDialogueAction<BuyItem>()
+                new TriggerDialogueAction<ChooseItem>()
             );
         }
     }
@@ -93,6 +120,8 @@ public class VendingDialogue : DialogueTrigger{
     public class Bye : Dialogue {
         public Bye() {
             Say("Thank you for using " + VENDINGMACHINE_NAME + "!");
+            Say("Hope you're enjoying your " + t.item_for_sale.name.ToUpper())
+            .If(HasItem(t._used));
         }
     }
 
