@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a384481017c7d11e6be52b993588aa4a, type: 3}
   m_Name: Snack
   m_EditorClassIdentifier: 
-  name: "\u260E\u260E\u260E\u260E\uFE0F Bar"
+  name: "\u25A1\u25A1\u25A1\u25A1 Bar"
   description: Who the hell buy candy at the rupture of reality... Mmh .. I do appearently.
     Great buissnes modell
   visible: 1
