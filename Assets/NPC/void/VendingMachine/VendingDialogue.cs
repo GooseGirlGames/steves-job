@@ -56,7 +56,7 @@ public class VendingDialogue : DialogueTrigger{
     public class BuyItem : Dialogue {
         public BuyItem() {
             Say(
-                "Unfourtanetley (for you -- not for me) "
+                "Fourtanetley for " + VOIDCORP + " "
                 + "capitalism has turned out to be a constant in our universe. "
                 + "Please feed me currency."
             )
