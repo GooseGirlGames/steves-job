@@ -33,9 +33,8 @@ public class SteveEHorrorDialogue : DialogueTrigger
 
     public class StvHorrorBackstoryDialogue : Dialogue {
         public StvHorrorBackstoryDialogue() {
-            //TODO uwuify
-            Say(("Hello there! I am Steve E Horror")); 
-            Say(("Can you understand what I am saying?"))
+            Say(Uwu.Uwufy("Hello there! I am Steve E Horror")); 
+            Say(Uwu.Uwufy("Can you understand what I am saying?"))
             .Choice(new TextOption("What are you saying?")
                 .IfChosen(new TriggerDialogueAction<StvHorrorSad>()))
             .Choice(new TextOption("Yes, I believe I can")
@@ -45,10 +44,9 @@ public class SteveEHorrorDialogue : DialogueTrigger
 
     public class StvHorrorSad : Dialogue {
         public StvHorrorSad() {
-            //TODO uwuify
-            Say(("Oh no!"));
-            Say(("It's like a curse, nobody can understand me :("));
-            Say(("What can I do?"));
+            Say(Uwu.Uwufy("Oh no!"));
+            Say(Uwu.Uwufy("It's like a curse, nobody can understand me :("));
+            Say(Uwu.Uwufy("What can I do?"));
         }
     }
 
@@ -56,11 +54,10 @@ public class SteveEHorrorDialogue : DialogueTrigger
         public StvHorrorExp() {
             SteveEHorrorDialogue s = SteveEHorrorDialogue.s;
 
-            //TODO uwuify
-            Say(("Oh, finally!"));
-            Say(("I thought the day would never come!"));
-            Say(("You know, because of the way I speak nobody gets what I am saying"));
-            Say(("It's really frustrating; they dont even take me serious"))
+            Say(Uwu.Uwufy("Oh, finally!"));
+            Say(Uwu.Uwufy("I thought the day would never come!"));
+            Say(Uwu.Uwufy("You know, because of the way I speak nobody gets what I am saying"));
+            Say(Uwu.Uwufy("It's really frustrating; they dont even take me serious"))
             .DoAfter(GiveItem(s._setve_horror_backstory))
             .DoAfter(new TriggerDialogueAction<StvHorrorChoice>());
         }
@@ -69,7 +66,7 @@ public class SteveEHorrorDialogue : DialogueTrigger
     public class StvHorrorChoice : Dialogue {
         public StvHorrorChoice() {
 
-            Say(("Have you got an Idea what I could do?"))
+            Say(Uwu.Uwufy("Have you got an Idea what I could do?"))
             .Choice(new TextOption("Sorry, I have no Idea")
                 .IfChosen(new TriggerDialogueAction<StvHorrorBye>()))
             .Choice(new ItemOption(s.void_bar)
@@ -91,7 +88,11 @@ public class SteveEHorrorDialogue : DialogueTrigger
         public StvHorrorBabel() {
             SteveEHorrorDialogue s = SteveEHorrorDialogue.s;
 
-            Say("Oh, what is this?");
+            Say(Uwu.Uwufy("Oh, what is this?"));
+            Say(Uwu.Uwufy("*crunch* *chomp*"));
+    
+            Say("Mmh, delicious");
+            Say("WAIT A MINUTE");
             Say("Am I actually able to speak normally again?");
             Say("This is amazing, thank you so much!");
             Say("As my token of gratitude please have this coin.")
@@ -103,18 +104,16 @@ public class SteveEHorrorDialogue : DialogueTrigger
 
     public class StvHorrorDefaultDialogue : Dialogue {
         public StvHorrorDefaultDialogue() {
-            //TODO uwuify
-            Say(("Oh, you've returned"))
+            Say(Uwu.Uwufy("Oh, you've returned"))
             .DoAfter(new TriggerDialogueAction<StvHorrorChoice>());
         }
     }
 
     public class StvHorrorBye : Dialogue {
         public StvHorrorBye() {
-            //TODO uwuify
-            Say(("Alright but please come back"));
-            Say(("I really want to be able to talk to people"));
-            Say(("See you"));
+            Say(Uwu.Uwufy("Alright but please come back"));
+            Say(Uwu.Uwufy("I really want to be able to talk to people"));
+            Say(Uwu.Uwufy("See you"));
         }
     }
 
@@ -127,28 +126,25 @@ public class SteveEHorrorDialogue : DialogueTrigger
 
     public class StvHorrorCoin : Dialogue {
         public StvHorrorCoin() {
-            //TODO uwuify
-            Say("So you are a customer?");
-            Say("I have a lot of special items in my shop");
-            Say("Are you perhaps interested in Terry the terrible torture turtle?");
-            Say("There are a lot of other Items you can buy as well!")
+            Say(Uwu.Uwufy("So you are a customer?"));
+            Say(Uwu.Uwufy("I have a lot of special items in my shop"));
+            Say(Uwu.Uwufy("Are you perhaps interested in Terry the terrible torture turtle?"));
+            Say(Uwu.Uwufy("There are a lot of other Items you can buy as well!"))
             .DoAfter(new TriggerDialogueAction<StvHorrorChoice>());
         }
     }
 
     public class StvHorrorVoid : Dialogue {
         public StvHorrorVoid() {
-            //TODO uwuify
-            Say("Thanks but I am afraid I can't take that");
-            Say("I am on a very strict diet you know, I can only eat fish")
+            Say(Uwu.Uwufy("Thanks but I am afraid I can't take that"));
+            Say(Uwu.Uwufy("I am on a very strict diet you know, I can only eat fish"))
             .DoAfter(new TriggerDialogueAction<StvHorrorChoice>());
         }
     }
 
     public class StvHorrorItem : Dialogue {
         public StvHorrorItem() {
-            //TODO uwuify
-            Say("I don't have a use for that, keep it")
+            Say(Uwu.Uwufy("I don't have a use for that, keep it"))
             .DoAfter(new TriggerDialogueAction<StvHorrorChoice>());
         }
     }
