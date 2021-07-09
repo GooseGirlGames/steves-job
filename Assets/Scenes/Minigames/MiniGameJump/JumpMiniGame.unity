@@ -703,6 +703,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -4.34
       objectReference: {fileID: 0}
+    - target: {fileID: 7816054204190660642, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 7816054204190660645, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_Lens.OrthographicSize
       value: 0.444
@@ -833,6 +837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8166448269520469573, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
+    - {fileID: 7816054204784392253, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
 --- !u!1 &792367419
 GameObject:
@@ -1366,7 +1371,7 @@ MonoBehaviour:
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
-  m_ScreenY: 0.5
+  m_ScreenY: 0.1
   m_CameraDistance: 10
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
@@ -1375,7 +1380,7 @@ MonoBehaviour:
   m_SoftZoneWidth: 0.8
   m_SoftZoneHeight: 0.8
   m_BiasX: 0
-  m_BiasY: 0
+  m_BiasY: 0.00000006519258
   m_CenterOnActivate: 1
   m_GroupFramingMode: 2
   m_AdjustmentMode: 0
