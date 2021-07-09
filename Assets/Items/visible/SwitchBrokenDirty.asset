@@ -18,7 +18,7 @@ MonoBehaviour:
   visible: 1
   icon: {fileID: 0}
   originWorld: 3
-  unique: 0
+  unique: 1
   conflictingItems:
   - {fileID: 11400000, guid: adbacbb016bf2dc1ebcc654131ce627b, type: 2}
   - {fileID: 11400000, guid: 8ce5a7b88b03f28fbbde7a43796b59fb, type: 2}

@@ -56,7 +56,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4401105819858720355}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.17, y: 0.3, z: -0.0080189705}
+  m_LocalPosition: {x: 0.12, y: 0.11, z: -0.0080189705}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4401105819816782188}
@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 4401105820218185349}
   - component: {fileID: 4401105820218185350}
   - component: {fileID: 4401105820218185351}
+  - component: {fileID: 3246751510105978258}
   m_Layer: 0
   m_Name: Vending
   m_TagString: Untagged
@@ -89,8 +90,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4401105820218185345}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1041, y: -0.7468, z: 7.8504786}
-  m_LocalScale: {x: 10.536753, y: 15.511309, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 7.8504786}
+  m_LocalScale: {x: 3.708066, y: 3.708066, z: 1}
   m_Children: []
   m_Father: {fileID: 4401105819816782188}
   m_RootOrder: 1
@@ -135,7 +136,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 61214f671fb6c0014bdd97c3d5d04694, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 186ed15e5597ff545a484e6b0fdd1ff2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -159,18 +160,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0038584769, y: -0.018871509}
+  m_Offset: {x: -0.08048594, y: -0.3174544}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 1.69, y: 1.23}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.19241124, y: 0.19774301}
+  m_Size: {x: 0.5359138, y: 0.7949089}
   m_EdgeRadius: 0
 --- !u!114 &4401105820218185351
 MonoBehaviour:
@@ -195,3 +196,25 @@ MonoBehaviour:
   cutecoin: {fileID: 11400000, guid: 2fb8e45bc98bdb9949adc0daa6d6c4ec, type: 2}
   horrorcoin: {fileID: 11400000, guid: 95471e06a7c17fbf7808e9594c76c508, type: 2}
   _used: {fileID: 11400000, guid: 753a15fc9b31a044c9519a910bd1fcc3, type: 2}
+  vendingAnimator: {fileID: 3246751510105978258}
+  avatar_default: {fileID: 21300000, guid: 842402e670a9ae7319a32f956a8dd25f, type: 3}
+  avatar_thamk: {fileID: 21300000, guid: 946f37992cd7a2af4a6f4c232b0f7b9a, type: 3}
+--- !u!95 &3246751510105978258
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4401105820218185345}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e673cdab824069fbf8af04789e0705f8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

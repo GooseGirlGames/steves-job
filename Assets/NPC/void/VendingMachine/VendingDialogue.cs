@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VendingDialogue : DialogueTrigger{
+public class VendingDialogue : DialogueTrigger {
     
     public const string BORKED = "□";
     public const string VENDINGMACHINE_NAME = BORKED + BORKED + BORKED + BORKED + "-O-MAT";
@@ -14,6 +14,9 @@ public class VendingDialogue : DialogueTrigger{
     public Item cutecoin;
     public Item horrorcoin;
     public Item _used;
+    public Animator vendingAnimator;
+    public Sprite avatar_default;
+    public Sprite avatar_thamk;
 
     private void Awake() {
         this.name = VENDINGMACHINE_NAME;
@@ -22,10 +25,18 @@ public class VendingDialogue : DialogueTrigger{
     public override Dialogue GetActiveDialogue() {
         t = this;
         if (!Inventory.Instance.HasItem(_used)) {
+            avatar = avatar_default;
             return new Welcome();
         } else {
+            avatar = avatar_thamk;
             return new Bye();
         }
+    }
+
+    private void GiveSnack() {
+        vendingAnimator.SetTrigger("DropCandy");
+        Inventory.Instance.AddItem(t.item_for_sale);
+        Inventory.Instance.AddItem(t._used);
     }
 
     public class ChooseItem : Dialogue {
@@ -63,20 +74,17 @@ public class VendingDialogue : DialogueTrigger{
             .Choice(
                 new ItemOption(t.startcoin)
                 .IfChosen(RemoveItem(t.startcoin))
-                .IfChosen(GiveItem(t.item_for_sale))
-                .IfChosen(GiveItem(t._used))
+                .IfChosen(new DialogueAction(t.GiveSnack))
             )
             .Choice(
                 new ItemOption(t.horrorcoin)
                 .IfChosen(RemoveItem(t.horrorcoin))
-                .IfChosen(GiveItem(t.item_for_sale))
-                .IfChosen(GiveItem(t._used))
+                .IfChosen(new DialogueAction(t.GiveSnack))
             )
             .Choice(
                 new ItemOption(t.cutecoin)
                 .IfChosen(RemoveItem(t.cutecoin))
-                .IfChosen(GiveItem(t.item_for_sale))
-                .IfChosen(GiveItem(t._used))
+                .IfChosen(new DialogueAction(t.GiveSnack))
             )
             .Choice(
                 new OtherItemOption()
@@ -119,10 +127,14 @@ public class VendingDialogue : DialogueTrigger{
 
     public class Bye : Dialogue {
         public Bye() {
+            t.avatar = t.avatar_thamk;
+            
             Say("Thank you for using " + VENDINGMACHINE_NAME + "!");
+
             Say("Hope you'll enjoy your " + t.item_for_sale.name.ToUpper())
             .If(HasItem(t._used))
             .If(HasItem(t.item_for_sale));
+
             Say(
                 "Hope you've enjoyed your " + t.item_for_sale.name.ToUpper() + " "
                 + "Would you like to leave some feedback?"

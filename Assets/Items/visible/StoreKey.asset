@@ -17,5 +17,5 @@ MonoBehaviour:
   visible: 1
   icon: {fileID: 0}
   originWorld: 2
-  unique: 0
+  unique: 1
   conflictingItems: []
