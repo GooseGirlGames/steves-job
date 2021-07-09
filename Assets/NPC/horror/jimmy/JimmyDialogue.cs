@@ -15,6 +15,8 @@ public class JimmyDialogue : DialogueTrigger
     public Item gamePlayed;
     public Item goose_clean;
     public Item goose_bloody;
+    public Item goose_bloody_bow;
+    public Item goose_bow;
     public Item cutecoin;
     public Item horrorcoin;
     public Item startcoin;
@@ -99,6 +101,8 @@ public class JimmyDialogue : DialogueTrigger
                 .IfChosen(new TriggerDialogueAction<DirtyShirtDia>()))
             .Choice(new ItemOption(t.goose_clean)
                 .IfChosen(new TriggerDialogueAction<GooseDia>()))
+            .Choice(new ItemOption(t.goose_bow)
+                .IfChosen(new TriggerDialogueAction<GooseBowDia>()))
             .Choice(new ItemOption(t.cutecoin)
                 .IfChosen(new TriggerDialogueAction<CuteCoinDia>()))
             .Choice(new ItemOption(t.startcoin)
@@ -131,6 +135,15 @@ public class JimmyDialogue : DialogueTrigger
             Say("This looks disgoosting!!!");
             Say("Let me clean that for you")
                 .DoAfter(GiveItem(t.goose_bloody));
+        }
+    }
+
+    public class GooseBowDia : Dialogue {
+        public GooseBowDia() {
+            Say("Yikes");
+            Say("This looks disgoosting!!!");
+            Say("Let me clean that for you")
+                .DoAfter(GiveItem(t.goose_bloody_bow));
         }
     }
 

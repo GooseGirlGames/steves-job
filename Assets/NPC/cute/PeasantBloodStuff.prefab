@@ -80,8 +80,10 @@ MonoBehaviour:
   joined: {fileID: 11400000, guid: a1fe25008740907328cf0ef87c45ee8a, type: 2}
   later: {fileID: 11400000, guid: 8689876e957a9ca47bf12c424c479a30, type: 2}
   goose: {fileID: 11400000, guid: 198dc408a7afc11f7ba17208cfc0bbd2, type: 2}
+  goosebloody: {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
+  goosebow: {fileID: 11400000, guid: c35d8409472c06b41a3bdcbdf7d82177, type: 2}
+  goosebloodybow: {fileID: 11400000, guid: 410fdc347b6862748b32dfb464117bbc, type: 2}
   grease: {fileID: 11400000, guid: 77d571d3a158aadc9a92bfd63af5128a, type: 2}
-  bloodygoose: {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
 --- !u!1 &2093019725466866248
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,7 +815,9 @@ MonoBehaviour:
   grease: {fileID: 11400000, guid: 77d571d3a158aadc9a92bfd63af5128a, type: 2}
   later_bloodsoaked: {fileID: 11400000, guid: 61909f36dfe826551a3c897119289d2f, type: 2}
   goose: {fileID: 11400000, guid: 198dc408a7afc11f7ba17208cfc0bbd2, type: 2}
-  bloodygoose: {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
+  goosebloody: {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
+  goosebow: {fileID: 11400000, guid: c35d8409472c06b41a3bdcbdf7d82177, type: 2}
+  goosebloodybow: {fileID: 11400000, guid: 410fdc347b6862748b32dfb464117bbc, type: 2}
 --- !u!1 &9159110269230440026
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a384481017c7d11e6be52b993588aa4a, type: 3}
   m_Name: GooseBow
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  visible: 0
+  name: Goose
+  description: Awww, how cute :3
+  visible: 1
   icon: {fileID: 0}
-  originWorld: 0
-  unique: 0
-  conflictingItems: []
+  originWorld: 1
+  unique: 1
+  conflictingItems:
+  - {fileID: 11400000, guid: 198dc408a7afc11f7ba17208cfc0bbd2, type: 2}
+  - {fileID: 11400000, guid: 410fdc347b6862748b32dfb464117bbc, type: 2}
+  - {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}

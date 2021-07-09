@@ -20,3 +20,5 @@ MonoBehaviour:
   unique: 1
   conflictingItems:
   - {fileID: 11400000, guid: 198dc408a7afc11f7ba17208cfc0bbd2, type: 2}
+  - {fileID: 11400000, guid: 410fdc347b6862748b32dfb464117bbc, type: 2}
+  - {fileID: 11400000, guid: c35d8409472c06b41a3bdcbdf7d82177, type: 2}

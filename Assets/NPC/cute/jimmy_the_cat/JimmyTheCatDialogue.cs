@@ -53,6 +53,10 @@ public class JimmyTheCatDialogue : DialogueTrigger{
     public Item babelfish;
     public Item bloody_mary;
     public Item finished;
+    public Item goose;
+    public Item goosebloody;
+    public Item goosebow;
+    public Item goosebloddybow;
     
     private void Awake() {
         Instance = this;
@@ -110,6 +114,12 @@ public class JimmyTheCatDialogue : DialogueTrigger{
                     .IfChosen(new TriggerDialogueAction<dirtyDialogue>()))
                 .Choice(new ItemOption(JimmyTheCatDialogue.Instance.babelfish)
                     .IfChosen(new TriggerDialogueAction<babelDialogue>()))
+                // Geese
+                .Choice(new ItemOption(JimmyTheCatDialogue.Instance.goose)
+                    .IfChosen(new TriggerDialogueAction<gooseDialogue>()))
+                .Choice(new ItemOption(JimmyTheCatDialogue.Instance.goosebloody)
+                    .IfChosen(new TriggerDialogueAction<goosebloodyDialogue>()))
+                // end geese
                 .Choice(new OtherItemOption()
                     .IfChosen(new TriggerDialogueAction<otherItemDialogue>()));
         }
@@ -165,6 +175,29 @@ public class JimmyTheCatDialogue : DialogueTrigger{
                 .DoAfter(new TriggerDialogueAction<ItemDialogue>());
         }
     }
+
+    public class gooseDialogue : Dialogue {
+        public gooseDialogue(){
+            //Say("Urgh.. meow... wow this is.. this is murrrr than dirty meow");
+            Say("Aww, she deserves to be sweeter than that!");
+            Say("Give me one second");
+            Say("here you go meow meow meow ...")
+                .DoAfter(GiveItem(JimmyTheCatDialogue.Instance.goosebow))
+                .DoAfter(new TriggerDialogueAction<ItemDialogue>());
+        }
+    }
+
+    public class goosebloodyDialogue : Dialogue {
+        public goosebloodyDialogue(){
+            Say("Yup, that is one dirty goose. Let me fix her for you :3");
+            //Say("A TRUE CHALLENGE!!!");
+            Say("Give me one second");
+            Say("here you go meow meow meow ...")
+                .DoAfter(GiveItem(JimmyTheCatDialogue.Instance.goosebloddybow))
+                .DoAfter(new TriggerDialogueAction<ItemDialogue>());
+        }
+    }
+
     public class otherItemDialogue : Dialogue {
         public otherItemDialogue(){
             Say("sadly I cant clean this murrrrr")

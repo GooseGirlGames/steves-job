@@ -19,4 +19,6 @@ MonoBehaviour:
   originWorld: 3
   unique: 1
   conflictingItems:
+  - {fileID: 11400000, guid: 410fdc347b6862748b32dfb464117bbc, type: 2}
   - {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
+  - {fileID: 11400000, guid: c35d8409472c06b41a3bdcbdf7d82177, type: 2}

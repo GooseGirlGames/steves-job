@@ -170,8 +170,10 @@ MonoBehaviour:
   finishedSwitch: {fileID: 0}
   bucket: {fileID: 0}
   fullbucket: {fileID: 0}
-  goose: {fileID: 0}
-  bloodygoose: {fileID: 0}
+  goose: {fileID: 11400000, guid: 198dc408a7afc11f7ba17208cfc0bbd2, type: 2}
+  bloodygoose: {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
+  bowgoose: {fileID: 11400000, guid: c35d8409472c06b41a3bdcbdf7d82177, type: 2}
+  bloodybowgoose: {fileID: 11400000, guid: 410fdc347b6862748b32dfb464117bbc, type: 2}
   marysPeriod: {fileID: 0}
 --- !u!1 &9092299000146321770
 GameObject:

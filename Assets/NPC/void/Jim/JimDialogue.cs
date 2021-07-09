@@ -18,6 +18,8 @@ public class JimDialogue : DialogueTrigger{
     public Item fullbucket;
     public Item goose;
     public Item bloodygoose;
+    public Item bowgoose;
+    public Item bloodybowgoose;
     public Item marysPeriod;
     public static JimDialogue t;
 

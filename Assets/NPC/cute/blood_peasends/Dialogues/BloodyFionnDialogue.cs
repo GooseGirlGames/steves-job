@@ -9,7 +9,9 @@ public class BloodyFionnDialogue : DialogueTrigger {
     public Item grease;
     public Item later_bloodsoaked;
     public Item goose;
-    public Item bloodygoose;
+    public Item goosebloody;
+    public Item goosebow;
+    public Item goosebloodybow;
     public override Dialogue GetActiveDialogue() {
         t = this;
         if (!Inventory.Instance.HasItem(joined)) {
@@ -72,7 +74,7 @@ public class BloodyFionnDialogue : DialogueTrigger {
 
             Say("Here's your reward. Take better care of her than we did.")
             .Do(GiveItem(t.joined))
-            .Do(GiveItem(t.bloodygoose));
+            .Do(GiveItem(t.goosebloody));
         }
     }
 
@@ -81,11 +83,19 @@ public class BloodyFionnDialogue : DialogueTrigger {
             Say("Got something to show us?")
             .Choice(
                 new ItemOption(t.goose)
-                .IfChosen(new TriggerDialogueAction<NiceGoose>())
+                .IfChosen(new TriggerDialogueAction<CuteFionnDialogue.NiceGoose>())
             )
             .Choice(
-                new ItemOption(t.bloodygoose)
-                .IfChosen(new TriggerDialogueAction<PoorGoose>())
+                new ItemOption(t.goosebow)
+                .IfChosen(new TriggerDialogueAction<CuteFionnDialogue.NiceGooseBow>())
+            )
+            .Choice(
+                new ItemOption(t.goosebloody)
+                .IfChosen(new TriggerDialogueAction<CuteFionnDialogue.NiceGooseBloody>())
+            )
+            .Choice(
+                new ItemOption(t.goosebloodybow)
+                .IfChosen(new TriggerDialogueAction<CuteFionnDialogue.NiceGooseBloodyBow>())
             )
             .Choice(
                 new ItemOption(t.grease)
@@ -99,17 +109,6 @@ public class BloodyFionnDialogue : DialogueTrigger {
         }
     }
 
-    public class NiceGoose : Dialogue {
-        public NiceGoose() {
-            Say("What a beauty!");
-        }
-    }
-
-    public class PoorGoose : Dialogue {
-        public PoorGoose() {
-            Say("Poor little thing");
-        }
-    }
 
     public class OtherItem : Dialogue {
         public OtherItem() {

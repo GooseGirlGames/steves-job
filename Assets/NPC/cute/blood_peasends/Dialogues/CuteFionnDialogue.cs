@@ -7,8 +7,10 @@ public class CuteFionnDialogue : DialogueTrigger {
     public Item joined;
     public Item later;
     public Item goose;
+    public Item goosebloody;
+    public Item goosebow;
+    public Item goosebloodybow;
     public Item grease;
-    public Item bloodygoose;
     public override Dialogue GetActiveDialogue() {
         t = this;
         if (!Inventory.Instance.HasItem(joined)) {
@@ -72,6 +74,18 @@ public class CuteFionnDialogue : DialogueTrigger {
                 .IfChosen(new TriggerDialogueAction<NiceGoose>())
             )
             .Choice(
+                new ItemOption(t.goosebow)
+                .IfChosen(new TriggerDialogueAction<NiceGooseBow>())
+            )
+            .Choice(
+                new ItemOption(t.goosebloody)
+                .IfChosen(new TriggerDialogueAction<NiceGooseBloody>())
+            )
+            .Choice(
+                new ItemOption(t.goosebloodybow)
+                .IfChosen(new TriggerDialogueAction<NiceGooseBloodyBow>())
+            )
+            .Choice(
                 new ItemOption(t.grease)
                 .IfChosen(new TriggerDialogueAction<Grease>())
             )
@@ -86,6 +100,24 @@ public class CuteFionnDialogue : DialogueTrigger {
     public class NiceGoose : Dialogue {
         public NiceGoose() {
             Say("What a beauty!");
+        }
+    }
+    public class NiceGooseBow : Dialogue {
+        public NiceGooseBow() {
+            Say("What a beauty! She's so cute :3");
+        }
+    }
+    public class NiceGooseBloody : Dialogue {
+        public NiceGooseBloody() {
+            Say("Oh no, what happened to our little honker?");
+            Say("Maybe try to get her cleaned up?");
+            Say("Actually, please do. I'll call Goose Protective Services on you if you don't.");
+        }
+    }
+    public class NiceGooseBloodyBow : Dialogue {
+        public NiceGooseBloodyBow() {
+            Say("Ummmmm...");
+            Say("I mean that's a cute bow.. but... how did we end up here?");
         }
     }
 
