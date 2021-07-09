@@ -6,6 +6,8 @@ public class VendingDialogue : DialogueTrigger{
     
     public const string BORKED = "□";
     public const string VENDINGMACHINE_NAME = BORKED + BORKED + BORKED + BORKED + "-O-MAT";
+    public const string VOIDCORP =
+            BORKED + BORKED + BORKED + BORKED + BORKED + BORKED + " CORPORATION";
     public static VendingDialogue t;
     public Item item_for_sale;
     public Item startcoin;
@@ -107,9 +109,7 @@ public class VendingDialogue : DialogueTrigger{
     public class Welcome : Dialogue {
         public Welcome() {
             Say(
-                "Welcome to the " + VENDINGMACHINE_NAME + ", proudly sponsored by the "
-                + BORKED + BORKED + BORKED + BORKED + BORKED + " "
-                + "corporation!"
+                "Welcome to the " + VENDINGMACHINE_NAME + ", proudly sponsored by the " + VOIDCORP
             )
             .DoAfter(
                 new TriggerDialogueAction<ChooseItem>()
@@ -120,10 +120,58 @@ public class VendingDialogue : DialogueTrigger{
     public class Bye : Dialogue {
         public Bye() {
             Say("Thank you for using " + VENDINGMACHINE_NAME + "!");
-            Say("Hope you're enjoying your " + t.item_for_sale.name.ToUpper())
-            .If(HasItem(t._used));
+            Say("Hope you'll enjoy your " + t.item_for_sale.name.ToUpper())
+            .If(HasItem(t._used))
+            .If(HasItem(t.item_for_sale));
+            Say(
+                "Hope you've enjoyed your " + t.item_for_sale.name.ToUpper() + " "
+                + "Would you like to leave some feedback?"
+            )
+            .Choice(
+                new TextOption("Yes")
+                .IfChosen(new TriggerDialogueAction<Feedback>())
+            )
+            .Choice(
+                new TextOption("No")
+            )
+            .If(HasItem(t._used))
+            .If(DoesNotHaveItem(t.item_for_sale));
         }
     }
 
+    public class Feedback : Dialogue {
+        public Feedback() {
+            Say(
+                "On a scale of 1-4, how intense were the beautiful memories of your childhood "
+                + "induced by the consumption of " + t.item_for_sale.name.ToUpper() + "?"
+            )
+            .Choice(new TextOption("1 -- extremely intense"))
+            .Choice(new TextOption("2 -- very intense"))
+            .Choice(new TextOption("3 -- moderately intense"))
+            .Choice(new TextOption("4 -- slightly intense"));
 
+            Say(
+                "On a scale of 1-4, how strongly has "+ t.item_for_sale.name.ToUpper() + " "
+                + "exorcized vivid memories of socially uncomfortable situations?"
+            )
+            .Choice(new TextOption("1 -- extremely strongly"))
+            .Choice(new TextOption("2 -- very strongly"))
+            .Choice(new TextOption("3 -- moderately strongly"))
+            .Choice(new TextOption("4 -- slightly strongly"));
+
+            Say(
+                "On a scale of 1-4, how subliminal has the influence of "
+                + t.item_for_sale.name.ToUpper() + " advertising been to your subconsciousness?"
+            )
+            .Choice(new TextOption("1 -- extremely subliminal"))
+            .Choice(new TextOption("2 -- very subliminal"))
+            .Choice(new TextOption("3 -- moderately subliminal"))
+            .Choice(new TextOption("4 -- slightly subliminal"));
+
+            Say("Your feedback has been forwarded to " + VOIDCORP
+            + " for consideration.");
+            Say("Thank you for helping to improve " + t.item_for_sale.name.ToUpper());
+
+        }
+    }
 }
