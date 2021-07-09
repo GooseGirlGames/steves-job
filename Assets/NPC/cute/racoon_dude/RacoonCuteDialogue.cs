@@ -7,13 +7,18 @@ public class RacoonCuteDialogue :  DialogueTrigger{
     public Item snack;
     public Item coin;
     public Item crank;
-    public Item _miniGameplayed;
+    public Item _miniRacoonGamePlayed;
+    public Item _racoonMad;
     public GameObject storeOwner;
+    public Sprite sadStoreOwner;
+    public Sprite neutralStoreOwner;
+
 
     public override Dialogue GetActiveDialogue(){
-        if(Inventory.Instance.HasItem(_miniGameplayed)){
+        
+        if(Inventory.Instance.HasItem(_miniRacoonGamePlayed)){
             return new MiniGameFinishedDia();
-        }
+        } 
         return new RacoonCuteDefaultDialogue();
     }
 
@@ -55,7 +60,12 @@ public class ChoiceDialogue : Dialogue {
 public class MiniGameFinishedDia : Dialogue {
     public MiniGameFinishedDia(){
         Say("Oh this is awkward...");
-        Say("I am sorry..but anyways thank you for giving me a treat :3");
+        Say("I am sorry..but anyways thank you for giving me a treat :3")
+            .DoAfter(new DialogueAction(()=> {
+                RacoonCuteDialogue.t.storeOwner.GetComponent<SpriteRenderer>().sprite = RacoonCuteDialogue.t.neutralStoreOwner;
+            }))
+            .DoAfter(RemoveItem(RacoonCuteDialogue.t._racoonMad));
+        
     }
 }
 public class SnackDialogue : Dialogue {
@@ -64,8 +74,9 @@ public class SnackDialogue : Dialogue {
             .DoAfter(RemoveItem(RacoonCuteDialogue.t.snack));
         Say("Since you helped me I will gift you this beautiful coin!")
             .DoAfter(GiveItem(RacoonCuteDialogue.t.coin))
+            .DoAfter(GiveItem(RacoonCuteDialogue.t._racoonMad))
             .DoAfter(new DialogueAction(()=> {
-                RacoonCuteDialogue.t.storeOwner.SetActive(true);
+                RacoonCuteDialogue.t.storeOwner.GetComponent<SpriteRenderer>().sprite = RacoonCuteDialogue.t.sadStoreOwner;
             }))
             .DoAfter(new DialogueAction(()=> {
                 RacoonCuteDialogue.t.transform.position = new Vector3(8.4f,-2.2f,1f);
