@@ -178,6 +178,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: af649a5495a8420779024c628d1042c9, type: 2}
   - {fileID: 11400000, guid: 68f5019aedda0061a831b85a013d06a4, type: 2}
   _fred_has_maiddress: {fileID: 11400000, guid: 38139e4428831293ebfe31754797f5a4, type: 2}
+  _fred_finished: {fileID: 11400000, guid: eee82d59fdf9a280c98bc77e4531c23a, type: 2}
 --- !u!1 &4595133865638148199
 GameObject:
   m_ObjectHideFlags: 0
