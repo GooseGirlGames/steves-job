@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/MiniGameJump/JumpMiniGame.unity
     guid: d534fd9da298380d3888c99cc8c80e02
+  - enabled: 1
+    path: Assets/Scenes/SteveEHorrorShop/SteveEHorrorShop.unity
+    guid: ee234afd91e630148837a1dc728d541f
   m_configObjects: {}
