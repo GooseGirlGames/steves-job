@@ -125,12 +125,14 @@ MonoBehaviour:
   name: Frederic
   world: 2
   shirt: {fileID: 11400000, guid: af649a5495a8420779024c628d1042c9, type: 2}
-  clean_shirt: {fileID: 11400000, guid: 2b4050f9a23fa289d9242de4e365c15d, type: 2}
+  clean_dress: {fileID: 11400000, guid: 2b4050f9a23fa289d9242de4e365c15d, type: 2}
+  dirty_dress: {fileID: 11400000, guid: ddaa1a742fa1cc9eebefa13f28c50b7c, type: 2}
   dirty_shirt: {fileID: 11400000, guid: 68f5019aedda0061a831b85a013d06a4, type: 2}
   finished: {fileID: 11400000, guid: eee82d59fdf9a280c98bc77e4531c23a, type: 2}
   bucket: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
   bucketfull: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
   disgusting_cocktail: {fileID: 11400000, guid: 23bd31e009ef1f53490de8255ca44662, type: 2}
+  _fred_has_maiddress: {fileID: 11400000, guid: 38139e4428831293ebfe31754797f5a4, type: 2}
 --- !u!61 &4595133865181592480
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -170,10 +172,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nipple_animator: {fileID: 4595133865181592477}
-  shirts:
-  - {fileID: 11400000, guid: af649a5495a8420779024c628d1042c9, type: 2}
+  visible_shirts:
   - {fileID: 11400000, guid: 2b4050f9a23fa289d9242de4e365c15d, type: 2}
+  - {fileID: 11400000, guid: ddaa1a742fa1cc9eebefa13f28c50b7c, type: 2}
+  - {fileID: 11400000, guid: af649a5495a8420779024c628d1042c9, type: 2}
   - {fileID: 11400000, guid: 68f5019aedda0061a831b85a013d06a4, type: 2}
+  _fred_has_maiddress: {fileID: 11400000, guid: 38139e4428831293ebfe31754797f5a4, type: 2}
 --- !u!1 &4595133865638148199
 GameObject:
   m_ObjectHideFlags: 0
