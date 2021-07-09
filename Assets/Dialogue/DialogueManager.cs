@@ -217,8 +217,9 @@ public class DialogueManager : MonoBehaviour
 
         currentSentence = sentence;
         if (!currentSentence.OtherItemOptionsOkay()) {
+            string s = sentence.text.Length > 12 ? sentence.text.Substring(0, 10) : sentence.text;
             Debug.LogWarning(
-                "Current sentence '" + sentence.text.Substring(0, 10) + "...' has ItemOptions but "
+                "Current sentence '" + s + "...' has ItemOptions but "
                 + "no OtherItemOption.  Please fix " + activeDialogue.GetType() + " accordningly."
             );
         }
