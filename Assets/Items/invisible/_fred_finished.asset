@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: _fred_finished
   m_EditorClassIdentifier: 
   name: FredFinished
-  description: Ur need for knowing if Fred is comlete
+  description: Fred's got dirty clothes and is happy
   visible: 0
   icon: {fileID: 0}
   originWorld: 0

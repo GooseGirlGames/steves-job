@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: _voidvending_used
   m_EditorClassIdentifier: 
   name: 
-  description: 
+  description: The void vending machine has dispensed a void bar.  Mhh I wonder what
+    void bar (TM) tastes like an I kind of want to eat a void bar right now, to be
+    quite honest.  This message has been sponsored by the TELEFONEMOJITELEFONEMOJITELEFONEMOJITELEFONEMOJI
+    corporation.  We thank you for your attention.
   visible: 0
   icon: {fileID: 0}
   originWorld: 0
-  unique: 0
+  unique: 1
   conflictingItems: []

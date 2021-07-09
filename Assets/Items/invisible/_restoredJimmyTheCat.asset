@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: _restoredJimmyTheCat
   m_EditorClassIdentifier: 
   name: 
-  description: 
+  description: Jimmy the cat has customers again and is happy
   visible: 0
   icon: {fileID: 0}
   originWorld: 0

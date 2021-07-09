@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: _Got_Horrorcoin
   m_EditorClassIdentifier: 
   name: 
-  description: 
+  description: Steve got a coin for giving Steve-E-Horror the fish
   visible: 0
   icon: {fileID: 0}
   originWorld: 0
-  unique: 0
+  unique: 1
   conflictingItems: []

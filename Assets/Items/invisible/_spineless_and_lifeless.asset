@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: _spineless_and_lifeless
   m_EditorClassIdentifier: 
   name: 
-  description: 
+  description: Peasant has been de-spined :3
   visible: 0
   icon: {fileID: 0}
   originWorld: 0
-  unique: 0
+  unique: 1
   conflictingItems: []

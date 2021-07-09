@@ -5,22 +5,22 @@ using UnityEngine;
 public class StoreOwnerDialogue : DialogueTrigger {
     public Portal portalToMiniGame;
     new public static StoreOwnerDialogue Instance = null;
-    public Item not_active;
+    public Item _storeowner_later;
     public Item _racoonMad;
-    public Item _miniRacoonGamePlayed;
+    public Item _restoredCandyman;
 
     public void EnterMiniGame() {
         portalToMiniGame.TriggerTeleport();
     }
 
     public override Dialogue GetActiveDialogue(){
-        if(Inventory.Instance.HasItem(not_active)) {
+        if(Inventory.Instance.HasItem(_storeowner_later)) {
             return new CameBackDia();
         }
         if(Inventory.Instance.HasItem(_racoonMad)){
             return new StoreOwnerDefaultDialogue();
         }
-        if(Inventory.Instance.HasItem(_miniRacoonGamePlayed)){
+        if(Inventory.Instance.HasItem(_restoredCandyman)){
             return new ThankYouDia();
         }
         return new HelloIAmStoreOwnerDia();
@@ -102,7 +102,7 @@ public class RacoonStoryDia : Dialogue {
             .Choice(
                 new TextOption("later")
                 .IfChosen(new TriggerDialogueAction<CriesDia>())
-                .IfChosen(GiveItem(StoreOwnerDialogue.Instance.not_active))
+                .IfChosen(GiveItem(StoreOwnerDialogue.Instance._storeowner_later))
                 );
         
     }
@@ -119,7 +119,7 @@ public class CameBackDia : Dialogue {
             .Choice(
                 new TextOption("maybe later")
                 .IfChosen(new TriggerDialogueAction<CriesDia>())
-                .IfChosen(GiveItem(StoreOwnerDialogue.Instance.not_active))
+                .IfChosen(GiveItem(StoreOwnerDialogue.Instance._storeowner_later))
             );  
     }   
 }
