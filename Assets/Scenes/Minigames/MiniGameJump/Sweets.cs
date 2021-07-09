@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sweets : MonoBehaviour
 {
-    public float speed = 10.0f;
+    private int speed;
     private Rigidbody2D candy;
     private Vector2 screenBounds;
     public bool trigger = false;
@@ -15,7 +15,10 @@ public class Sweets : MonoBehaviour
     void Start()
     {   
         candy = this.GetComponent<Rigidbody2D>();
+        int rand_speed = Random.Range(2,5);
+        speed = rand_speed;
         candy.velocity = new Vector2(-speed, 0);
+        Debug.Log(speed);
     }
 
     private void OnTriggerEnter2D(Collider2D col){
@@ -37,7 +40,6 @@ public class Sweets : MonoBehaviour
         if(transform.position.x < screenBounds.x - 5){
             Destroy(this.gameObject);
         }
-        float rand_speed = Random.Range(2.0f,5.0f);
-        speed = rand_speed;
+        
     }
 }

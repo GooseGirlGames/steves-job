@@ -59,7 +59,7 @@ public class DeployCandy : MonoBehaviour
 
     IEnumerator timedSpawn(){
         while(true){
-            yield return new WaitForSeconds(Random.Range(2.0f,4.0f));
+            yield return new WaitForSeconds(Random.Range(2.0f,3.0f));
             spawnCandy();
         }
     }
