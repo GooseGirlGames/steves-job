@@ -17,6 +17,6 @@ MonoBehaviour:
     I'm pretty sure there Is more use for this
   visible: 1
   icon: {fileID: 0}
-  originWorld: 0
+  originWorld: 1
   unique: 1
   conflictingItems: []

@@ -215,6 +215,12 @@ public class DialogueManager : MonoBehaviour
         }
 
         currentSentence = sentence;
+        if (!currentSentence.OtherItemOptionsOkay()) {
+            Debug.LogWarning(
+                "Current sentence '" + sentence.text.Substring(0, 10) + "...' has ItemOptions but "
+                + "no OtherItemOption.  Please fix " + activeDialogue.GetType() + " accordningly."
+            );
+        }
 
         // Placing this after setting `currentSentence`, so actions will still get exectued
         if (sentence is EmptySentence) {

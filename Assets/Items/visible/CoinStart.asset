@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Quarter Dollar
   description: 
   visible: 1
-  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: -956252262595852801, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 3
   unique: 0
   conflictingItems: []

@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Switch
   m_EditorClassIdentifier: 
   name: Switch
-  description: As good as new! now I just need to power the badboy and I can snap
+  description: As good as new! Now I just need to power the bad boy and I can snap
     out of here.
   visible: 1
-  icon: {fileID: 0}
+  icon: {fileID: 2614870373251885436, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 3
-  unique: 0
+  unique: 1
   conflictingItems:
   - {fileID: 11400000, guid: 8ce5a7b88b03f28fbbde7a43796b59fb, type: 2}
   - {fileID: 11400000, guid: 02201874d20345cc4a81721b09010eff, type: 2}

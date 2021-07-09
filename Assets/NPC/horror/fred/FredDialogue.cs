@@ -20,13 +20,16 @@ Dialog3(If player has finished the dialouge, he gets Item finished):*/
 public class FredDialogue : DialogueTrigger
 {
     public Item shirt;
-    public Item clean_shirt;
+    public Item clean_dress;
+    public Item dirty_dress;
     public Item dirty_shirt;
     public Item finished;
     public Item bucket;
     public Item bucketfull;
     public Item disgusting_cocktail;
-    public static new FredDialogue Instance = null;
+    public static FredDialogue t = null;
+
+    [SerializeField] private Item _fred_has_maiddress;
 
     /*     public void OnTriggerEnter2D(Collider2D other) {
             if (other.gameObject.CompareTag("Player")) {
@@ -35,11 +38,15 @@ public class FredDialogue : DialogueTrigger
         } */
 
     private void Awake() {
-        Instance = this;
+        t = this;
     }
 
     public override Dialogue GetActiveDialogue(){
-        if (Inventory.Instance.HasItem(shirt) || Inventory.Instance.HasItem(dirty_shirt) || Inventory.Instance.HasItem(clean_shirt)){
+        if (Inventory.Instance.HasItem(shirt)
+                || Inventory.Instance.HasItem(dirty_shirt)
+                || Inventory.Instance.HasItem(clean_dress)
+                || Inventory.Instance.HasItem(dirty_dress)
+        ){
             return new FredNakedDialog();
         }
         else if (Inventory.Instance.HasItem(finished)){
@@ -54,7 +61,7 @@ public class FredDialogue : DialogueTrigger
         public FredDefaultDialoge(){
             Say("Oink Mate");
             Say("Whatever its in that bloody bucket, it smells ace. anyway...")
-                .If(HasItem(FredDialogue.Instance.bucketfull));
+                .If(HasItem(t.bucketfull));
             Say("Me bloody apron's fucked");
             EmptySentence().DoAfter(new TriggerDialogueAction<Choose_Default>());
             Say("Bye");
@@ -73,8 +80,8 @@ public class FredDialogue : DialogueTrigger
                     new TextOption("Apron")
                     .IfChosen(new TriggerDialogueAction<Apron_Default>()))
                 .Choice(
-                    new ItemOption(FredDialogue.Instance.bucketfull)
-                    .IfChosen(GiveItem(FredDialogue.Instance.bucket))
+                    new ItemOption(t.bucketfull)
+                    .IfChosen(GiveItem(t.bucket))
                     .IfChosen(new TriggerDialogueAction<Thanks_Mate>()))
                 .Choice(new OtherItemOption().IfChosen(new TriggerDialogueAction<Default_Usless_Dialogue>())
 
@@ -91,7 +98,7 @@ public class FredDialogue : DialogueTrigger
     public class Yes_Default : Dialogue{
         public Yes_Default(){
             Say("Here ya go")
-                .DoAfter(GiveItem(FredDialogue.Instance.shirt));
+                .DoAfter(GiveItem(t.shirt));
             Say("Catch ya l8er, alligator");
         }
     }
@@ -120,7 +127,7 @@ public class FredDialogue : DialogueTrigger
     public class FredNakedDialog : Dialogue{
         public FredNakedDialog(){
             Say("Whatever its in that bloody bucket, it smells ace. Anyway...")
-                .If(HasItem(FredDialogue.Instance.bucketfull));
+                .If(HasItem(t.bucketfull));
             EmptySentence().DoAfter(new TriggerDialogueAction<FredChosenNakedDialog>());
         }
     }
@@ -129,14 +136,16 @@ public class FredDialogue : DialogueTrigger
         public FredChosenNakedDialog(){
             Say("Is the bloody apron ready? My tits freezing off!")
                 .Choice(new TextOption("Maybe Later"))
-                .Choice(new ItemOption(FredDialogue.Instance.clean_shirt)
-                    .IfChosen(new TriggerDialogueAction<Naked_CleanShirt_Dialogue>()))
-                .Choice(new ItemOption(FredDialogue.Instance.dirty_shirt)
+                .Choice(new ItemOption(t.clean_dress)
+                    .IfChosen(new TriggerDialogueAction<Naked_CleanDress_Dialogue>()))
+                .Choice(new ItemOption(t.dirty_dress)
+                    .IfChosen(new TriggerDialogueAction<Naked_DirtyDress_Dialogue>()))
+                .Choice(new ItemOption(t.dirty_shirt)
                     .IfChosen(new TriggerDialogueAction<Naked_DirtyShirt_Dialogue>()))
-                .Choice(new ItemOption(FredDialogue.Instance.shirt)
+                .Choice(new ItemOption(t.shirt)
                     .IfChosen(new TriggerDialogueAction<Naked_Shirt_Dialogue>(exitCurrent : true)))
-                .Choice(new ItemOption(FredDialogue.Instance.bucketfull)
-                    .IfChosen(GiveItem(FredDialogue.Instance.bucket))
+                .Choice(new ItemOption(t.bucketfull)
+                    .IfChosen(GiveItem(t.bucket))
                     .IfChosen(new TriggerDialogueAction<Naked_Bucked_Dialogue>()))
                 .Choice(new OtherItemOption().IfChosen(new TriggerDialogueAction<Naked_Usless_Dialogue>()));
         }
@@ -155,27 +164,43 @@ public class FredDialogue : DialogueTrigger
         }
     }
 
-        public class Naked_DirtyShirt_Dialogue : Dialogue{
+    public class Naked_DirtyShirt_Dialogue : Dialogue{
         public Naked_DirtyShirt_Dialogue(){
             Say("Ah thats it, just as yucky as I love it!");
             Say("Good on ya Mate!!")
-                .DoAfter(RemoveItem(FredDialogue.Instance.dirty_shirt));
+                .DoAfter(RemoveItem(t.dirty_shirt));
             Say("Alright me ‘ol cobber, for ya work here's Something from tha kitchtn");
             Say("My dishy Mary made this for ya")
-                .DoAfter(GiveItem(FredDialogue.Instance.disgusting_cocktail))
-                .DoAfter(GiveItem(FredDialogue.Instance.finished));
+                .DoAfter(GiveItem(t.disgusting_cocktail))
+                .DoAfter(GiveItem(t.finished));
             Say("Goodbye krokodyle");
         }
     }
 
-    public class Naked_CleanShirt_Dialogue : Dialogue{
-        public Naked_CleanShirt_Dialogue(){
+    public class Naked_DirtyDress_Dialogue : Dialogue{
+        public Naked_DirtyDress_Dialogue(){
+            Say("Mhh, just as disgusting as I wanted it...");
+            Say("...AND it's cute. I love it!");
+            Say("Good on ya Mate!!")
+                .DoAfter(GiveItem(t._fred_has_maiddress))
+                .DoAfter(RemoveItem(t.dirty_dress));
+            Say("Alright me ‘ol cobber, for ya work here's Something from tha kitchtn");
+            Say("My dishy Mary made this for ya")
+                .DoAfter(GiveItem(t.disgusting_cocktail))
+                .DoAfter(GiveItem(t.finished));
+            Say("Goodbye krokodyle");
+        }
+    }
+
+    public class Naked_CleanDress_Dialogue : Dialogue{
+        public Naked_CleanDress_Dialogue(){
             Say("*UHRG* DISGUSTING! Whats wrong with ya, your fuckin wanker!");
-            Say("Your should have made it more bloody and stinky for my image, cunt");
-            Say("Get Stuffet")
+            Say("That's gonna ruin my fucking reputation, ya cunt");
+            Say("Get Stuffed!")
                 .DoAfter(new TriggerDialogueAction<FredChosenNakedDialog>());
         }
     }
+
     public class Naked_Usless_Dialogue : Dialogue{
         public Naked_Usless_Dialogue(){
             Say("This s Fuckn useless")
@@ -188,7 +213,7 @@ public class FredDialogue : DialogueTrigger
     public class FinishedDialogue : Dialogue{
         public FinishedDialogue(){
             Say("Whatever its in that bloody bucket, it smelles Ace. anyway...")
-                .If(HasItem(FredDialogue.Instance.bucketfull));
+                .If(HasItem(t.bucketfull));
             EmptySentence().DoAfter(new TriggerDialogueAction<FredFinishedDialogue>());
         }
     }
@@ -197,10 +222,10 @@ public class FredDialogue : DialogueTrigger
         public FredFinishedDialogue(){
             Say("Oink Mate, were done, fuck off")
                 .Choice(new TextOption("Ok..."))
-                .Choice(new ItemOption(FredDialogue.Instance.bucketfull)
-                    .IfChosen(GiveItem(FredDialogue.Instance.bucket))
+                .Choice(new ItemOption(t.bucketfull)
+                    .IfChosen(GiveItem(t.bucket))
                     .IfChosen(new TriggerDialogueAction<Bucked_Dialogue>()))
-                .Choice(new ItemOption(FredDialogue.Instance.disgusting_cocktail)
+                .Choice(new ItemOption(t.disgusting_cocktail)
                     .IfChosen(new TriggerDialogueAction<Cocktail_Dialogue>()))
                 .Choice(new OtherItemOption().IfChosen(new TriggerDialogueAction<UselessDialogue>()));
             Say("Have a Good one!");

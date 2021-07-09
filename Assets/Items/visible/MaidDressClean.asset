@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a384481017c7d11e6be52b993588aa4a, type: 3}
+  m_Name: MaidDressClean
+  m_EditorClassIdentifier: 
+  name: Cute Maid Dress
+  description: Perfectly clean, smells like cotton candy... hah :D
+  visible: 1
+  icon: {fileID: -68751727340038015, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
+  originWorld: 1
+  unique: 1
+  conflictingItems:
+  - {fileID: 11400000, guid: af649a5495a8420779024c628d1042c9, type: 2}
+  - {fileID: 11400000, guid: 7232ee2789a30a648abb2a8f01176c73, type: 2}
+  - {fileID: 11400000, guid: ddaa1a742fa1cc9eebefa13f28c50b7c, type: 2}
