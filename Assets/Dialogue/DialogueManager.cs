@@ -91,7 +91,7 @@ public class DialogueManager : MonoBehaviour
             SetTextboxBackground(defaultBackground);
         }
 
-        DialogueManager.Log("Starting Dialogue");
+        DialogueManager.Log("Starting Dialogue by " + currentTrigger.name);
         
         dialogueCanvas.enabled = true;
 
