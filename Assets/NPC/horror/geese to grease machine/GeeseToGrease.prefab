@@ -160,6 +160,9 @@ MonoBehaviour:
   name: Geese To Grease
   world: 2
   goose: {fileID: 11400000, guid: 198dc408a7afc11f7ba17208cfc0bbd2, type: 2}
+  goose_blood: {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
+  goose_blood_bow: {fileID: 11400000, guid: 410fdc347b6862748b32dfb464117bbc, type: 2}
+  goose_bow: {fileID: 11400000, guid: c35d8409472c06b41a3bdcbdf7d82177, type: 2}
   grease: {fileID: 11400000, guid: 77d571d3a158aadc9a92bfd63af5128a, type: 2}
   startcoin: {fileID: 11400000, guid: 893420d5093890ca2bff51a05023f30c, type: 2}
   cutecoin: {fileID: 11400000, guid: 2fb8e45bc98bdb9949adc0daa6d6c4ec, type: 2}

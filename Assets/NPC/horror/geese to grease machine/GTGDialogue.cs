@@ -5,6 +5,9 @@ using UnityEngine;
 public class GTGDialogue : DialogueTrigger
 {
     public Item goose;
+    public Item goose_blood;
+    public Item goose_blood_bow;
+    public Item goose_bow;
     public Item grease;
     public Item startcoin;
     public Item cutecoin;
@@ -39,6 +42,12 @@ public class GTGDialogue : DialogueTrigger
                 .IfChosen(new TriggerDialogueAction<Coin_Again>()))
             .Choice(new ItemOption(g.goose)
                 .IfChosen(new TriggerDialogueAction<Gooose_Action>()))
+            .Choice(new ItemOption(g.goose_blood)
+                .IfChosen(new TriggerDialogueAction<Gooose_Action>()))
+            .Choice(new ItemOption(g.goose_blood_bow)
+                .IfChosen(new TriggerDialogueAction<Gooose_Action>()))
+            .Choice(new ItemOption(g.goose_bow)
+                .IfChosen(new TriggerDialogueAction<Gooose_Action>()))
             .Choice(new TextOption("Leave"))
             .Choice(new OtherItemOption()
                 .IfChosen(new TriggerDialogueAction<Invalid_Item>()));
@@ -60,6 +69,12 @@ public class GTGDialogue : DialogueTrigger
                     .IfChosen(RemoveItem(g.cutecoin))
                     .IfChosen(new TriggerDialogueAction<Coin>()))
                 .Choice(new ItemOption(g.goose)
+                    .IfChosen(new TriggerDialogueAction<Goose_Coin>()))
+                .Choice(new ItemOption(g.goose_blood)
+                    .IfChosen(new TriggerDialogueAction<Goose_Coin>()))
+                .Choice(new ItemOption(g.goose_blood_bow)
+                    .IfChosen(new TriggerDialogueAction<Goose_Coin>()))
+                .Choice(new ItemOption(g.goose_bow)
                     .IfChosen(new TriggerDialogueAction<Goose_Coin>()))
                 .Choice(new TextOption("Inspect")
                     .IfChosen(new TriggerDialogueAction<Inspect_GTG>()))
@@ -123,7 +138,7 @@ public class GTGDialogue : DialogueTrigger
             GTGDialogue g = GTGDialogue.g;
             
             Say("the machine screetches a bit and the goose makes some unusual sounds")
-            .DoAfter(RemoveItem(g.goose))
+            .DoAfter(RemoveItem(DialogueManager.Instance.currentItem))
             .DoAfter(GiveItem(g.grease));
         }
     }

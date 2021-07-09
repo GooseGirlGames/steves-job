@@ -10,6 +10,9 @@ public class HorrorRacoonDialogue : DialogueTrigger
     public Item emptybucket;
     public Item grease;
     public Item goose;
+    public Item goose_blood;
+    public Item goose_blood_bow;
+    public Item goose_bow;
 
     public static HorrorRacoonDialogue h;
 
@@ -18,12 +21,12 @@ public class HorrorRacoonDialogue : DialogueTrigger
     }
 
     public override Dialogue GetActiveDialogue() {
-        HorrorRacoonDialogue h = HorrorRacoonDialogue.h;
+        HorrorRacoonDialogue.h = this;
 
-        if (! Inventory.Instance.HasItem(_horror_racoon)) {
+        if (Inventory.Instance.HasItem(_horror_racoon)) {
             return new HorrorRacoonFinishedDilaogue();
         }
-        return new HorrorRacoonDefaultDialogue();
+        return new HorrorRacoonHi();
     }
 
     public class HorrorRacoonFinishedDilaogue : Dialogue {
@@ -37,7 +40,7 @@ public class HorrorRacoonDialogue : DialogueTrigger
     public class HorrorRacoonHi : Dialogue {
         public HorrorRacoonHi() {
             Say("Hi there");
-            Say("I am a bit leached our beacuse I forgot to stay hydrated")
+            Say("I am a bit leached out beacuse I forgot to stay hydrated")
             .DoAfter(new TriggerDialogueAction<HorrorRacoonDefaultDialogue>());
         }
     }
@@ -52,6 +55,12 @@ public class HorrorRacoonDialogue : DialogueTrigger
             .Choice(new ItemOption(h.bloodbucket)
                 .IfChosen(new TriggerDialogueAction<HorrorRacoonBucket>()))
             .Choice(new ItemOption(h.goose)
+                .IfChosen(new TriggerDialogueAction<HorrorRacoonGoose>()))
+            .Choice(new ItemOption(h.goose_blood)
+                .IfChosen(new TriggerDialogueAction<HorrorRacoonGoose>()))
+            .Choice(new ItemOption(h.goose_blood_bow)
+                .IfChosen(new TriggerDialogueAction<HorrorRacoonGoose>()))
+            .Choice(new ItemOption(h.goose_bow)
                 .IfChosen(new TriggerDialogueAction<HorrorRacoonGoose>()))
             .Choice(new ItemOption(h.grease)
                 .IfChosen(new TriggerDialogueAction<HorrorRacoonGrease>()))

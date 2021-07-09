@@ -89,14 +89,14 @@ public class SteveEHorrorDialogue : DialogueTrigger
             SteveEHorrorDialogue s = SteveEHorrorDialogue.s;
 
             Say(Uwu.Uwufy("Oh, what is this?"));
-            Say(Uwu.Uwufy("*crunch* *chomp*"));
+            Say(Uwu.Uwufy("*crunch* *chomp*"))
+            .DoAfter(RemoveItem(s.babelfisch));
     
             Say("Mmh, delicious");
             Say("WAIT A MINUTE");
             Say("Am I actually able to speak normally again?");
             Say("This is amazing, thank you so much!");
             Say("As my token of gratitude please have this coin.")
-            .DoAfter(RemoveItem(s.babelfisch))
             .DoAfter(GiveItem(s.horrorcoin))
             .DoAfter(GiveItem(s._given_horrorcoin));
         }

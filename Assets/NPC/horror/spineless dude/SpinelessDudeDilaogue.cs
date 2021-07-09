@@ -75,7 +75,8 @@ public class SpinelessDudeDilaogue : DialogueTrigger
             Say("Yeah?");
             Say("Is something wrong?");
             Say("Is it not natural wanting to get tortured?");
-            Say("What a strange question");
+            Say("What a strange question")
+            .DoAfter(new TriggerDialogueAction<SpinelessDudeChoice>());
         }
     }
 
