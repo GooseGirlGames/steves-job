@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Key
   description: There is no more to say.
   visible: 1
-  icon: {fileID: 0}
+  icon: {fileID: 1122774824596591943, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 2
   unique: 1
   conflictingItems: []
