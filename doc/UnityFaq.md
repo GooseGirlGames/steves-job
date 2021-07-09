@@ -12,3 +12,10 @@ Don't start the game from a Prefab, instead start from a scene.
 ## Project won't load (Linux)
 You might have two directories with the same name but different
 capitalization.  Don't do that.
+
+## My textures are so fucked, even colorblind people notice
+Disable texture compression in import settings.  Or for the entire
+project:
+```
+find . -name "*.png.meta" -exec sed -i "s/textureCompression: 1/textureCompression: 0/g" {} \;
+```
