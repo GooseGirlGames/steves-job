@@ -8,6 +8,7 @@ public class RacoonCuteDialogue :  DialogueTrigger{
     public Item coin;
     public Item crank;
     public Item _miniGameplayed;
+    public GameObject storeOwner;
 
     public override Dialogue GetActiveDialogue(){
         if(Inventory.Instance.HasItem(_miniGameplayed)){
@@ -28,7 +29,10 @@ public class RacoonCuteDefaultDialogue : Dialogue {
         Say("*puppy eyes* Oh hello mr. janitor.");
         Say("I have a big big big biiiiig problem, can you please help me out?");
         Say("I have also a little compensation for your kind service sir")
+            //.Do(GiveItem(RacoonCuteDialogue.t.snack))
             .DoAfter(new TriggerDialogueAction<ChoiceDialogue>());
+            
+
             
     }
         
@@ -50,7 +54,8 @@ public class ChoiceDialogue : Dialogue {
 
 public class MiniGameFinishedDia : Dialogue {
     public MiniGameFinishedDia(){
-
+        Say("Oh this is awkward...");
+        Say("I am sorry..but anyways thank you for giving me a treat :3");
     }
 }
 public class SnackDialogue : Dialogue {
@@ -58,7 +63,14 @@ public class SnackDialogue : Dialogue {
         Say("Thank you sooooo much my dear janitor")
             .DoAfter(RemoveItem(RacoonCuteDialogue.t.snack));
         Say("Since you helped me I will gift you this beautiful coin!")
-            .DoAfter(GiveItem(RacoonCuteDialogue.t.coin));
+            .DoAfter(GiveItem(RacoonCuteDialogue.t.coin))
+            .DoAfter(new DialogueAction(()=> {
+                RacoonCuteDialogue.t.storeOwner.SetActive(true);
+            }))
+            .DoAfter(new DialogueAction(()=> {
+                RacoonCuteDialogue.t.transform.position = new Vector3(8.4f,-2.2f,1f);
+            }));
+
     }
 }
 public class SickRacoonDia : Dialogue {

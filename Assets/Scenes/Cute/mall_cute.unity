@@ -1381,6 +1381,7 @@ MonoBehaviour:
   coin: {fileID: 11400000, guid: 2fb8e45bc98bdb9949adc0daa6d6c4ec, type: 2}
   crank: {fileID: 11400000, guid: b5330c7fcf8c7321faded7cd47cc726b, type: 2}
   _miniGameplayed: {fileID: 0}
+  storeOwner: {fileID: 2098456318}
 --- !u!61 &725189935
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1722,7 +1723,7 @@ SpriteRenderer:
   m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1060849352
@@ -2396,6 +2397,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: store_owner
       objectReference: {fileID: 0}
+    - target: {fileID: 1498789279191445765, guid: 4246e0fa6a9e3c40c8c69b12e5bae22a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1498789279191445767, guid: 4246e0fa6a9e3c40c8c69b12e5bae22a, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -2620,6 +2625,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3136791745992653637, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
   m_PrefabInstance: {fileID: 1991194469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2098456318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1498789279191445765, guid: 4246e0fa6a9e3c40c8c69b12e5bae22a, type: 3}
+  m_PrefabInstance: {fileID: 1699885165}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3472054567641379685
 PrefabInstance:

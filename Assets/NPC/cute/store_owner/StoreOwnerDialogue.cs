@@ -56,15 +56,14 @@ public class RacoonStoryDia : Dialogue {
     public RacoonStoryDia(){
         Say("This racoon..");
         Say("he...he..");
-        Say("A racoon asked for cotton candy and I told him there was one package of it left");
-        Say("This idiot bought it and...");
-        Say("..and then said he needed to use the restroom");
+        Say("he was on a strict diet..he he..");
+        Say("This idiot must've got some candy");
+        Say("..he is not good with sugar..so I told him that he is not allowed to eat sugar ever again!");
         Say("*cries*");
-        Say("All was good but then he returned...trembling with anger");
-        Say("I looked at his hands and there it was..");
-        Say("the sticky evidence of him washing his cotton candy");
-        Say("He said: ''My cotton candy vanished...give me some more''");
-        Say("I said to him: ''like I told you, I sold the last package to you''");
+        Say("he just came into my store with mouth full of the sticky evidence");
+        Say("he was shaking and his eyes full of rage...he suddenly got into a huge sugar rush");
+        Say("He said: ''give me some more candy'' with this scary voice");
+        Say("I said ''no'' to him");
         Say("I've never seen someone this angry and fled..");
         Say("All i could hear is getting my store completely destroyed");
         Say("...say, could you please help me to stop him?")
@@ -116,6 +115,6 @@ public class WarningDia : Dialogue {
             .IfChosen(new DialogueAction(() => {
                     StoreOwnerDialogue.Instance.EnterMiniGame();
             })))
-        .Choice(new TextOption("Ah, think I'l pass"));
+        .Choice(new TextOption("Ah, think I'll pass"));
     }
 }
