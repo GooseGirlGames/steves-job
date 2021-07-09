@@ -162,6 +162,7 @@ public class DialogueManager : MonoBehaviour
                     if (item == itemOption.item) {
                         Debug.Log("Found option for item");
                         chosenOption = opt;
+                        currentItem = item;
                     }
                 }
             }
