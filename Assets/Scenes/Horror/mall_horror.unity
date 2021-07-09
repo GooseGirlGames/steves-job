@@ -925,11 +925,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.6983917
+      value: 1.6987116
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.9021754
+      value: -3.902176
       objectReference: {fileID: 0}
     - target: {fileID: 8166448268194895689, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_Name
@@ -1566,6 +1566,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SteveEHorror
       objectReference: {fileID: 0}
+    - target: {fileID: 5623153393568890782, guid: c45a17f429ea4a41eb769c404614d9d4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.088
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845055489388359897, guid: c45a17f429ea4a41eb769c404614d9d4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845055489388359897, guid: c45a17f429ea4a41eb769c404614d9d4, type: 3}
+      propertyPath: m_Size.y
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7874358229169026772, guid: c45a17f429ea4a41eb769c404614d9d4, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -1765,6 +1777,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2893953452214901095, guid: c8b2066eb8b2784e885ae03a8025d10b, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -2893953452214901095, guid: c8b2066eb8b2784e885ae03a8025d10b, type: 3}
+      propertyPath: teleportAfterSceneChange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788467347485966688, guid: c8b2066eb8b2784e885ae03a8025d10b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788467347485966688, guid: c8b2066eb8b2784e885ae03a8025d10b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.21
+      objectReference: {fileID: 0}
     - target: {fileID: 7974151369523921490, guid: c8b2066eb8b2784e885ae03a8025d10b, type: 3}
       propertyPath: m_Name
       value: SteveEPortal
@@ -1775,11 +1803,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166810253667901196, guid: c8b2066eb8b2784e885ae03a8025d10b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.8538885
+      value: 11.91
       objectReference: {fileID: 0}
     - target: {fileID: 8166810253667901196, guid: c8b2066eb8b2784e885ae03a8025d10b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.2955759
+      value: 2.06
       objectReference: {fileID: 0}
     - target: {fileID: 8166810253667901196, guid: c8b2066eb8b2784e885ae03a8025d10b, type: 3}
       propertyPath: m_LocalPosition.z

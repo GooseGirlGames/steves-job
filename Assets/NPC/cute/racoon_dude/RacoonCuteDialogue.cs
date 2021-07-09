@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RacoonCuteDialogue :  DialogueTrigger{
-    new public static RacoonCuteDialogue t = null;
+    public static RacoonCuteDialogue t = null;
     public Item snack;
     public Item coin;
     public Item crank;
