@@ -62,6 +62,17 @@ public class Sentence
         options.Add(option);
         return this;
     }
+
+    /** Returns false iff Sentence contains ItemOptions but no OtherItemOption */
+    public bool OtherItemOptionsOkay() {
+        bool hasItemOptions = false;
+        bool hasOtherItemOption = false;
+        foreach (DialogueOption o in options) {
+            if (o is ItemOption) hasItemOptions = true;
+            if (o is OtherItemOption) hasOtherItemOption = true;
+        }
+        return !hasItemOptions || hasOtherItemOption;
+    }
 }
 
 public class EmptySentence : Sentence {
