@@ -33,6 +33,7 @@ public class stevecontroller : MonoBehaviour {
     [SerializeField] private bool crouch = false;
     [SerializeField] private bool always_walking = false;
     public static float CAMERA_OFFSET_Y = 1.4f;
+    public float jumpDetectionThreshold = 0.6f;
 
     private bool movementLocked = false;
     // Whenever Lock() is called, a tag is passed and stored here.
@@ -187,7 +188,7 @@ public class stevecontroller : MonoBehaviour {
         
         // goes up to about 0.45 when Steve jumps
         float cameraTargetDistanceY = Math.Abs(m_rigitbody.position.y - m_cam_vec.y);
-        if (cameraTargetDistanceY > 0.6f) {
+        if (cameraTargetDistanceY > jumpDetectionThreshold) {
             SetCameraTargetToPlayer();
         }
     }
