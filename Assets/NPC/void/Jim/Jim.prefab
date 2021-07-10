@@ -160,21 +160,22 @@ MonoBehaviour:
   avatar: {fileID: 0}
   name: Jim
   world: 3
-  _jim_horror_finished: {fileID: 0}
-  _jim_cute_finished: {fileID: 0}
-  _firstDialogueFinished: {fileID: 0}
-  _hasCleanedSwitch: {fileID: 0}
-  brokenSwitch: {fileID: 0}
-  dirtySwitch: {fileID: 0}
-  dirtyBrokenSwitch: {fileID: 0}
-  finishedSwitch: {fileID: 0}
-  bucket: {fileID: 0}
-  fullbucket: {fileID: 0}
+  _restored_cute: {fileID: 11400000, guid: 65c432402cc0fbc5087c8d230594304d, type: 2}
+  _restored_horror: {fileID: 11400000, guid: d5a67855783c61e8cac251e773ae1430, type: 2}
+  _said_thanks: {fileID: 11400000, guid: 9c1d3ff2b424b6353b9b8fc4be9fe886, type: 2}
+  _hasCleanedSwitch: {fileID: 11400000, guid: ecf0b574e1e6f11ff8e988a185e339ae, type: 2}
+  brokenSwitch: {fileID: 11400000, guid: 8ce5a7b88b03f28fbbde7a43796b59fb, type: 2}
+  cuteBrokenSwitch: {fileID: 11400000, guid: c7868393276619bcab6b2c798c5d7aa3, type: 2}
+  horrorBrokenSwitch: {fileID: 11400000, guid: f4c53fdac8403b72e91dba556812760d, type: 2}
+  dirtyBrokenSwitch: {fileID: 11400000, guid: 02201874d20345cc4a81721b09010eff, type: 2}
+  finishedSwitch: {fileID: 11400000, guid: adbacbb016bf2dc1ebcc654131ce627b, type: 2}
+  bucket: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
+  fullbucket: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
   goose: {fileID: 11400000, guid: 198dc408a7afc11f7ba17208cfc0bbd2, type: 2}
   bloodygoose: {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
   bowgoose: {fileID: 11400000, guid: c35d8409472c06b41a3bdcbdf7d82177, type: 2}
   bloodybowgoose: {fileID: 11400000, guid: 410fdc347b6862748b32dfb464117bbc, type: 2}
-  marysPeriod: {fileID: 0}
+  marysPeriod: {fileID: 11400000, guid: 23bd31e009ef1f53490de8255ca44662, type: 2}
 --- !u!1 &9092299000146321770
 GameObject:
   m_ObjectHideFlags: 0
