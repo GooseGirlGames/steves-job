@@ -9,6 +9,9 @@ public class Bucket : DialogueTrigger
     public Item _given_horrorcoin;
     public Item _got_bucket;
 
+    public const string DefName = "Steve E Horror";
+    public const string UwuName = "Steve E Howwow";
+
     public static Bucket b;
 
     void Awake() {
@@ -20,10 +23,13 @@ public class Bucket : DialogueTrigger
 
         if (! Inventory.Instance.HasItem(_got_bucket)) {
             if (Inventory.Instance.HasItem(_given_horrorcoin)) {
+                name = DefName;
                 return new BucketGet();
             }
+            name = UwuName;
             return new BucketHandsOff();
        }
+       name = DefName;
        return new BucketInInv();
     }
 

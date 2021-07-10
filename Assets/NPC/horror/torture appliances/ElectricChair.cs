@@ -9,6 +9,9 @@ public class ElectricChair : DialogueTrigger
     public Item startcoin;
     public Item cutecoin;
 
+    public const string DefName = "Steve E Horror";
+    public const string UwuName = "Steve E Howwow";
+
     public static ElectricChair e;
 
     void Awake() {
@@ -19,8 +22,10 @@ public class ElectricChair : DialogueTrigger
         ElectricChair.e = this;
 
         if (Inventory.Instance.HasItem(_given_horrorcoin)) {
+            name = DefName;
             return new ElectricChairDescription();
         }
+        name = UwuName;
         return new ElectricChairHandsOff();
     }
 

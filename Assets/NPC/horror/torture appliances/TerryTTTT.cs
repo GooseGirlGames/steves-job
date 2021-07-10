@@ -9,6 +9,9 @@ public class TerryTTTT : DialogueTrigger
     public Item startcoin;
     public Item cutecoin;
 
+    public const string DefName = "Steve E Horror";
+    public const string UwuName = "Steve E Howwow";
+
     public static TerryTTTT t;
 
     void Awake() {
@@ -19,8 +22,10 @@ public class TerryTTTT : DialogueTrigger
         TerryTTTT.t = this;
 
         if (Inventory.Instance.HasItem(_given_horrorcoin)) {
+            name = DefName;
             return new TerryTTTTDescription();
         }
+        name = UwuName;
         return new TerryTTTTHandsOff();
     }
 

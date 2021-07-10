@@ -9,6 +9,9 @@ public class IronMaiden : DialogueTrigger
     public Item startcoin;
     public Item cutecoin;
 
+    public const string DefName = "Steve E Horror";
+    public const string UwuName = "Steve E Howwow";
+
     public static IronMaiden i;
 
     void Awake() {
@@ -19,8 +22,10 @@ public class IronMaiden : DialogueTrigger
         IronMaiden.i = this;
 
         if (Inventory.Instance.HasItem(_given_horrorcoin)) {
+            name = DefName;
             return new IronMaidenDesc();
         }
+        name = UwuName;
         return new IronMaidenHandsOff();
     }
 

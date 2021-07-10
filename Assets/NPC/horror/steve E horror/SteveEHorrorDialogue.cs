@@ -12,6 +12,8 @@ public class SteveEHorrorDialogue : DialogueTrigger
     public Item cutecoin;
     public Item startcoin;
 
+    public const string DefName = "Steve E Horror";
+    public const string UwuName = "Steve E Howwow";
 
     public static SteveEHorrorDialogue s;
 
@@ -23,10 +25,23 @@ public class SteveEHorrorDialogue : DialogueTrigger
         SteveEHorrorDialogue.s = this;
 
         if (! Inventory.Instance.HasItem(_setve_horror_backstory)) {
+            if (Inventory.Instance.HasItem(babelfisch)) {
+                name = DefName;
+            }
+            else {
+                name = UwuName;
+            }
             return new StvHorrorBackstoryDialogue();
         }
         else if (Inventory.Instance.HasItem(_given_horrorcoin)) {
+            name = DefName;
             return new StvHorrorHappyDialogue();
+        }
+        else if (Inventory.Instance.HasItem(babelfisch)) {
+                name = DefName;
+        }
+        else {
+            name = UwuName;
         }
         return new StvHorrorDefaultDialogue();
     }

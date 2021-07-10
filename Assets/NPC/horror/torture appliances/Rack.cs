@@ -9,6 +9,9 @@ public class Rack : DialogueTrigger
     public Item startcoin;
     public Item cutecoin;
 
+    public const string DefName = "Steve E Horror";
+    public const string UwuName = "Steve E Howwow";
+
     public static Rack r;
 
     void Awake() {
@@ -19,8 +22,10 @@ public class Rack : DialogueTrigger
         Rack.r = this;
 
         if (Inventory.Instance.HasItem(_given_horrorcoin)) {
+            name = DefName;
             return new RackDescription();
         }
+        name = UwuName;
         return new RackHandsOff();
     }
 
