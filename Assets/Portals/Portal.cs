@@ -9,7 +9,8 @@ using UnityEngine.SceneManagement;
  */
 public class Portal : MonoBehaviour
 {
-    public const KeyCode TRIGGER_BUTTON = KeyCode.E;
+    public const string TRIGGER_BUTTON_NAME = "Submit";
+    public const string TRIGGER_BUTTON_STR = "E";
     public const float DOOR_ANIMATION_MIN_DISTANCE = 3.0f;
     public const float ELEVATOR_ANIMATION_DURATION = 3.0f;
 
@@ -211,8 +212,7 @@ public class Portal : MonoBehaviour
         }
 
         if (playerInTrigger) {
-            // FIXME Do not hard code keycode
-            if (triggerType == TriggerType.OnInputPressed && Input.GetKeyDown(TRIGGER_BUTTON)) {
+            if (triggerType == TriggerType.OnInputPressed && Input.GetButtonDown(TRIGGER_BUTTON_NAME)) {
                 TriggerTeleport();
             } else if (triggerType == TriggerType.Immediate) {
                 TriggerTeleport();

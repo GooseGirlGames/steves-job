@@ -164,14 +164,14 @@ public class stevecontroller : MonoBehaviour {
 
         SetAnimatorVars();
         
-        if (Input.GetKey(KeyCode.LeftShift) && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f && is_grounded){
+        if (Input.GetButton("Crouch") && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f && is_grounded){
             crouch = true; 
             GetComponent<CircleCollider2D>().offset = new Vector2(0.1f,0.05f);  
         } 
-        if(Input.GetButtonUp("Jump") && Input.GetKey(KeyCode.LeftShift)){
+        if(Input.GetButtonUp("Jump") && Input.GetButton("Crouch")){
             crouch = true;
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift)){
+        if (Input.GetButtonUp("Crouch")){
             crouch = false; 
         }  
         if (Input.GetButtonDown("Jump") && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f) 

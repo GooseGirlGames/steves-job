@@ -83,7 +83,7 @@ public class InventoryCanvasSlots : MonoBehaviour
     private void Update() {
         if (PauseMenu.IsPausedOrJustUnpaused()) return;
 
-        if (Input.GetKeyDown(KeyCode.Tab) && CanBeOpenend()) {
+        if (Input.GetButtonDown("Inventory") && CanBeOpenend()) {
             if (visible) {
                 Hide();
             } else {
@@ -98,14 +98,6 @@ public class InventoryCanvasSlots : MonoBehaviour
             CheckForSelectedItem();
         }
 
-        /*if (loreVisible) {
-            if (Input.GetKeyDown(KeyCode.D)) {
-                foreach (InventorySlot slot in slots) {
-                    slot.button.Selected = false;
-                }
-                HideItemLoreBox();
-            }
-        }*/
     }
 
     public void Show() {
