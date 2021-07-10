@@ -194,7 +194,9 @@ public class Portal : MonoBehaviour
     }
 
     void Update() {
-        if (PauseMenu.IsPausedOrJustUnpaused()) return;
+        if (PauseMenu.IsPausedOrJustUnpaused() || InventoryCanvasSlots.Instance.IsShowing()) {
+            return;
+        }
 
         Collider2D[] collidersNearby = Physics2D.OverlapCircleAll(
                 gameObject.transform.position,
