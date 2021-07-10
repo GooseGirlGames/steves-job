@@ -30,7 +30,7 @@ public class HorrorRacoonDialogue : DialogueTrigger
             return new HorrorRacoonFinishedDilaogue();
         }
         else if (Inventory.Instance.HasItem(_horror_racoon_drink)) {
-
+            return new HorrorRacoonDrinkChoice();
         }
         return new HorrorRacoonHi();
     }
