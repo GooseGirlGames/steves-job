@@ -5,7 +5,8 @@ using UnityEngine;
 public class HorrorRacoonDialogue : DialogueTrigger
 {
     public Item bloodymary;
-    public Item _horror_racoon;
+    public Item _horror_racoon_drink;
+    public Item _horror_racoon_done;
     public Item bloodbucket;
     public Item emptybucket;
     public Item grease;
@@ -13,6 +14,8 @@ public class HorrorRacoonDialogue : DialogueTrigger
     public Item goose_blood;
     public Item goose_blood_bow;
     public Item goose_bow;
+    public Item magpie;
+    public Item storekey;
 
     public static HorrorRacoonDialogue h;
 
@@ -23,8 +26,11 @@ public class HorrorRacoonDialogue : DialogueTrigger
     public override Dialogue GetActiveDialogue() {
         HorrorRacoonDialogue.h = this;
 
-        if (Inventory.Instance.HasItem(_horror_racoon)) {
+        if (Inventory.Instance.HasItem(_horror_racoon_done)) {
             return new HorrorRacoonFinishedDilaogue();
+        }
+        else if (Inventory.Instance.HasItem(_horror_racoon_drink)) {
+
         }
         return new HorrorRacoonHi();
     }
@@ -116,9 +122,32 @@ public class HorrorRacoonDialogue : DialogueTrigger
             Say("*slurp* *slurp*");
             Say("delicious!");
             Say("I feel energized again!");
-            Say("Thanks!")
+                        Say("Thanks!")
             .DoAfter(RemoveItem(h.bloodymary))
-            .DoAfter(GiveItem(h._horror_racoon));
+            .DoAfter(GiveItem(h._horror_racoon_drink))
+            .DoAfter(new TriggerDialogueAction<HorrorRacoonDrinkChoice>());
+        }
+    }
+
+    public class HorrorRacoonDrinkChoice : Dialogue {
+        public HorrorRacoonDrinkChoice() {
+            Say("Give me the magpie!")
+            .Choice(new TextOption("This is temporary..."))
+            .Choice(new ItemOption(h.magpie)
+                .IfChosen(new TriggerDialogueAction<HorrorRacoonMagpie>()))
+            .Choice(new OtherItemOption()
+                .IfChosen(new TriggerDialogueAction<HorrorRacoonDrinkChoice>()));
+        }
+    }
+
+    public class HorrorRacoonMagpie : Dialogue {
+        public HorrorRacoonMagpie() {
+            HorrorRacoonDialogue h = HorrorRacoonDialogue.h;
+
+            Say("Yum")
+            .DoAfter(RemoveItem(h.magpie))
+            .DoAfter(GiveItem(h.storekey))
+            .DoAfter(GiveItem(h._horror_racoon_done));
         }
     }
 

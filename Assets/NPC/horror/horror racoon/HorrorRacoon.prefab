@@ -83,7 +83,8 @@ MonoBehaviour:
   name: Horror Racoon
   world: 2
   bloodymary: {fileID: 11400000, guid: 23bd31e009ef1f53490de8255ca44662, type: 2}
-  _horror_racoon: {fileID: 11400000, guid: bc826757d812b4a41a3fd3ea3a289469, type: 2}
+  _horror_racoon_drink: {fileID: 11400000, guid: bc826757d812b4a41a3fd3ea3a289469, type: 2}
+  _horror_racoon_done: {fileID: 11400000, guid: 8c68477ab2f1ef841a3e314cc43530de, type: 2}
   bloodbucket: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
   emptybucket: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
   grease: {fileID: 11400000, guid: 77d571d3a158aadc9a92bfd63af5128a, type: 2}
@@ -91,6 +92,8 @@ MonoBehaviour:
   goose_blood: {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
   goose_blood_bow: {fileID: 11400000, guid: 410fdc347b6862748b32dfb464117bbc, type: 2}
   goose_bow: {fileID: 11400000, guid: c35d8409472c06b41a3bdcbdf7d82177, type: 2}
+  magpie: {fileID: 11400000, guid: 9cd9742d846c4fde5af9fe6082b02d51, type: 2}
+  storekey: {fileID: 11400000, guid: 8c8be59d694d3c3b581867f7f234336a, type: 2}
 --- !u!61 &8743033184859852649
 BoxCollider2D:
   m_ObjectHideFlags: 0
