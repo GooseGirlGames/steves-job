@@ -490,6 +490,10 @@ PrefabInstance:
       propertyPath: movement_speed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 3136791745992653636, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
+      propertyPath: jumpDetectionThreshold
+      value: 1201
+      objectReference: {fileID: 0}
     - target: {fileID: 3136791745992653637, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
       propertyPath: m_RootOrder
       value: 2
