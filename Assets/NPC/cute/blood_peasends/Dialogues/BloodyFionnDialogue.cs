@@ -12,6 +12,7 @@ public class BloodyFionnDialogue : DialogueTrigger {
     public Item goosebloody;
     public Item goosebow;
     public Item goosebloodybow;
+    public Item magpie;
     public override Dialogue GetActiveDialogue() {
         t = this;
         if (!Inventory.Instance.HasItem(joined)) {
@@ -100,6 +101,10 @@ public class BloodyFionnDialogue : DialogueTrigger {
             .Choice(
                 new ItemOption(t.grease)
                 .IfChosen(new TriggerDialogueAction<CuteFionnDialogue.Grease>())
+            )
+            .Choice(
+                new ItemOption(t.magpie)
+                .IfChosen(new TriggerDialogueAction<CuteFionnDialogue.Magpie>())
             )
             .Choice(
                 new OtherItemOption()
