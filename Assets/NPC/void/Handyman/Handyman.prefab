@@ -160,9 +160,14 @@ MonoBehaviour:
   avatar: {fileID: 0}
   name: Handyman
   world: 3
-  _handyman_horror_finished: {fileID: 0}
-  _handyman_cute_finished: {fileID: 0}
-  _minigamewon: {fileID: 0}
+  _restored_cute: {fileID: 11400000, guid: 1fb675725e87cfb71ac764ecb4827f55, type: 2}
+  _restored_horror: {fileID: 11400000, guid: c9b97c75e83756fd39f16858838ed937, type: 2}
+  _said_thanks: {fileID: 11400000, guid: be73e55b880599d01a61c7524a4d4583, type: 2}
+  switch_broken_dirty: {fileID: 11400000, guid: 02201874d20345cc4a81721b09010eff, type: 2}
+  switch_broken_cute: {fileID: 11400000, guid: c7868393276619bcab6b2c798c5d7aa3, type: 2}
+  switch_broken_horror: {fileID: 11400000, guid: f4c53fdac8403b72e91dba556812760d, type: 2}
+  switch_broken: {fileID: 11400000, guid: 8ce5a7b88b03f28fbbde7a43796b59fb, type: 2}
+  switch_fixed: {fileID: 11400000, guid: adbacbb016bf2dc1ebcc654131ce627b, type: 2}
 --- !u!1 &6475777168588372715
 GameObject:
   m_ObjectHideFlags: 0

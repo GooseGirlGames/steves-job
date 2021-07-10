@@ -10,6 +10,7 @@ public class CuteFionnDialogue : DialogueTrigger {
     public Item goosebloody;
     public Item goosebow;
     public Item goosebloodybow;
+    public Item magpie;
     public Item grease;
     public override Dialogue GetActiveDialogue() {
         t = this;
@@ -90,6 +91,10 @@ public class CuteFionnDialogue : DialogueTrigger {
                 .IfChosen(new TriggerDialogueAction<Grease>())
             )
             .Choice(
+                new ItemOption(t.magpie)
+                .IfChosen(new TriggerDialogueAction<Magpie>())
+            )
+            .Choice(
                 new OtherItemOption()
                 .IfChosen(new TriggerDialogueAction<OtherItem>())
             )
@@ -100,6 +105,16 @@ public class CuteFionnDialogue : DialogueTrigger {
     public class NiceGoose : Dialogue {
         public NiceGoose() {
             Say("What a beauty!");
+        }
+    }
+    public class Magpie : Dialogue {
+        public Magpie() {
+            Say("Haha, that's a funny looking goose you got there.");
+
+            Say("I'm sure your actual Goose is doing just as fine as that Magpie though.")
+            .If(HasItem(t.grease));
+            Say("...right?")
+            .If(HasItem(t.grease));
         }
     }
     public class NiceGooseBow : Dialogue {

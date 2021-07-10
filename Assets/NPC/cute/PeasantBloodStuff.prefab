@@ -83,6 +83,7 @@ MonoBehaviour:
   goosebloody: {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
   goosebow: {fileID: 11400000, guid: c35d8409472c06b41a3bdcbdf7d82177, type: 2}
   goosebloodybow: {fileID: 11400000, guid: 410fdc347b6862748b32dfb464117bbc, type: 2}
+  magpie: {fileID: 11400000, guid: 9cd9742d846c4fde5af9fe6082b02d51, type: 2}
   grease: {fileID: 11400000, guid: 77d571d3a158aadc9a92bfd63af5128a, type: 2}
 --- !u!1 &2093019725466866248
 GameObject:
@@ -818,6 +819,7 @@ MonoBehaviour:
   goosebloody: {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
   goosebow: {fileID: 11400000, guid: c35d8409472c06b41a3bdcbdf7d82177, type: 2}
   goosebloodybow: {fileID: 11400000, guid: 410fdc347b6862748b32dfb464117bbc, type: 2}
+  magpie: {fileID: 11400000, guid: 9cd9742d846c4fde5af9fe6082b02d51, type: 2}
 --- !u!1 &9159110269230440026
 GameObject:
   m_ObjectHideFlags: 0

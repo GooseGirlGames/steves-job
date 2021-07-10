@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a384481017c7d11e6be52b993588aa4a, type: 3}
   m_Name: SwitchBroken
   m_EditorClassIdentifier: 
-  name: Broken Switch
-  description: Well, its still broken but at least it is shiny now :D
+  name: Switch Parts
+  description: Well, its still broken but at least it is clean now.
   visible: 1
-  icon: {fileID: 0}
+  icon: {fileID: 8436657204533251546, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 3
   unique: 1
   conflictingItems:
   - {fileID: 11400000, guid: adbacbb016bf2dc1ebcc654131ce627b, type: 2}
+  - {fileID: 11400000, guid: f4c53fdac8403b72e91dba556812760d, type: 2}
+  - {fileID: 11400000, guid: c7868393276619bcab6b2c798c5d7aa3, type: 2}
   - {fileID: 11400000, guid: 02201874d20345cc4a81721b09010eff, type: 2}
-  - {fileID: 11400000, guid: 7232ee2789a30a648abb2a8f01176c73, type: 2}

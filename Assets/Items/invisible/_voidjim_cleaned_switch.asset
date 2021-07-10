@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a384481017c7d11e6be52b993588aa4a, type: 3}
-  m_Name: Grease
+  m_Name: _voidjim_cleaned_switch
   m_EditorClassIdentifier: 
-  name: Geese Grease
-  description: 'you monster D:'
-  visible: 1
-  icon: {fileID: -4058434812019303673, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
-  originWorld: 2
+  name: 
+  description: Yup, it's clean now!
+  visible: 0
+  icon: {fileID: 0}
+  originWorld: 0
   unique: 1
   conflictingItems: []

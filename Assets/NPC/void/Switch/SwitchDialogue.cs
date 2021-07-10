@@ -19,12 +19,13 @@ Dialogue(Final):
     - Switch can be pressed
  */
 
-public class SwitchDialogue : DialogueTrigger{
+public class SwitchDialogue : DialogueTrigger {
 
     public Item switch_final;
-    public Item switch_dirty;
     public Item switch_broken;
     public Item switch_dirty_broken;
+    public Item switch_dirty_cute_broken;
+    public Item switch_dirty_horror_broken;
     public Item _powered;
     public Item _not_pickedup_with_switch;
     public static SwitchDialogue t;
@@ -34,50 +35,141 @@ public class SwitchDialogue : DialogueTrigger{
         if (Inventory.Instance.HasItem(_not_pickedup_with_switch)){
             return new FirstDialogue();
         }
-        else if (Inventory.Instance.HasItem(switch_broken)||Inventory.Instance.HasItem(switch_dirty)||Inventory.Instance.HasItem(switch_dirty_broken)||Inventory.Instance.HasItem(switch_final)){
+
+        if (SteveHasAnySwitch()) {
             if (Inventory.Instance.HasItem(_powered)){
-                return new EmptyDialogue();
+                return new EmptyHolePower();
             }
-            else{
-                return new EmptyAndPowerlessDialogue();
+            else {
+                return new EmptyHoleNoPower();
+            }
+        } else {
+            if (!Inventory.Instance.HasItem(_powered)){
+                return new SwitchInstalledNoPower();
+            } else {
+                return new SwitchInstalledAndPowered();
             }
         }
-        else if(!Inventory.Instance.HasItem(_powered)){
-            return new PowerlessDialogue();
-        }
-        return new FinalDialogue();
     }
 
     public class FirstDialogue : Dialogue {
         public FirstDialogue(){
-            Say("Everything what is left of of this stupid switch are some broken remains");
-            Say("with strange goo all over them")
+            Say(
+                "Geez, everything that's left of that stupid switch "
+                + "are some broken parts..."
+            );
+            Say("...with strange rust all over them")
                 .DoAfter(GiveItem(t.switch_dirty_broken));
-            Say("It is needet to repair it, and clean the thing from the sticky mess");
-            Say("The Power is also down, I think Steve E Wonder has a spare generator")
+            Say("It should probably be cleaned... And repaired...");
+            Say("...And the power is out") //, I think Steve E Wonder may have a spare generator")
                 .DoAfter(RemoveItem(t._not_pickedup_with_switch));
         }
     }
 
-    public class EmptyAndPowerlessDialogue : Dialogue{
-        public EmptyAndPowerlessDialogue(){
-            Say("...");
+    public class EmptyHoleNoPower : Dialogue{
+        public EmptyHoleNoPower() {
+            Say("It's not yet powered, but something might fit in here...")
+            .Choice(new ItemOption(t.switch_final)
+                .IfChosen(new TriggerDialogueAction<InsertSwitch>())
+            )
+            .Choice(new OtherItemOption()
+                .IfChosen(new TriggerDialogueAction<Other>())
+            );
+        }
+
+        public class Other : Dialogue {
+            public Other() {
+                Item item = DialogueManager.Instance.currentItem;
+
+                Say("A " + item.name + " does not make for a good switch.")
+                .If(DoesNotHaveItem(t.switch_final))
+                .If(() => !t.IsBrokenSwitch(item));
+                Say("You can't just throw " + item.name + " into a switch port an call it a day.")
+                .If(DoesNotHaveItem(t.switch_final))
+                .If(() => t.IsBrokenSwitch(item));
+
+                Say("There must be something more fitting for here...")
+                .If(HasItem(t.switch_final));
+            }
         }
     }
-    public class EmptyDialogue : Dialogue{
-        public EmptyDialogue(){
-            Say("...");
+    public class EmptyHolePower : Dialogue{
+        public EmptyHolePower() {
+            Say("Power's looking good... Something might fit in here...")
+            .Choice(new ItemOption(t.switch_final)
+                .IfChosen(new TriggerDialogueAction<InsertSwitch>())
+            )
+            .Choice(new OtherItemOption()
+                .IfChosen(new TriggerDialogueAction<Other>())
+            );
+        }
+
+        public class Other : Dialogue {
+            public Other() {
+                Item item = DialogueManager.Instance.currentItem;
+
+                Say("With great power comes... Well, not a working switch, that's for sure.")
+                .If(DoesNotHaveItem(t.switch_final));
+                Say("And a " + item.name + " won't do the trick.")
+                .If(DoesNotHaveItem(t.switch_final))
+                .If(() => !t.IsBrokenSwitch(item));
+                Say("And these " + item.name + " are far away from being one.")
+                .If(DoesNotHaveItem(t.switch_final))
+                .If(() => t.IsBrokenSwitch(item));
+
+                Say("There must be something more fitting for here...")
+                .If(HasItem(t.switch_final));
+            }
         }
     }
-    public class PowerlessDialogue : Dialogue{
-        public PowerlessDialogue(){
-            Say("...");
+    public class SwitchInstalledNoPower : Dialogue {
+        // No switch, No power
+        public SwitchInstalledNoPower(){
+            Say("Power's still missing though...");
+            Say("Heard something about Steve E. and a generator...");
+        }
+    }
+
+    public class SwitchInstalledAndPowered : Dialogue{
+        public SwitchInstalledAndPowered(){
+            Say("ggwp");
+            Say("thanks for playing steve's job <3");
+            // TODO Trigger final switch flick sequence
+        }
+    }
+    public class InsertSwitch : Dialogue {
+        public InsertSwitch() {
+            Say("Yup, that's it...");
+            Say("Now, be careful...");
+
+            Say("Fits like a glove.")
+            .Do(RemoveItem(t.switch_final))
+            .If(HasItem(t._powered))
+            .DoAfter(new TriggerDialogueAction<SwitchInstalledAndPowered>());
+
+            Say("Fits like a glove.")
+            .Do(RemoveItem(t.switch_final))
+            .If(DoesNotHaveItem(t._powered))
+            .DoAfter(new TriggerDialogueAction<SwitchInstalledNoPower>());
         }
     }
     
-    public class FinalDialogue : Dialogue{
-        public FinalDialogue(){
-            Say("...");
-        }
+
+    
+    // utility stuff
+
+    public bool SteveHasAnySwitch() {   
+        return Inventory.Instance.HasItem(switch_broken)
+            || Inventory.Instance.HasItem(switch_dirty_cute_broken)
+            || Inventory.Instance.HasItem(switch_dirty_horror_broken)
+            || Inventory.Instance.HasItem(switch_dirty_broken)
+            || Inventory.Instance.HasItem(switch_final);
+    }
+
+    public bool IsBrokenSwitch(Item i) { // i hate this but i'm lazy
+        return i == switch_dirty_cute_broken
+                || i == switch_dirty_horror_broken
+                || i == switch_dirty_broken
+                || i == switch_broken;
     }
 }
