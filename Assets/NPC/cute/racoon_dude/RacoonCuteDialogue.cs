@@ -8,6 +8,7 @@ public class RacoonCuteDialogue :  DialogueTrigger{
     public Item coin;
     public Item crank;
     public Item _miniRacoonGamePlayed;
+    public Item _miniRacoonGameWon;
     public Item _racoonMad;
     public GameObject storeOwner;
     public Sprite sadStoreOwner;
@@ -15,8 +16,13 @@ public class RacoonCuteDialogue :  DialogueTrigger{
 
 
     public override Dialogue GetActiveDialogue(){
-        
+
         if(Inventory.Instance.HasItem(_miniRacoonGamePlayed)){
+            RacoonCuteDialogue.t.storeOwner.GetComponent<SpriteRenderer>().sprite = RacoonCuteDialogue.t.sadStoreOwner;
+            RacoonCuteDialogue.t.transform.position = new Vector3(8.4f,-2.2f,1f);
+            return new MiniGameLostDia();
+        } 
+        if(Inventory.Instance.HasItem(_miniRacoonGameWon)){
             return new MiniGameFinishedDia();
         } 
         return new RacoonCuteDefaultDialogue();
@@ -34,15 +40,18 @@ public class RacoonCuteDefaultDialogue : Dialogue {
         Say("*puppy eyes* Oh hello mr. janitor.");
         Say("I have a big big big biiiiig problem, can you please help me out?");
         Say("I have also a little compensation for your kind service sir")
-            //.Do(GiveItem(RacoonCuteDialogue.t.snack))
             .DoAfter(new TriggerDialogueAction<ChoiceDialogue>());
             
 
             
     }
-        
 }
 
+public class MiniGameLostDia : Dialogue {
+    public MiniGameLostDia(){
+        Say("LOSER!..");
+    }
+}
 public class ChoiceDialogue : Dialogue {
     public ChoiceDialogue(){
         Say("I feel sick and I need candy as my medicine")
@@ -57,6 +66,7 @@ public class ChoiceDialogue : Dialogue {
     }
 }
 
+
 public class MiniGameFinishedDia : Dialogue {
     public MiniGameFinishedDia(){
         Say("Oh this is awkward...");
@@ -64,7 +74,8 @@ public class MiniGameFinishedDia : Dialogue {
             .DoAfter(new DialogueAction(()=> {
                 RacoonCuteDialogue.t.storeOwner.GetComponent<SpriteRenderer>().sprite = RacoonCuteDialogue.t.neutralStoreOwner;
             }))
-            .DoAfter(RemoveItem(RacoonCuteDialogue.t._racoonMad));
+            .DoAfter(RemoveItem(RacoonCuteDialogue.t._racoonMad))
+            .DoAfter(RemoveItem(RacoonCuteDialogue.t._miniRacoonGamePlayed));
         
     }
 }

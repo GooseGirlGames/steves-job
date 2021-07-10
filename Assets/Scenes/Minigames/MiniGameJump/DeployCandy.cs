@@ -29,7 +29,8 @@ public class DeployCandy : MonoBehaviour
     public Transform player;
     public GameObject stop;
     public Item _miniRacoonGamePlayed;
-    
+    public Item _miniRacoonGameWon;
+    public Item _racoonMad;
     
     [SerializeField] private HealthBar healthbar;
     private float health;
@@ -85,10 +86,14 @@ public class DeployCandy : MonoBehaviour
     public void GameLost(){
         Debug.Log("Lost Jump MiniGame");
         Portal.TriggerTeleport();
+        Inventory.Instance.AddItem(_miniRacoonGamePlayed);
+        Inventory.Instance.RemoveItem(_racoonMad);
     }
     public void GameWon(){
         Debug.Log("Won Jump MiniGame");
-        Inventory.Instance.AddItem(_miniRacoonGamePlayed);
+        Inventory.Instance.AddItem(_miniRacoonGameWon);
+        Inventory.Instance.RemoveItem(_racoonMad);
+        Inventory.Instance.RemoveItem(_miniRacoonGamePlayed);
         Portal.TriggerTeleport();
     }
     public void FixedUpdate(){

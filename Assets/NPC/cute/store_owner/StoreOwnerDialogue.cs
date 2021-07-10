@@ -7,6 +7,7 @@ public class StoreOwnerDialogue : DialogueTrigger {
     new public static StoreOwnerDialogue Instance = null;
     public Item _storeowner_later;
     public Item _racoonMad;
+    public Item _miniRacoonGamePlayed;
     public Item _restoredCandyman;
 
     public void EnterMiniGame() {
@@ -22,6 +23,9 @@ public class StoreOwnerDialogue : DialogueTrigger {
         }
         if(Inventory.Instance.HasItem(_restoredCandyman)){
             return new ThankYouDia();
+        }
+        if(Inventory.Instance.HasItem(_miniRacoonGamePlayed)){
+            return new PlayMiniGameAgain();
         }
         return new HelloIAmStoreOwnerDia();
     }
@@ -47,6 +51,23 @@ public class ThankYouDia : Dialogue {
         Say("*cries*");
         Say("thank you so sooo soooo much!!!");
         Say("I thought i had lost my child forever!");
+    }
+}
+
+public class PlayMiniGameAgain : Dialogue {
+    public PlayMiniGameAgain(){
+        Say("..you promised you'll help");
+        Say("..please just save the kid!")
+            .Choice(
+                new TextOption("okay")
+                .IfChosen(new DialogueAction(() => {
+                    StoreOwnerDialogue.Instance.EnterMiniGame();
+            })))
+            .Choice(
+                new TextOption("later")
+                .IfChosen(new TriggerDialogueAction<CriesDia>())
+                .IfChosen(GiveItem(StoreOwnerDialogue.Instance._storeowner_later))
+            );
     }
 }
 
@@ -94,16 +115,20 @@ public class RacoonStoryDia : Dialogue {
         Say("...say, could you please help me to stop him?")
             .Choice(
                 new TextOption("of course")
-                    /*.IfChosen(new DialogueAction(() => {
+                    .IfChosen(new DialogueAction(() => {
                         StoreOwnerDialogue.Instance.EnterMiniGame();
-                })) */
-                .IfChosen(new TriggerDialogueAction<WarningDia>())
+                }))
+                //.IfChosen(new TriggerDialogueAction<WarningDia>())
+            )
+            .Choice(
+                new TextOption("wait..what?")
+                .IfChosen(new TriggerDialogueAction<RacoonStoryDia>())
             )
             .Choice(
                 new TextOption("later")
                 .IfChosen(new TriggerDialogueAction<CriesDia>())
                 .IfChosen(GiveItem(StoreOwnerDialogue.Instance._storeowner_later))
-                );
+            );
         
     }
 }
@@ -112,10 +137,10 @@ public class CameBackDia : Dialogue {
         Say("YOU CAME BACK! Will you help?")
             .Choice(
                 new TextOption("..I guess")
-                /*.IfChosen(new DialogueAction(() => {
+                .IfChosen(new DialogueAction(() => {
                     StoreOwnerDialogue.Instance.EnterMiniGame();
-                }))) */
-                .IfChosen(new TriggerDialogueAction<WarningDia>()))
+                }))) 
+                //.IfChosen(new TriggerDialogueAction<WarningDia>()))
             .Choice(
                 new TextOption("maybe later")
                 .IfChosen(new TriggerDialogueAction<CriesDia>())
@@ -125,7 +150,12 @@ public class CameBackDia : Dialogue {
 }
 public class CriesDia : Dialogue {
     public CriesDia() {
-        Say("*cries*");
+        Say("*cries*")
+        .Choice(
+            new TextOption("*cries*")
+            .IfChosen(new TriggerDialogueAction<CriesDia>())
+        );
+        Say("..cringe");
     }
 }
 
