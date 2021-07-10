@@ -109,6 +109,8 @@ public class InventoryCanvasSlots : MonoBehaviour
     }
 
     public void Show() {
+            DialogueManager.Instance.ClearHint();
+
             stevecontroller steve = GameObject.FindObjectOfType<stevecontroller>();
             steve.Lock(INVENTORY_LOCK_TAG);
 
