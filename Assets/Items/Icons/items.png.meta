@@ -64,28 +64,28 @@ TextureImporter:
     second: key
   - first:
       213: 7911235102323647998
-    second: items_20
+    second: goosebloodybow
   - first:
       213: -4058434812019303673
-    second: items_21
+    second: grease
   - first:
       213: 8436657204533251546
-    second: items_22
+    second: switchbroken
   - first:
       213: 6191716412420617325
-    second: items_23
+    second: switchbrokencute
   - first:
       213: 6355480216337973169
-    second: items_24
+    second: switchbrokenhorror
   - first:
       213: -9098891631924085042
-    second: items_25
+    second: switchbrokendirty
   - first:
       213: 1784186740104572286
-    second: items_26
+    second: crank
   - first:
       213: 8391431092616798930
-    second: items_27
+    second: magpie
   - first:
       213: 6077338267653451029
     second: items_28
@@ -721,7 +721,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_20
+      name: goosebloodybow
       rect:
         serializedVersion: 2
         x: 180
@@ -742,7 +742,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_21
+      name: grease
       rect:
         serializedVersion: 2
         x: 200
@@ -763,7 +763,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_22
+      name: switchbroken
       rect:
         serializedVersion: 2
         x: 0
@@ -784,7 +784,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_23
+      name: switchbrokencute
       rect:
         serializedVersion: 2
         x: 20
@@ -805,7 +805,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_24
+      name: switchbrokenhorror
       rect:
         serializedVersion: 2
         x: 40
@@ -826,7 +826,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_25
+      name: switchbrokendirty
       rect:
         serializedVersion: 2
         x: 60
@@ -847,7 +847,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_26
+      name: crank
       rect:
         serializedVersion: 2
         x: 80
@@ -868,7 +868,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_27
+      name: magpie
       rect:
         serializedVersion: 2
         x: 100

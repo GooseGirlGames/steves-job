@@ -16,7 +16,7 @@ MonoBehaviour:
   description: The most evil bird under these sun. He kinda look directly into my
     soul...
   visible: 1
-  icon: {fileID: 0}
+  icon: {fileID: 8391431092616798930, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 1
   unique: 1
   conflictingItems: []

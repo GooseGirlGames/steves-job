@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a384481017c7d11e6be52b993588aa4a, type: 3}
-  m_Name: CandyCrankj
+  m_Name: CandyCrank
   m_EditorClassIdentifier: 
   name: A Winder
   description: So many uses, for example to lower a marquise or ... mmh ... well
     I'm pretty sure there Is more use for this
   visible: 1
-  icon: {fileID: 0}
+  icon: {fileID: 1784186740104572286, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 1
   unique: 1
   conflictingItems: []
