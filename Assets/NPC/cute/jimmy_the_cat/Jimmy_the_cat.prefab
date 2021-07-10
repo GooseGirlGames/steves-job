@@ -172,6 +172,9 @@ MonoBehaviour:
   switch_broken_cute: {fileID: 11400000, guid: c7868393276619bcab6b2c798c5d7aa3, type: 2}
   switch_broken: {fileID: 11400000, guid: 02201874d20345cc4a81721b09010eff, type: 2}
   switch_broken_horror: {fileID: 11400000, guid: f4c53fdac8403b72e91dba556812760d, type: 2}
+  coin_start: {fileID: 11400000, guid: 893420d5093890ca2bff51a05023f30c, type: 2}
+  coin_horror: {fileID: 11400000, guid: 95471e06a7c17fbf7808e9594c76c508, type: 2}
+  coin_cute: {fileID: 11400000, guid: 2fb8e45bc98bdb9949adc0daa6d6c4ec, type: 2}
 --- !u!61 &1667449973136529263
 BoxCollider2D:
   m_ObjectHideFlags: 0
