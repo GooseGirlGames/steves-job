@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livesText: {fileID: 201811899}
+  livesLabel: {fileID: 1500967050}
 --- !u!114 &201811899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,6 +533,7 @@ MonoBehaviour:
   portalBackToMall: {fileID: 492108828}
   timeValue: 30
   timeText: {fileID: 492108826}
+  labelText: {fileID: 542448212}
   winItem: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
   lostItem: {fileID: 11400000, guid: 7067d8b8b07f27bc3b40963e02ad51aa, type: 2}
 --- !u!114 &492108826

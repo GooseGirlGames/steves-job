@@ -161,6 +161,7 @@ MonoBehaviour:
   babelfish: {fileID: 11400000, guid: 9dc941907f5f8bf4f99864efacbbe379, type: 2}
   bloody_mary: {fileID: 11400000, guid: 23bd31e009ef1f53490de8255ca44662, type: 2}
   finished: {fileID: 11400000, guid: d5a67855783c61e8cac251e773ae1430, type: 2}
+  _jimmycat_said_thanks: {fileID: 11400000, guid: 352fc60b98ce40513bb85fb85925d34d, type: 2}
   goose: {fileID: 11400000, guid: 198dc408a7afc11f7ba17208cfc0bbd2, type: 2}
   goosebloody: {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
   goosebow: {fileID: 11400000, guid: c35d8409472c06b41a3bdcbdf7d82177, type: 2}

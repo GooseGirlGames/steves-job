@@ -8,6 +8,12 @@ using UnityEngine.EventSystems;
 public class TextLives : MonoBehaviour
 {
     public Text livesText;
+    public Text livesLabel;
+    public const string LIVES_LABEL_DEFAULT = "Lives Left:";
+
+    private void Awake() {
+        livesLabel.text = Uwu.OptionalUwufy(LIVES_LABEL_DEFAULT);    
+    }
 
     void Update()
     {

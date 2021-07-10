@@ -83,7 +83,12 @@ public class InventoryCanvasSlots : MonoBehaviour
     private void Update() {
         if (PauseMenu.IsPausedOrJustUnpaused()) return;
 
-        if (Input.GetKeyDown(KeyCode.Tab) && CanBeOpenend()) {
+        // Let `ESC` close inventory after it opened due to "Select Item".
+        if (IsShowing() && Input.GetKeyDown(KeyCode.Escape)) {
+            Hide();
+        }
+
+        if (Input.GetButtonDown("Inventory") && CanBeOpenend()) {
             if (visible) {
                 Hide();
             } else {
@@ -98,17 +103,11 @@ public class InventoryCanvasSlots : MonoBehaviour
             CheckForSelectedItem();
         }
 
-        /*if (loreVisible) {
-            if (Input.GetKeyDown(KeyCode.D)) {
-                foreach (InventorySlot slot in slots) {
-                    slot.button.Selected = false;
-                }
-                HideItemLoreBox();
-            }
-        }*/
     }
 
     public void Show() {
+            DialogueManager.Instance.ClearHint();
+
             stevecontroller steve = GameObject.FindObjectOfType<stevecontroller>();
             steve.Lock(INVENTORY_LOCK_TAG);
 

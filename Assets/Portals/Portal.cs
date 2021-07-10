@@ -9,9 +9,8 @@ using UnityEngine.SceneManagement;
  */
 public class Portal : MonoBehaviour
 {
-    public const KeyCode TRIGGER_BUTTON = KeyCode.E;
-    public const KeyCode UP_BUTTON = KeyCode.W;
-    public const KeyCode DOWN_BUTTON = KeyCode.S;
+    public const string TRIGGER_BUTTON_NAME = "Submit";
+    public const string TRIGGER_BUTTON_STR = "E";
     public const float DOOR_ANIMATION_MIN_DISTANCE = 3.0f;
     public const float ELEVATOR_ANIMATION_DURATION = 3.0f;
 
@@ -34,9 +33,7 @@ public class Portal : MonoBehaviour
     [Tooltip("Position to teleport to.  Also works across scenes, but only makes sense for " +
              "scenes that are aligned (e.g. the malls).  Otherwise, use targetName.")]
     public Transform target = null;
-    public Transform targetUp = null;
-    public Transform targetDown = null;
-    private bool elevator = false;
+    [SerializeField] private bool elevator = false;
     [Tooltip("If this is specified and destinationType is ChangeScene, teleport the player to " +
             "the GameObject with this name.")]
     public string targetName = "";
@@ -79,7 +76,6 @@ public class Portal : MonoBehaviour
         //if (portalAnimator) {
         //    portalAnimator.SetFloat("Speed", portalAnimationSpeedFactor);
         //}
-        elevator = (targetDown != null) || (targetUp != null);
     }
 
     public void TriggerTeleport() {
@@ -172,25 +168,13 @@ public class Portal : MonoBehaviour
 
     void HintKeyPress() {
         if (triggerType == TriggerType.OnInputPressed) {
-            if (elevator) {
-                string hint = "W\nS";
-                if (targetUp && !targetDown) hint = "W";
-                if (!targetUp && targetDown) hint = "S";
-                GameManager.Instance.hintUI.Hint(hintPosition, hint);
-            } else {
-                GameManager.Instance.hintUI.Hint(hintPosition, "E");
-            }
+            GameManager.Instance.hintUI.Hint(hintPosition, "E");
         }
     }
 
     void HintDestination(float? blendTime = null) {
         if (destinationType == DestinationType.SameScene) {
-            if (elevator) {
-                if (targetUp && !targetDown) TargetCamera.Target(targetUp, blendTime);
-                if (!targetUp && targetDown) TargetCamera.Target(targetDown, blendTime);
-            } else {
-                TargetCamera.Target(target, blendTime);
-            }
+            TargetCamera.Target(target, blendTime);
         }
     }
 
@@ -211,7 +195,9 @@ public class Portal : MonoBehaviour
     }
 
     void Update() {
-        if (PauseMenu.IsPausedOrJustUnpaused()) return;
+        if (PauseMenu.IsPausedOrJustUnpaused() || InventoryCanvasSlots.Instance.IsShowing()) {
+            return;
+        }
 
         Collider2D[] collidersNearby = Physics2D.OverlapCircleAll(
                 gameObject.transform.position,
@@ -226,17 +212,7 @@ public class Portal : MonoBehaviour
         }
 
         if (playerInTrigger) {
-            // FIXME Do not hard code keycode
-            if (elevator) {
-                if (targetUp && Input.GetKeyDown(UP_BUTTON)) {
-                    targetPosition = targetUp.transform.position;
-                    TriggerTeleport();
-                }
-                if (targetDown && Input.GetKeyDown(DOWN_BUTTON)) {
-                    targetPosition = targetDown.transform.position;
-                    TriggerTeleport();
-                }
-            } else if (triggerType == TriggerType.OnInputPressed && Input.GetKeyDown(TRIGGER_BUTTON)) {
+            if (triggerType == TriggerType.OnInputPressed && Input.GetButtonDown(TRIGGER_BUTTON_NAME)) {
                 TriggerTeleport();
             } else if (triggerType == TriggerType.Immediate) {
                 TriggerTeleport();
@@ -272,6 +248,7 @@ public class Portal : MonoBehaviour
                 player.transform.position = target.transform.position;
             } else {
                 Debug.LogWarning("Cannot find teleportatiob target " + targetName);
+                //                                        ^ This typo is canon now.  I am not sorry.
             }
         }
 

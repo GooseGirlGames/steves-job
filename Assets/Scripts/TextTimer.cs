@@ -10,9 +10,15 @@ public class TextTimer : MonoBehaviour
     public Portal portalBackToMall;
     public float timeValue = 30f;
     public Text timeText;
+    public Text labelText;
+    private const string TIME_LABEL_DEFAULT = "Time left:";
     public Item winItem;
     public Item lostItem;
     
+    private void Awake() {
+        labelText.text = Uwu.OptionalUwufy(TIME_LABEL_DEFAULT);
+    }
+
     void Update()
     {
         if(timeValue > 0f){
