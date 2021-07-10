@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SwitchBroken
   m_EditorClassIdentifier: 
   name: Switch Parts
-  description: Well, its still broken but at least it is shiny now :D
+  description: Well, its still broken but at least it is clean now.
   visible: 1
   icon: {fileID: 8436657204533251546, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 3
