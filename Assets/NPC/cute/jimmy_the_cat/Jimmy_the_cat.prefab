@@ -159,6 +159,7 @@ MonoBehaviour:
   bucketcutefull: {fileID: 11400000, guid: 7085ba18e17323e3d9b661f631c4aebd, type: 2}
   shirt: {fileID: 11400000, guid: af649a5495a8420779024c628d1042c9, type: 2}
   clean_maiddress: {fileID: 11400000, guid: 2b4050f9a23fa289d9242de4e365c15d, type: 2}
+  dirty_maiddress: {fileID: 11400000, guid: ddaa1a742fa1cc9eebefa13f28c50b7c, type: 2}
   dirty_shirt: {fileID: 11400000, guid: 68f5019aedda0061a831b85a013d06a4, type: 2}
   babelfish: {fileID: 11400000, guid: 9dc941907f5f8bf4f99864efacbbe379, type: 2}
   bloody_mary: {fileID: 11400000, guid: 23bd31e009ef1f53490de8255ca44662, type: 2}
@@ -168,6 +169,9 @@ MonoBehaviour:
   goosebloody: {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
   goosebow: {fileID: 11400000, guid: c35d8409472c06b41a3bdcbdf7d82177, type: 2}
   goosebloddybow: {fileID: 11400000, guid: 410fdc347b6862748b32dfb464117bbc, type: 2}
+  switch_broken_cute: {fileID: 11400000, guid: c7868393276619bcab6b2c798c5d7aa3, type: 2}
+  switch_broken: {fileID: 11400000, guid: 02201874d20345cc4a81721b09010eff, type: 2}
+  switch_broken_horror: {fileID: 11400000, guid: f4c53fdac8403b72e91dba556812760d, type: 2}
 --- !u!61 &1667449973136529263
 BoxCollider2D:
   m_ObjectHideFlags: 0

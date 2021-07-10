@@ -57,6 +57,10 @@ public class JimmyTheCatDialogue : DialogueTrigger {
     public Item goosebloody;
     public Item goosebow;
     public Item goosebloddybow;
+    public Item switch_broken_cute;
+    public Item switch_broken;
+    public Item switch_broken_horror;
+
     
     private void Awake() {
         t = this;
@@ -136,7 +140,14 @@ public class JimmyTheCatDialogue : DialogueTrigger {
                     .IfChosen(new TriggerDialogueAction<ContentWithOwnWork>()))
                 .Choice(new ItemOption(t.goosebloddybow)
                     .IfChosen(new TriggerDialogueAction<ContentWithOwnWork>()))
-                // end geese
+                // Switches
+                .Choice(new ItemOption(t.switch_broken)
+                    .IfChosen(new TriggerDialogueAction<CutifySwitch>()))
+                .Choice(new ItemOption(t.switch_broken_horror)
+                    .IfChosen(new TriggerDialogueAction<CutifySwitch>()))
+                .Choice(new ItemOption(t.switch_broken_cute)
+                    .IfChosen(new TriggerDialogueAction<ContentWithOwnWork>()))
+                // Others
                 .Choice(new OtherItemOption()
                     .IfChosen(new TriggerDialogueAction<otherItemDialogue>()));
         }
@@ -157,6 +168,17 @@ public class JimmyTheCatDialogue : DialogueTrigger {
                 .DoAfter(new TriggerDialogueAction<ItemDialogue>());
         }
     }  
+
+    public class CutifySwitch : Dialogue {
+        public CutifySwitch() {
+            Say("*hissss* These are some filthy electronics!");
+            Say("Lemme fix them for you...")
+                .DoAfter(GiveItem(t.switch_broken_cute));
+            Say("....meow meow meow...")
+                .DoAfter(new TriggerDialogueAction<ItemDialogue>());
+        }
+    } 
+
     public class bucketfullDialogue : Dialogue {
         public bucketfullDialogue(){
             Say("Oh this thing is nasty, *hissss*");
