@@ -342,8 +342,7 @@ MonoBehaviour:
   destinationType: 1
   targetSceneName: mall_cute
   target: {fileID: 0}
-  targetUp: {fileID: 0}
-  targetDown: {fileID: 0}
+  elevator: 0
   targetName: 
   teleportAfterSceneChange: 0
   transitionAnimation: {fileID: 0}
