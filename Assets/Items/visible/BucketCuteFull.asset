@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Quite sturdy for a plastic bucket.
   visible: 1
   icon: {fileID: -7121528990389113491, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
-  originWorld: 1
+  originWorld: 2
   unique: 1
   conflictingItems:
   - {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}

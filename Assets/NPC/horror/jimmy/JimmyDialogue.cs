@@ -20,6 +20,10 @@ public class JimmyDialogue : DialogueTrigger
     public Item cutecoin;
     public Item horrorcoin;
     public Item startcoin;
+
+    public Item switch_broken_cute;
+    public Item switch_broken;
+    public Item switch_broken_horror;
     public static JimmyDialogue t = null;
 
 
@@ -107,6 +111,12 @@ public class JimmyDialogue : DialogueTrigger
                 .IfChosen(new TriggerDialogueAction<CuteCoinDia>()))
             .Choice(new ItemOption(t.startcoin)
                 .IfChosen(new TriggerDialogueAction<StartCoinDia>()))
+//
+            .Choice(new ItemOption(t.switch_broken)
+                .IfChosen(new TriggerDialogueAction<BloodifySwitch>()))
+            .Choice(new ItemOption(t.switch_broken_cute)
+                .IfChosen(new TriggerDialogueAction<BloodifySwitch>()))
+//
             .Choice(new OtherItemOption()
                 .IfChosen(new TriggerDialogueAction<CantDoAnythingWithIt>()));  
         }
@@ -164,6 +174,15 @@ public class JimmyDialogue : DialogueTrigger
             Say("Don't mind me laundering that money for ya!")
                 .DoAfter(GiveItem(t.horrorcoin))
                 .DoAfter(RemoveItem(t.startcoin));
+        }
+    }
+
+    public class BloodifySwitch : Dialogue {
+        public BloodifySwitch() {
+            Say("Oof");
+            Say("These parts look disgusting!!!");
+            Say("There you go, much better now")
+                .DoAfter(GiveItem(t.switch_broken_horror));
         }
     }
 

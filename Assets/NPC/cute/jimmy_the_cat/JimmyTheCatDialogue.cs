@@ -57,6 +57,13 @@ public class JimmyTheCatDialogue : DialogueTrigger {
     public Item goosebloody;
     public Item goosebow;
     public Item goosebloddybow;
+    public Item switch_broken_cute;
+    public Item switch_broken;
+    public Item switch_broken_horror;
+    public Item coin_start;
+    public Item coin_horror;
+    public Item coin_cute;
+
     
     private void Awake() {
         t = this;
@@ -136,7 +143,21 @@ public class JimmyTheCatDialogue : DialogueTrigger {
                     .IfChosen(new TriggerDialogueAction<ContentWithOwnWork>()))
                 .Choice(new ItemOption(t.goosebloddybow)
                     .IfChosen(new TriggerDialogueAction<ContentWithOwnWork>()))
-                // end geese
+                // Switches
+                .Choice(new ItemOption(t.switch_broken)
+                    .IfChosen(new TriggerDialogueAction<CutifySwitch>()))
+                .Choice(new ItemOption(t.switch_broken_horror)
+                    .IfChosen(new TriggerDialogueAction<CutifySwitch>()))
+                .Choice(new ItemOption(t.switch_broken_cute)
+                    .IfChosen(new TriggerDialogueAction<ContentWithOwnWork>()))
+                // Coins
+                .Choice(new ItemOption(t.coin_start)
+                    .IfChosen(new TriggerDialogueAction<CutifyCoin>()))
+                .Choice(new ItemOption(t.coin_horror)
+                    .IfChosen(new TriggerDialogueAction<CutifyCoin>()))
+                .Choice(new ItemOption(t.coin_cute)
+                    .IfChosen(new TriggerDialogueAction<ContentWithOwnWork>()))
+                // Others
                 .Choice(new OtherItemOption()
                     .IfChosen(new TriggerDialogueAction<otherItemDialogue>()));
         }
@@ -157,6 +178,27 @@ public class JimmyTheCatDialogue : DialogueTrigger {
                 .DoAfter(new TriggerDialogueAction<ItemDialogue>());
         }
     }  
+
+    public class CutifySwitch : Dialogue {
+        public CutifySwitch() {
+            Say("*hissss* These are some filthy electronics!");
+            Say("Lemme fix them for you...")
+                .DoAfter(GiveItem(t.switch_broken_cute));
+            Say("....meow meow meow...")
+                .DoAfter(new TriggerDialogueAction<ItemDialogue>());
+        }
+    } 
+
+    public class CutifyCoin : Dialogue {
+        public CutifyCoin() {
+            Say("*hissss* That quarter smell weird!");
+            Say("Let me dunk it into some syrup...")
+                .DoAfter(GiveItem(t.coin_cute));
+            Say("....meow meow meow...")
+                .DoAfter(new TriggerDialogueAction<ItemDialogue>());
+        }
+    } 
+
     public class bucketfullDialogue : Dialogue {
         public bucketfullDialogue(){
             Say("Oh this thing is nasty, *hissss*");
