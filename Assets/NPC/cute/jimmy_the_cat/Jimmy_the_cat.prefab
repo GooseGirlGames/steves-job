@@ -154,9 +154,11 @@ MonoBehaviour:
   name: Laundr-o-cat
   world: 1
   bucket: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
+  bucketcute: {fileID: 11400000, guid: b4df9cc4ab97817dea6dd500737fb275, type: 2}
   bucketfull: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
+  bucketcutefull: {fileID: 11400000, guid: 7085ba18e17323e3d9b661f631c4aebd, type: 2}
   shirt: {fileID: 11400000, guid: af649a5495a8420779024c628d1042c9, type: 2}
-  clean_shirt: {fileID: 11400000, guid: 2b4050f9a23fa289d9242de4e365c15d, type: 2}
+  clean_maiddress: {fileID: 11400000, guid: 2b4050f9a23fa289d9242de4e365c15d, type: 2}
   dirty_shirt: {fileID: 11400000, guid: 68f5019aedda0061a831b85a013d06a4, type: 2}
   babelfish: {fileID: 11400000, guid: 9dc941907f5f8bf4f99864efacbbe379, type: 2}
   bloody_mary: {fileID: 11400000, guid: 23bd31e009ef1f53490de8255ca44662, type: 2}
