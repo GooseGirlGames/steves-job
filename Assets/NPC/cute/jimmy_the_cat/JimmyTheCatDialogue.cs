@@ -44,7 +44,7 @@ Dialogue3(wenn peasents dirty sind, maybe getriggert durch finalitem or somethin
     
     */
 public class JimmyTheCatDialogue : DialogueTrigger{
-    public static new JimmyTheCatDialogue t = null;
+    public static JimmyTheCatDialogue t = null;
     public Item bucket;
     public Item bucketfull;
     public Item shirt;
