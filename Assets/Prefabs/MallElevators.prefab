@@ -44,7 +44,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508002390099047109}
   m_Layer: 0
-  m_Name: Middle_Target
+  m_Name: Bottom_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,6 +114,10 @@ PrefabInstance:
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: target
       value: 
+      objectReference: {fileID: 5508002390099047109}
+    - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
+      propertyPath: elevator
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: targetDown
@@ -240,6 +244,10 @@ PrefabInstance:
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: target
       value: 
+      objectReference: {fileID: 7757351287555763049}
+    - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
+      propertyPath: elevator
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: targetUp
@@ -263,7 +271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7847011257354892903, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: m_Name
-      value: Elevator_Middle
+      value: Elevator_Bottom
       objectReference: {fileID: 0}
     - target: {fileID: 7847011257354892904, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: m_Enabled
@@ -370,7 +378,7 @@ PrefabInstance:
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5699014456317323723}
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: targetUp
       value: 
@@ -492,7 +500,7 @@ PrefabInstance:
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5699014458013199926}
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: targetDown
       value: 

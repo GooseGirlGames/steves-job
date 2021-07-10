@@ -48,7 +48,9 @@ public abstract class DialogueTrigger : MonoBehaviour
 
     private void Update() {
 
-        if (PauseMenu.IsPausedOrJustUnpaused()) return;
+        if (PauseMenu.IsPausedOrJustUnpaused() || InventoryCanvasSlots.Instance.IsShowing()) {
+            return;
+        }
 
         if (!playerInTrigger) {
             return;
