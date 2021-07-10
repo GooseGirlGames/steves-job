@@ -8,7 +8,7 @@ public class TerryTTTT : DialogueTrigger
     public Item horrorcoin;
     public Item startcoin;
     public Item cutecoin;
-    
+
     public static TerryTTTT t;
 
     void Awake() {
@@ -26,8 +26,8 @@ public class TerryTTTT : DialogueTrigger
 
     public class TerryTTTTHandsOff : Dialogue {
         public TerryTTTTHandsOff() {
-            Say("Hey!");
-            Say("Hands off of my valuable product");
+            Say(Uwu.Uwufy("Hey!"));
+            Say(Uwu.Uwufy("Hands off of my valuable product"));
         }
     }
 
@@ -60,15 +60,13 @@ public class TerryTTTT : DialogueTrigger
 
     public class TerryTTTTMoney : Dialogue {
         public TerryTTTTMoney() {
-            Say("Hm you can't afford Terry with just that")
-            .DoAfter(new TriggerDialogueAction<TerryTTTTChoice>());
+            Say("Hm you can't afford Terry with just that");
         }
     }
 
     public class TerryTTTTUseless : Dialogue {
         public TerryTTTTUseless() {
-            Say("You can't pay with that, sorry")
-            .DoAfter(new TriggerDialogueAction<TerryTTTTChoice>());
+            Say("You can't pay with that, sorry");
         }
     }
 }

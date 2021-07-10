@@ -5,13 +5,16 @@ using UnityEngine;
 public class SpinelessDudeDilaogue : DialogueTrigger
 {
     public Item grease;
+    public Item spine;
     public Item bloodbucket;
     public Item emptybucket;
-    public Item _spineless_and_lifeless;
     public Item maiddress;
     public Item dirty_maiddress;
     public Item clean_apron;
     public Item dirty_apron;
+
+    public Item _spineless_and_lifeless;
+    public Item _got_spine;
 
     public static SpinelessDudeDilaogue s;
 
@@ -24,6 +27,9 @@ public class SpinelessDudeDilaogue : DialogueTrigger
 
         if (! Inventory.Instance.HasItem(_spineless_and_lifeless)) {
             return new SpinelessDudeHi();
+        }
+        if (Inventory.Instance.HasItem(_got_spine)) {
+            return new SpinelessDudeDead();
         }
         return new SpinelessDudeHappy();
     }
@@ -146,7 +152,17 @@ public class SpinelessDudeDilaogue : DialogueTrigger
 
     public class SpinelessDudeHappy : Dialogue {
         public SpinelessDudeHappy() {
-            Say("*Noises of intense pain and enjoyment*");
+            SpinelessDudeDilaogue s = SpinelessDudeDilaogue.s;
+
+            Say("*Noises of intense pain and enjoyment*")
+            .DoAfter(GiveItem(s.spine))
+            .DoAfter(GiveItem(s._got_spine));
+        }
+    }
+
+    public class SpinelessDudeDead : Dialogue {
+        public SpinelessDudeDead() {
+            Say("");
         }
     }
 }

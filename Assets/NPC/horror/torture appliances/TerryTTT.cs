@@ -26,8 +26,8 @@ public class TerryTTT : DialogueTrigger
 
     public class TerryTTTHandsOff : Dialogue {
         public TerryTTTHandsOff() {
-            Say("Hey!");
-            Say("Hands off of my valuable product");
+            Say(Uwu.Uwufy("Mister!"));
+            Say(Uwu.Uwufy("No touching!"));
         }
     }
 
@@ -60,15 +60,14 @@ public class TerryTTT : DialogueTrigger
 
     public class TerryTTTMoney : Dialogue {
         public TerryTTTMoney() {
-            Say("Hm you can't afford Terry with just that")
-            .DoAfter(new TriggerDialogueAction<TerryTTTChoice>());
+            Say("Um, you couldn't even afford a cage for terry with that");
+            Say("And trust me you do want to keep him in a cage");
         }
     }
 
     public class TerryTTTUseless : Dialogue {
         public TerryTTTUseless() {
-            Say("You can't pay with that, sorry")
-            .DoAfter(new TriggerDialogueAction<TerryTTTChoice>());
+            Say("You can't pay with that, sorry");
         }
     }
 }
