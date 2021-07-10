@@ -7,9 +7,15 @@ using UnityEngine;
 public class InventorySlot : MonoBehaviour {
     public Image image;
     public CoolButton button;
+    public GameObject highlightBorder;
     public Item item;
     public void OptionChosen() {
         DialogueManager.Instance.DisplayNextSentence(item: item);
+    }
+
+    public void SetHighlightBorder(bool visible) {
+        highlightBorder.SetActive(visible);
+
     }
 /* 
     public void Hovering() {
