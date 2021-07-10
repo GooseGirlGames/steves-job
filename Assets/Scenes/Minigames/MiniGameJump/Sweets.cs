@@ -15,7 +15,7 @@ public class Sweets : MonoBehaviour
     void Start()
     {   
         candy = this.GetComponent<Rigidbody2D>();
-        int rand_speed = Random.Range(2,5);
+        int rand_speed = Random.Range(4,5);
         speed = rand_speed;
         candy.velocity = new Vector2(-speed, 0);
         Debug.Log(speed);

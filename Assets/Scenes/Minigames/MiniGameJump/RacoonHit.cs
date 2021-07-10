@@ -12,6 +12,7 @@ public class RacoonHit : MonoBehaviour
         if(other.gameObject.tag == "spawn"){
             hit = true;
             GetComponent<SpriteRenderer>().sprite = rancoonThrow;
+            other.gameObject.GetComponent<SpriteRenderer>().enabled = true;
             //Debug.Log("hit");
         }
     }
