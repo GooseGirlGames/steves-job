@@ -707,6 +707,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3278088230645691600, guid: 9ffd3ebe44037da4eb7a648c41ae0aaa, type: 3}
+      propertyPath: name
+      value: Dude with a Spine
+      objectReference: {fileID: 0}
     - target: {fileID: 3498351933639608296, guid: 9ffd3ebe44037da4eb7a648c41ae0aaa, type: 3}
       propertyPath: m_Name
       value: SpinelessDude
