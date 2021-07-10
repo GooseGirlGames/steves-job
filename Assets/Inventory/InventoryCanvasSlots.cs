@@ -84,7 +84,7 @@ public class InventoryCanvasSlots : MonoBehaviour
         if (PauseMenu.IsPausedOrJustUnpaused()) return;
 
         // Let `ESC` close inventory after it opened due to "Select Item".
-        if (DialogueManager.Instance.IsDialogueActive() && Input.GetKeyDown(KeyCode.Escape)) {
+        if (IsShowing() && Input.GetKeyDown(KeyCode.Escape)) {
             Hide();
         }
 
