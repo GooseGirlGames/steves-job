@@ -1,6 +1,9 @@
 using System.Collections;
 public class Uwu {
     public static string OptionalUwufy(string text) {
+        //if (text.StartsWith("Anyway")) {
+        //    text = "Anyway, here's Wonderwall.";
+        //}
         if (Inventory.Instance.HasItemByName("Babelfish")) {
             return Uwufy(text);
         }
