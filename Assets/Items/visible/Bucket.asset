@@ -17,7 +17,7 @@ MonoBehaviour:
     clean water.
   visible: 1
   icon: {fileID: -732356172534689064, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
-  originWorld: 1
+  originWorld: 2
   unique: 1
   conflictingItems:
   - {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
