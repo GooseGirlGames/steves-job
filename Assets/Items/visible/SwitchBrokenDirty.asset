@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SwitchBrokenDirty
   m_EditorClassIdentifier: 
   name: Rusty Parts
-  description: This thing is totaly destroyed and messy. I need to find a way to
-    fix it and put it on Power to swich myself out of here
+  description: This thing is totally destroyed and messy. I need to find a way to
+    fix it and put it on power to switch myself out of here
   visible: 1
   icon: {fileID: -9098891631924085042, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 3

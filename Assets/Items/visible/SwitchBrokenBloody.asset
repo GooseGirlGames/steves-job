@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SwitchBrokenBloody
   m_EditorClassIdentifier: 
   name: Gooey Parts
-  description: It's still borken but now with additional stinky goo.
+  description: It's still broken but now with additional stinky goo.
   visible: 1
   icon: {fileID: 6355480216337973169, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 2

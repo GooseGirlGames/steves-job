@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BucketCute
   m_EditorClassIdentifier: 
   name: Empty Bucket
-  description: What a cute little plastic bucket! A bit fimsier than the old one,
+  description: What a cute little plastic bucket! A bit flimsier than the old one,
     but so much cuter.
   visible: 1
   icon: {fileID: 6077338267653451029, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}

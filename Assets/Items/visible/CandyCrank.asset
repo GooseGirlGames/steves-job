@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: A Winder
   description: So many uses, for example to lower a marquise or ... mmh ... well
-    I'm pretty sure there Is more use for this
+    I'm pretty sure there are more uses for this
   visible: 1
   icon: {fileID: 1784186740104572286, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 1

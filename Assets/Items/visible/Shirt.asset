@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shirt
   m_EditorClassIdentifier: 
   name: Shirt
-  description: A dirty shirt. One run through the washingmashine should do the trick
+  description: A dirty shirt. One run through the washing machine should do the trick
   visible: 1
   icon: {fileID: 5508725064705088119, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 2

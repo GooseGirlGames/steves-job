@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SwitchBrokenCute
   m_EditorClassIdentifier: 
   name: Sticky Parts
-  description: Still broken, and sticky from all that syrup. Tastes good though.
+  description: Still broken and sticky from all that syrup. Tastes good though.
   visible: 1
   icon: {fileID: 6191716412420617325, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 1

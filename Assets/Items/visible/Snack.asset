@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Snack
   m_EditorClassIdentifier: 
   name: "\u25A1\u25A1\u25A1\u25A1 Bar"
-  description: Who the hell buy candy at the rupture of reality... Mmh .. I do appearently.
-    Great buissnes modell
+  description: Who the hell buys candy at the rupture of reality... Mmh .. I do apparently.
+    Great business model
   visible: 1
   icon: {fileID: -2693009140137883590, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 3
