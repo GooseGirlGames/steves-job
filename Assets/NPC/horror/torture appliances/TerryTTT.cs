@@ -22,8 +22,8 @@ public class TerryTTT : DialogueTrigger
         TerryTTT.t = this;
 
         if (Inventory.Instance.HasItem(_given_horrorcoin)) {
-            return new TerryTTTDescription();
             name = DefName;
+            return new TerryTTTDescription();
         }
         name = UwuName;
         return new TerryTTTHandsOff();
