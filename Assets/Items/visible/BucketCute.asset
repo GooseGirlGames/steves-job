@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a384481017c7d11e6be52b993588aa4a, type: 3}
-  m_Name: BucketFull
+  m_Name: BucketCute
   m_EditorClassIdentifier: 
-  name: Blood Bucket
-  description: Smells... Interesting ...
+  name: Empty Bucket
+  description: What a cute little plastic bucket! A bit fimsier than the old one,
+    but so much cuter.
   visible: 1
-  icon: {fileID: 980155311395259703, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
-  originWorld: 2
+  icon: {fileID: 6077338267653451029, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
+  originWorld: 1
   unique: 1
   conflictingItems:
-  - {fileID: 11400000, guid: b4df9cc4ab97817dea6dd500737fb275, type: 2}
-  - {fileID: 11400000, guid: 7085ba18e17323e3d9b661f631c4aebd, type: 2}
   - {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
+  - {fileID: 11400000, guid: 7085ba18e17323e3d9b661f631c4aebd, type: 2}
+  - {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}

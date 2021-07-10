@@ -88,10 +88,10 @@ TextureImporter:
     second: magpie
   - first:
       213: 6077338267653451029
-    second: items_28
+    second: bucketcuteempty
   - first:
       213: -7121528990389113491
-    second: items_29
+    second: bucketcutefull
   - first:
       213: 7306274148607722714
     second: items_30
@@ -889,7 +889,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_28
+      name: bucketcuteempty
       rect:
         serializedVersion: 2
         x: 120
@@ -910,7 +910,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_29
+      name: bucketcutefull
       rect:
         serializedVersion: 2
         x: 140
