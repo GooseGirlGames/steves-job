@@ -11,8 +11,7 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    // FIXME hardcoding keybinds sucks an I am ashamed of myself
-    public const KeyCode DIALOGUE_KEY = KeyCode.E;
+    public const string DIALOGUE_KEY_NAME = "Submit";
     public const string DIALOGUE_KEY_STR = "E";
     public static DialogueManager Instance;
 
@@ -364,7 +363,7 @@ public class DialogueManager : MonoBehaviour
             //DialogueManager.Log("Too fast " + Time.fixedTime + ", " + lastKeyPress);
             return;
         }
-        if (canBeAdvancedByKeypress && Input.GetKeyDown(DIALOGUE_KEY)) {
+        if (canBeAdvancedByKeypress && Input.GetButtonDown(DIALOGUE_KEY_NAME)) {
             lastKeyPress = Time.fixedTime;
             DisplayNextSentence();
         }

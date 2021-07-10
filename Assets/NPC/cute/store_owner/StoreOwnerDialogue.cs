@@ -151,11 +151,10 @@ public class CameBackDia : Dialogue {
 public class CriesDia : Dialogue {
     public CriesDia() {
         Say("*cries*")
-        .Choice(
-            new TextOption("*cries*")
-            .IfChosen(new TriggerDialogueAction<CriesDia>())
+            .Choice(
+                new TextOption("..cringe")
+                .IfChosen(GiveItem(StoreOwnerDialogue.Instance._storeowner_later))
         );
-        Say("..cringe");
     }
 }
 

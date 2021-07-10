@@ -8,6 +8,9 @@ public class DeployCandy : MonoBehaviour
 
     public GameObject racoon;
     private Vector3 racoon_pos;
+    private float racoon_near = 10f;
+    private float epsilon = 2.0f;
+    private Vector3 player_pos;
     public RacoonHit racoonHit;
 
     int rand_spawn;
@@ -31,6 +34,7 @@ public class DeployCandy : MonoBehaviour
     public Item _miniRacoonGamePlayed;
     public Item _miniRacoonGameWon;
     public Item _racoonMad;
+    public Item _storeowner_later;
     
     [SerializeField] private HealthBar healthbar;
     private float health;
@@ -44,7 +48,7 @@ public class DeployCandy : MonoBehaviour
         healthbar.SetSize(health);
         healthbar.SetColour(Color.green);
         winSeconds = respawnTime*15;
-        StartCoroutine(winTime());
+        StartCoroutine(racoonNearing());
     }
 
     private void spawnCandy(){
@@ -61,7 +65,7 @@ public class DeployCandy : MonoBehaviour
 
     IEnumerator timedSpawn(){
         while(true){
-            yield return new WaitForSeconds(Random.Range(2.0f,3.0f));
+            yield return new WaitForSeconds(Random.Range(3.0f,4.0f));
             spawnCandy();
         }
     }
@@ -75,12 +79,15 @@ public class DeployCandy : MonoBehaviour
         }    
     }
 
-    IEnumerator winTime(){
-        while(winSeconds != 0){
-            yield return new WaitForSeconds(1);
-            winSeconds -= 1;
+
+    IEnumerator racoonNearing(){
+        while(racoon_pos.x != player.position.x){
+            yield return new WaitForSeconds(1.0f);
+            racoon_near -= 0.1f;
         }
-        GameWon();
+        if(racoon_pos.x - player.position.x <= epsilon){
+            GameWon();
+        }
     }
 
     public void GameLost(){
@@ -88,12 +95,15 @@ public class DeployCandy : MonoBehaviour
         Portal.TriggerTeleport();
         Inventory.Instance.AddItem(_miniRacoonGamePlayed);
         Inventory.Instance.RemoveItem(_racoonMad);
+        Inventory.Instance.RemoveItem(_storeowner_later);
     }
     public void GameWon(){
         Debug.Log("Won Jump MiniGame");
         Inventory.Instance.AddItem(_miniRacoonGameWon);
         Inventory.Instance.RemoveItem(_racoonMad);
         Inventory.Instance.RemoveItem(_miniRacoonGamePlayed);
+        Inventory.Instance.RemoveItem(_storeowner_later);
+
         Portal.TriggerTeleport();
     }
     public void FixedUpdate(){
@@ -101,6 +111,8 @@ public class DeployCandy : MonoBehaviour
             if(spawn.GetComponent<Sweets>().notYetTriggered){
                 if(spawn.GetComponent<Sweets>().trigger){
                     health -= .1f; 
+                    player_pos = new Vector3(player.position.x - 1.0f, player.position.y, player.position.z);
+                    player.position = player_pos;
                     spawn.GetComponent<Sweets>().notYetTriggered = false;
                 }
                 
@@ -123,17 +135,17 @@ public class DeployCandy : MonoBehaviour
             GameLost();
         } 
 
-        racoon_pos = new Vector3(player.position.x + 4.0f, racoon.transform.position.y);
+        racoon_pos = new Vector3(player.position.x + racoon_near, racoon.transform.position.y, 1);
         racoon.transform.position = racoon_pos;
         
         
         moveBar = new Vector3(player.position.x, player.position.y + 0.8f, 1);
         bar.transform.position = moveBar;
-        Vector2 bound_pos = new Vector2(stop.transform.position.x,player.position.y);
+/*         Vector2 bound_pos = new Vector2(stop.transform.position.x,player.position.y);
         if(player.position.x > bound_pos.x + 1.0f){
             bound_pos.x = player.position.x - 1.0f; 
         }
-        stop.transform.position = bound_pos;
+        stop.transform.position = bound_pos; */
 
         spawn_pos = new Vector3(racoon_pos.x + 1.0f, spawns.transform.position.y, 1);
         spawns.transform.position = spawn_pos;

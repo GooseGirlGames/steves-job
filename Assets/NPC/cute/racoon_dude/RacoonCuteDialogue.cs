@@ -25,11 +25,19 @@ public class RacoonCuteDialogue :  DialogueTrigger{
         if(Inventory.Instance.HasItem(_miniRacoonGameWon)){
             return new MiniGameFinishedDia();
         } 
+        if(Inventory.Instance.HasItem(_racoonMad)){
+            return new DestructionNoise();
+        }
         return new RacoonCuteDefaultDialogue();
     }
 
     void Awake(){
         t = this;
+        if(Inventory.Instance.HasItem(_racoonMad) || Inventory.Instance.HasItem(_miniRacoonGamePlayed)){
+            RacoonCuteDialogue.t.storeOwner.GetComponent<SpriteRenderer>().sprite = RacoonCuteDialogue.t.sadStoreOwner;
+            RacoonCuteDialogue.t.transform.position = new Vector3(8.4f,-2.2f,1f);
+        }
+        
     }
 
     
@@ -52,6 +60,13 @@ public class MiniGameLostDia : Dialogue {
         Say("LOSER!..");
     }
 }
+
+public class DestructionNoise : Dialogue {
+    public DestructionNoise(){
+        Say("*destruction noise*");
+    }
+}
+
 public class ChoiceDialogue : Dialogue {
     public ChoiceDialogue(){
         Say("I feel sick and I need candy as my medicine")
@@ -69,8 +84,10 @@ public class ChoiceDialogue : Dialogue {
 
 public class MiniGameFinishedDia : Dialogue {
     public MiniGameFinishedDia(){
+        Say("oof that was a workout...*yawn*");
         Say("Oh this is awkward...");
-        Say("I am sorry..but anyways thank you for giving me a treat :3")
+        Say("well I should go to bed!");
+        Say("anyways, I am sorry..but thank you for giving me a treat :3")
             .DoAfter(new DialogueAction(()=> {
                 RacoonCuteDialogue.t.storeOwner.GetComponent<SpriteRenderer>().sprite = RacoonCuteDialogue.t.neutralStoreOwner;
             }))
@@ -99,6 +116,6 @@ public class SickRacoonDia : Dialogue {
     public SickRacoonDia(){
         Say("i swear, i really need some of that sweet medicine...and by that I mean candy");
         Say("dont you want my little suprise that I have for you?")
-            .DoAfter(new TriggerDialogueAction<RacoonCuteDefaultDialogue>());
+            .DoAfter(new TriggerDialogueAction<ChoiceDialogue>());
     }
 }

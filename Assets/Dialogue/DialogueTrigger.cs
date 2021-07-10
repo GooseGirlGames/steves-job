@@ -76,7 +76,7 @@ public abstract class DialogueTrigger : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(DialogueManager.DIALOGUE_KEY)){
+        if (Input.GetButtonDown(DialogueManager.DIALOGUE_KEY_NAME)){
             DialogueManager.Log("Triggering dialogue from keypress");
             Trigger();
             return;
