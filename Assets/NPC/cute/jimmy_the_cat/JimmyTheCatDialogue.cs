@@ -74,23 +74,23 @@ public class JimmyTheCatDialogue : DialogueTrigger{
 /* ---------------------------------------------------------------------------------------------------------------- */
     public class StartDialogue : Dialogue {
         public StartDialogue(){
-            Say("Oh meow ... ");
+            Say("Oh meow... ");
             Say("...");
-            Say("Your pretty Dirty! mauz!")
+            Say("You're pretty rirty! Mauz!")
                 .Choice(new TextOption("..."))
                 .Choice(new TextOption("..."))
                 .Choice(new TextOption("..."))
                 .Choice(new TextOption("..."));
-            Say("This is ...");
+            Say("This is...");
             Say("...");
             Say("MEOW! PURRRRRRRRRRRRRFECT!!!!! UwU");
-            Say("I love cleaning! *purrr* If your have anything, and I mean ANYTHING I should clean for you, just say it :3");
-            Say("I won't even charge you anything, this is just my passion");
+            Say("I love cleaning! *purrr* If you have anything, and I mean ANYTHING I should clean for you, just say it :3");
+            Say("I won't even charge you anything, this is just my passion.");
             Say("...");
             Say("... *sad meoww* ...");
-            Say("*murr* an here is my dilemma, since this world is so clean and sparkly, nobody ever gets dirty....");
+            Say("*murr* and here is my dilemma: Since this world is so clean and sparkly, nobody ever gets dirty....");
             Say("Im basically without purpose in this cute world meow");
-            Say("Ah I wish I could have some customeowrrs...");
+            Say("Ah, I wish I could have some customeowrrs...");
             Say("Anymeow, since I have no use for it, take this bucket *purrr*")
                 .DoAfter(GiveItem(JimmyTheCatDialogue.Instance.bucket));
             Say("...")
@@ -99,7 +99,7 @@ public class JimmyTheCatDialogue : DialogueTrigger{
     }
     public class ItemDialogue:Dialogue {
         public ItemDialogue(){
-            Say("So, meeeeow can I help your with anything else out?")
+            Say("So, meeeeow can I help you out with anything else?")
                 .Choice(new TextOption("...")
                     .IfChosen(new TriggerDialogueAction<Goodbye>()))
                 .Choice(new ItemOption(JimmyTheCatDialogue.Instance.bucketfull)
@@ -127,22 +127,22 @@ public class JimmyTheCatDialogue : DialogueTrigger{
     public class Goodbye : Dialogue {
         public Goodbye(){
             Say("Hmm... well I'll take this as a no, meow");
-            Say("See your soon, *purrrrrr*");
+            Say("See you soon, *purrrrrr*");
         }
     }    
     public class bucketfullDialogue : Dialogue {
         public bucketfullDialogue(){
-            Say("Oh This thing is nasty, *hissss*");
-            Say("Here, I clean it for you")
+            Say("Oh this thing is nasty, *hissss*");
+            Say("Here, I'll clean it for you")
                 .DoAfter(GiveItem(JimmyTheCatDialogue.Instance.bucket));
-            Say("meow.. if just all this goo where on some people so I have more customers..");
+            Say("meow.. If all this goo was on some people so I had some customers..");
             Say("....meow *sniff*...")
                 .DoAfter(new TriggerDialogueAction<ItemDialogue>());
         }
     }
     public class bloodymaryDialogue : Dialogue {
         public bloodymaryDialogue(){
-            Say("*Hiss* ... meow.. sorry no I'm really not thirsty");
+            Say("*Hiss*... meow... sorry, no. I'm really not thirsty.");
             Say("But this fish I will take, *purrrrr*")
                 .If(HasItem(JimmyTheCatDialogue.Instance.babelfish));
             Say(" ... ")
@@ -152,16 +152,16 @@ public class JimmyTheCatDialogue : DialogueTrigger{
     public class shirtDialogue : Dialogue {
         public shirtDialogue(){
             Say("Oh meow, this thing is filthy... just as I love it :3");
-            Say("*purrr* I clean this for you meow")
+            Say("*purrr* I'll clean this for you meow.")
                 .DoAfter(GiveItem(JimmyTheCatDialogue.Instance.clean_shirt))
                 .DoAfter(new TriggerDialogueAction<ItemDialogue>());
         }
     }
     public class cleanshirtDialogue : Dialogue {
         public cleanshirtDialogue(){
-            Say("*sigh* my own work, is purrrfect...");
-            Say("meow not much more to do here sadly");
-            Say("murr ....")
+            Say("*sigh* My own work, it's purrrfect...");
+            Say("meow, Not much more to do here sadly.");
+            Say("murr....")
                 .DoAfter(new TriggerDialogueAction<ItemDialogue>());
         }
     }
@@ -170,7 +170,7 @@ public class JimmyTheCatDialogue : DialogueTrigger{
             Say("Urgh.. meow... wow this is.. this is murrrr than dirty meow");
             Say("A TRUE CHALLENGE!!!");
             Say("Give me one second");
-            Say("here you go meow meow meow ...")
+            Say("here you go meow meow meow...")
                 .DoAfter(GiveItem(JimmyTheCatDialogue.Instance.clean_shirt))
                 .DoAfter(new TriggerDialogueAction<ItemDialogue>());
         }
@@ -181,7 +181,7 @@ public class JimmyTheCatDialogue : DialogueTrigger{
             //Say("Urgh.. meow... wow this is.. this is murrrr than dirty meow");
             Say("Aww, she deserves to be sweeter than that!");
             Say("Give me one second");
-            Say("here you go meow meow meow ...")
+            Say("Here you go meow meow meow ...")
                 .DoAfter(GiveItem(JimmyTheCatDialogue.Instance.goosebow))
                 .DoAfter(new TriggerDialogueAction<ItemDialogue>());
         }
@@ -192,7 +192,7 @@ public class JimmyTheCatDialogue : DialogueTrigger{
             Say("Yup, that is one dirty goose. Let me fix her for you :3");
             //Say("A TRUE CHALLENGE!!!");
             Say("Give me one second");
-            Say("here you go meow meow meow ...")
+            Say("Here you go meow meow meow...")
                 .DoAfter(GiveItem(JimmyTheCatDialogue.Instance.goosebloddybow))
                 .DoAfter(new TriggerDialogueAction<ItemDialogue>());
         }
@@ -200,16 +200,16 @@ public class JimmyTheCatDialogue : DialogueTrigger{
 
     public class otherItemDialogue : Dialogue {
         public otherItemDialogue(){
-            Say("sadly I cant clean this murrrrr")
+            Say("Sadly, I can't clean this murrrrr")
                 .DoAfter(new TriggerDialogueAction<ItemDialogue>());
         }
     }
 
     public class babelDialogue : Dialogue {
         public babelDialogue(){
-            Say("meeeeow, *purrr* yes give me that");
+            Say("Meeeeow, *purrr* yes give me that");
             Say("chomp chomp chomp");
-            Say("Delicious, thanks, meow")
+            Say("Delicious, thanks, meow.")
                 .DoAfter(RemoveItem(JimmyTheCatDialogue.Instance.babelfish))
                 .DoAfter(new TriggerDialogueAction<ItemDialogue>());
         }
@@ -218,7 +218,7 @@ public class JimmyTheCatDialogue : DialogueTrigger{
 /* ---------------------------------------------------------------------------------------------------------------- */
     public class DefaultDialogue : Dialogue {
         public DefaultDialogue(){
-            Say("Miau, hey again")
+            Say("Meow, hey again")
                 .DoAfter(new TriggerDialogueAction<ItemDialogue>());
         }
     }
