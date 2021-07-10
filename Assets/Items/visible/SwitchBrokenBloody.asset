@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a384481017c7d11e6be52b993588aa4a, type: 3}
-  m_Name: Switch
+  m_Name: SwitchBrokenBloody
   m_EditorClassIdentifier: 
-  name: Switch
-  description: As good as new! Now I just need to power the bad boy and I can snap
-    out of here.
+  name: Gooey Parts
+  description: 
   visible: 1
-  icon: {fileID: 2614870373251885436, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
-  originWorld: 3
+  icon: {fileID: 6355480216337973169, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
+  originWorld: 2
   unique: 1
   conflictingItems:
+  - {fileID: 11400000, guid: adbacbb016bf2dc1ebcc654131ce627b, type: 2}
   - {fileID: 11400000, guid: 8ce5a7b88b03f28fbbde7a43796b59fb, type: 2}
-  - {fileID: 11400000, guid: f4c53fdac8403b72e91dba556812760d, type: 2}
   - {fileID: 11400000, guid: c7868393276619bcab6b2c798c5d7aa3, type: 2}
   - {fileID: 11400000, guid: 02201874d20345cc4a81721b09010eff, type: 2}

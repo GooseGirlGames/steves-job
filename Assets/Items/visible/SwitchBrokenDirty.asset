@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a384481017c7d11e6be52b993588aa4a, type: 3}
   m_Name: SwitchBrokenDirty
   m_EditorClassIdentifier: 
-  name: Dirty Broken Switch
+  name: Rusty Parts
   description: This thing is totaly destroyed and messy. I need to find a way to
     fix it and put it on Power to swich myself out of here
   visible: 1
-  icon: {fileID: 0}
+  icon: {fileID: -9098891631924085042, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 3
   unique: 1
   conflictingItems:
   - {fileID: 11400000, guid: adbacbb016bf2dc1ebcc654131ce627b, type: 2}
   - {fileID: 11400000, guid: 8ce5a7b88b03f28fbbde7a43796b59fb, type: 2}
-  - {fileID: 11400000, guid: 7232ee2789a30a648abb2a8f01176c73, type: 2}
+  - {fileID: 11400000, guid: f4c53fdac8403b72e91dba556812760d, type: 2}
+  - {fileID: 11400000, guid: c7868393276619bcab6b2c798c5d7aa3, type: 2}

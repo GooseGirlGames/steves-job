@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Goose
   description: Cute and disturbing. Mostly disturbing though.
   visible: 1
-  icon: {fileID: 0}
+  icon: {fileID: 7911235102323647998, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 2
   unique: 1
   conflictingItems:
