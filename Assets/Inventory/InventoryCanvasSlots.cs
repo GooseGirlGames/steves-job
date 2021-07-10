@@ -66,12 +66,23 @@ public class InventoryCanvasSlots : MonoBehaviour
      public void CheckForSelectedItem() {
         foreach (InventorySlot slot in slots) {
             if(slot.button.IsActive() && slot.button.Selected) {
+                slot.SetHighlightBorder(true);
+                foreach (InventorySlot otherSlot in slots) {
+                    if (otherSlot != slot) {
+                        otherSlot.SetHighlightBorder(false);
+                    }
+                }
                 ShowItemLoreBox(slot.item);
                 return;
             }
         }
+
+        foreach (InventorySlot slot in slots) {
+            slot.SetHighlightBorder(false);
+        }
         HideItemLoreBox();
     }
+
 
     private bool CanBeOpenend() {
         if (DialogueManager.Instance.IsDialogueActive()) {
