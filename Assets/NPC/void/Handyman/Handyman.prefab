@@ -160,9 +160,8 @@ MonoBehaviour:
   avatar: {fileID: 0}
   name: Handyman
   world: 3
-  _handyman_horror_finished: {fileID: 0}
-  _handyman_cute_finished: {fileID: 0}
-  _minigamewon: {fileID: 0}
+  _restored_cute: {fileID: 11400000, guid: 1fb675725e87cfb71ac764ecb4827f55, type: 2}
+  _restored_horror: {fileID: 11400000, guid: c9b97c75e83756fd39f16858838ed937, type: 2}
 --- !u!1 &6475777168588372715
 GameObject:
   m_ObjectHideFlags: 0
