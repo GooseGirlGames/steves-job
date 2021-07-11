@@ -8,9 +8,7 @@ public class ArrowHitKey : MonoBehaviour
     public bool hit = false;
     public bool missed = false;
     public KeyCode keyToPress;
-    void Start(){
-        
-    }
+    
 
     void Update(){
         if(Input.GetKeyDown(keyToPress)){
