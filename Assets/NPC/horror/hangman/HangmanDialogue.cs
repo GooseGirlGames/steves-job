@@ -21,9 +21,10 @@ public class HangmanDialogue : DialogueTrigger
     public override Dialogue GetActiveDialogue() {
         HangmanDialogue.h = this;
 
-        // TODO "thank you"-Dialogue if player has `_key_given`
-
         if (! Inventory.Instance.HasItem(_hangman_story)) {
+            if (Inventory.Instance.HasItem(_key_given)) {
+                return new HangmanFinishedDialogue();
+            }
             return new Introduction();
         }
         return new DefaultDialogue();
@@ -67,8 +68,15 @@ public class HangmanDialogue : DialogueTrigger
             Say("Oh wow, that is actually my key")
             .DoAfter(RemoveItem(h.key))
             .DoAfter(GiveItem(h._key_given));
-            Say("Where did you find it?");
-            //silly choice that branches off
+            Say("Where did you find it?")
+            .Choice(new TextOption("So there was this racoon..."))
+            .Choice(new TextOption("It fell from the sky"))
+            .Choice(new TextOption("You wouldn't believe it"));
+            Say("Huh...");
+            Say("but thank you so much");
+            Say("now i can finally enter my shop again");
+            Say("and i am not a disgrace to my father anymore");
+            Say("well at least not in that aspect");
         }
     }
 
@@ -83,6 +91,16 @@ public class HangmanDialogue : DialogueTrigger
         public NoKey() {
             Say("That is not a key, can't you tell?")
             .DoAfter(new TriggerDialogueAction<DefaultDialogue>());
+        }
+    }
+
+    public class HangmanFinishedDialogue : Dialogue {
+        public HangmanFinishedDialogue() {
+            Say("*humm* *humm*");
+            Say("I got my key back");
+            Say("*humm* *humm*");
+            Say("I'll take good care, I promise");
+            Say("*humm* *humm*");
         }
     }
 }
