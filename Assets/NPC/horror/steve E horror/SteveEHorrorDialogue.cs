@@ -6,7 +6,7 @@ public class SteveEHorrorDialogue : DialogueTrigger
 {
     public Item babelfisch;
     public Item horrorcoin;
-    public Item _given_horrorcoin;
+    public Item _restored_steve_e_horror;
     public Item _setve_horror_backstory;
     public Item void_bar;
     public Item cutecoin;
@@ -33,7 +33,7 @@ public class SteveEHorrorDialogue : DialogueTrigger
             }
             return new StvHorrorBackstoryDialogue();
         }
-        else if (Inventory.Instance.HasItem(_given_horrorcoin)) {
+        else if (Inventory.Instance.HasItem(_restored_steve_e_horror)) {
             name = DefName;
             return new StvHorrorHappyDialogue();
         }
@@ -113,7 +113,7 @@ public class SteveEHorrorDialogue : DialogueTrigger
             Say("This is amazing, thank you so much!");
             Say("As my token of gratitude please have this coin.")
             .DoAfter(GiveItem(s.horrorcoin))
-            .DoAfter(GiveItem(s._given_horrorcoin));
+            .DoAfter(GiveItem(s._restored_steve_e_horror));
         }
     }
 
