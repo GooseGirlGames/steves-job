@@ -40,7 +40,7 @@ public class Portal : MonoBehaviour
     
     [Tooltip("Store pre-transition player position and teleport player there after transition.")]
     public bool teleportAfterSceneChange = false;
-    public SceneTransitionManagement transitionAnimationManager;
+    private SceneTransitionManagement transitionAnimationManager;
     public Animator portalAnimator;
     private static bool animateDoorOpening = false;
 
@@ -68,6 +68,7 @@ public class Portal : MonoBehaviour
     private Coroutine elevatorAnimationCoroutine = null;
 
     private void Awake() {
+        transitionAnimationManager = GameObject.FindObjectOfType<SceneTransitionManagement>();
         //if (portalAnimator) {
         //    portalAnimator.SetFloat("Speed", portalAnimationSpeedFactor);
         //}
