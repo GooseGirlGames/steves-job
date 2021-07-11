@@ -15,7 +15,7 @@ public class Sweets : MonoBehaviour
     void Start()
     {   
         candy = this.GetComponent<Rigidbody2D>();
-        int rand_speed = Random.Range(4,5);
+        int rand_speed = Random.Range(10, 14);
         speed = rand_speed;
         candy.velocity = new Vector2(-speed, 0);
         Debug.Log(speed);
@@ -37,7 +37,7 @@ public class Sweets : MonoBehaviour
     void Update()
     {
         float camX = Camera.main.ScreenToWorldPoint(Vector3.zero).x;
-        if (transform.position.x < camX - 5){
+        if (!notYetTriggered && transform.position.x < camX - 5){
             Destroy(this.gameObject);
         }
         
