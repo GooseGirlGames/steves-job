@@ -9,6 +9,7 @@ TagManager:
   - BloodManager
   - floor
   - spawn
+  - button
   layers:
   - Default
   - TransparentFX
