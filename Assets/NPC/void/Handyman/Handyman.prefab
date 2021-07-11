@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 6475777168292943805}
   - component: {fileID: 6475777168292943806}
   - component: {fileID: 6475777168292943807}
+  - component: {fileID: 7357567662760941219}
   m_Layer: 0
   m_Name: Handyman
   m_TagString: Untagged
@@ -60,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 6475777168292943801}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.1041, y: -0.7468, z: 7.8504786}
-  m_LocalScale: {x: 10.536753, y: 15.511309, z: 1}
+  m_LocalScale: {x: 3.708066, y: 3.708066, z: 1}
   m_Children: []
   m_Father: {fileID: 6475777167322376903}
   m_RootOrder: 1
@@ -105,7 +106,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 61214f671fb6c0014bdd97c3d5d04694, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a54cdf9ec7ab06e768cda36886b04f85, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,18 +130,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0054168254, y: 0.015188396}
+  m_Offset: {x: -0.0029422268, y: -0.23975894}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.59, y: 1}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21096185, y: 0.22096732}
+  m_Size: {x: 0.3112685, y: 0.7308621}
   m_EdgeRadius: 0
 --- !u!114 &6475777168292943807
 MonoBehaviour:
@@ -158,16 +159,38 @@ MonoBehaviour:
   hintPosition: {fileID: 6475777168588372714}
   background: {fileID: 0}
   avatar: {fileID: 0}
-  name: Handyman
+  name: Billie Bauhaus
   world: 3
   _restored_cute: {fileID: 11400000, guid: 1fb675725e87cfb71ac764ecb4827f55, type: 2}
   _restored_horror: {fileID: 11400000, guid: c9b97c75e83756fd39f16858838ed937, type: 2}
+  avatar_normal: {fileID: 21300000, guid: 213ad088611e7a6cca7161646cbe2536, type: 3}
+  avatar_half: {fileID: 21300000, guid: 7b130df52b729d781b75a82ddfd7e865, type: 3}
+  avatar_gone: {fileID: 21300000, guid: 8931dbcd5e477ce5d8b7acae0e3f1fa8, type: 3}
   _said_thanks: {fileID: 11400000, guid: be73e55b880599d01a61c7524a4d4583, type: 2}
   switch_broken_dirty: {fileID: 11400000, guid: 02201874d20345cc4a81721b09010eff, type: 2}
   switch_broken_cute: {fileID: 11400000, guid: c7868393276619bcab6b2c798c5d7aa3, type: 2}
   switch_broken_horror: {fileID: 11400000, guid: f4c53fdac8403b72e91dba556812760d, type: 2}
   switch_broken: {fileID: 11400000, guid: 8ce5a7b88b03f28fbbde7a43796b59fb, type: 2}
   switch_fixed: {fileID: 11400000, guid: adbacbb016bf2dc1ebcc654131ce627b, type: 2}
+--- !u!95 &7357567662760941219
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6475777168292943801}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 83fe30863784b98909e177b20087ee39, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6475777168588372715
 GameObject:
   m_ObjectHideFlags: 0

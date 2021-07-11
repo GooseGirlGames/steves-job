@@ -124,7 +124,7 @@ public class HandymanDialogue : VoidNPCDiaTrigger {
     public class WontFixGeneric : Dialogue {
         public WontFixGeneric() {
             string name = DialogueManager.Instance.currentItem.name;
-            Say("Do I really look like a " + name + " repair man to you?");
+            Say("Do I really look like a " + name + " repair person to you?");
         }
     }
 

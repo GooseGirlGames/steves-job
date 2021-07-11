@@ -129,7 +129,7 @@ public class JimDialogue : VoidNPCDiaTrigger {
     public class BrokenSwitchDialogue : Dialogue{
         public BrokenSwitchDialogue(){
             Say("It's clean, sadly I can't do more.");
-            Say("If you find a way to talk to Handyman, he'll probably help you out.");
+            Say("If you find a way to talk to Billie, they'll probably help you out.");
             Say("Good luck, I belive in you")
                 .DoAfter(new TriggerDialogueAction<CleanItem>());    
         }
