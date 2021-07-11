@@ -117,6 +117,16 @@ public class Portal : MonoBehaviour
                     steve.SetTrigger("Wheeeeee");
                 }
                 if (fancy) {
+
+                    if (targetWorld == World.Cute) {
+                        BlubbSpawner bubbleSpawner = GameObject.FindObjectOfType<BlubbSpawner>();
+                        if (bubbleSpawner) {
+                            bubbleSpawner.SpawnBubbles();
+                        } else {
+                            Debug.LogWarning("No bubble spawner found :(");
+                        }
+                    }
+
                     Debug.Log("Fancy!" + fancy);
                     fancy.SetTrigger("FadeIn");
                     yield return new WaitForSeconds(animationDelay);

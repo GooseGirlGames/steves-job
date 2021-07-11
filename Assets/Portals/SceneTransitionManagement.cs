@@ -13,17 +13,17 @@ public class SceneTransitionManagement : MonoBehaviour {
 
     public Animator GetAnimator(World w) {
         switch (w) {
-            //case World.Cute: return cuteAnim;
+            case World.Cute: return cuteAnim;
             case World.Horror: return horrorAnim;
-            //case World.Void: return voidAnim;
+            case World.Void: return voidAnim;
         }
         return null;
     }
     public Animator GetSteveAnimator(World w) {
         switch (w) {
-            //case World.Cute: return steveCuteAnim;
+            case World.Cute: return steveCuteAnim;
             case World.Horror: return steveHorrorAnim;
-            //case World.Void: return steveVoidAnim;
+            case World.Void: return steveVoidAnim;
         }
         return null;
     }

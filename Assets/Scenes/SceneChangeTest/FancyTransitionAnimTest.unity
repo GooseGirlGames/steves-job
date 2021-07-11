@@ -386,7 +386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: targetWorld
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: animationDelay
