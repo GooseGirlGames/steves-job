@@ -9,7 +9,6 @@ public class DeployCandy : MonoBehaviour
     public GameObject racoon;
     private Vector3 racoon_pos;
     private float racoon_near = 10f;
-    private float epsilon = 2.0f;
     private Vector3 player_pos;
     public RacoonHit racoonHit;
 
