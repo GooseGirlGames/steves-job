@@ -22,10 +22,10 @@ public class HangmanDialogue : DialogueTrigger
         HangmanDialogue.h = this;
 
         if (! Inventory.Instance.HasItem(_hangman_story)) {
-            if (Inventory.Instance.HasItem(_key_given)) {
-                return new HangmanFinishedDialogue();
-            }
             return new Introduction();
+        }
+        else if (Inventory.Instance.HasItem(_key_given)) {
+            return new HangmanFinishedDialogue();
         }
         return new DefaultDialogue();
     }
