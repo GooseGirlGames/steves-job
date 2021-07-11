@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 9092298999377971854}
   - component: {fileID: 9092298999377971841}
   - component: {fileID: 9092298999377971840}
+  - component: {fileID: 1028913622709460675}
   m_Layer: 0
   m_Name: Jim
   m_TagString: Untagged
@@ -60,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 9092298999377971842}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.1041, y: -0.7468, z: 7.8504786}
-  m_LocalScale: {x: 10.536753, y: 15.511309, z: 1}
+  m_LocalScale: {x: 3.708066, y: 3.708066, z: 1}
   m_Children: []
   m_Father: {fileID: 9092298999177623665}
   m_RootOrder: 1
@@ -105,7 +106,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 61214f671fb6c0014bdd97c3d5d04694, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf036be8ca9560b12b45d30ae98a66df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -133,7 +134,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 1.26, y: 1.06}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -162,6 +163,9 @@ MonoBehaviour:
   world: 3
   _restored_cute: {fileID: 11400000, guid: 65c432402cc0fbc5087c8d230594304d, type: 2}
   _restored_horror: {fileID: 11400000, guid: d5a67855783c61e8cac251e773ae1430, type: 2}
+  avatar_normal: {fileID: 21300000, guid: dec8c0dc4944ed2d89252986a9103104, type: 3}
+  avatar_half: {fileID: 21300000, guid: 9f120b2e4cc3b264da29566972fc0dea, type: 3}
+  avatar_gone: {fileID: 21300000, guid: e9cd359140004d08b9c2aee362ae8244, type: 3}
   _said_thanks: {fileID: 11400000, guid: 9c1d3ff2b424b6353b9b8fc4be9fe886, type: 2}
   _hasCleanedSwitch: {fileID: 11400000, guid: ecf0b574e1e6f11ff8e988a185e339ae, type: 2}
   brokenSwitch: {fileID: 11400000, guid: 8ce5a7b88b03f28fbbde7a43796b59fb, type: 2}
@@ -178,6 +182,25 @@ MonoBehaviour:
   bowgoose: {fileID: 11400000, guid: c35d8409472c06b41a3bdcbdf7d82177, type: 2}
   bloodybowgoose: {fileID: 11400000, guid: 410fdc347b6862748b32dfb464117bbc, type: 2}
   marysPeriod: {fileID: 11400000, guid: 23bd31e009ef1f53490de8255ca44662, type: 2}
+--- !u!95 &1028913622709460675
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9092298999377971842}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 342f78f98055d7a15af85c452998b30d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9092299000146321770
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9092299000146321770}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.17, y: 0.3, z: -0.0080189705}
+  m_LocalPosition: {x: -0.8, y: 0.05, z: -0.0080189705}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9092298999177623665}
