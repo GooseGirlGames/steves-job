@@ -16,11 +16,9 @@ MonoBehaviour:
   destinationType: 1
   targetSceneName: MenuScene
   target: {fileID: 0}
-  targetUp: {fileID: 0}
-  targetDown: {fileID: 0}
+  elevator: 0
   targetName: 
   teleportAfterSceneChange: 0
-  transitionAnimation: {fileID: 2355045071360780951}
   portalAnimator: {fileID: 0}
   transitionAnimationSpeedFactor: 1
   animationDelay: 0
@@ -29,6 +27,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
+  targetWorld: 0
 --- !u!1 &8062396612284725522
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,19 +294,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb929dcaec9ee1293a0782d90fcf4fa0, type: 3}
---- !u!224 &7118887363801687725 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7774101808393629866, guid: eb929dcaec9ee1293a0782d90fcf4fa0, type: 3}
-  m_PrefabInstance: {fileID: 659907297739052551}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3173505803816116196 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2675974383347239395, guid: eb929dcaec9ee1293a0782d90fcf4fa0, type: 3}
   m_PrefabInstance: {fileID: 659907297739052551}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &2355045071360780951 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2992284830924995728, guid: eb929dcaec9ee1293a0782d90fcf4fa0, type: 3}
+--- !u!224 &7118887363801687725 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7774101808393629866, guid: eb929dcaec9ee1293a0782d90fcf4fa0, type: 3}
   m_PrefabInstance: {fileID: 659907297739052551}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1757713240428649451
@@ -407,9 +401,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ab6c6e6d49a5d18abef60071dd30cd8, type: 3}
---- !u!223 &4249439821213065478 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 2494340953147308781, guid: 7ab6c6e6d49a5d18abef60071dd30cd8, type: 3}
+--- !u!224 &4249439821213065477 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2494340953147308782, guid: 7ab6c6e6d49a5d18abef60071dd30cd8, type: 3}
   m_PrefabInstance: {fileID: 1757713240428649451}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &5896320449158366536 stripped
@@ -524,9 +518,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3440986745280852634, guid: 7ab6c6e6d49a5d18abef60071dd30cd8, type: 3}
   m_PrefabInstance: {fileID: 1757713240428649451}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &4249439821213065477 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2494340953147308782, guid: 7ab6c6e6d49a5d18abef60071dd30cd8, type: 3}
+--- !u!223 &4249439821213065478 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2494340953147308781, guid: 7ab6c6e6d49a5d18abef60071dd30cd8, type: 3}
   m_PrefabInstance: {fileID: 1757713240428649451}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3695699984850388955
