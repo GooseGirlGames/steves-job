@@ -15,6 +15,7 @@ public class MiniGameManager : MonoBehaviour{
     public GameObject instruction;
     public Portal winPortal;
     public Portal losePortal;
+    private bool pause = false;
 
     void Start(){
         instance = this;
@@ -32,6 +33,14 @@ public class MiniGameManager : MonoBehaviour{
                 instruction.SetActive(false);
             }
         }
+        if(PauseMenu.paused){
+            theMusic.Pause();
+            pause = true;
+        }
+        if(!PauseMenu.paused && pause){
+            theMusic.Play();
+            pause = false;
+        }
     }
 
     IEnumerator musicFinishing(){
@@ -43,6 +52,7 @@ public class MiniGameManager : MonoBehaviour{
             if(score<= 4999){
                 losePortal.TriggerTeleport();
             }
+            else Debug.Log("huh?");
         }    
     }
     public void NoteHit(){
