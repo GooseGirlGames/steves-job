@@ -118,18 +118,19 @@ public class Portal : MonoBehaviour
                 }
                 if (fancy) {
 
+                    BlubbSpawner bubbleSpawner = null;
                     if (targetWorld == World.Cute) {
-                        BlubbSpawner bubbleSpawner = GameObject.FindObjectOfType<BlubbSpawner>();
-                        if (bubbleSpawner) {
-                            bubbleSpawner.SpawnBubbles();
-                        } else {
-                            Debug.LogWarning("No bubble spawner found :(");
-                        }
+                        bubbleSpawner = GameObject.FindObjectOfType<BlubbSpawner>();
                     }
+
+                    if (bubbleSpawner) bubbleSpawner.SpawnBubbles();
 
                     Debug.Log("Fancy!" + fancy);
                     fancy.SetTrigger("FadeIn");
-                    yield return new WaitForSeconds(animationDelay);
+                    yield return new WaitForSeconds(animationDelay - (1.1f * Blubb.POPP_TIME));
+                    if (bubbleSpawner) bubbleSpawner.KillAll();
+                    yield return new WaitForSeconds(1.1f * Blubb.POPP_TIME);
+
                     fancy.SetTrigger("FadeOut");
                 }
             }
