@@ -17,10 +17,10 @@ public class MusicGame : MonoBehaviour{
 
     void Update(){
         if(Input.GetKeyDown(keyToPress)){
-            gameObject.GetComponent<Image>().sprite = pressed;
+            gameObject.GetComponent<SpriteRenderer>().sprite = pressed;
         }
         if(Input.GetKeyUp(keyToPress)){
-            gameObject.GetComponent<Image>().sprite = defaultImage;
+            gameObject.GetComponent<SpriteRenderer>().sprite = defaultImage;
         }
     }
 }
