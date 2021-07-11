@@ -38,17 +38,18 @@ public class DeployCandy : MonoBehaviour
     
     [SerializeField] private HealthBar healthbar;
     private float health;
+    public float raccApproachSpeed = 0.15f;
+    private Coroutine spawnCoroutine = null;
 
     void Start()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-        StartCoroutine(timedSpawn());
+        spawnCoroutine = StartCoroutine(timedSpawn());
         bar = GameObject.Find("Healthbar");
         health = 1f;
         healthbar.SetSize(health);
         healthbar.SetColour(Color.green);
         winSeconds = respawnTime*15;
-        StartCoroutine(racoonNearing());
     }
 
     private void spawnCandy(){
@@ -80,25 +81,18 @@ public class DeployCandy : MonoBehaviour
     }
 
 
-    IEnumerator racoonNearing(){
-        while(racoon_pos.x != player.position.x){
-            yield return new WaitForSeconds(1.0f);
-            racoon_near -= 0.1f;
-        }
-        if(racoon_pos.x - player.position.x <= epsilon){
-            GameWon();
-        }
-    }
-
     public void GameLost(){
         Debug.Log("Lost Jump MiniGame");
-        Portal.TriggerTeleport();
+        
         Inventory.Instance.AddItem(_miniRacoonGamePlayed);
         Inventory.Instance.RemoveItem(_racoonMad);
         Inventory.Instance.RemoveItem(_storeowner_later);
+
+        Portal.TriggerTeleport();
     }
     public void GameWon(){
         Debug.Log("Won Jump MiniGame");
+
         Inventory.Instance.AddItem(_miniRacoonGameWon);
         Inventory.Instance.RemoveItem(_racoonMad);
         Inventory.Instance.RemoveItem(_miniRacoonGamePlayed);
@@ -107,6 +101,19 @@ public class DeployCandy : MonoBehaviour
         Portal.TriggerTeleport();
     }
     public void FixedUpdate(){
+        
+        float speedUp = 1.0f;
+        if (racoon_near < 5.0f) {
+            // Let Steve catch up
+            speedUp = 7.0f;
+            StopCoroutine(spawnCoroutine);
+        }
+        Debug.Log(racoon_near);
+        racoon_near -= raccApproachSpeed * Time.deltaTime * speedUp;
+        if (racoon_near < 0.7f) {
+            GameWon();
+        }
+
         if(spawn != null){
             if(spawn.GetComponent<Sweets>().notYetTriggered){
                 if(spawn.GetComponent<Sweets>().trigger){
