@@ -2,9 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class InventoryCanvasSlots : MonoBehaviour
-{
+public class InventoryCanvasSlots : MonoBehaviour {
+    private List<string> SCENES_WITH_INVENTORY_DISABLED = new List<string> {
+        "MenuScene",
+        "BloodFalling",
+        "JumpMiniGame",
+        "MusicMiniGame"
+    };
+
     public List<InventorySlot> slots;
     public Canvas canvas;
     public bool visible = false;
@@ -85,6 +92,10 @@ public class InventoryCanvasSlots : MonoBehaviour
 
 
     private bool CanBeOpenend() {
+        if (SCENES_WITH_INVENTORY_DISABLED.Contains(SceneManager.GetActiveScene().name)) {
+            return false;
+        }
+
         if (DialogueManager.Instance.IsDialogueActive()) {
             return DialogueManager.Instance.CurrentSentenceHasItemOption();
         }
