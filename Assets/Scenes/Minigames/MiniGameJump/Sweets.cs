@@ -36,8 +36,8 @@ public class Sweets : MonoBehaviour
     
     void Update()
     {
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-        if(transform.position.x < screenBounds.x - 5){
+        float camX = Camera.main.ScreenToWorldPoint(Vector3.zero).x;
+        if (transform.position.x < camX - 5){
             Destroy(this.gameObject);
         }
         
