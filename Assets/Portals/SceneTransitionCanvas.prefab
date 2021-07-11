@@ -888,10 +888,10 @@ MonoBehaviour:
   black: {fileID: 6661882498269455674}
   horrorAnim: {fileID: 510337878753656571}
   cuteAnim: {fileID: 7208682195289641725}
-  voidAnim: {fileID: 0}
+  voidAnim: {fileID: 6661882498269455674}
   steveHorrorAnim: {fileID: 3773006291562263421}
   steveCuteAnim: {fileID: 9155187266416147391}
-  steveVoidAnim: {fileID: 0}
+  steveVoidAnim: {fileID: 3773006291562263421}
 --- !u!1 &6664392176041883331
 GameObject:
   m_ObjectHideFlags: 0
