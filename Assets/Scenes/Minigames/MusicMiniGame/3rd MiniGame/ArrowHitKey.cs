@@ -13,23 +13,19 @@ public class ArrowHitKey : MonoBehaviour
     void Update(){
         if(Input.GetKeyDown(keyToPress)){
             if(pressable){
-                hit = true;
-                gameObject.SetActive(false);
-                
-            }
-            if(hit){
                 MiniGameManager.instance.NoteHit();
+                gameObject.SetActive(false);
             }
             
         }
-        if(pressable && !hit){
+/*         if(pressable && !hit){
             if(!missed){
                 missed = true; 
                 MiniGameManager.instance.NoteMissed();
             }   
         }       
+     */
     }
-
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "button"){
             pressable = true;
