@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Blubb : MonoBehaviour {
     public const float KILL_DISTANCE = 7000.0f;
-    public const float SPAWN_BOX_SIZE = 2500.0f;
+    public const float SPAWN_BOX_SIZE = 2000.0f;
     public RectTransform rect;
     public Image image;
     private Vector3 direction_normalized;
@@ -14,6 +14,7 @@ public class Blubb : MonoBehaviour {
     public List<Sprite> intactBubbles;
     public List<Sprite> poppedBubbles;
     private int spriteIdx;
+    public const float POPP_TIME = 0.1f;
 
     void Start() {
         spriteIdx = Random.Range(0, intactBubbles.Count - 1);
@@ -28,7 +29,7 @@ public class Blubb : MonoBehaviour {
         float hue = Random.Range(0.0f, 1.0f);
         image.color = Color.HSVToRGB(hue, 1, 1);
 
-        timeToLive = Random.Range(0.5f, 2.0f);
+        timeToLive = Random.Range(1.5f, 3.0f);
     }
 
     // Update is called once per frame
@@ -36,7 +37,7 @@ public class Blubb : MonoBehaviour {
         rect.position = rect.position + (velocity * direction_normalized);
 
         float distanceFromOrigin = Mathf.Abs(Vector2.Distance(Vector2.zero, rect.position));
-        if (timeToLive < 0.1f) {
+        if (timeToLive < POPP_TIME) {
             image.sprite = poppedBubbles[spriteIdx];
         }
         if (distanceFromOrigin > KILL_DISTANCE || timeToLive < 0.0f) {
@@ -49,8 +50,18 @@ public class Blubb : MonoBehaviour {
     }
 
     private static Vector2 RandPos() {
-        float x = Random.Range(-SPAWN_BOX_SIZE, SPAWN_BOX_SIZE);
-        float y = Random.Range(-SPAWN_BOX_SIZE, SPAWN_BOX_SIZE);
+        float x = Random.Range(-SPAWN_BOX_SIZE * 0.1f, SPAWN_BOX_SIZE);
+        float y = Random.Range(-SPAWN_BOX_SIZE * 0.1f, SPAWN_BOX_SIZE);
         return new Vector2(x, y);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        
+        if (other.CompareTag("Player")) {
+            Kill();
+        }
+    }
+    public void Kill() {
+        timeToLive = POPP_TIME;
     }
 }
