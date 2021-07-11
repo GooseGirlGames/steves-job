@@ -226,6 +226,9 @@ public class JimmyDialogue : DialogueTrigger
 
             Say("Thank for the help!")
                 .Do(GiveItem(t.gamePlayed));
+
+            Say("You can keep the bucket, and here, have some of my spare change.")
+                .Do(GiveItem(t.horrorcoin));
         }
     }
 
