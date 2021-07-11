@@ -485,6 +485,7 @@ GameObject:
   - component: {fileID: 6661882499753728543}
   - component: {fileID: 6661882499753728536}
   - component: {fileID: 6661882499753728537}
+  - component: {fileID: 1102170836007890994}
   m_Layer: 5
   m_Name: SceneTransitionCanvas
   m_TagString: Untagged
@@ -574,6 +575,25 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1102170836007890994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6661882499753728538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aac445f0e09e075b9d00ac673dfb00f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  black: {fileID: 6661882498269455674}
+  horrorAnim: {fileID: 510337878753656571}
+  cuteAnim: {fileID: 0}
+  voidAnim: {fileID: 0}
+  steveHorrorAnim: {fileID: 3773006291562263421}
+  steveCuteAnim: {fileID: 0}
+  steveVoidAnim: {fileID: 0}
 --- !u!1 &8331083819508287976
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2651980663859899054}
   - component: {fileID: 8086207153052514807}
+  - component: {fileID: 510337878753656571}
   m_Layer: 5
   m_Name: Horror
   m_TagString: Untagged
@@ -620,3 +641,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8331083819508287976}
   m_CullTransparentMesh: 1
+--- !u!95 &510337878753656571
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8331083819508287976}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ae242e97dc17cf3aeb7df1b113f75b21, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

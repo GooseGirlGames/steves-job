@@ -40,10 +40,7 @@ public class Portal : MonoBehaviour
     
     [Tooltip("Store pre-transition player position and teleport player there after transition.")]
     public bool teleportAfterSceneChange = false;
-
-
-    public Animator transitionAnimation;
-
+    public SceneTransitionManagement transitionAnimationManager;
     public Animator portalAnimator;
     private static bool animateDoorOpening = false;
 
@@ -62,6 +59,7 @@ public class Portal : MonoBehaviour
 
     private bool playerInTrigger = false;
     public LayerMask playerLayer;
+    public World targetWorld;
     private Vector3 playerPosition;
     private Vector3 playerVelocity;  // may or may not work
     private Vector3? targetPosition = null;  // After scene change, `target` will be null,
@@ -70,9 +68,6 @@ public class Portal : MonoBehaviour
     private Coroutine elevatorAnimationCoroutine = null;
 
     private void Awake() {
-        if (transitionAnimation) {
-            transitionAnimation.SetFloat("Speed", transitionAnimationSpeedFactor);
-        }
         //if (portalAnimator) {
         //    portalAnimator.SetFloat("Speed", portalAnimationSpeedFactor);
         //}
@@ -107,11 +102,30 @@ public class Portal : MonoBehaviour
     }
 
     IEnumerator WaitForTransitionAnimation() {
-        if (transitionAnimation) {
-            transitionAnimation.SetTrigger("ExitScene");
+        if (transitionAnimationManager.black) {
+            transitionAnimationManager.black.SetFloat("Speed", transitionAnimationSpeedFactor);
+            transitionAnimationManager.black.SetTrigger("ExitScene");
+            if (targetWorld != World.Normal) {  // fancy animation, let's goooooooooooooo
+                Animator fancy = SceneTransitionManagement.Instance.GetAnimator(targetWorld);
+                Animator steve = SceneTransitionManagement.Instance.GetSteveAnimator(targetWorld);
+                yield return new WaitForSeconds(
+                    ANIMATION_DURATION / transitionAnimationSpeedFactor
+                );
+                if (steve) {
+                    Debug.Log("Stev!" + steve);
+                    steve.SetTrigger("Wheeeeee");
+                }
+                if (fancy) {
+                    Debug.Log("Fancy!" + fancy);
+                    fancy.SetTrigger("FadeIn");
+                    yield return new WaitForSeconds(animationDelay);
+                    fancy.SetTrigger("FadeOut");
+                }
+            }
+            
             // Wait for FadeOut animation plus additional delay
             yield return new WaitForSeconds(
-                ANIMATION_DURATION / transitionAnimationSpeedFactor + animationDelay
+                ANIMATION_DURATION / transitionAnimationSpeedFactor
             );   
         }
 
@@ -127,8 +141,8 @@ public class Portal : MonoBehaviour
             }
             if (elevator) player.transform.position -= new Vector3(0, stevecontroller.CAMERA_OFFSET_Y, 0);
             
-            if (transitionAnimation) {
-                transitionAnimation.SetTrigger("EnterScene");
+            if (transitionAnimationManager.black) {
+                transitionAnimationManager.black.SetTrigger("EnterScene");
             }
         }
     }
@@ -232,6 +246,11 @@ public class Portal : MonoBehaviour
             Debug.LogWarning("OnSceneLoaded called even though scene was not changed");
             return;
         }
+
+        //Animator transitionAnimation = SceneTransitionManagement.Instance.GetAnimator();
+        //if (transitionAnimation) {
+        //    transitionAnimation.SetTrigger("EnterScene");
+        //}
 
         GameObject player = GameObject.Find("Player");
 
