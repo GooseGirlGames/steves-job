@@ -7048,7 +7048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860dadad14504505aa499103186cef8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerType: 0
+  triggerType: 2
   destinationType: 0
   targetSceneName: 
   target: {fileID: 0}
