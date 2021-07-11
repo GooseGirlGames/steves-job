@@ -30,7 +30,7 @@ public class stevecontroller : MonoBehaviour {
     public float crouchspeed = 10f;
     private Transform crouchTransform;
     private float characterHeight; //Initial height
-    [SerializeField] private bool crouch = false;
+    public bool crouch = false;
     [SerializeField] private bool always_walking = false;
     public static float CAMERA_OFFSET_Y = 1.4f;
     public float jumpDetectionThreshold = 0.6f;

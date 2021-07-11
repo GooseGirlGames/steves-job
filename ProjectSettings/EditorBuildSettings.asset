@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SteveEHorrorShop/SteveEHorrorShop.unity
     guid: ee234afd91e630148837a1dc728d541f
+  - enabled: 1
+    path: Assets/Scenes/Minigames/MusicMiniGame/MusicMiniGame.unity
+    guid: 62a9aeb3bba5c548eb2eab8f13410382
   m_configObjects: {}
