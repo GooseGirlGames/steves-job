@@ -102,7 +102,7 @@ public class Portal : MonoBehaviour
     }
 
     IEnumerator WaitForTransitionAnimation() {
-        if (transitionAnimationManager.black) {
+        if (transitionAnimationManager && transitionAnimationManager.black) {
             transitionAnimationManager.black.SetFloat("Speed", transitionAnimationSpeedFactor);
             transitionAnimationManager.black.SetTrigger("ExitScene");
             if (targetWorld != World.Normal) {  // fancy animation, let's goooooooooooooo
