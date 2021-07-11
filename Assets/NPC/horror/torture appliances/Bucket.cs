@@ -50,7 +50,10 @@ public class Bucket : DialogueTrigger
             Say("If you want him just take him");
             Say("I'd be happy to get rid of it")
             .DoAfter(GiveItem(b.bucket))
-            .DoAfter(GiveItem(b._got_bucket));
+            .DoAfter(GiveItem(b._got_bucket))
+            .DoAfter(new DialogueAction(() => {
+            GameObject.Find("Bucket").SetActive(false); }));
+                
         }
     }
 
