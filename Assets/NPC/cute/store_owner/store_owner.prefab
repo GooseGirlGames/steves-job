@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &464320958914338721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7358652106863946030}
+  m_Layer: 0
+  m_Name: HintPosSad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7358652106863946030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464320958914338721}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.003, y: 0.199, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1498789279191445767}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1498789279191445765
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,9 +40,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1498789279191445767}
   - component: {fileID: 1498789279191445764}
-  - component: {fileID: 3479531730777241746}
   - component: {fileID: 3479531730777241744}
   - component: {fileID: 3479531730777241745}
+  - component: {fileID: 2326860574149116518}
+  - component: {fileID: 9213322977548107647}
   m_Layer: 0
   m_Name: store_owner
   m_TagString: Untagged
@@ -32,6 +63,7 @@ Transform:
   m_LocalScale: {x: 0.1655, y: 0.1601206, z: 1}
   m_Children:
   - {fileID: 8890898516391675624}
+  - {fileID: 7358652106863946030}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -75,9 +107,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9b3699cc957c65fe6994f96e2d4be41e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9b8d6cff426b50acfa43ae66c3139ba8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 10.3, y: 10.13}
@@ -86,22 +118,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &3479531730777241746
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1498789279191445765}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 5.15
 --- !u!114 &3479531730777241744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,15 +162,65 @@ MonoBehaviour:
   hintPosition: {fileID: 8890898516391675624}
   background: {fileID: 0}
   avatar: {fileID: 0}
-  name: 
+  name: Kim
   world: 1
   portalToMiniGame: {fileID: 3479531730777241744}
-  crank: {fileID: 0}
+  crank: {fileID: 11400000, guid: b5330c7fcf8c7321faded7cd47cc726b, type: 2}
   _storeowner_later: {fileID: 11400000, guid: 236416539b483d448a66ef258c6b9d4b, type: 2}
   _racoonMad: {fileID: 11400000, guid: 1b69354948bf26b7bb2617f4459511b4, type: 2}
   _miniRacoonGamePlayed: {fileID: 11400000, guid: 3aa40781ea1be715fb28cc364ef63ff6, type: 2}
-  _got_crank: {fileID: 11400000, guid: 00e03204d750c101b86f1412c5fcc82a, type: 2}
+  _miniRacoonGameWon: {fileID: 11400000, guid: 23ade54d48ab4f4aebd99446f2116f6f, type: 2}
   _restoredCandyman: {fileID: 11400000, guid: 1fb675725e87cfb71ac764ecb4827f55, type: 2}
+  animator: {fileID: 2326860574149116518}
+  avatar_happy: {fileID: 21300000, guid: 3943fa75b4000167cabcab012416bbe1, type: 3}
+  avatar_sad: {fileID: 21300000, guid: aa5ce903aa98a76c2abdd500a9b1925c, type: 3}
+  hint_happy: {fileID: 8890898516391675624}
+  hint_sad: {fileID: 7358652106863946030}
+--- !u!95 &2326860574149116518
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498789279191445765}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 19629e9c69f5642d9987c2050fe51a07, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &9213322977548107647
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498789279191445765}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.07498491, y: -0.044187427}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.6, y: 1.01}
+    newSize: {x: 10.3, y: 10.13}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.35897714, y: 0.98054135}
+  m_EdgeRadius: 0
 --- !u!1 &2779061103552406641
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8890898516391675624}
   m_Layer: 0
-  m_Name: HintPos
+  m_Name: HintPosHappy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2779061103552406641}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.24, y: 6.14, z: 0}
+  m_LocalPosition: {x: 0.081, y: 0.384, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1498789279191445767}

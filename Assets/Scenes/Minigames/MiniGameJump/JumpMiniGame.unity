@@ -1148,7 +1148,7 @@ MonoBehaviour:
   player: {fileID: 63461469}
   stop: {fileID: 441558063}
   _miniRacoonGamePlayed: {fileID: 11400000, guid: 3aa40781ea1be715fb28cc364ef63ff6, type: 2}
-  _miniRacoonGameWon: {fileID: 11400000, guid: 1fb675725e87cfb71ac764ecb4827f55, type: 2}
+  _miniRacoonGameWon: {fileID: 11400000, guid: 23ade54d48ab4f4aebd99446f2116f6f, type: 2}
   _racoonMad: {fileID: 11400000, guid: 1b69354948bf26b7bb2617f4459511b4, type: 2}
   _storeowner_later: {fileID: 11400000, guid: 236416539b483d448a66ef258c6b9d4b, type: 2}
   healthbar: {fileID: 1244539}

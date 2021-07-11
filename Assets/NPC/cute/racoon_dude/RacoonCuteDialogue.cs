@@ -10,18 +10,10 @@ public class RacoonCuteDialogue :  DialogueTrigger{
     public Item _miniRacoonGamePlayed;
     public Item _miniRacoonGameWon;
     public Item _racoonMad;
-    public GameObject storeOwner;
-    public Sprite sadStoreOwner;
-    public Sprite neutralStoreOwner;
 
 
     public override Dialogue GetActiveDialogue(){
 
-        if(Inventory.Instance.HasItem(_miniRacoonGamePlayed)){
-            RacoonCuteDialogue.t.storeOwner.GetComponent<SpriteRenderer>().sprite = RacoonCuteDialogue.t.sadStoreOwner;
-            RacoonCuteDialogue.t.transform.position = new Vector3(8.4f,-2.2f,1f);
-            return new MiniGameLostDia();
-        } 
         if(Inventory.Instance.HasItem(_miniRacoonGameWon)){
             return new MiniGameFinishedDia();
         } 
@@ -34,7 +26,6 @@ public class RacoonCuteDialogue :  DialogueTrigger{
     void Awake(){
         t = this;
         if(Inventory.Instance.HasItem(_racoonMad) || Inventory.Instance.HasItem(_miniRacoonGamePlayed)){
-            RacoonCuteDialogue.t.storeOwner.GetComponent<SpriteRenderer>().sprite = RacoonCuteDialogue.t.sadStoreOwner;
             RacoonCuteDialogue.t.transform.position = new Vector3(8.4f,-2.2f,1f);
         }
         
@@ -88,9 +79,6 @@ public class MiniGameFinishedDia : Dialogue {
         Say("Oh this is awkward...");
         Say("well I should go to bed!");
         Say("anyways, I am sorry..but thank you for giving me a treat :3")
-            .DoAfter(new DialogueAction(()=> {
-                RacoonCuteDialogue.t.storeOwner.GetComponent<SpriteRenderer>().sprite = RacoonCuteDialogue.t.neutralStoreOwner;
-            }))
             .DoAfter(RemoveItem(RacoonCuteDialogue.t._racoonMad))
             .DoAfter(RemoveItem(RacoonCuteDialogue.t._miniRacoonGamePlayed));
         
@@ -104,10 +92,14 @@ public class SnackDialogue : Dialogue {
             .DoAfter(GiveItem(RacoonCuteDialogue.t.coin))
             .DoAfter(GiveItem(RacoonCuteDialogue.t._racoonMad))
             .DoAfter(new DialogueAction(()=> {
-                RacoonCuteDialogue.t.storeOwner.GetComponent<SpriteRenderer>().sprite = RacoonCuteDialogue.t.sadStoreOwner;
-            }))
-            .DoAfter(new DialogueAction(()=> {
                 RacoonCuteDialogue.t.transform.position = new Vector3(8.4f,-2.2f,1f);
+
+                // temporary, while we don't have a cutscene thing yet
+                StoreOwnerDialogue candyPerson = GameObject.FindObjectOfType<StoreOwnerDialogue>();
+                if (candyPerson != null) {
+                    candyPerson.UpdateAnimator();
+                }
+                
             }));
 
     }

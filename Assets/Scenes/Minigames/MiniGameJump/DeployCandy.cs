@@ -82,6 +82,8 @@ public class DeployCandy : MonoBehaviour
 
     public void GameLost(){
         Debug.Log("Lost Jump MiniGame");
+
+        DialogueManager.Instance.SetInstantTrue();
         
         Inventory.Instance.AddItem(_miniRacoonGamePlayed);
         Inventory.Instance.RemoveItem(_racoonMad);
@@ -91,6 +93,8 @@ public class DeployCandy : MonoBehaviour
     }
     public void GameWon(){
         Debug.Log("Won Jump MiniGame");
+
+        DialogueManager.Instance.SetInstantTrue();
 
         Inventory.Instance.AddItem(_miniRacoonGameWon);
         Inventory.Instance.RemoveItem(_racoonMad);
