@@ -117,7 +117,7 @@ public class DeployCandy : MonoBehaviour
         if(spawn != null){
             if(spawn.GetComponent<Sweets>().notYetTriggered){
                 if(spawn.GetComponent<Sweets>().trigger){
-                    health -= .2f; 
+                    health -= .15f; 
                     //player_pos = new Vector3(player.position.x - 1.0f, player.position.y, player.position.z);
                     //player.position = player_pos;
                     spawn.GetComponent<Sweets>().notYetTriggered = false;
