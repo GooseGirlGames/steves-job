@@ -27,6 +27,7 @@ public class CuteEWonderDialogue : DialogueTrigger {
     public Item grease;
     public Item cocktail;
     public Item spineGiven;
+    public Item cuteCoin;
     public Item problemExplained;
     public List<Item> shinyItems;
     new private Renderer renderer;
@@ -148,6 +149,10 @@ public class CuteEWonderDialogue : DialogueTrigger {
             )
             .If(() => !SpineHandover.hasShinyItem);
 
+            Say("Oh, and as a less feathery token of gratitude, here's some spare change.")
+            .Do(GiveItem(t.cuteCoin));
+            Say("I can't give you more than that sadly.");
+            Say("That chicken must've eaten all that was left in my cash register.");
 
             EmptySentence()
             .Do(GiveItem(t.spineGiven))
