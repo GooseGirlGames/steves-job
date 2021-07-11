@@ -8,6 +8,8 @@ public class MiniGameManager : MonoBehaviour{
     public bool startPlaying;
     public KindaDDR ddr;
     public static MiniGameManager instance;
+    public int score;
+    public int arrowScore = 100;
 
     void Start(){
         instance = this;
@@ -24,7 +26,7 @@ public class MiniGameManager : MonoBehaviour{
         }
     }
     public void NoteHit(){
-        Debug.Log("hit");
+        score += arrowScore;
     }
     public void NoteMissed(){
         Debug.Log("missed");

@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 public class MusicGame : MonoBehaviour{
     public Sprite defaultImage;
-    public Sprite hit;
     public Sprite pressed;
-    public Sprite failed;
+ 
 
     public KeyCode keyToPress;
 
