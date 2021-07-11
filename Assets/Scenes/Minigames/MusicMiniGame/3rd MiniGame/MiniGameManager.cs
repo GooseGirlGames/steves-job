@@ -16,6 +16,7 @@ public class MiniGameManager : MonoBehaviour{
     public Portal winPortal;
     public Portal losePortal;
     private bool pause = false;
+    public GameObject player;
 
     void Start(){
         instance = this;
@@ -41,6 +42,16 @@ public class MiniGameManager : MonoBehaviour{
             theMusic.Play();
             pause = false;
         }
+        if(Input.GetKeyDown(KeyCode.W)){
+            Vector3 steve_pos = new Vector3(player.gameObject.transform.position.x, player.gameObject.transform.position.y + 0.5f, 1);
+            player.gameObject.transform.position = steve_pos;
+        }
+        if(Input.GetKeyDown(KeyCode.S)){
+            player.GetComponent<stevecontroller>().crouch = true;
+        }
+        if(Input.GetKeyUp(KeyCode.S)){
+            player.GetComponent<stevecontroller>().crouch = false;
+        }
     }
 
     IEnumerator musicFinishing(){
@@ -50,9 +61,8 @@ public class MiniGameManager : MonoBehaviour{
                 winPortal.TriggerTeleport();
             }
             if(score<= 4999){
-                losePortal.TriggerTeleport();
+                winPortal.TriggerTeleport();
             }
-            else Debug.Log("huh?");
         }    
     }
     public void NoteHit(){
