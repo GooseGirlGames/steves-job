@@ -13,7 +13,7 @@ public class HealthBar : MonoBehaviour
 
     public void SetSize(float sizeNormalized)
     {
-        bar.localScale = new Vector3(sizeNormalized, 1f);
+        bar.localScale = new Vector3(Mathf.Clamp01(sizeNormalized), 1f);
     }
 
     public void SetColour( Color colour){

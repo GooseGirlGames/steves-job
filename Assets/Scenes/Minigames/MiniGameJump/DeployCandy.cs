@@ -138,7 +138,7 @@ public class DeployCandy : MonoBehaviour
         if(health <= .2f){
             StartCoroutine(healthbarFlash());
         } 
-        if(health <= 0.0f){
+        if(health <= 0.02f){
             GameLost();
         } 
 
