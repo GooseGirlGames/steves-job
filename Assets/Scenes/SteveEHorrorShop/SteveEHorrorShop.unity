@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 914409506}
   - component: {fileID: 914409505}
   - component: {fileID: 914409504}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: steveEHorrorShop_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -871,6 +871,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 241022488470651371, guid: f94b104c1ec728f8f8eebd05072e610f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: edcceae139d1b834f8170d45f62fb1ea, type: 2}
     - target: {fileID: 1559990220791875251, guid: f94b104c1ec728f8f8eebd05072e610f, type: 3}
       propertyPath: m_RootOrder
       value: 14
