@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7765116428305705024}
   - component: {fileID: 7765116428305705031}
   - component: {fileID: 7765116428305705030}
+  - component: {fileID: 2437016341151927388}
   m_Layer: 0
   m_Name: SteveEWander
   m_TagString: Untagged
@@ -27,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7765116428305705028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1041, y: -0.7468, z: 7.8504786}
-  m_LocalScale: {x: 10.536753, y: 15.511309, z: 1}
+  m_LocalPosition: {x: 0.1041, y: -0.237, z: 7.8504786}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7765116428745985835}
   m_RootOrder: 1
@@ -73,12 +74,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 61214f671fb6c0014bdd97c3d5d04694, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8598016a3b4302737972a34b9387ebde, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.97, y: 0.72}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -97,18 +98,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0022502616, y: -0.011224471}
+  m_Offset: {x: 0.02829951, y: -0.07741538}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
-    newSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.97, y: 0.72}
+    newSize: {x: 0.97, y: 0.72}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1634639, y: 0.18244894}
+  m_Size: {x: 0.7031746, y: 0.8443579}
   m_EdgeRadius: 0
 --- !u!114 &7765116428305705030
 MonoBehaviour:
@@ -125,12 +126,35 @@ MonoBehaviour:
   playerInTrigger: 0
   hintPosition: {fileID: 7765116429132088307}
   background: {fileID: 0}
-  avatar: {fileID: 0}
+  avatar: {fileID: 21300000, guid: 4424676c0b6aafdefa1323f4773d7b24, type: 3}
   name: Steve E Wonder
   world: 3
-  _steve_horror_finished: {fileID: 0}
-  _steve_cute_finished: {fileID: 0}
-  _minigamewon: {fileID: 0}
+  _restored_cute: {fileID: 11400000, guid: 6d22034e2ed7d7af38c284fbb262c66d, type: 2}
+  _restored_horror: {fileID: 11400000, guid: 75cd7eb90e2e1b18ab246ecff6367a82, type: 2}
+  avatar_normal: {fileID: 21300000, guid: ae2d345bc3a9b12238c18abf9f735b9e, type: 3}
+  avatar_half: {fileID: 21300000, guid: 152d388feed3785dab3fe8e603468a66, type: 3}
+  avatar_gone: {fileID: 21300000, guid: 4424676c0b6aafdefa1323f4773d7b24, type: 3}
+  _powered: {fileID: 11400000, guid: a7db27240f1b684c3a4c8d36f379a74e, type: 2}
+  _said_thanks: {fileID: 11400000, guid: d4a2262c84f8d5123b95bb4085fc65ae, type: 2}
+--- !u!95 &2437016341151927388
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7765116428305705028}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0eb994f6125c722b98083b40d5351b03, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7765116428745985834
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,20 +21,50 @@ Dialogue5(Steve is Restored and after minigame):
 */
 
 
-public class SteveEWonderDialogue : DialogueTrigger{
-    // Start is called before the first frame update
-    public Item _steve_horror_finished;
-    public Item _steve_cute_finished;
-    public Item _minigamewon;
+public class SteveEWonderDialogue : VoidNPCDiaTrigger {
+    public Item _powered;
+    public Item _said_thanks;
     public static SteveEWonderDialogue t;
 
-    public override Dialogue GetActiveDialogue() {
-        SteveEWonderDialogue.t = this;
-        return new NoneExist();
+    public override void UpdateStaticT() {
+        t = this;
     }
 
-    public class NoneExist : Dialogue{
-        public NoneExist(){
+    public override Dialogue NewFullRestoredDia() {
+        if (!Inventory.Instance.HasItem(_said_thanks)) {
+            return new Thanks();  // Dialogue3
+        } else {
+            if (!Inventory.Instance.HasItem(_powered)) {
+                return new OfferMinigame();  // Dialogue4
+            } else {
+                return new MinigameComplete();  // Dialogue5
+            }
+        }
+    }
+    public override Dialogue NewHalfRestoredDia() => new HalfRestoredDia();  // Dialogue2
+    public override Dialogue NewGoneDia() => new GoneDia();  // Dialogue1
+    public class MinigameComplete : Dialogue {
+        public MinigameComplete() {  // Dialogue5
+            Say("MinigameComplete/ Dialogue5");
+        }
+    }
+    public class OfferMinigame : Dialogue {
+        public OfferMinigame() {  // Dialogue4
+            Say("OfferMinigame / Dialogue4");
+        }
+    }
+    public class Thanks : Dialogue {
+        public Thanks() {  // Dialogue3
+            Say("Thanks / Dialogue3");
+        }
+    }
+    public class HalfRestoredDia : Dialogue {
+        public HalfRestoredDia() {  // Dialogue2
+            Say("...?");
+        }
+    }
+    public class GoneDia : Dialogue {
+        public GoneDia() {  // Dialogue1
             Say("...");
         }
     }
