@@ -398,6 +398,10 @@ PrefabInstance:
       value: Void
       objectReference: {fileID: 0}
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
+      propertyPath: targetWorld
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: targetSceneName
       value: mall_horror
       objectReference: {fileID: 0}
@@ -1445,6 +1449,10 @@ PrefabInstance:
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: targetName
       value: Void_D
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
+      propertyPath: targetWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: targetSceneName

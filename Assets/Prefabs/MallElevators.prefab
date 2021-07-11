@@ -132,6 +132,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
+      propertyPath: animateTransition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: transitionAnimation
       value: 
       objectReference: {fileID: 0}
@@ -266,6 +270,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
+      propertyPath: animateTransition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: transitionAnimation
       value: 
       objectReference: {fileID: 0}
@@ -388,6 +396,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
+      propertyPath: animateTransition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: transitionAnimation
       value: 
       objectReference: {fileID: 0}
@@ -507,6 +519,10 @@ PrefabInstance:
       objectReference: {fileID: 5699014458013199926}
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: destinationType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
+      propertyPath: animateTransition
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}

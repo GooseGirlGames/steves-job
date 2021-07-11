@@ -378,6 +378,10 @@ PrefabInstance:
       value: Horror_B
       objectReference: {fileID: 0}
     - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
+      propertyPath: targetWorld
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847011257354892825, guid: 288f961d5c2e903cf916049c0a51d42a, type: 3}
       propertyPath: targetSceneName
       value: mall_void
       objectReference: {fileID: 0}
@@ -895,11 +899,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.6978933
+      value: 1.6979159
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.902176
+      value: -3.9021754
       objectReference: {fileID: 0}
     - target: {fileID: 8166448268194895689, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_Name

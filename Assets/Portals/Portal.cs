@@ -51,6 +51,8 @@ public class Portal : MonoBehaviour
 
     [Tooltip("Additional delay, i.e. for how long the screen stays black.")]
     public float animationDelay = 0.0f;
+    public float animationDelayChangeScene = 2.0f;
+    public bool animateTransition = true;
 
     public Transform hintPosition;
     public bool animateAsElevator = false;
@@ -68,7 +70,13 @@ public class Portal : MonoBehaviour
     private Coroutine elevatorAnimationCoroutine = null;
 
     private void Awake() {
-        transitionAnimationManager = GameObject.FindObjectOfType<SceneTransitionManagement>();
+        if (animateTransition) {
+            transitionAnimationManager = GameObject.FindObjectOfType<SceneTransitionManagement>();
+        }
+        
+        if (destinationType == DestinationType.ChangeScene) {
+            animationDelay = animationDelayChangeScene;
+        }
         //if (portalAnimator) {
         //    portalAnimator.SetFloat("Speed", portalAnimationSpeedFactor);
         //}
@@ -153,7 +161,7 @@ public class Portal : MonoBehaviour
             }
             if (elevator) player.transform.position -= new Vector3(0, stevecontroller.CAMERA_OFFSET_Y, 0);
             
-            if (transitionAnimationManager.black) {
+            if (transitionAnimationManager && transitionAnimationManager.black) {
                 transitionAnimationManager.black.SetTrigger("EnterScene");
             }
         }
