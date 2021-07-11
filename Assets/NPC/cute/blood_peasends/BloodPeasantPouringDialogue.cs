@@ -5,6 +5,8 @@ using UnityEngine;
 public class BloodPeasantPouringDialogue : DialogueTrigger {
     public Item BloodBucket;
     public Item EmptyBucket;
+    public Item BloodBucketCute;
+    public Item EmptyBucketCute;
     public Item PeaseantSoakedCatHappy;
     public Item Cranked;
     public Animator PourAnimator;
@@ -31,12 +33,22 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
             transitionAnimation.SetFloat("Speed", 0.6f);
         }
     }
-    public void Pour() {
+    public void CutePour() {
+        Pour(cute: true);
+    }
+    public void HorrorPour() {
+        Pour(cute: false);
+    }
+    public void Pour(bool cute) {
         if (Inventory.Instance.HasItem(PeaseantSoakedCatHappy)) {
             return;
         }
         Inventory.Instance.AddItem(PeaseantSoakedCatHappy);
-        Inventory.Instance.AddItem(EmptyBucket);
+        if (cute) {
+            Inventory.Instance.AddItem(EmptyBucketCute);
+        } else {
+            Inventory.Instance.AddItem(EmptyBucket);
+        }
         StartCoroutine(PourAnimation());
     }
 
@@ -75,10 +87,16 @@ public class PourDia : Dialogue {
 
         Say("...")
         .Choice(
-            new ItemOption(trigger.BloodBucket).IfChosen(new DialogueAction(trigger.Pour))
+            new ItemOption(trigger.BloodBucket).IfChosen(new DialogueAction(trigger.HorrorPour))
         )
         .Choice(
             new ItemOption(trigger.EmptyBucket).IfChosen(new TriggerDialogueAction<EmptyBucketDia>())
+        )
+        .Choice(
+            new ItemOption(trigger.BloodBucketCute).IfChosen(new DialogueAction(trigger.CutePour))
+        )
+        .Choice(
+            new ItemOption(trigger.EmptyBucketCute).IfChosen(new TriggerDialogueAction<EmptyBucketDia>())
         )
         .Choice(
             new TextOption("Do nothing")
@@ -99,6 +117,16 @@ public class PourDia : Dialogue {
             new ItemOption(trigger.EmptyBucket)
             .IfChosen(new TriggerDialogueAction<EmptyBucketDia>())
         )
+
+        .Choice(
+            new ItemOption(trigger.BloodBucketCute)
+            .IfChosen(new TriggerDialogueAction<MarquueDia>())
+        )
+        .Choice(
+            new ItemOption(trigger.EmptyBucketCute)
+            .IfChosen(new TriggerDialogueAction<EmptyBucketDia>())
+        )
+
         .Choice(
             new TextOption("Do nothing")
         )

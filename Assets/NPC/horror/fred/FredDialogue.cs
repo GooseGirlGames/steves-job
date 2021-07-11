@@ -26,6 +26,9 @@ public class FredDialogue : DialogueTrigger
     public Item finished;
     public Item bucket;
     public Item bucketfull;
+    public Item bucketcute;
+    public Item bucketfullcute;
+
     public Item disgusting_cocktail;
     public static FredDialogue t = null;
 
@@ -62,6 +65,8 @@ public class FredDialogue : DialogueTrigger
             Say("Oink Mate");
             Say("Whatever its in that bloody bucket, it smells ace. anyway...")
                 .If(HasItem(t.bucketfull));
+            Say("Whatever its in that bloody bucket, it smells ace. anyway...")
+                .If(HasItem(t.bucketfullcute));
             Say("Me bloody apron's fucked");
             EmptySentence().DoAfter(new TriggerDialogueAction<Choose_Default>());
             Say("Bye");
@@ -82,6 +87,10 @@ public class FredDialogue : DialogueTrigger
                 .Choice(
                     new ItemOption(t.bucketfull)
                     .IfChosen(GiveItem(t.bucket))
+                    .IfChosen(new TriggerDialogueAction<Thanks_Mate>()))
+                .Choice(
+                    new ItemOption(t.bucketfullcute)
+                    .IfChosen(GiveItem(t.bucketcute))
                     .IfChosen(new TriggerDialogueAction<Thanks_Mate>()))
                 .Choice(new OtherItemOption().IfChosen(new TriggerDialogueAction<Default_Usless_Dialogue>())
 
@@ -146,6 +155,9 @@ public class FredDialogue : DialogueTrigger
                     .IfChosen(new TriggerDialogueAction<Naked_Shirt_Dialogue>(exitCurrent : true)))
                 .Choice(new ItemOption(t.bucketfull)
                     .IfChosen(GiveItem(t.bucket))
+                    .IfChosen(new TriggerDialogueAction<Naked_Bucked_Dialogue>()))
+                .Choice(new ItemOption(t.bucketfullcute)
+                    .IfChosen(GiveItem(t.bucketcute))
                     .IfChosen(new TriggerDialogueAction<Naked_Bucked_Dialogue>()))
                 .Choice(new OtherItemOption().IfChosen(new TriggerDialogueAction<Naked_Usless_Dialogue>()));
         }
@@ -214,6 +226,8 @@ public class FredDialogue : DialogueTrigger
         public FinishedDialogue(){
             Say("Whatever its in that bloody bucket, it smelles Ace. anyway...")
                 .If(HasItem(t.bucketfull));
+            Say("Whatever its in that bloody bucket, it smelles Ace. anyway...")
+                .If(HasItem(t.bucketfullcute));
             EmptySentence().DoAfter(new TriggerDialogueAction<FredFinishedDialogue>());
         }
     }
@@ -224,6 +238,9 @@ public class FredDialogue : DialogueTrigger
                 .Choice(new TextOption("Ok..."))
                 .Choice(new ItemOption(t.bucketfull)
                     .IfChosen(GiveItem(t.bucket))
+                    .IfChosen(new TriggerDialogueAction<Bucked_Dialogue>()))
+                .Choice(new ItemOption(t.bucketfullcute)
+                    .IfChosen(GiveItem(t.bucketcute))
                     .IfChosen(new TriggerDialogueAction<Bucked_Dialogue>()))
                 .Choice(new ItemOption(t.disgusting_cocktail)
                     .IfChosen(new TriggerDialogueAction<Cocktail_Dialogue>()))

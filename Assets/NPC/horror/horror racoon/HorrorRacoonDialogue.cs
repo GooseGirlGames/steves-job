@@ -9,6 +9,8 @@ public class HorrorRacoonDialogue : DialogueTrigger
     public Item _horror_racoon_done;
     public Item bloodbucket;
     public Item emptybucket;
+    public Item bloodbucketcute;
+    public Item emptybucketcute;
     public Item grease;
     public Item goose;
     public Item goose_blood;
@@ -60,6 +62,8 @@ public class HorrorRacoonDialogue : DialogueTrigger
                 .IfChosen(new TriggerDialogueAction<HorrorRacoonBye>()))
             .Choice(new ItemOption(h.bloodbucket)
                 .IfChosen(new TriggerDialogueAction<HorrorRacoonBucket>()))
+            .Choice(new ItemOption(h.bloodbucketcute)
+                .IfChosen(new TriggerDialogueAction<HorrorRacoonBucket>()))
             .Choice(new ItemOption(h.goose)
                 .IfChosen(new TriggerDialogueAction<HorrorRacoonGoose>()))
             .Choice(new ItemOption(h.goose_blood)
@@ -86,10 +90,15 @@ public class HorrorRacoonDialogue : DialogueTrigger
     public class HorrorRacoonBucket : Dialogue {
         public HorrorRacoonBucket() {
             HorrorRacoonDialogue h = HorrorRacoonDialogue.h;
+            World bucketOrigin = DialogueManager.Instance.currentItem.originWorld;
 
             Say("Oh that doesn't look half bad")
-            .DoAfter(RemoveItem(h.bloodbucket))
-            .DoAfter(GiveItem(h.emptybucket));
+            .DoAfter(GiveItem(h.emptybucketcute))
+            .If(() => bucketOrigin == World.Cute);
+            Say("Oh that doesn't look half bad")
+            .DoAfter(GiveItem(h.emptybucket))
+            .If(() => bucketOrigin != World.Cute);
+
             Say("*glug* *glug* *glug*");
             Say("Aaaaaah");
             Say("It isn't half bad but I'd like something more refined")

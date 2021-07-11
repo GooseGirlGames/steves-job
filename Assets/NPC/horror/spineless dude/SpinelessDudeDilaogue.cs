@@ -7,6 +7,8 @@ public class SpinelessDudeDilaogue : DialogueTrigger
     public Item grease;
     public Item spine;
     public Item bloodbucket;
+    public Item cute_bucket_empty;
+    public Item cute_bucket_full;
     public Item emptybucket;
     public Item maiddress;
     public Item dirty_maiddress;
@@ -57,6 +59,8 @@ public class SpinelessDudeDilaogue : DialogueTrigger
                 .IfChosen(new TriggerDialogueAction<SpinelessDudeOk>()))
             .Choice(new ItemOption(s.bloodbucket)
                 .IfChosen(new TriggerDialogueAction<SpinelessDudeBloodBucket>()))
+            .Choice(new ItemOption(s.cute_bucket_empty)
+                .IfChosen(new TriggerDialogueAction<SpinelessDudeCuteBloodBucket>()))
             .Choice(new ItemOption(s.grease)
                 .IfChosen(new TriggerDialogueAction<SpinelessDudeGrease>()))
             .Choice(new ItemOption(s.maiddress)
@@ -96,6 +100,23 @@ public class SpinelessDudeDilaogue : DialogueTrigger
             Say("Anyway... do you think we can use the blood as lubricant for the mechanism?")
             .DoAfter(RemoveItem(s.bloodbucket))
             .DoAfter(GiveItem(s.emptybucket));
+            Say("*creaaaak* *screeeeeeeeetch*");
+            Say("Aaaah my poor ears");
+            Say("That didn't seem to work")
+            .DoAfter(new TriggerDialogueAction<SpinelessDudeChoice>());
+        }
+    }
+
+    public class SpinelessDudeCuteBloodBucket : Dialogue {
+        public SpinelessDudeCuteBloodBucket() {
+            SpinelessDudeDilaogue s = SpinelessDudeDilaogue.s;
+
+            Say("Ooooh thats a good amount of blood!");
+            Say("Where'd you get that from or is it yours?")
+            .Choice(new TextOption("..."));
+            Say("Anyway... do you think we can use the blood as lubricant for the mechanism?")
+            .DoAfter(RemoveItem(s.cute_bucket_full))
+            .DoAfter(GiveItem(s.cute_bucket_empty));
             Say("*creaaaak* *screeeeeeeeetch*");
             Say("Aaaah my poor ears");
             Say("That didn't seem to work")

@@ -25,7 +25,7 @@ public class CuteEWonderDialogue : DialogueTrigger {
     public Item goose;
     public Item bloodgoose;
     public Item grease;
-    public Item cocktail;  // TODO remove if goosehead in period cocktail won't become cannon
+    public Item cocktail;
     public Item spineGiven;
     public Item problemExplained;
     public List<Item> shinyItems;

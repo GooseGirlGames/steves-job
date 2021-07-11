@@ -11,6 +11,8 @@ public class JimmyDialogue : DialogueTrigger
     public Item dirty_shirt;
     public Item bucket;
     public Item empty;
+    public Item bucket_empty_cute;
+    public Item bucket_full_cute;
     public Item gameLost;
     public Item gamePlayed;
     public Item goose_clean;
@@ -91,32 +93,41 @@ public class JimmyDialogue : DialogueTrigger
         public NoBigAnswer() {
             Say("What's your problem?");
             Say("You have something to clean?")
-            .Choice(new TextOption("..."))
+            .Choice(new TextOption("Later"))
+            // Buckets
             .Choice(new ItemOption(t.empty)
                 .IfChosen(GiveItem(t.bucket))
                 .IfChosen(new TriggerDialogueAction<BucketFilledUp>()))
             .Choice(new ItemOption(t.bucket)
                 .IfChosen(new TriggerDialogueAction<NothingToDoHere>()))
+            .Choice(new ItemOption(t.bucket_empty_cute)
+                .IfChosen(GiveItem(t.bucket_full_cute))
+                .IfChosen(new TriggerDialogueAction<BucketFilledUp>()))
+            .Choice(new ItemOption(t.bucket_full_cute)
+                .IfChosen(new TriggerDialogueAction<NothingToDoHere>()))
+            // Shirts
             .Choice(new ItemOption(t.clean_dress)
                 .IfChosen(new TriggerDialogueAction<CleanDressDia>()))
             .Choice(new ItemOption(t.shirt)
                 .IfChosen(new TriggerDialogueAction<ShirtDia>()))
             .Choice(new ItemOption(t.dirty_shirt)
                 .IfChosen(new TriggerDialogueAction<DirtyShirtDia>()))
+            // Geese
             .Choice(new ItemOption(t.goose_clean)
                 .IfChosen(new TriggerDialogueAction<GooseDia>()))
             .Choice(new ItemOption(t.goose_bow)
                 .IfChosen(new TriggerDialogueAction<GooseBowDia>()))
+            // Coins
             .Choice(new ItemOption(t.cutecoin)
                 .IfChosen(new TriggerDialogueAction<CuteCoinDia>()))
             .Choice(new ItemOption(t.startcoin)
                 .IfChosen(new TriggerDialogueAction<StartCoinDia>()))
-//
+            // Switches
             .Choice(new ItemOption(t.switch_broken)
                 .IfChosen(new TriggerDialogueAction<BloodifySwitch>()))
             .Choice(new ItemOption(t.switch_broken_cute)
                 .IfChosen(new TriggerDialogueAction<BloodifySwitch>()))
-//
+            // Others
             .Choice(new OtherItemOption()
                 .IfChosen(new TriggerDialogueAction<CantDoAnythingWithIt>()));  
         }

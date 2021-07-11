@@ -170,7 +170,9 @@ MonoBehaviour:
   dirtyBrokenSwitch: {fileID: 11400000, guid: 02201874d20345cc4a81721b09010eff, type: 2}
   finishedSwitch: {fileID: 11400000, guid: adbacbb016bf2dc1ebcc654131ce627b, type: 2}
   bucket: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
+  bucketcute: {fileID: 11400000, guid: b4df9cc4ab97817dea6dd500737fb275, type: 2}
   fullbucket: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
+  fullbucketcute: {fileID: 11400000, guid: 7085ba18e17323e3d9b661f631c4aebd, type: 2}
   goose: {fileID: 11400000, guid: 198dc408a7afc11f7ba17208cfc0bbd2, type: 2}
   bloodygoose: {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
   bowgoose: {fileID: 11400000, guid: c35d8409472c06b41a3bdcbdf7d82177, type: 2}

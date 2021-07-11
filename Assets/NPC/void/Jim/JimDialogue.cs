@@ -14,7 +14,9 @@ public class JimDialogue : VoidNPCDiaTrigger {
     public Item dirtyBrokenSwitch;
     public Item finishedSwitch;
     public Item bucket;
+    public Item bucketcute;
     public Item fullbucket;
+    public Item fullbucketcute;
     public Item goose;
     public Item bloodygoose;
     public Item bowgoose;
@@ -81,6 +83,8 @@ public class JimDialogue : VoidNPCDiaTrigger {
 
                 .Choice(new ItemOption(t.fullbucket)
                     .IfChosen(new TriggerDialogueAction<FullBucketDialogue>()))
+                .Choice(new ItemOption(t.fullbucketcute)
+                    .IfChosen(new TriggerDialogueAction<FullBucketDialogue>()))
 
                 .Choice(new ItemOption(t.bloodygoose)
                     .IfChosen(new TriggerDialogueAction<GooseDialogue>()))
@@ -138,11 +142,17 @@ public class JimDialogue : VoidNPCDiaTrigger {
     }
     public class FullBucketDialogue : Dialogue{
         public FullBucketDialogue(){
+            World origin = DialogueManager.Instance.currentItem.originWorld;
             Say("Oof, yes this bucket is stinky. Gimme a sec, I'll clean it for you.")
-                .DoAfter(GiveItem(t.bucket));
+                .DoAfter(GiveItem(t.bucket))
+                .If(() => origin != World.Cute);
+            Say("Cute flowers, but oof that bucket is stinky. Gimme a sec, I'll clean it for you.")
+                .DoAfter(GiveItem(t.bucketcute))
+                .If(() => origin == World.Cute);
             Say("here you go");
         }
     }
+
     public class GooseDialogue : Dialogue {
         public GooseDialogue(){
             Say("Oh the poor thing, wait let me polish her for you.");

@@ -161,6 +161,8 @@ MonoBehaviour:
   dirty_shirt: {fileID: 11400000, guid: 68f5019aedda0061a831b85a013d06a4, type: 2}
   bucket: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
   empty: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
+  bucket_empty_cute: {fileID: 11400000, guid: b4df9cc4ab97817dea6dd500737fb275, type: 2}
+  bucket_full_cute: {fileID: 11400000, guid: 7085ba18e17323e3d9b661f631c4aebd, type: 2}
   gameLost: {fileID: 11400000, guid: 7067d8b8b07f27bc3b40963e02ad51aa, type: 2}
   gamePlayed: {fileID: 11400000, guid: 65c432402cc0fbc5087c8d230594304d, type: 2}
   goose_clean: {fileID: 11400000, guid: 198dc408a7afc11f7ba17208cfc0bbd2, type: 2}
