@@ -191,7 +191,8 @@ public class JimmyTheCatDialogue : DialogueTrigger {
 
     public class CutifyCoin : Dialogue {
         public CutifyCoin() {
-            Say("*hissss* That quarter smell weird!");
+            Say("*hissss* That quarter smells weird!")
+                .DoAfter(RemoveItem(DialogueManager.Instance.currentItem));
             Say("Let me dunk it into some syrup...")
                 .DoAfter(GiveItem(t.coin_cute));
             Say("....meow meow meow...")
