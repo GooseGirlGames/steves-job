@@ -146,7 +146,7 @@ MonoBehaviour:
   avatar: {fileID: 0}
   name: Steve E Horror
   world: 2
-  _given_horrorcoin: {fileID: 11400000, guid: 533a42b9a0b1b584b987d7a3d80c49af, type: 2}
+  _given_horrorcoin: {fileID: 11400000, guid: 6d22034e2ed7d7af38c284fbb262c66d, type: 2}
   horrorcoin: {fileID: 11400000, guid: 95471e06a7c17fbf7808e9594c76c508, type: 2}
   startcoin: {fileID: 11400000, guid: 893420d5093890ca2bff51a05023f30c, type: 2}
   cutecoin: {fileID: 11400000, guid: 2fb8e45bc98bdb9949adc0daa6d6c4ec, type: 2}
@@ -287,7 +287,7 @@ MonoBehaviour:
   avatar: {fileID: 0}
   name: Steve E Horror
   world: 2
-  _given_horrorcoin: {fileID: 11400000, guid: 533a42b9a0b1b584b987d7a3d80c49af, type: 2}
+  _given_horrorcoin: {fileID: 11400000, guid: 6d22034e2ed7d7af38c284fbb262c66d, type: 2}
   horrorcoin: {fileID: 11400000, guid: 95471e06a7c17fbf7808e9594c76c508, type: 2}
   startcoin: {fileID: 11400000, guid: 893420d5093890ca2bff51a05023f30c, type: 2}
   cutecoin: {fileID: 11400000, guid: 2fb8e45bc98bdb9949adc0daa6d6c4ec, type: 2}
@@ -1049,6 +1049,10 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.16
       objectReference: {fileID: 0}
+    - target: {fileID: 4618910094882723389, guid: 0216400864c83974cac7318be263c01a, type: 3}
+      propertyPath: _given_horrorcoin
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d22034e2ed7d7af38c284fbb262c66d, type: 2}
     - target: {fileID: 5667568167214575478, guid: 0216400864c83974cac7318be263c01a, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -1170,6 +1174,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IronMaiden
       objectReference: {fileID: 0}
+    - target: {fileID: 6489837072187822998, guid: 9572c6e836c7f1347a25ed44f8bca852, type: 3}
+      propertyPath: _given_horrorcoin
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d22034e2ed7d7af38c284fbb262c66d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9572c6e836c7f1347a25ed44f8bca852, type: 3}
 --- !u!1001 &4107065075338397233
@@ -1377,6 +1385,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5444835572773561731, guid: 53b8c4cc20d211649a44272ef88fd13a, type: 3}
+      propertyPath: _given_horrorcoin
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d22034e2ed7d7af38c284fbb262c66d, type: 2}
     - target: {fileID: 6089477957318197416, guid: 53b8c4cc20d211649a44272ef88fd13a, type: 3}
       propertyPath: m_Size.x
       value: 0.16
@@ -1519,6 +1531,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bucket
       objectReference: {fileID: 0}
+    - target: {fileID: 5336860324911499903, guid: c4716eb39eac0444984fb7c5fc5bf590, type: 3}
+      propertyPath: _given_horrorcoin
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d22034e2ed7d7af38c284fbb262c66d, type: 2}
     - target: {fileID: 5556910935084047737, guid: c4716eb39eac0444984fb7c5fc5bf590, type: 3}
       propertyPath: m_Size.x
       value: 0.16
