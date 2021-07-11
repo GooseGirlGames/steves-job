@@ -5,9 +5,11 @@ using UnityEngine;
 public class StoreOwnerDialogue : DialogueTrigger {
     public Portal portalToMiniGame;
     new public static StoreOwnerDialogue Instance = null;
+    public Item crank;
     public Item _storeowner_later;
     public Item _racoonMad;
     public Item _miniRacoonGamePlayed;
+    public Item _got_crank;
     public Item _restoredCandyman;
 
     public void EnterMiniGame() {
@@ -51,6 +53,13 @@ public class ThankYouDia : Dialogue {
         Say("*cries*");
         Say("thank you so sooo soooo much!!!");
         Say("I thought i had lost my child forever!");
+
+        Say(
+            "I can't pay you with much, but maybe this fine walking " + 
+            "cane might bring you some joy."
+        )
+        .If(DoesNotHaveItem(StoreOwnerDialogue.Instance._got_crank))
+        .Do(GiveItem(StoreOwnerDialogue.Instance._got_crank));
     }
 }
 

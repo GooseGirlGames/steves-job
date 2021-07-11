@@ -118,8 +118,7 @@ MonoBehaviour:
   destinationType: 1
   targetSceneName: JumpMiniGame
   target: {fileID: 0}
-  targetUp: {fileID: 0}
-  targetDown: {fileID: 0}
+  elevator: 0
   targetName: 
   teleportAfterSceneChange: 0
   transitionAnimation: {fileID: 0}
@@ -150,8 +149,11 @@ MonoBehaviour:
   name: 
   world: 1
   portalToMiniGame: {fileID: 3479531730777241744}
+  crank: {fileID: 0}
   _storeowner_later: {fileID: 11400000, guid: 236416539b483d448a66ef258c6b9d4b, type: 2}
   _racoonMad: {fileID: 11400000, guid: 1b69354948bf26b7bb2617f4459511b4, type: 2}
+  _miniRacoonGamePlayed: {fileID: 11400000, guid: 3aa40781ea1be715fb28cc364ef63ff6, type: 2}
+  _got_crank: {fileID: 11400000, guid: 00e03204d750c101b86f1412c5fcc82a, type: 2}
   _restoredCandyman: {fileID: 11400000, guid: 1fb675725e87cfb71ac764ecb4827f55, type: 2}
 --- !u!1 &2779061103552406641
 GameObject:
