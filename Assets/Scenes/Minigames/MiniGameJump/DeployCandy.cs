@@ -101,24 +101,25 @@ public class DeployCandy : MonoBehaviour
     }
     public void FixedUpdate(){
         
-        float speedUp = 1.0f;
+        float speedUp = 0.75f;
         if (racoon_near < 5.0f) {
             // Let Steve catch up
             speedUp = 7.0f;
             StopCoroutine(spawnCoroutine);
+            healthbar.gameObject.SetActive(false);
         }
         Debug.Log(racoon_near);
         racoon_near -= raccApproachSpeed * Time.deltaTime * speedUp;
-        if (racoon_near < 0.7f) {
+        if (racoon_near < 1f) {
             GameWon();
         }
 
         if(spawn != null){
             if(spawn.GetComponent<Sweets>().notYetTriggered){
                 if(spawn.GetComponent<Sweets>().trigger){
-                    health -= .1f; 
-                    player_pos = new Vector3(player.position.x - 1.0f, player.position.y, player.position.z);
-                    player.position = player_pos;
+                    health -= .2f; 
+                    //player_pos = new Vector3(player.position.x - 1.0f, player.position.y, player.position.z);
+                    //player.position = player_pos;
                     spawn.GetComponent<Sweets>().notYetTriggered = false;
                 }
                 
