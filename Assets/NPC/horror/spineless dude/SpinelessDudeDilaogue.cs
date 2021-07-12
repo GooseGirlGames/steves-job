@@ -17,17 +17,35 @@ public class SpinelessDudeDilaogue : DialogueTrigger
 
     public Item _spineless_and_lifeless;
     public Item _got_spine;
+    public Animator animator;
+    public Sprite ava_bloody;
+    public Sprite ava_norm;
 
     public static SpinelessDudeDilaogue s;
 
     void Awake() {
+        UpdateSpineyness();
         Instance = this;
+    }
+
+    public void UpdateSpineyness() {
+        avatar = ava_norm;
+        if (Inventory.Instance.HasItem(_spineless_and_lifeless)) {
+            animator.SetTrigger("Greased");
+            avatar = ava_bloody;
+        }
+        if (Inventory.Instance.HasItem(_got_spine)) {
+            animator.SetTrigger("Removed");
+            avatar = ava_bloody;
+            name = "Dude";
+        }
     }
 
     public override Dialogue GetActiveDialogue() {
         SpinelessDudeDilaogue.s = this;
+        UpdateSpineyness();
 
-        if (! Inventory.Instance.HasItem(_spineless_and_lifeless)) {
+        if (!Inventory.Instance.HasItem(_spineless_and_lifeless)) {
             return new SpinelessDudeHi();
         }
         if (Inventory.Instance.HasItem(_got_spine)) {
@@ -166,7 +184,8 @@ public class SpinelessDudeDilaogue : DialogueTrigger
             Say("Oh that could really work!")
             .DoAfter(RemoveItem(s.grease))
             .DoAfter(GiveItem(s._spineless_and_lifeless));
-            Say("Aeugh *huff* Aaaaaaah *gasps* YESSSSS");
+            Say("Aeugh *huff* Aaaaaaah *gasps* YESSSSS")
+            .Do(s.UpdateSpineyness);
             Say("Thaaaanks ssso muchhh");
         }
     }

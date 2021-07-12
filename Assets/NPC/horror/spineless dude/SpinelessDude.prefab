@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3128048993396609715}
   - component: {fileID: 5797943577012568316}
   - component: {fileID: 3278088230645691600}
+  - component: {fileID: 740587555019720747}
   m_Layer: 0
   m_Name: SpinelessDude
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3498351933639608296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.4540076, y: -3.7607834, z: -89.60422}
-  m_LocalScale: {x: 8, y: 8, z: 1}
+  m_LocalScale: {x: 3.708066, y: 3.708066, z: 1}
   m_Children:
   - {fileID: 776255925417337831}
   m_Father: {fileID: 0}
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 61214f671fb6c0014bdd97c3d5d04694, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5661d2683db7cadf0a660e6dcf3709cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,18 +99,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.03155431, y: -0.09466295}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.73, y: 0.61}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.51147157, y: 0.38932595}
   m_EdgeRadius: 0
 --- !u!114 &3278088230645691600
 MonoBehaviour:
@@ -126,12 +127,14 @@ MonoBehaviour:
   playerInTrigger: 0
   hintPosition: {fileID: 776255925417337831}
   background: {fileID: 0}
-  avatar: {fileID: 0}
-  name: Spineless Dude
+  avatar: {fileID: 21300000, guid: 5099fbc0ffef8b8bc836d4179a6b27dd, type: 3}
+  name: Spine-Fionn
   world: 2
   grease: {fileID: 11400000, guid: 77d571d3a158aadc9a92bfd63af5128a, type: 2}
   spine: {fileID: 11400000, guid: f5d2203e1492d8c28b2567f5c42b0494, type: 2}
   bloodbucket: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
+  cute_bucket_empty: {fileID: 11400000, guid: b4df9cc4ab97817dea6dd500737fb275, type: 2}
+  cute_bucket_full: {fileID: 11400000, guid: 7085ba18e17323e3d9b661f631c4aebd, type: 2}
   emptybucket: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
   maiddress: {fileID: 11400000, guid: 2b4050f9a23fa289d9242de4e365c15d, type: 2}
   dirty_maiddress: {fileID: 11400000, guid: ddaa1a742fa1cc9eebefa13f28c50b7c, type: 2}
@@ -139,6 +142,28 @@ MonoBehaviour:
   dirty_apron: {fileID: 11400000, guid: 68f5019aedda0061a831b85a013d06a4, type: 2}
   _spineless_and_lifeless: {fileID: 11400000, guid: 4d423f8643ba7f5429f6cfe70956a974, type: 2}
   _got_spine: {fileID: 11400000, guid: 808cfe355e25c36408458696102d3ab3, type: 2}
+  animator: {fileID: 740587555019720747}
+  ava_bloody: {fileID: 21300000, guid: b58759098b51e1442962808840863d73, type: 3}
+  ava_norm: {fileID: 21300000, guid: 5099fbc0ffef8b8bc836d4179a6b27dd, type: 3}
+--- !u!95 &740587555019720747
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3498351933639608296}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2dd6c624cbe07f51cb083ad0786222af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3602715436487787953
 GameObject:
   m_ObjectHideFlags: 0
