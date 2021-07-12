@@ -15,7 +15,8 @@ public class Bucket : DialogueTrigger
     public static Bucket b;
 
     void Awake() {
-       Instance = this;
+        GameObject.Find("Bucket").SetActive(!Inventory.Instance.HasItem(_got_bucket));
+        Instance = this;
     }
 
     public override Dialogue GetActiveDialogue() {
