@@ -7,28 +7,44 @@ public class ArrowHitKey : MonoBehaviour
     public bool pressable;
     public bool hit = false;
     public bool missed = false;
-    public KeyCode keyToPress;
-    
+    public Sprite hitSprite;
+    private bool button_direction;
 
     void Update(){
-        if(Input.GetKeyDown(keyToPress)){
+        if(button_direction){
+            gameObject.GetComponent<SpriteRenderer>().sprite = hitSprite;
             if(pressable){
+                
                 MiniGameManager.instance.NoteHit();
                 gameObject.SetActive(false);
             }
             
         }
-/*         if(pressable && !hit){
-            if(!missed){
-                missed = true; 
-                MiniGameManager.instance.NoteMissed();
-            }   
-        }       
-     */
     }
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "button"){
             pressable = true;
+            if(other.gameObject.name == "arrow_left"){
+                //if(Input.GetAxis("Horizontal") < 0){
+                    button_direction = Input.GetAxis("Horizontal") < 0/* Input.GetButtonDown("Horizontal") */;
+                //}
+                
+            }
+            if(other.gameObject.name == "arrow_right"){
+                //if(Input.GetAxis("Horizontal") > 0){
+                    button_direction = Input.GetAxis("Horizontal") > 0/* Input.GetButtonDown("Horizontal") */;
+                //}
+            }
+            if(other.gameObject.name == "arrow_up"){
+                //if(Input.GetAxis("Vertical") > 0){
+                    button_direction = Input.GetAxis("Vertical") > 0/* Input.GetButtonDown("Vertical") */;
+                //}   
+            }
+            if(other.gameObject.name == "arrow_up"){
+                //if(Input.GetAxis("Vertical") < 0){
+                    button_direction = Input.GetAxis("Vertical") < 0/* Input.GetButtonDown("Vertical") */;
+                //}   
+            }
         }
     }
     void OnTriggerExit2D(Collider2D other){
