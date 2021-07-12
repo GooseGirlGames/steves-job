@@ -90,7 +90,7 @@ Transform:
   m_GameObject: {fileID: 6102461149753109609}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.192, y: -0.7468, z: 7.8504786}
-  m_LocalScale: {x: 6.955296, y: 15.511309, z: 1}
+  m_LocalScale: {x: 3.708066, y: 3.708066, z: 1}
   m_Children: []
   m_Father: {fileID: 6102461148602754280}
   m_RootOrder: 1
@@ -135,7 +135,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 61214f671fb6c0014bdd97c3d5d04694, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7cbaf87b63fb9361e9f3aa065ff49b49, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -159,18 +159,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.003057696, y: 0.00928174}
+  m_Offset: {x: -0.02665802, y: 0.057697564}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.58, y: 0.81}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15023579, y: 0.17897418}
+  m_Size: {x: 0.2817039, y: 0.9609979}
   m_EdgeRadius: 0
 --- !u!114 &6102461149753109611
 MonoBehaviour:
@@ -197,3 +197,9 @@ MonoBehaviour:
   switch_dirty_horror_broken: {fileID: 11400000, guid: f4c53fdac8403b72e91dba556812760d, type: 2}
   _powered: {fileID: 11400000, guid: a7db27240f1b684c3a4c8d36f379a74e, type: 2}
   _not_pickedup_with_switch: {fileID: 11400000, guid: fa49013038d0321088f409d9bcac2ab8, type: 2}
+  sprite_start: {fileID: 21300000, guid: 7cbaf87b63fb9361e9f3aa065ff49b49, type: 3}
+  sprite_empty: {fileID: 21300000, guid: 26f7a85d51dbffc58872ddf95e3b8713, type: 3}
+  sprite_complete: {fileID: 21300000, guid: 83d9d8d62e43b5052b0e6e4fa9c5fe4d, type: 3}
+  ava_start: {fileID: 21300000, guid: 3dc08d97a394f4fba91931982a2eb1f9, type: 3}
+  ava_empty: {fileID: 21300000, guid: 3dc08d97a394f4fba91931982a2eb1f9, type: 3}
+  ava_complete: {fileID: 21300000, guid: 60bdc1626604fd3e6808756fc126916b, type: 3}

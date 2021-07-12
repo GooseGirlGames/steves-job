@@ -1576,7 +1576,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036826970}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.2200003, y: -0.5999999, z: 100}
+  m_LocalPosition: {x: 4.471, y: -0.726, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1373832015}
@@ -1596,9 +1596,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.845
+  m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.4
+  m_Intensity: 1
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: c78c9149f72abd5a2785c43d00000000a33ba208cf063272f7d159135d0ee7d6
   m_LightCookieSprite: {fileID: 0}
@@ -1609,8 +1609,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 5.2
+  m_PointLightInnerRadius: 1.12
+  m_PointLightOuterRadius: 2.43
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -2879,11 +2879,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6102461148602754280, guid: 9c14250e8ccaca92da217f523e69e5ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.12
+      value: 13.25
       objectReference: {fileID: 0}
     - target: {fileID: 6102461148602754280, guid: 9c14250e8ccaca92da217f523e69e5ae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.11
+      value: 2.604
       objectReference: {fileID: 0}
     - target: {fileID: 6102461148602754280, guid: 9c14250e8ccaca92da217f523e69e5ae, type: 3}
       propertyPath: m_LocalPosition.z

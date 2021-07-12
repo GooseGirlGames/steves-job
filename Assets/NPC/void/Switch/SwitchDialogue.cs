@@ -30,7 +30,34 @@ public class SwitchDialogue : DialogueTrigger {
     public Item _not_pickedup_with_switch;
     public static SwitchDialogue t;
 
+    public Sprite sprite_start;
+    public Sprite sprite_empty;
+    public Sprite sprite_complete;
+    public Sprite ava_start;
+    public Sprite ava_empty;
+    public Sprite ava_complete;
+    new private SpriteRenderer renderer;
+
+    public void UpdateState() {
+        if(Inventory.Instance.HasItem(_not_pickedup_with_switch)) {
+            avatar = ava_start;
+            renderer.sprite = sprite_start;
+        } else if (SteveHasAnySwitch()) {
+            avatar = ava_empty;
+            renderer.sprite = sprite_empty;
+        } else {
+            avatar = ava_complete;
+            renderer.sprite = sprite_complete;
+        }
+    }
+
+    private void Awake() {
+        renderer = GetComponent<SpriteRenderer>();
+        UpdateState();
+    }
+
     public override Dialogue GetActiveDialogue() {
+        UpdateState();
         SwitchDialogue.t = this;
         if (Inventory.Instance.HasItem(_not_pickedup_with_switch)){
             return new FirstDialogue();
@@ -140,15 +167,15 @@ public class SwitchDialogue : DialogueTrigger {
     public class InsertSwitch : Dialogue {
         public InsertSwitch() {
             Say("Yup, that's it...");
-            Say("Now, be careful...");
+            Say("Now, be careful...")
+            .Do(RemoveItem(t.switch_final))
+            .Do(() => t.UpdateState());
 
             Say("Fits like a glove.")
-            .Do(RemoveItem(t.switch_final))
             .If(HasItem(t._powered))
             .DoAfter(new TriggerDialogueAction<SwitchInstalledAndPowered>());
 
             Say("Fits like a glove.")
-            .Do(RemoveItem(t.switch_final))
             .If(DoesNotHaveItem(t._powered))
             .DoAfter(new TriggerDialogueAction<SwitchInstalledNoPower>());
         }
