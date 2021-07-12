@@ -12,13 +12,30 @@ public class SteveEHorrorDialogue : DialogueTrigger
     public Item cutecoin;
     public Item startcoin;
 
+    public Sprite ava_uwu;
+    public Sprite ava_norm;
+    public Sprite sprite_uwu;
+    public Sprite sprite_norm;
+
     public const string DefName = "Steve E Horror";
     public const string UwuName = "Steve E Howwow";
 
     public static SteveEHorrorDialogue s;
 
     void Awake() {
+        UpdateUwu();
         Instance = this;
+    }
+
+    private void UpdateUwu() {
+        if (Inventory.Instance.HasItem(_restored_steve_e_horror)) {
+            name  = DefName;
+            avatar = ava_norm;
+            GetComponent<SpriteRenderer>().sprite = sprite_norm;
+        } else {
+            avatar = ava_uwu;
+            GetComponent<SpriteRenderer>().sprite = sprite_uwu;
+        }
     }
 
     public override Dialogue GetActiveDialogue() {
@@ -26,22 +43,22 @@ public class SteveEHorrorDialogue : DialogueTrigger
 
         if (! Inventory.Instance.HasItem(_setve_horror_backstory)) {
             if (Inventory.Instance.HasItem(babelfisch)) {
-                name = DefName;
+                name  = DefName;
             }
             else {
-                name = UwuName;
+                name  = UwuName;
             }
             return new StvHorrorBackstoryDialogue();
         }
         else if (Inventory.Instance.HasItem(_restored_steve_e_horror)) {
-            name = DefName;
+            name  = DefName;
             return new StvHorrorHappyDialogue();
         }
         else if (Inventory.Instance.HasItem(babelfisch)) {
-                name = DefName;
+                name  = DefName;
         }
         else {
-            name = UwuName;
+            name  = UwuName;
         }
         return new StvHorrorDefaultDialogue();
     }
@@ -105,13 +122,14 @@ public class SteveEHorrorDialogue : DialogueTrigger
 
             Say(Uwu.Uwufy("Oh, what is this?"));
             Say(Uwu.Uwufy("*crunch* *chomp*"))
+            .DoAfter(GiveItem(s._restored_steve_e_horror))
+            .DoAfter(s.UpdateUwu)
             .DoAfter(RemoveItem(s.babelfisch));
     
             Say("Mmh, delicious");
             Say("WAIT A MINUTE");
             Say("Am I actually able to speak normally again?");
-            Say("This is amazing, thank you so much!")
-            .DoAfter(GiveItem(s._restored_steve_e_horror));
+            Say("This is amazing, thank you so much!");
         }
     }
 
