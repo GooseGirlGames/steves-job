@@ -3894,15 +3894,17 @@ MonoBehaviour:
   elevator: 0
   targetName: 
   teleportAfterSceneChange: 0
-  transitionAnimation: {fileID: 0}
   portalAnimator: {fileID: 0}
   transitionAnimationSpeedFactor: 1
   animationDelay: 0
+  animationDelayChangeScene: 2
+  animateTransition: 1
   hintPosition: {fileID: 0}
   animateAsElevator: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
+  targetWorld: 0
 --- !u!1 &1014429756
 GameObject:
   m_ObjectHideFlags: 0
@@ -6286,15 +6288,17 @@ MonoBehaviour:
   elevator: 0
   targetName: 
   teleportAfterSceneChange: 0
-  transitionAnimation: {fileID: 0}
   portalAnimator: {fileID: 0}
   transitionAnimationSpeedFactor: 1
   animationDelay: 0
+  animationDelayChangeScene: 2
+  animateTransition: 1
   hintPosition: {fileID: 0}
   animateAsElevator: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
+  targetWorld: 0
 --- !u!1 &1565383390
 GameObject:
   m_ObjectHideFlags: 0
@@ -7323,6 +7327,9 @@ MonoBehaviour:
   winPortal: {fileID: 978371382}
   losePortal: {fileID: 1563079139}
   player: {fileID: 786341453}
+  _powered: {fileID: 11400000, guid: a7db27240f1b684c3a4c8d36f379a74e, type: 2}
+  _notPowered: {fileID: 11400000, guid: c32543f087df78cfe8f1f532a34a7c6c, type: 2}
+  _can_use_ddr: {fileID: 11400000, guid: fe32ef471494d506eaf0662eecf9d7b3, type: 2}
 --- !u!4 &1700795326
 Transform:
   m_ObjectHideFlags: 0
@@ -7957,7 +7964,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -256, y: 130}
+  m_AnchoredPosition: {x: -255.99998, y: 130}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1901842705
