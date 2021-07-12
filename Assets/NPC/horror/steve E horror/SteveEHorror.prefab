@@ -49,7 +49,7 @@ MonoBehaviour:
   playerInTrigger: 0
   hintPosition: {fileID: 0}
   background: {fileID: 0}
-  avatar: {fileID: 0}
+  avatar: {fileID: 21300000, guid: f61d0e6cee2dca1e485ded8174aae78e, type: 3}
   name: Steve E Horror
   world: 2
   babelfisch: {fileID: 11400000, guid: 9dc941907f5f8bf4f99864efacbbe379, type: 2}
@@ -59,6 +59,10 @@ MonoBehaviour:
   void_bar: {fileID: 11400000, guid: c4555e7678ae05c63b60689c07dd63c0, type: 2}
   cutecoin: {fileID: 11400000, guid: 2fb8e45bc98bdb9949adc0daa6d6c4ec, type: 2}
   startcoin: {fileID: 11400000, guid: 893420d5093890ca2bff51a05023f30c, type: 2}
+  ava_uwu: {fileID: 21300000, guid: f61d0e6cee2dca1e485ded8174aae78e, type: 3}
+  ava_norm: {fileID: 21300000, guid: 75dbc2325c4fd4badb2858dd6b4e505f, type: 3}
+  sprite_uwu: {fileID: 21300000, guid: 4493583bd281aa77f88efc684bc853c5, type: 3}
+  sprite_norm: {fileID: 21300000, guid: e87f129335c3b01dc8db453dee5a7851, type: 3}
 --- !u!212 &-2872982336449769244
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -99,7 +103,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 61214f671fb6c0014bdd97c3d5d04694, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4493583bd281aa77f88efc684bc853c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,18 +127,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.07703504, y: -0.084302574}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.9, y: 0.85}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.31407005, y: 0.5727919}
   m_EdgeRadius: 0
 --- !u!1 &7759161556730721691
 GameObject:

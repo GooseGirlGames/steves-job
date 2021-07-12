@@ -7,18 +7,28 @@ public class CrankPortDialogue : DialogueTrigger {
 
     public Item candyCrank;
     public Item cranked;
+    public Animator animator;
+
+    private void Awake() {
+        if (Inventory.Instance.HasItem(cranked))
+            animator.SetTrigger("RetractInstant");
+    }
 
     public override Dialogue GetActiveDialogue() {
         CrankPortDialogue.t = this;
-        if (!Inventory.Instance.HasItem(cranked))
+        //if (!Inventory.Instance.HasItem(cranked))
             return new CrankPort();
-        return null;
+        //return null;
     }
 
     private void CrankMarquee() {
-        Inventory.Instance.AddItem(cranked);
-        Inventory.Instance.RemoveItem(candyCrank);
-        // TODO
+        if (Inventory.Instance.HasItem(cranked)) {
+            Inventory.Instance.RemoveItem(cranked);
+            animator.SetTrigger("Extend");
+        } else {
+            Inventory.Instance.AddItem(cranked);
+            animator.SetTrigger("Retract");
+        }
     }
 
     public class CrankPort : Dialogue {
@@ -39,7 +49,7 @@ public class CrankPortDialogue : DialogueTrigger {
     public class Crank : Dialogue {
         public Crank() {
             CrankPortDialogue t = CrankPortDialogue.t;
-            Say("*squeak*").DoAfter(t.CrankMarquee);
+            Say("*squeak*").Do(t.CrankMarquee);
         }
     }
 
