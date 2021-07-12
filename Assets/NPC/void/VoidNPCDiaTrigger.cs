@@ -6,6 +6,7 @@ public abstract class VoidNPCDiaTrigger : DialogueTrigger {
     public Item _restored_cute;
     public Item _restored_horror;
     private Animator animator;
+    public List<Animator> additionalAnimators = new List<Animator>();
     new private SpriteRenderer renderer;
     private VoidNPCState state;
     public Sprite avatar_normal;
@@ -64,6 +65,9 @@ public abstract class VoidNPCDiaTrigger : DialogueTrigger {
             avatar = avatar_gone;
         }
 
+        foreach (var a in additionalAnimators) {
+            a.SetInteger("State", (int) state);
+        }
         if (animator != null) {
             animator.SetInteger("State", (int) state);
             renderer.color = (state == VoidNPCState.Gone) ? gray : white;

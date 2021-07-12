@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 8013269578141171597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.304593, y: 1.7648767, z: -74.800156}
-  m_LocalScale: {x: 8, y: 8, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 2834970301656200935}
   m_Father: {fileID: 0}
@@ -87,6 +87,8 @@ MonoBehaviour:
   _horror_racoon_done: {fileID: 11400000, guid: 8c68477ab2f1ef841a3e314cc43530de, type: 2}
   bloodbucket: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
   emptybucket: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
+  bloodbucketcute: {fileID: 0}
+  emptybucketcute: {fileID: 0}
   grease: {fileID: 11400000, guid: 77d571d3a158aadc9a92bfd63af5128a, type: 2}
   goose: {fileID: 11400000, guid: 198dc408a7afc11f7ba17208cfc0bbd2, type: 2}
   goose_blood: {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
@@ -111,7 +113,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 3.41, y: 5.14}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -160,9 +162,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 61214f671fb6c0014bdd97c3d5d04694, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: 21300000, guid: 27f770847fbaa3551b74994d3084470f, type: 3}
+  m_Color: {r: 0.95686275, g: 0.61626357, b: 0.5817725, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.16, y: 0.16}
