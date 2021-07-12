@@ -17,6 +17,9 @@ public class MiniGameManager : MonoBehaviour{
     public Portal losePortal;
     private bool pause = false;
     public GameObject player;
+    public Item _powered;
+    public Item _notPowered;
+    public Item _can_use_ddr;
 
     void Start(){
         instance = this;
@@ -58,11 +61,14 @@ public class MiniGameManager : MonoBehaviour{
         while(true){
             yield return new WaitForSeconds(theMusic.clip.length);
             if(score >= 5000){
-                winPortal.TriggerTeleport();
+                Inventory.Instance.AddItem(_powered);
+                Inventory.Instance.RemoveItem(_notPowered);
+                Inventory.Instance.RemoveItem(_can_use_ddr);
             }
             if(score<= 4999){
-                winPortal.TriggerTeleport();
+                Inventory.Instance.AddItem(_notPowered);
             }
+            winPortal.TriggerTeleport();
         }    
     }
     public void NoteHit(){
