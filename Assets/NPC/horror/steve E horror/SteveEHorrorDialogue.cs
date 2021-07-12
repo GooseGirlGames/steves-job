@@ -110,9 +110,7 @@ public class SteveEHorrorDialogue : DialogueTrigger
             Say("Mmh, delicious");
             Say("WAIT A MINUTE");
             Say("Am I actually able to speak normally again?");
-            Say("This is amazing, thank you so much!");
-            Say("As my token of gratitude please have this coin.")
-            .DoAfter(GiveItem(s.horrorcoin))
+            Say("This is amazing, thank you so much!")
             .DoAfter(GiveItem(s._restored_steve_e_horror));
         }
     }
