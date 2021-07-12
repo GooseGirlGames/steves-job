@@ -45,15 +45,22 @@ public class MiniGameManager : MonoBehaviour{
             theMusic.Play();
             pause = false;
         }
-        if(Input.GetKeyDown(KeyCode.W)){
-            Vector3 steve_pos = new Vector3(player.gameObject.transform.position.x, player.gameObject.transform.position.y + 0.5f, 1);
-            player.gameObject.transform.position = steve_pos;
+        if(Input.GetAxis("Vertical") > 0){
+            if(Input.GetButtonDown("Vertical")){
+                Vector3 steve_pos = new Vector3(player.gameObject.transform.position.x, player.gameObject.transform.position.y + 0.5f, 1);
+                player.gameObject.transform.position = steve_pos;
+            }
         }
-        if(Input.GetKeyDown(KeyCode.S)){
-            player.GetComponent<stevecontroller>().crouch = true;
+        if(Input.GetAxis("Vertical") < 0){
+            if(Input.GetButtonDown("Vertical")){
+                if(player.GetComponent<stevecontroller>().is_grounded){
+                    player.GetComponent<stevecontroller>().crouch = true;
+                }    
+            }
         }
-        if(Input.GetKeyUp(KeyCode.S)){
+        if(Input.GetButtonUp("Vertical")){
             player.GetComponent<stevecontroller>().crouch = false;
+
         }
     }
 

@@ -25,7 +25,7 @@ public class stevecontroller : MonoBehaviour {
     [SerializeField] private Transform m_ground_check;
     [SerializeField] private LayerMask ground_layer;
     //public UnityEvent OnLandEvent;
-    [SerializeField] private bool is_grounded = false;
+    public bool is_grounded = false;
     const float k_GroundedRadius = .2f;
     public float crouchspeed = 10f;
     private Transform crouchTransform;
