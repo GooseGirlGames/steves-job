@@ -68,7 +68,7 @@ public class FredDialogue : DialogueTrigger
             Say("Whatever its in that bloody bucket, it smells ace. anyway...")
                 .If(HasItem(t.bucketfullcute));
             Say("Me bloody apron's fucked. Newly bought and already super disgusting");
-            Say("Could you clean it for me, if ya know what I mean?")
+            Say("Could you clean it for me, if ya know what I mean?");
             EmptySentence().DoAfter(new TriggerDialogueAction<Choose_Default>());
             Say("Bye");
         }
