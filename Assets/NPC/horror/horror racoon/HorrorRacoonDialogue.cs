@@ -141,7 +141,7 @@ public class HorrorRacoonDialogue : DialogueTrigger
     public class HorrorRacoonDrinkChoice : Dialogue {
         public HorrorRacoonDrinkChoice() {
             Say("Give me the magpie!")
-            .Choice(new TextOption("This is temporary..."))
+            .Choice(new TextOption("Nope..."))
             .Choice(new ItemOption(h.magpie)
                 .IfChosen(new TriggerDialogueAction<HorrorRacoonMagpie>()))
             .Choice(new OtherItemOption()

@@ -67,7 +67,8 @@ public class FredDialogue : DialogueTrigger
                 .If(HasItem(t.bucketfull));
             Say("Whatever its in that bloody bucket, it smells ace. anyway...")
                 .If(HasItem(t.bucketfullcute));
-            Say("Me bloody apron's fucked");
+            Say("Me bloody apron's fucked. Newly bought and already super disgusting");
+            Say("Could you clean it for me, if ya know what I mean?");
             EmptySentence().DoAfter(new TriggerDialogueAction<Choose_Default>());
             Say("Bye");
         }
@@ -81,9 +82,9 @@ public class FredDialogue : DialogueTrigger
                 .Choice(
                     new TextOption("No")
                     .IfChosen(new TriggerDialogueAction<No_Default>(exitCurrent: true)))
-                .Choice(
-                    new TextOption("Apron")
-                    .IfChosen(new TriggerDialogueAction<Apron_Default>()))
+                //.Choice(
+                //    new TextOption("Apron")
+                //    .IfChosen(new TriggerDialogueAction<Apron_Default>()))
                 .Choice(
                     new ItemOption(t.bucketfull)
                     .IfChosen(GiveItem(t.bucket))
@@ -118,12 +119,12 @@ public class FredDialogue : DialogueTrigger
         }
     }
 
-    public class Apron_Default : Dialogue{
+    /*public class Apron_Default : Dialogue{
         public Apron_Default(){
             Say("Can't ya see, it's looks like kangaroo poo")
                 .DoAfter(new TriggerDialogueAction<Choose_Default>());
         }
-    }
+    }*/
     public class Default_Usless_Dialogue : Dialogue{
         public Default_Usless_Dialogue(){
             Say("This s fuckn useless")

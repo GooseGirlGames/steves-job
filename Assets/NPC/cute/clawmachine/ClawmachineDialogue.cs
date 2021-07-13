@@ -47,7 +47,7 @@ public class ClawmachineDialogue : DialogueTrigger {
 
             Say(
                 "Want to give the amazing, guaranteed to not be cursed "
-                + CLAWMACHINE_NAME + " a try?"
+                + CLAWMACHINE_NAME + " a try? It's just 25 cents!"
                 )
             .Choice(
                 new ItemOption(t.startcoin)
