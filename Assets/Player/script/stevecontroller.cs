@@ -3,7 +3,13 @@ using UnityEngine.Events;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
+public struct SteveState {
+    public Vector3 pos;
+    public bool crouch;
+    public bool grounded;
+    public float speed;
+    public bool facing_right;
+}
 public class stevecontroller : MonoBehaviour {
 
 //member variablen
@@ -140,6 +146,15 @@ public class stevecontroller : MonoBehaviour {
         m_animator.SetFloat("Speed", Mathf.Abs(horizontal_move));
         m_animator.SetBool("is_grounded", is_grounded);  
         m_animator.SetBool("crouch", crouch);  
+    }
+    public SteveState GetMovementState() {
+        var s = new SteveState();
+        s.pos = m_rigitbody.position;
+        s.speed = Mathf.Abs(horizontal_move);
+        s.crouch = crouch;
+        s.grounded = is_grounded;
+        s.facing_right = m_facing_right;
+        return s;
     }
 
     private void Update(){
