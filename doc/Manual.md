@@ -25,5 +25,4 @@ That's about it, have fun!
 
 ![](https://repository-images.githubusercontent.com/363396456/e9ba1980-d428-11eb-868e-d53d193f33fc)
 
-Shhh, if you need a bit of help:
-![](https://finnmito.github.io)
+Shhh, if you need a bit of help click **[here](https://finnmito.github.io)** for hints
