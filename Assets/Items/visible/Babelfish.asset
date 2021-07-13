@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Babelfish
   m_EditorClassIdentifier: 
   name: Babelfish
-  description: this feews weiwd in my eaw, >_< ugh.
+  description: ugh, OwO this feews weiwd in my eaw. h-how's anyone supposed t-to
+    take me s-sewiouswy nyow?
   visible: 1
   icon: {fileID: 6761164967045977113, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 1

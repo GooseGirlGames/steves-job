@@ -88,7 +88,7 @@ public class HandymanDialogue : VoidNPCDiaTrigger {
             );
             Say(
                 "I mean, you still need electricity, but that's none of my business. \n" +
-                "I'm a repair guy, not a power generator, haha."
+                "I'm a repair person, not a power generator, haha."
             );
             Say("Huh, what an interesting mechanism, never seen one of these before.");
             Say("Anyway, here you go.")

@@ -196,7 +196,9 @@ public class CuteEWonderDialogue : DialogueTrigger {
             Say("...AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHH!!!")
             .DoAfter(() => { t.renderer.enabled = true; });
 
-            Say("Okay okay, that did not work out. God, why am I so easily scared?")
+            Say("Okay okay, that did not work out. God, why am I so easily scared?");
+
+            Say("No wonder people call me weak and spineless...")
             .DoAfter(new TriggerDialogueAction<GiveMeSpine>());
         }
     }
