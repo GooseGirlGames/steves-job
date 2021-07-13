@@ -88,7 +88,7 @@ public class JimmyTheCatDialogue : DialogueTrigger {
             Say("Oh meow... ");
             Say("...");
             Say("You're pretty rirty! Mauz!")
-                .Choice(new TextOption("huh?"))
+                .Choice(new TextOption("huh?"));
             Say("This is...");
             Say("...");
             Say("MEOW! PURRRRRRRRRRRRRFECT!!!!! UwU");
