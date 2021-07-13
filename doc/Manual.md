@@ -1,5 +1,13 @@
 # Steve's Job
 
+## Running the Game
+
+Download the latest Windows zip
+[here](https://github.com/finnmito/steves-job/releases/latest),
+extract the zip and run `steves-job.exe`.
+If Windows "protects you", click "more information"
+and then "run anyway".
+
 ## About
 
 You're Steve, working as a janitor at a boring mall.  After one
