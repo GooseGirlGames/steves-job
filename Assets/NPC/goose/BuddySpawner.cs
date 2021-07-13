@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BuddySpawner : MonoBehaviour {
     private stevecontroller following;
@@ -15,6 +16,9 @@ public class BuddySpawner : MonoBehaviour {
     public Item goose;
     
     void Start() {
+        if (SceneManager.GetActiveScene().name == "JumpMiniGame") {
+            return;
+        }
         following = GetComponent<stevecontroller>();
         buddy = Instantiate(buddyPrefab);
         buddyAnimator = buddy.GetComponentInChildren<Animator>();
