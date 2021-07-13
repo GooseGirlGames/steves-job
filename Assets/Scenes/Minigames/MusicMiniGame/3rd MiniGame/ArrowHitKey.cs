@@ -35,6 +35,7 @@ public class ArrowHitKey : MonoBehaviour
     void OnTriggerExit2D(Collider2D other){
         if(other.tag == "button"){
             pressable = false;
+            sprite.color = Color.red;
         }
     }
 }

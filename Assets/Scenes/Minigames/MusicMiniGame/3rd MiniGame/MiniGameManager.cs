@@ -68,7 +68,10 @@ public class MiniGameManager : MonoBehaviour{
             }
             if(score<= 4999){
                 Inventory.Instance.AddItem(_notPowered);
+                Inventory.Instance.RemoveItem(_can_use_ddr);
+                DialogueManager.Instance.SetInstantTrue();
             }
+            DialogueManager.Instance.SetInstantTrue();
             winPortal.TriggerTeleport();
         }    
     }

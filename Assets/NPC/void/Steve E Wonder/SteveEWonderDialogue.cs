@@ -79,6 +79,7 @@ public class SteveEWonderDialogue : VoidNPCDiaTrigger {
     }
     public class MinigameLost : Dialogue {
         public MinigameLost() {
+            Say("Your vibe was off...");
             Say("you should talk to the machine again! ♪ get it ♪?");
         }
     }
