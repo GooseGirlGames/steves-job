@@ -1187,10 +1187,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3278088230645691600, guid: 9ffd3ebe44037da4eb7a648c41ae0aaa, type: 3}
-      propertyPath: name
-      value: Dude with a Spine
-      objectReference: {fileID: 0}
     - target: {fileID: 3498351933639608296, guid: 9ffd3ebe44037da4eb7a648c41ae0aaa, type: 3}
       propertyPath: m_Name
       value: SpinelessDude
@@ -1208,12 +1204,24 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7863344357706808267, guid: 9ffd3ebe44037da4eb7a648c41ae0aaa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.072569
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863344357706808267, guid: 9ffd3ebe44037da4eb7a648c41ae0aaa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.072569
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863344357706808267, guid: 9ffd3ebe44037da4eb7a648c41ae0aaa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0983
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863344357706808267, guid: 9ffd3ebe44037da4eb7a648c41ae0aaa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.79
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7863344357706808267, guid: 9ffd3ebe44037da4eb7a648c41ae0aaa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.84
+      value: -1.69
       objectReference: {fileID: 0}
     - target: {fileID: 7863344357706808267, guid: 9ffd3ebe44037da4eb7a648c41ae0aaa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1421,6 +1429,10 @@ PrefabInstance:
     - target: {fileID: 770161570499661076, guid: d054d68a51fd88240a31c91cb3e9b18d, type: 3}
       propertyPath: m_Name
       value: HorrorPeasants
+      objectReference: {fileID: 0}
+    - target: {fileID: 770161570499661076, guid: d054d68a51fd88240a31c91cb3e9b18d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1684324836795248456, guid: d054d68a51fd88240a31c91cb3e9b18d, type: 3}
       propertyPath: m_RootOrder

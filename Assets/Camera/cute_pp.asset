@@ -34,8 +34,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.48659003
-          value: 0.48659003
+          time: 0.70320857
+          value: 0.38983053
           inSlope: 0.0044265315
           outSlope: 0.0044265315
           tangentMode: 0
@@ -211,11 +211,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   color:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0.13679248, b: 0.78963834, a: 1}
+    m_Value: {r: 1, g: 0.8254717, b: 0.96583354, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
@@ -224,7 +224,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.365
+    m_Value: 0.242
     min: 0
     max: 1
   smoothness:
@@ -296,11 +296,11 @@ MonoBehaviour:
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.4
+    m_Value: 0.3
     min: 0
   scatter:
-    m_OverrideState: 0
-    m_Value: 0.7
+    m_OverrideState: 1
+    m_Value: 0.507
     min: 0
     max: 1
   clamp:
@@ -318,7 +318,7 @@ MonoBehaviour:
     m_Value: 0
   skipIterations:
     m_OverrideState: 0
-    m_Value: 1
+    m_Value: 0
     min: 0
     max: 16
   dirtTexture:
