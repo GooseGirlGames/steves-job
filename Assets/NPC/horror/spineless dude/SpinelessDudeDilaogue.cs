@@ -187,6 +187,7 @@ public class SpinelessDudeDilaogue : DialogueTrigger
             Say("Aeugh *huff* Aaaaaaah *gasps* YESSSSS")
             .Do(s.UpdateSpineyness);
             Say("Thaaaanks ssso muchhh");
+            Say("I have no use for that spine anymore..just take it if you need some courage");
         }
     }
 
