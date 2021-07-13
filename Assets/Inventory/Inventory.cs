@@ -25,6 +25,7 @@ public class Inventory : MonoBehaviour
         if (item.unique && HasItem(item)){
             return;
         }
+        ItemNotification.Instance.NotifyItem(item, recieved: true);
         foreach (Item conflict in item.conflictingItems){
             if (HasItem(conflict)){
                 RemoveItem(conflict);
@@ -36,6 +37,9 @@ public class Inventory : MonoBehaviour
 
     public string RemoveItem(Item item) {
         string name = item.name;
+        if (HasItem(item)) {
+            ItemNotification.Instance.NotifyItem(item, recieved: false);
+        }
         items.Remove(item);
         InventoryChanged();
         return name;
