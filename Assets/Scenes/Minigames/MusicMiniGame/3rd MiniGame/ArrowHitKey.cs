@@ -7,44 +7,29 @@ public class ArrowHitKey : MonoBehaviour
     public bool pressable;
     public bool hit = false;
     public bool missed = false;
-    public Sprite hitSprite;
-    private bool button_direction;
+    public KeyCode keyToPress;
+    public KeyCode altKey;
+    public Sprite pressed;
+    private SpriteRenderer sprite;
+
+
+    void Start(){
+        sprite = gameObject.GetComponent<SpriteRenderer>();
+    }
 
     void Update(){
-        if(button_direction){
-            gameObject.GetComponent<SpriteRenderer>().sprite = hitSprite;
+        if(Input.GetKeyDown(keyToPress) || Input.GetKeyDown(altKey)){
+            
             if(pressable){
-                
                 MiniGameManager.instance.NoteHit();
                 gameObject.SetActive(false);
             }
-            
         }
     }
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "button"){
             pressable = true;
-            if(other.gameObject.name == "arrow_left"){
-                //if(Input.GetAxis("Horizontal") < 0){
-                    button_direction = Input.GetAxis("Horizontal") < 0/* Input.GetButtonDown("Horizontal") */;
-                //}
-                
-            }
-            if(other.gameObject.name == "arrow_right"){
-                //if(Input.GetAxis("Horizontal") > 0){
-                    button_direction = Input.GetAxis("Horizontal") > 0/* Input.GetButtonDown("Horizontal") */;
-                //}
-            }
-            if(other.gameObject.name == "arrow_up"){
-                //if(Input.GetAxis("Vertical") > 0){
-                    button_direction = Input.GetAxis("Vertical") > 0/* Input.GetButtonDown("Vertical") */;
-                //}   
-            }
-            if(other.gameObject.name == "arrow_up"){
-                //if(Input.GetAxis("Vertical") < 0){
-                    button_direction = Input.GetAxis("Vertical") < 0/* Input.GetButtonDown("Vertical") */;
-                //}   
-            }
+            sprite.sprite = pressed;
         }
     }
     void OnTriggerExit2D(Collider2D other){

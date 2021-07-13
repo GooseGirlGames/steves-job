@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,22 +46,15 @@ public class MiniGameManager : MonoBehaviour{
             theMusic.Play();
             pause = false;
         }
-        if(Input.GetAxis("Vertical") > 0){
-            if(Input.GetButtonDown("Vertical")){
-                Vector3 steve_pos = new Vector3(player.gameObject.transform.position.x, player.gameObject.transform.position.y + 0.5f, 1);
-                player.gameObject.transform.position = steve_pos;
-            }
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)){
+            Vector3 steve_pos = new Vector3(player.gameObject.transform.position.x, player.gameObject.transform.position.y + 0.5f, 1);
+            player.gameObject.transform.position = steve_pos;
         }
-        if(Input.GetAxis("Vertical") < 0){
-            if(Input.GetButtonDown("Vertical")){
-                if(player.GetComponent<stevecontroller>().is_grounded){
-                    player.GetComponent<stevecontroller>().crouch = true;
-                }    
-            }
+        if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)){
+            player.GetComponent<stevecontroller>().crouch = true;
         }
-        if(Input.GetButtonUp("Vertical")){
+        if(Input.GetKeyUp(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)){
             player.GetComponent<stevecontroller>().crouch = false;
-
         }
     }
 
@@ -82,8 +76,4 @@ public class MiniGameManager : MonoBehaviour{
         score += arrowScore;
         scoreText.text = "Score: " + score;
     }
-/*     public void NoteMissed(){
-        Debug.Log("missed");
-
-    } */
 }
