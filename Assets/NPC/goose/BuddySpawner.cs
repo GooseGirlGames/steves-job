@@ -9,7 +9,7 @@ public class BuddySpawner : MonoBehaviour {
     private Animator buddyAnimator;
     private Renderer buddyRenderer;
     public GameObject buddyPrefab;
-    private float delaySeconds = 0.8f;
+    public float delaySeconds = 0.8f;
     private Queue<SteveState> states = new Queue<SteveState>();
     private Vector3 localScaleLeft;
     private Vector3 localScaleRight;
