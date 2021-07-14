@@ -7,6 +7,8 @@ public class HorrorRacoonDialogue : DialogueTrigger
     public Item bloodymary;
     public Item _horror_racoon_drink;
     public Item _horror_racoon_done;
+    public Item _magpie_released;
+    public Item _magpie_tauting;
     public Item bloodbucket;
     public Item emptybucket;
     public Item bloodbucketcute;
@@ -32,7 +34,7 @@ public class HorrorRacoonDialogue : DialogueTrigger
             return new HorrorRacoonFinishedDilaogue();
         }
         else if (Inventory.Instance.HasItem(_horror_racoon_drink)) {
-            return new HorrorRacoonDrinkChoice();
+            return new MagpieQuestion();
         }
         return new HorrorRacoonHi();
     }
@@ -67,6 +69,8 @@ public class HorrorRacoonDialogue : DialogueTrigger
             .Choice(new ItemOption(h.goose)
                 .IfChosen(new TriggerDialogueAction<HorrorRacoonGoose>()))
             .Choice(new ItemOption(h.goose_blood)
+                .IfChosen(new TriggerDialogueAction<HorrorRacoonGoose>()))
+            .Choice(new ItemOption(h.magpie)
                 .IfChosen(new TriggerDialogueAction<HorrorRacoonGoose>()))
             .Choice(new ItemOption(h.goose_blood_bow)
                 .IfChosen(new TriggerDialogueAction<HorrorRacoonGoose>()))
@@ -134,10 +138,11 @@ public class HorrorRacoonDialogue : DialogueTrigger
                         Say("Thanks!")
             .DoAfter(RemoveItem(h.bloodymary))
             .DoAfter(GiveItem(h._horror_racoon_drink))
-            .DoAfter(new TriggerDialogueAction<HorrorRacoonDrinkChoice>());
+            .DoAfter(new TriggerDialogueAction<MagpieQuestion>());
         }
     }
 
+    /*
     public class HorrorRacoonDrinkChoice : Dialogue {
         public HorrorRacoonDrinkChoice() {
             Say("Give me the magpie!")
@@ -159,10 +164,57 @@ public class HorrorRacoonDialogue : DialogueTrigger
             .DoAfter(GiveItem(h._horror_racoon_done));
         }
     }
+    */
 
     public class HorrorRacoonItem : Dialogue {
         public HorrorRacoonItem() {
             Say("Hm, looks interesting but it can't quench my thirst");
+        }
+    }
+
+    public class MagpieQuestion : Dialogue {
+        public MagpieQuestion() {
+            Say("Anything else?")
+            .Choice(
+                new TextOption("Not now")
+                .IfChosen(new TriggerDialogueAction<Hungy>())
+            )
+            .Choice(
+                new TextOption("Magpie")
+                .AddCondition(HasItem(h._magpie_released))
+                .AddCondition(DoesNotHaveItem(h._magpie_tauting))
+                .IfChosen(new TriggerDialogueAction<MagpieFarAway>())
+            )
+            .Choice(
+                new TextOption("Magpie")
+                .AddCondition(HasItem(h._magpie_tauting))
+                .IfChosen(new TriggerDialogueAction<MagpieNom>())
+            );
+        }
+    }
+    public class MagpieNom : Dialogue {
+        public MagpieNom() {
+            Say("*noms* What a tasty little magpie!")
+            .Do(() => {
+                foreach (Magpie m in GameObject.FindObjectsOfType<Magpie>()) {
+                    m.GetEaten();
+                }
+            })
+            .Do(RemoveItem(h._magpie_tauting));
+            Say("I don't really like the taste of keys, though. You can have these.")
+            .DoAfter(GiveItem(h.storekey));
+        }
+    }
+
+    public class MagpieFarAway : Dialogue {
+        public MagpieFarAway() {
+            Say("Huh, a magpie? Sounds tasty, but can't you shoo him a littler closer to me?");
+        }
+    }
+    public class Hungy : Dialogue {
+        public Hungy() {
+            Say("Alright, but do let me know if you find some food, alight?");
+            Say("Your nice little cocktail made be quite hungry, actually.");
         }
     }
 }
