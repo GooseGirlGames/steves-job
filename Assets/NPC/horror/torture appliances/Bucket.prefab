@@ -126,12 +126,14 @@ MonoBehaviour:
   playerInTrigger: 0
   hintPosition: {fileID: 5100484544280450823}
   background: {fileID: 0}
-  avatar: {fileID: 0}
+  avatar: {fileID: 21300000, guid: f61d0e6cee2dca1e485ded8174aae78e, type: 3}
   name: Steve E Horror
   world: 2
   bucket: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
-  _given_horrorcoin: {fileID: 11400000, guid: 533a42b9a0b1b584b987d7a3d80c49af, type: 2}
+  _given_horrorcoin: {fileID: 0}
   _got_bucket: {fileID: 11400000, guid: 8d89701206c2ac1468bc077d0045ed6e, type: 2}
+  uwu_ava: {fileID: 21300000, guid: f61d0e6cee2dca1e485ded8174aae78e, type: 3}
+  normal_ava: {fileID: 21300000, guid: 75dbc2325c4fd4badb2858dd6b4e505f, type: 3}
 --- !u!1 &6466214937333549283
 GameObject:
   m_ObjectHideFlags: 0

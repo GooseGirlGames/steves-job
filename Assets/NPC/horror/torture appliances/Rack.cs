@@ -8,6 +8,9 @@ public class Rack : DialogueTrigger
     public Item horrorcoin;
     public Item startcoin;
     public Item cutecoin;
+    
+    public Sprite uwu_ava;
+    public Sprite normal_ava;
 
     public const string DefName = "Steve E Horror";
     public const string UwuName = "Steve E Howwow";
@@ -23,9 +26,11 @@ public class Rack : DialogueTrigger
 
         if (Inventory.Instance.HasItem(_given_horrorcoin)) {
             name = DefName;
+            avatar = normal_ava;
             return new RackDescription();
         }
         name = UwuName;
+        avatar = uwu_ava;
         return new RackHandsOff();
     }
 
