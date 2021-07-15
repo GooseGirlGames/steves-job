@@ -245,4 +245,7 @@ public class stevecontroller : MonoBehaviour {
             c.enabled = false;
         }
     }
+    public static bool CanFly() {
+        return steveTheGoose;
+    }
 }

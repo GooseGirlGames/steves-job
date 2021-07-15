@@ -36,9 +36,12 @@ public class KeyDialogue : DialogueTrigger {
 
     public class ReleaseDialogue : Dialogue {
         public ReleaseDialogue() {
+            string cheater = stevecontroller.CanFly() ? "\nCome on, this whole 'Steve the Goose' " +
+            "thing isn't supposed to work here. Just get the Magpie, you lazy fuck." : "";
+            string nope = stevecontroller.CanFly() ? "Fuck you too" : "Nope";
             Say("Nope, can't reach those keys.");
-            Say("If only I could fly...")
-            .Choice(new TextOption("Nope"))
+            Say("If only I could fly..." + cheater)
+            .Choice(new TextOption(nope))
             .Choice(
                 new ItemOption(t.magpie_item)
                 .IfChosen(RemoveItem(t.magpie_item))
