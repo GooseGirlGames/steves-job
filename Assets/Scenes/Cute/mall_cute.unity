@@ -1158,7 +1158,7 @@ MonoBehaviour:
   elevator: 0
   targetName: 
   teleportAfterSceneChange: 0
-  portalAnimator: {fileID: 447398110}
+  portalAnimator: {fileID: 0}
   transitionAnimationSpeedFactor: 1
   animationDelay: 0
   animationDelayChangeScene: 2
