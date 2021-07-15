@@ -1839,37 +1839,9 @@ PrefabInstance:
       value: Jimmy the cat
       objectReference: {fileID: 0}
     - target: {fileID: 6216285829586772168, guid: 937f3ca5f376eafe59956b1252e115e8, type: 3}
-      propertyPath: shirt
-      value: 
-      objectReference: {fileID: 11400000, guid: af649a5495a8420779024c628d1042c9, type: 2}
-    - target: {fileID: 6216285829586772168, guid: 937f3ca5f376eafe59956b1252e115e8, type: 3}
-      propertyPath: world
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6216285829586772168, guid: 937f3ca5f376eafe59956b1252e115e8, type: 3}
-      propertyPath: bucket
-      value: 
-      objectReference: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
-    - target: {fileID: 6216285829586772168, guid: 937f3ca5f376eafe59956b1252e115e8, type: 3}
-      propertyPath: babelfish
-      value: 
-      objectReference: {fileID: 11400000, guid: 9dc941907f5f8bf4f99864efacbbe379, type: 2}
-    - target: {fileID: 6216285829586772168, guid: 937f3ca5f376eafe59956b1252e115e8, type: 3}
-      propertyPath: bucketfull
-      value: 
-      objectReference: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
-    - target: {fileID: 6216285829586772168, guid: 937f3ca5f376eafe59956b1252e115e8, type: 3}
-      propertyPath: bloody_mary
-      value: 
-      objectReference: {fileID: 11400000, guid: 23bd31e009ef1f53490de8255ca44662, type: 2}
-    - target: {fileID: 6216285829586772168, guid: 937f3ca5f376eafe59956b1252e115e8, type: 3}
       propertyPath: clean_shirt
       value: 
       objectReference: {fileID: 11400000, guid: 2b4050f9a23fa289d9242de4e365c15d, type: 2}
-    - target: {fileID: 6216285829586772168, guid: 937f3ca5f376eafe59956b1252e115e8, type: 3}
-      propertyPath: dirty_shirt
-      value: 
-      objectReference: {fileID: 11400000, guid: 68f5019aedda0061a831b85a013d06a4, type: 2}
     - target: {fileID: 6282226371654859585, guid: 937f3ca5f376eafe59956b1252e115e8, type: 3}
       propertyPath: m_Name
       value: Jimmy_the_cat
@@ -1879,20 +1851,12 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6282226371654859588, guid: 937f3ca5f376eafe59956b1252e115e8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6282226371654859588, guid: 937f3ca5f376eafe59956b1252e115e8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6282226371654859588, guid: 937f3ca5f376eafe59956b1252e115e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.38
       objectReference: {fileID: 0}
     - target: {fileID: 6282226371654859588, guid: 937f3ca5f376eafe59956b1252e115e8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.23
+      value: 10.044
       objectReference: {fileID: 0}
     - target: {fileID: 6282226371654859588, guid: 937f3ca5f376eafe59956b1252e115e8, type: 3}
       propertyPath: m_LocalPosition.z
