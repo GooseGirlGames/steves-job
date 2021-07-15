@@ -21,3 +21,6 @@ MonoBehaviour:
   conflictingItems:
   - {fileID: 11400000, guid: 2b4050f9a23fa289d9242de4e365c15d, type: 2}
   - {fileID: 11400000, guid: 68f5019aedda0061a831b85a013d06a4, type: 2}
+  isRestoreItem: 0
+  restoreItemCounterpart: {fileID: 0}
+  id: 2020

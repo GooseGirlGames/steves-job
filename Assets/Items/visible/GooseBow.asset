@@ -22,3 +22,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 198dc408a7afc11f7ba17208cfc0bbd2, type: 2}
   - {fileID: 11400000, guid: 410fdc347b6862748b32dfb464117bbc, type: 2}
   - {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
+  isRestoreItem: 0
+  restoreItemCounterpart: {fileID: 0}
+  id: 2013

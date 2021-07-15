@@ -20,3 +20,6 @@ MonoBehaviour:
   originWorld: 3
   unique: 1
   conflictingItems: []
+  isRestoreItem: 0
+  restoreItemCounterpart: {fileID: 0}
+  id: 2019

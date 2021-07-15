@@ -20,5 +20,8 @@ MonoBehaviour:
   unique: 1
   conflictingItems:
   - {fileID: 11400000, guid: af649a5495a8420779024c628d1042c9, type: 2}
-  - {fileID: 11400000, guid: 7232ee2789a30a648abb2a8f01176c73, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: ddaa1a742fa1cc9eebefa13f28c50b7c, type: 2}
+  isRestoreItem: 0
+  restoreItemCounterpart: {fileID: 0}
+  id: 2016

@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a384481017c7d11e6be52b993588aa4a, type: 3}
-  m_Name: MarysPeriod
+  m_Name: BloodyMary
   m_EditorClassIdentifier: 
-  name: Marrys Period
-  description: That girl sure ain't pregnant!
+  name: Bloody Mary
+  description: This usually doens't contain real blood, does it?!
   visible: 1
   icon: {fileID: -7833671090200325546, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 2
   unique: 1
   conflictingItems: []
+  isRestoreItem: 0
+  restoreItemCounterpart: {fileID: 0}
+  id: 2018

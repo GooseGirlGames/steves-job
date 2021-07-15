@@ -21,3 +21,4 @@ MonoBehaviour:
   conflictingItems: []
   isRestoreItem: 1
   restoreItemCounterpart: {fileID: 11400000, guid: 65c432402cc0fbc5087c8d230594304d, type: 2}
+  id: 1030
