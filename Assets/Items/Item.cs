@@ -14,5 +14,5 @@ public class Item : ScriptableObject {
     public List<Item> conflictingItems;
     public bool isRestoreItem = false;
     public Item restoreItemCounterpart = null;
-    
+    public int id;  // for the love of god, make sure this is unique
 }
