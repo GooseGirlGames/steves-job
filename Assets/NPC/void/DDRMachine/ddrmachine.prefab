@@ -191,6 +191,11 @@ MonoBehaviour:
   _powered: {fileID: 11400000, guid: a7db27240f1b684c3a4c8d36f379a74e, type: 2}
   _notPowered: {fileID: 11400000, guid: c32543f087df78cfe8f1f532a34a7c6c, type: 2}
   minigamePortal: {fileID: 6501589883345703004}
+  ava_gone: {fileID: 21300000, guid: 8d6bcbafac6d02e33a890a4e9add8a95, type: 3}
+  ava_half: {fileID: 21300000, guid: 23aadb649a2b31e7888569e96ab9cc18, type: 3}
+  ava_full: {fileID: 21300000, guid: 5bd73ff626733eddeb3e745e27c765e0, type: 3}
+  _r_cute: {fileID: 11400000, guid: 75cd7eb90e2e1b18ab246ecff6367a82, type: 2}
+  _r_horr: {fileID: 11400000, guid: 6d22034e2ed7d7af38c284fbb262c66d, type: 2}
 --- !u!114 &6501589883345703004
 MonoBehaviour:
   m_ObjectHideFlags: 0
