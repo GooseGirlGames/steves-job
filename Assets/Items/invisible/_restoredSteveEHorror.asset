@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a384481017c7d11e6be52b993588aa4a, type: 3}
   m_Name: _restoredSteveEHorror
   m_EditorClassIdentifier: 
-  name: 
+  name: Steve-E-Wonder
   description: Steve-E-horror has been un-uwufied and is happy
   visible: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: ae2d345bc3a9b12238c18abf9f735b9e, type: 3}
   originWorld: 0
   unique: 1
   conflictingItems: []
+  isRestoreItem: 1
+  restoreItemCounterpart: {fileID: 11400000, guid: 75cd7eb90e2e1b18ab246ecff6367a82, type: 2}
