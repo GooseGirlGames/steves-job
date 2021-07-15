@@ -34,6 +34,7 @@ public class DeployCandy : MonoBehaviour
     public Item _miniRacoonGameWon;
     public Item _racoonMad;
     public Item _storeowner_later;
+    public Item _talkToRaccoon;
     
     [SerializeField] private HealthBar healthbar;
     private float health;
@@ -100,6 +101,7 @@ public class DeployCandy : MonoBehaviour
         Inventory.Instance.RemoveItem(_racoonMad);
         Inventory.Instance.RemoveItem(_miniRacoonGamePlayed);
         Inventory.Instance.RemoveItem(_storeowner_later);
+        Inventory.Instance.RemoveItem(_talkToRaccoon);
 
         Portal.TriggerTeleport();
     }

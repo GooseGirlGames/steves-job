@@ -11,15 +11,22 @@ public class RacoonCuteDialogue :  DialogueTrigger{
     public Item _miniRacoonGameWon;
     public Item _racoonMad;
     public Item _alreadyTalked;
+    public Item _talkToRaccoon;
+    public Portal portalToMiniGame;
 
-
+    public void EnterMiniGame() {
+        portalToMiniGame.TriggerTeleport();  
+    }
     public override Dialogue GetActiveDialogue(){
 
         if(Inventory.Instance.HasItem(_miniRacoonGameWon)){
             return new MiniGameFinishedDia();
         } 
-        if(Inventory.Instance.HasItem(_racoonMad)){
+        if(Inventory.Instance.HasItem(_racoonMad) && !Inventory.Instance.HasItem(_talkToRaccoon)){
             return new DestructionNoise();
+        }
+        if(Inventory.Instance.HasItem(_racoonMad) && Inventory.Instance.HasItem(_talkToRaccoon)){
+            return new TalkingToRaccoon();
         }
         if(Inventory.Instance.HasItem(_miniRacoonGamePlayed)){
             return new MiniGameLostDia();
@@ -27,6 +34,7 @@ public class RacoonCuteDialogue :  DialogueTrigger{
         if(Inventory.Instance.HasItem(_alreadyTalked)){
             return new NewChoiceDialogue();
         }
+        
         
         return new RacoonCuteDefaultDialogue();
     }
@@ -57,6 +65,16 @@ public class RacoonCuteDefaultDialogue : Dialogue {
 public class MiniGameLostDia : Dialogue {
     public MiniGameLostDia(){
         Say("LOSER!..");
+        Say("Try to stop me!")
+            .Choice(
+                new TextOption("Oh i will")
+                .IfChosen(new DialogueAction(() => {
+                        RacoonCuteDialogue.t.EnterMiniGame();
+                    }))
+            )
+            .Choice(
+                new TextOption("no")
+            );
     }
 }
 
@@ -91,6 +109,21 @@ public class NewChoiceDialogue : Dialogue {
     }
 }
 
+public class TalkingToRaccoon : Dialogue {
+    public TalkingToRaccoon() {
+        Say("HAHA you fool! come and catch me!")
+            .Choice(
+                new TextOption("oh i will")
+                .IfChosen(new DialogueAction(() => {
+                        RacoonCuteDialogue.t.EnterMiniGame();
+                    }))
+            )
+            .Choice(
+                new TextOption("I'll pass")
+                .IfChosen(new TriggerDialogueAction<DestructionNoise>())
+            );
+    }
+}
 
 public class MiniGameFinishedDia : Dialogue {
     public MiniGameFinishedDia(){

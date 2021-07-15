@@ -321,11 +321,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &219157666 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6661882498269455674, guid: 44301c185d3b3afdf8abae4ecf64aba1, type: 3}
-  m_PrefabInstance: {fileID: 2082972542}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &303508901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,6 +1146,7 @@ MonoBehaviour:
   _miniRacoonGameWon: {fileID: 11400000, guid: 23ade54d48ab4f4aebd99446f2116f6f, type: 2}
   _racoonMad: {fileID: 11400000, guid: 1b69354948bf26b7bb2617f4459511b4, type: 2}
   _storeowner_later: {fileID: 11400000, guid: 236416539b483d448a66ef258c6b9d4b, type: 2}
+  _talkToRaccoon: {fileID: 11400000, guid: c4d5ae312176a63e2a6c98a47239c6b7, type: 2}
   healthbar: {fileID: 1244539}
   raccApproachSpeed: 0.1
 --- !u!114 &795791677
@@ -1172,15 +1168,17 @@ MonoBehaviour:
   elevator: 0
   targetName: store_owner
   teleportAfterSceneChange: 0
-  transitionAnimation: {fileID: 219157666}
   portalAnimator: {fileID: 0}
   transitionAnimationSpeedFactor: 1
   animationDelay: 0
+  animationDelayChangeScene: 2
+  animateTransition: 1
   hintPosition: {fileID: 0}
   animateAsElevator: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
+  targetWorld: 0
 --- !u!4 &795791678
 Transform:
   m_ObjectHideFlags: 0
@@ -2051,7 +2049,7 @@ PrefabInstance:
       objectReference: {fileID: 2020002383}
     - target: {fileID: 2102405378911567631, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -33.89235
+      value: -33.892353
       objectReference: {fileID: 0}
     - target: {fileID: 2102405378911567631, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2059,7 +2057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2102405378911567631, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.39999962
       objectReference: {fileID: 0}
     - target: {fileID: 4337816707789198211, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: enable
@@ -2067,11 +2065,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284514, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: orthographic size
-      value: 3
+      value: 3.0979486
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -33.89235
+      value: -33.892353
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2079,7 +2077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.39999962
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalRotation.w
