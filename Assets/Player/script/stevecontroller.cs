@@ -46,6 +46,7 @@ public class stevecontroller : MonoBehaviour {
     // Unlock() clears a tag from this list.
     // Only if all lock tags are cleared, Steve will be unlocked.
     private List<string> lockTags = new List<string>();
+    private static bool steveTheGoose = false;
 
 
 //Methoden
@@ -118,7 +119,9 @@ public class stevecontroller : MonoBehaviour {
     private void Start(){
         m_rigitbody = GetComponent<Rigidbody2D>();
         m_animator = GetComponent<Animator>();
-
+        if (steveTheGoose) {
+            Gooseify();
+        }
     }
 
     public void Lock(string tag, bool hide = false) {
@@ -190,7 +193,7 @@ public class stevecontroller : MonoBehaviour {
         if (Input.GetButtonUp("Crouch")){
             crouch = false; 
         }  
-        if (Input.GetButtonDown("Jump") && Mathf.Abs(m_rigitbody.velocity.y) < 0.001f) 
+        if (Input.GetButtonDown("Jump") && ((Mathf.Abs(m_rigitbody.velocity.y) < 0.001f) || steveTheGoose))
         {   
             crouch = false;
             m_rigitbody.AddForce(new Vector2(0, jump_height), ForceMode2D.Impulse);
@@ -205,6 +208,14 @@ public class stevecontroller : MonoBehaviour {
         float cameraTargetDistanceY = Math.Abs(m_rigitbody.position.y - m_cam_vec.y);
         if (cameraTargetDistanceY > jumpDetectionThreshold) {
             SetCameraTargetToPlayer();
+        }
+
+        if (
+            Input.GetKey(KeyCode.G) && Input.GetKey(KeyCode.O) && 
+            Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.E) &&
+            Input.GetKey(KeyCode.Alpha0) && Input.GetButtonDown("Jump")
+        ) {
+            Gooseify();
         }
     }
 
@@ -223,5 +234,14 @@ public class stevecontroller : MonoBehaviour {
 
     private void UpdateCameraTarget() {
         m_cam.transform.position = m_cam_vec + new Vector3(0, CAMERA_OFFSET_Y, 0); 
+    }
+
+    private void Gooseify() {
+        m_facing_right = !m_facing_right;
+        steveTheGoose = true;
+        m_animator.runtimeAnimatorController = GetComponent<BuddySpawner>().Goose();
+        foreach (var c in GetComponents<CircleCollider2D>()) {
+            c.enabled = false;
+        }
     }
 }
