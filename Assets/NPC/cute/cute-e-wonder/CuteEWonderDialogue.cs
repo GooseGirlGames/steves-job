@@ -12,8 +12,8 @@ Items:
     Gives:  Magpie
     Invisible: _spinegiven
     Reacts to:
-        Goose:  Nice goose, but won't help
-        Bloody Goose:  Poor creature
+        Goose/Cute Goose:  Nice goose, but won't help
+        Bloody Goose/Cute Bloody Goose:  Poor creature
         Geese Greese:  Poor creature
         Cocktail:  Goose head :(
 */
@@ -24,6 +24,8 @@ public class CuteEWonderDialogue : DialogueTrigger {
     public Item magpie;
     public Item goose;
     public Item bloodgoose;
+    public Item goosecute;
+    public Item bloodgoosecute;
     public Item grease;
     public Item cocktail;
     public Item spineGiven;
@@ -31,13 +33,35 @@ public class CuteEWonderDialogue : DialogueTrigger {
     public Item problemExplained;
     public List<Item> shinyItems;
     new private Renderer renderer;
-
+    public Sprite ava_initial;
+    public Sprite ava_restored;
+    private Animator animator;
+    private const string LOCK_TAG = "Cute-E-Wonder";
+    public Animator transitionAnimation;
+    private bool restored = false; // temporary, for time in between spine handover and giving
+                                   // _restored item (the latter of which triggers the restore
+                                   // notification, which we want to happen during "Thanks")
+    public Transform hintPosRestored;
     private void Awake() {
         renderer = GetComponent<Renderer>();
+        animator = GetComponent<Animator>();
+        UpdateState();
+    }
+
+    private void UpdateState() {
+        if (Inventory.Instance.HasItem(spineGiven) || restored) {
+            avatar = ava_restored;
+            animator.SetBool("Restored", true);
+            hintPosition = hintPosRestored;
+        } else {
+            avatar = ava_initial;
+            animator.SetBool("Restored", false);
+        }
     }
 
     public override Dialogue GetActiveDialogue() {
         CuteEWonderDialogue.t = this;
+        UpdateState();
 
         if (!Inventory.Instance.HasItem(spineGiven)) {
             if (!Inventory.Instance.HasItem(problemExplained)) {
@@ -51,9 +75,19 @@ public class CuteEWonderDialogue : DialogueTrigger {
         }
     }
 
-    private void TriggerChickenAnimation() {
-        // TODO Let a chicken fly away from the store
+    private void CuteeEnter() {
+        stevecontroller player = GameObject.FindObjectOfType<stevecontroller>();
+        player.Lock(LOCK_TAG);
+        transitionAnimation.SetFloat("Speed", 1.6f);
+        transitionAnimation.SetTrigger("ExitScene");
     }
+    private void CuteeExit() {
+        stevecontroller player = GameObject.FindObjectOfType<stevecontroller>();
+        player.Unlock(LOCK_TAG);
+        transitionAnimation.SetTrigger("EnterScene");
+        transitionAnimation.SetFloat("Speed", 1);
+    }
+
 
     public class HelpMe : Dialogue {
         public HelpMe() {
@@ -93,6 +127,14 @@ public class CuteEWonderDialogue : DialogueTrigger {
                 .IfChosen(new TriggerDialogueAction<PoorCreature>(exitCurrent: true))
             )
             .Choice(
+                new ItemOption(t.goosecute)
+                .IfChosen(new TriggerDialogueAction<NiceGoose>(exitCurrent: true))
+            )
+            .Choice(
+                new ItemOption(t.bloodgoosecute)
+                .IfChosen(new TriggerDialogueAction<PoorCreature>(exitCurrent: true))
+            )
+            .Choice(
                 new ItemOption(t.grease)
                 .IfChosen(new TriggerDialogueAction<PoorCreature>(exitCurrent: true))
             )
@@ -119,24 +161,25 @@ public class CuteEWonderDialogue : DialogueTrigger {
         public SpineHandover() {
 
             Say("Thanks, this'll help.")
-            .Do(RemoveItem(t.spine))
-            .Do(GiveItem(t.spineGiven));
+            .Do(RemoveItem(t.spine));
 
             Say("Wish me luck, I'll be right back...")
-            .DoAfter(() => { t.renderer.enabled = false; });
+            .DoAfter(t.CuteeEnter);
 
-            Say("...").DoAfter(t.TriggerChickenAnimation);
+            Say("...");
 
             Say("......")
-            .DoAfter(() => { t.renderer.enabled = true; });
+            .DoAfter(() => { 
+                t.restored = true;
+                t.UpdateState();
+            })
+            .DoAfter(t.CuteeExit);
 
             Say("Glad I got rid of that silly chicken!");
             Say("Almost trashed the whole place.");
 
             Say("Please accept this beautiful Eurasian magpie as a reward.")
             .Do(GiveItem(t.magpie));
-
-
 
             Say(
                 "A truly magnificent creature, but don't let it go anywhere near that shiny "
@@ -152,11 +195,8 @@ public class CuteEWonderDialogue : DialogueTrigger {
             Say("Oh, and as a less feathery token of gratitude, here's some spare change.")
             .Do(GiveItem(t.cuteCoin));
             Say("I can't give you more than that sadly.");
-            Say("That chicken must've eaten all that was left in my cash register.");
-
-            EmptySentence()
-            .Do(GiveItem(t.spineGiven))
-            .Do(new TriggerDialogueAction<Thanks>());
+            Say("That chicken must've eaten all that was left in my cash register.")
+            .DoAfter(new TriggerDialogueAction<Thanks>());
         }
 
         public static void CheckForShinyItem() {
@@ -176,25 +216,28 @@ public class CuteEWonderDialogue : DialogueTrigger {
         public Thanks() {
             Say(
                 "Thanks again! \n"
-                + "Now I get what that whole '" + t.name + ", you're so spineless' "
-                + "business was about!"
-            );
+                + "My back kinda hurts, but I'm super glad we got that whole spinelessness-"
+                + "thing resolved!"
+            ).Do(GiveItem(t.spineGiven));
         }
     }
 
     public class NiceGoose : Dialogue {
 
         public NiceGoose() {
-            Say(
-                "Aww, what an adorable little specimen! \n"
-                + "These little h-honkers always cheer me up."
-            );
+            Say("Aww, what an adorable little specimen!");
+            Say("These little h-honkers always cheer me up.");
 
-            Say("Let me see what I can do about that monster...")
-            .DoAfter(() => { t.renderer.enabled = false; });
+            Say("Look at that cute bow!")
+            .If(HasItem(t.goosecute));
+
+            Say("Let me see what I can do about that monster...");
+
+            Say("...")
+            .Do(t.CuteeEnter);
 
             Say("...AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHH!!!")
-            .DoAfter(() => { t.renderer.enabled = true; });
+            .DoAfter(t.CuteeExit);
 
             Say("Okay okay, that did not work out. God, why am I so easily scared?");
 
@@ -214,7 +257,7 @@ public class CuteEWonderDialogue : DialogueTrigger {
         public NoUse() {
             Say(
                 "That's not g-going to help me... \n"
-                + "Sorry to be bothering you with this..."
+                + "Sorry to be bothering you with all this..."
             )
             .DoAfter(new TriggerDialogueAction<GiveMeSpine>());
         }
