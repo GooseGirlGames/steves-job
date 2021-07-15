@@ -34,6 +34,10 @@ public class DialogueManager : MonoBehaviour
     private Sentence currentSentence = null;
     private DialogueTrigger currentTrigger = null;  // current trigger
     private bool optionsOnScreen = false;  // true if an action must be chosen to continue
+    private bool waitingForTextDisplay = false;
+    private bool canFastForward = false;
+    private const float TEXT_DISPLAY_LETTER_DELAY = 0.02f;
+    private float letterDelay = TEXT_DISPLAY_LETTER_DELAY;  // set to 0 for skipping
 
     public float lastKeyPress = -1.0f;
     public const float KEY_PRESS_TIME_DELTA = 0.3f;  // seconds
@@ -73,7 +77,6 @@ public class DialogueManager : MonoBehaviour
         if (trigger != null) {
             currentTrigger = trigger;
         }
-
 
 
         bool otherDialogueWasActive = IsDialogueActive();
@@ -148,6 +151,10 @@ public class DialogueManager : MonoBehaviour
         if (chosenOption != null || item != null) {
             lastKeyPress = Time.fixedTime;
         }
+
+        // Fast-forwarding is only available after the first letter or so
+        // Basically more de-bouncing...
+        canFastForward = false;
 
         if (item != null) {
 /*             InventoryCanvasSlots.Instance.SetActionBoxVisibility(true);
@@ -229,10 +236,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        DialogueManager.Log("Dialogue text: '" + sentence.text + "'");
-        
-        textField.text = Uwu.OptionalUwufy(sentence.text);
-        
+
         if (currentTrigger != null) {
             nameField.text = Uwu.OptionalUwufy(currentTrigger.name);
             if (currentTrigger.avatar)
@@ -240,10 +244,27 @@ public class DialogueManager : MonoBehaviour
             else
                 npcAvatar.sprite = defaultAvatar;
         }
+
+        DialogueManager.Log("Dialogue text: '" + sentence.text + "'");
+        
+        //textField.text = Uwu.OptionalUwufy(sentence.text);
+        textField.text = "";
+        HideDialogueOptions();
+        StartCoroutine(ShowSentenceOnScreen(textField, sentence));
         
 
+        if (currentSentence != null)
+            currentSentence.Act(sentenceStillOnScreen: true);
+
+    }
+    private void HideDialogueOptions() {
+        foreach (var actionBox in actionBoxes)
+            actionBox.gameObject.SetActive(false);
+    }
+    private void ShowDialogueOptions(List<DialogueOption> options) {
+
         List<DialogueOption> availableOptions = new List<DialogueOption>();
-        foreach (DialogueOption option in sentence.options) {
+        foreach (DialogueOption option in options) {
             if (DialogueCondition.ConditionsFullFilled(option.conditions)) {
                 availableOptions.Add(option);
             }
@@ -256,8 +277,7 @@ public class DialogueManager : MonoBehaviour
         if (availableOptions.Count != 0) {
             optionsOnScreen = true;
 
-            foreach (var actionBox in actionBoxes)
-                actionBox.gameObject.SetActive(false);
+            HideDialogueOptions();
 
             List<DialogueOption> shownOptions = new List<DialogueOption>();
             foreach (DialogueOption availableOption in availableOptions) {
@@ -320,10 +340,6 @@ public class DialogueManager : MonoBehaviour
             }
             optionsOnScreen = false;
         }
-
-        if (currentSentence != null)
-            currentSentence.Act(sentenceStillOnScreen: true);
-
     }
 
     public void EndDialogue() {
@@ -358,11 +374,19 @@ public class DialogueManager : MonoBehaviour
         }
 
         if (PauseMenu.IsPausedOrJustUnpaused()) return;
+
+        if (waitingForTextDisplay && Input.GetButtonDown(DIALOGUE_KEY_NAME)) {
+            if (canFastForward) {
+                letterDelay = 0;
+            }
+            return;
+        }
         
         if (Time.fixedTime - lastKeyPress < KEY_PRESS_TIME_DELTA) {
             //DialogueManager.Log("Too fast " + Time.fixedTime + ", " + lastKeyPress);
             return;
         }
+
         if (!optionsOnScreen && Input.GetButtonDown(DIALOGUE_KEY_NAME)) {
             lastKeyPress = Time.fixedTime;
             DisplayNextSentence();
@@ -395,7 +419,26 @@ public class DialogueManager : MonoBehaviour
         }
     }
     public bool CanBeAdvancedByKeyPress() {
-        return IsDialogueActive() && !optionsOnScreen;
+        return IsDialogueActive() && !optionsOnScreen && !waitingForTextDisplay;
     }
- 
+
+    public bool IsWaitingForText() {
+        return waitingForTextDisplay;
+    }
+
+    private IEnumerator ShowSentenceOnScreen(TextMeshProUGUI text, Sentence sentence) {
+        waitingForTextDisplay = true;
+        letterDelay = TEXT_DISPLAY_LETTER_DELAY;
+        foreach (char c in sentence.text) {
+            if (letterDelay <= 0.001f) {
+                text.text = sentence.text;
+                break;
+            }
+            text.text += c;
+            yield return new WaitForSeconds(letterDelay);
+            canFastForward = true;
+        }
+        ShowDialogueOptions(sentence.options);
+        waitingForTextDisplay = false;
+    }
 }
