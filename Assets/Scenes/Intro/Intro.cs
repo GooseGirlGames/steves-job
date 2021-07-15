@@ -32,7 +32,17 @@ public class Intro : MonoBehaviour {
             }
             yield return new WaitForSeconds(SENTENCE_DELAY);
         }
+        End();
+    }
+
+    private void End() {
         DialogueManager.Instance.SetInstantTrue();
         enterVoid.TriggerTeleport();
+    }
+
+    private void Update() {
+        if (Input.GetKey(KeyCode.Escape)) {
+            End();
+        }
     }
 }

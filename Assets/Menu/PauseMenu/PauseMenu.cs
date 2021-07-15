@@ -24,6 +24,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update(){
         if (SceneManager.GetActiveScene().name != "MenuScene"
+                && SceneManager.GetActiveScene().name != "IntroScene"
                 && !DialogueManager.Instance.IsDialogueActive()
                 && !InventoryCanvasSlots.Instance.IsShowing()
                 && Input.GetKeyDown(KeyCode.Escape)) {
