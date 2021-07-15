@@ -50,4 +50,8 @@ public class BuddySpawner : MonoBehaviour {
             states.Dequeue();
         }
     }
+
+    public RuntimeAnimatorController Goose() {
+        return buddyAnimator.runtimeAnimatorController;
+    }
 }
