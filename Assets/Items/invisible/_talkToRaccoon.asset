@@ -17,5 +17,7 @@ MonoBehaviour:
   visible: 0
   icon: {fileID: 0}
   originWorld: 0
-  unique: 0
+  unique: 1
   conflictingItems: []
+  isRestoreItem: 0
+  restoreItemCounterpart: {fileID: 0}

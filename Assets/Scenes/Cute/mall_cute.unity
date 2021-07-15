@@ -170,7 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3295658
+      value: 3.328851
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1139,6 +1139,36 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3625028514099512473, guid: bacc6e101979f404b9730f29fd9f46a7, type: 3}
   m_PrefabInstance: {fileID: 3625028513648198066}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &725189932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725189931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860dadad14504505aa499103186cef8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerType: 2
+  destinationType: 1
+  targetSceneName: JumpMiniGame
+  target: {fileID: 0}
+  elevator: 0
+  targetName: 
+  teleportAfterSceneChange: 0
+  portalAnimator: {fileID: 447398110}
+  transitionAnimationSpeedFactor: 1
+  animationDelay: 0
+  animationDelayChangeScene: 2
+  animateTransition: 1
+  hintPosition: {fileID: 0}
+  animateAsElevator: 0
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  targetWorld: 0
 --- !u!1001 &844735234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2620,6 +2650,10 @@ PrefabInstance:
       propertyPath: storeOwner
       value: 
       objectReference: {fileID: 2098456318}
+    - target: {fileID: 3625028514099512476, guid: bacc6e101979f404b9730f29fd9f46a7, type: 3}
+      propertyPath: portalToMiniGame
+      value: 
+      objectReference: {fileID: 725189932}
     - target: {fileID: 3625028514099512479, guid: bacc6e101979f404b9730f29fd9f46a7, type: 3}
       propertyPath: m_RootOrder
       value: 14

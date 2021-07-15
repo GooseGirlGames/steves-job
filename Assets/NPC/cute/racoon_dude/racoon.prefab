@@ -166,3 +166,5 @@ MonoBehaviour:
   _miniRacoonGameWon: {fileID: 11400000, guid: 1fb675725e87cfb71ac764ecb4827f55, type: 2}
   _racoonMad: {fileID: 11400000, guid: 1b69354948bf26b7bb2617f4459511b4, type: 2}
   _alreadyTalked: {fileID: 11400000, guid: e863e71e2b5499b5996388511e31eb68, type: 2}
+  _talkToRaccoon: {fileID: 11400000, guid: c4d5ae312176a63e2a6c98a47239c6b7, type: 2}
+  portalToMiniGame: {fileID: 0}
