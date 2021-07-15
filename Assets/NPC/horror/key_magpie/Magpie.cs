@@ -95,6 +95,7 @@ public class Magpie : MonoBehaviour {
         if (distanceTarget > 0.1f) {
             Move();
         } else {
+            gameObject.transform.position = currentTarget.position;
             animator.SetFloat("Speed", 0);
             NewTarget();
         }
