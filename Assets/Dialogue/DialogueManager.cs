@@ -33,7 +33,7 @@ public class DialogueManager : MonoBehaviour
     private Dialogue activeDialogue = null;
     private Sentence currentSentence = null;
     private DialogueTrigger currentTrigger = null;  // current trigger
-    private bool canBeAdvancedByKeypress = true;  // false iff an action must be chosen to continue
+    private bool optionsOnScreen = false;  // true if an action must be chosen to continue
 
     public float lastKeyPress = -1.0f;
     public const float KEY_PRESS_TIME_DELTA = 0.3f;  // seconds
@@ -254,7 +254,7 @@ public class DialogueManager : MonoBehaviour
         currentSentenceHasItemOption = false;
 
         if (availableOptions.Count != 0) {
-            canBeAdvancedByKeypress = false;
+            optionsOnScreen = true;
 
             foreach (var actionBox in actionBoxes)
                 actionBox.gameObject.SetActive(false);
@@ -318,7 +318,7 @@ public class DialogueManager : MonoBehaviour
                 actionBox.gameObject.SetActive(false);
                 InventoryCanvasSlots.Instance.SetSlotButtonsInteractable(false);
             }
-            canBeAdvancedByKeypress = true;
+            optionsOnScreen = false;
         }
 
         if (currentSentence != null)
@@ -337,7 +337,7 @@ public class DialogueManager : MonoBehaviour
             actionBox.gameObject.SetActive(false);
         }
         dialogueCanvas.enabled = false;
-        //canBeAdvancedByKeypress = true;
+        //optionsOnScreen = false;
         activeDialogue = null;
         currentSentence = null;
         currentTrigger = null;
@@ -363,7 +363,7 @@ public class DialogueManager : MonoBehaviour
             //DialogueManager.Log("Too fast " + Time.fixedTime + ", " + lastKeyPress);
             return;
         }
-        if (canBeAdvancedByKeypress && Input.GetButtonDown(DIALOGUE_KEY_NAME)) {
+        if (!optionsOnScreen && Input.GetButtonDown(DIALOGUE_KEY_NAME)) {
             lastKeyPress = Time.fixedTime;
             DisplayNextSentence();
         }
@@ -395,7 +395,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
     public bool CanBeAdvancedByKeyPress() {
-        return IsDialogueActive() && canBeAdvancedByKeypress;
+        return IsDialogueActive() && !optionsOnScreen;
     }
  
 }
