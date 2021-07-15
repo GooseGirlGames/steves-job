@@ -40,6 +40,7 @@ public class KeyDialogue : DialogueTrigger {
         public ReleaseDialogue() {
             Say("Nope, can't reach those keys.");
             Say("If only I could fly...")
+            .Choice(new TextOption("Nope"))
             .Choice(
                 new ItemOption(t.magpie_item)
                 .IfChosen(RemoveItem(t.magpie_item))

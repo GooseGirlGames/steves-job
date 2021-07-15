@@ -20,6 +20,6 @@ public class TextLives : MonoBehaviour
         if(BloodFalling.splatCount == 2){
             livesText.color = Color.red;
         }
-        livesText.text = (3 - BloodFalling.splatCount).ToString();
+        livesText.text = Mathf.Max(0, 3 - BloodFalling.splatCount).ToString();
     }
 }

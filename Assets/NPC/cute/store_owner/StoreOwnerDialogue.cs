@@ -135,18 +135,14 @@ public class StoreOwnerDialogue : DialogueTrigger {
 
     public class RacoonStoryDia : Dialogue {
         public RacoonStoryDia(){
-            Say("This racoon..");
-            Say("he...he..");
-            Say("he was on a strict diet..he he..");
-            Say("This idiot must've got some candy");
-            Say("..he is not good with sugar..so I told him that he is not allowed to eat sugar ever again!");
+            Say("This racoon..he...he was on a strict diet..he he..");
+            Say("This idiot must've got his little cute tiny paws on some candy");
+            Say("..he is not good with sugar..so I told him that he is not allowed to eat candy ever again!");
             Say("*cries*");
-            Say("he just came into my store with mouth full of the sticky evidence");
+            Say("he just came into my store with his mouth full of the sticky evidence");
             Say("he was shaking and his eyes full of rage...he suddenly got into a huge sugar rush");
-            Say("He said: \"give me some more candy\" with this scary voice");
-            Say("I said \"no\" to him");
-            Say("I've never seen someone this angry and fled..");
-            Say("All i could hear is getting my store completely destroyed");
+            Say("He said: \"give me some more candy\" with this scary voice and I said \"no\" to him");
+            Say("I've never seen someone this angry and fled while my store is getting completely destroyed");
             Say("...say, could you please help me to stop him?")
                 .Choice(
                     new TextOption("of course")

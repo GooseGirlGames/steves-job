@@ -144,6 +144,7 @@ MonoBehaviour:
   _got_spine: {fileID: 11400000, guid: 808cfe355e25c36408458696102d3ab3, type: 2}
   animator: {fileID: 740587555019720747}
   ava_bloody: {fileID: 21300000, guid: b58759098b51e1442962808840863d73, type: 3}
+  ava_bloody_nospine: {fileID: 21300000, guid: bc096fa24618fb4dfbdb5c076e95f820, type: 3}
   ava_norm: {fileID: 21300000, guid: 5099fbc0ffef8b8bc836d4179a6b27dd, type: 3}
 --- !u!95 &740587555019720747
 Animator:

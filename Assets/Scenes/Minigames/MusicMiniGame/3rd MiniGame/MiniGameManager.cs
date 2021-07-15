@@ -65,14 +65,17 @@ public class MiniGameManager : MonoBehaviour{
                 Inventory.Instance.AddItem(_powered);
                 Inventory.Instance.RemoveItem(_notPowered);
                 Inventory.Instance.RemoveItem(_can_use_ddr);
+                DialogueManager.Instance.SetInstantTrue();
+                winPortal.TriggerTeleport();
             }
             if(score<= 4999){
                 Inventory.Instance.AddItem(_notPowered);
                 Inventory.Instance.RemoveItem(_can_use_ddr);
                 DialogueManager.Instance.SetInstantTrue();
+                DialogueManager.Instance.SetInstantTrue();
+                winPortal.TriggerTeleport();
             }
-            DialogueManager.Instance.SetInstantTrue();
-            winPortal.TriggerTeleport();
+            
         }    
     }
     public void NoteHit(){

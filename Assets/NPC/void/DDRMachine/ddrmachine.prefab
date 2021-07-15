@@ -208,7 +208,7 @@ MonoBehaviour:
   targetSceneName: MusicMiniGame
   target: {fileID: 0}
   elevator: 0
-  targetName: 
+  targetName: Steve E Wonder
   teleportAfterSceneChange: 0
   portalAnimator: {fileID: 0}
   transitionAnimationSpeedFactor: 1

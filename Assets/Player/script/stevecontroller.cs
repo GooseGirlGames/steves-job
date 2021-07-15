@@ -240,6 +240,7 @@ public class stevecontroller : MonoBehaviour {
         m_facing_right = !m_facing_right;
         steveTheGoose = true;
         m_animator.runtimeAnimatorController = GetComponent<BuddySpawner>().Goose();
+        GetComponent<BuddySpawner>().CenterBuddy();
         foreach (var c in GetComponents<CircleCollider2D>()) {
             c.enabled = false;
         }

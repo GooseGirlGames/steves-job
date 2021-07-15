@@ -54,4 +54,10 @@ public class BuddySpawner : MonoBehaviour {
     public RuntimeAnimatorController Goose() {
         return buddyAnimator.runtimeAnimatorController;
     }
+    
+    public void CenterBuddy() {
+        foreach(var t in buddy.GetComponentsInChildren<Transform>()) {
+            t.position = Vector3.zero;
+        }
+    }
 }

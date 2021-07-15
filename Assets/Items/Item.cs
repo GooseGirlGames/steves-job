@@ -12,5 +12,7 @@ public class Item : ScriptableObject {
     public World originWorld;
     public bool unique = false;
     public List<Item> conflictingItems;
+    public bool isRestoreItem = false;
+    public Item restoreItemCounterpart = null;
     
 }
