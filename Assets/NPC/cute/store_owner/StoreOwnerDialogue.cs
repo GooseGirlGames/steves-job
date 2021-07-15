@@ -16,6 +16,7 @@ public class StoreOwnerDialogue : DialogueTrigger {
     public Sprite avatar_sad;
     public Sprite sad_storeowner;
     public Sprite happy_storeowner;
+    public Sprite storeowner_wo_cane;
     public Transform hint_happy;
     public Transform hint_sad;
 
@@ -44,7 +45,7 @@ public class StoreOwnerDialogue : DialogueTrigger {
     public void UpdateAnimator() {
         avatar = avatar_happy;
         hintPosition = hint_happy;
-        if (Inventory.Instance.HasItem(_racoonMad)) {
+        if (Inventory.Instance.HasItem(_racoonMad) || Inventory.Instance.HasItem(_miniRacoonGamePlayed)) {
             animator.SetTrigger("GetSad");
             avatar = avatar_sad;
             hintPosition = hint_sad;
@@ -56,14 +57,9 @@ public class StoreOwnerDialogue : DialogueTrigger {
         }
     }
 
-    void Awake()
-    {
+    void Awake() {
         UpdateAnimator();
         Instance = this;
-/*         if(Inventory.Instance.HasItem(_racoonMad) || Inventory.Instance.HasItem(_miniRacoonGamePlayed)){
-            StoreOwnerDialogue.Instance.GetComponent<SpriteRenderer>().sprite = sad_storeowner;
-        }
-        else StoreOwnerDialogue.Instance.GetComponent<SpriteRenderer>().sprite = happy_storeowner; */
     }
 
 
