@@ -16,14 +16,12 @@ public class KeyDialogue : DialogueTrigger {
     public override Dialogue GetActiveDialogue() {
         UpdateState();
         t = this;
-        if (Inventory.Instance.HasItem(_restored_hangman)) {
-            return null;
-        }
 
-        if (!Inventory.Instance.HasItem(_magpie_released)) {
+        if (!Inventory.Instance.HasItem(_restored_hangman)
+                && !Inventory.Instance.HasItem(_magpie_released)) {
             return new ReleaseDialogue();
         } else {
-            return new WasReleasedDialogue();
+            return null;
         }
     }
     private void Awake() {
@@ -45,7 +43,6 @@ public class KeyDialogue : DialogueTrigger {
                 new ItemOption(t.magpie_item)
                 .IfChosen(RemoveItem(t.magpie_item))
                 .IfChosen(GiveItem(t._magpie_released))
-                //.IfChosen(new TriggerDialogueAction<WasReleasedDialogue>())
                 .IfChosen(new DialogueAction(t.ReleaseMagpie))
             )
             .Choice(
@@ -74,11 +71,6 @@ public class KeyDialogue : DialogueTrigger {
         public CantFly() {
             string item = DialogueManager.Instance.currentItem.name;
             Say("A " + item + " can't fly!");
-        }
-    }
-    public class WasReleasedDialogue : Dialogue {
-        public WasReleasedDialogue() {
-            Say("Oof, it's just stolen the keys and flown away...").Do(t.UpdateState);
         }
     }
 
