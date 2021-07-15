@@ -165,6 +165,4 @@ MonoBehaviour:
   _miniRacoonGamePlayed: {fileID: 11400000, guid: 3aa40781ea1be715fb28cc364ef63ff6, type: 2}
   _miniRacoonGameWon: {fileID: 11400000, guid: 1fb675725e87cfb71ac764ecb4827f55, type: 2}
   _racoonMad: {fileID: 11400000, guid: 1b69354948bf26b7bb2617f4459511b4, type: 2}
-  storeOwner: {fileID: 0}
-  sadStoreOwner: {fileID: 21300000, guid: 9b3699cc957c65fe6994f96e2d4be41e, type: 3}
-  neutralStoreOwner: {fileID: 21300000, guid: b5aee192d8a8d4da8b1ac0bdf6f162bb, type: 3}
+  _alreadyTalked: {fileID: 11400000, guid: e863e71e2b5499b5996388511e31eb68, type: 2}

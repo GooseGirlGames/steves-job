@@ -10,6 +10,7 @@ public class RacoonCuteDialogue :  DialogueTrigger{
     public Item _miniRacoonGamePlayed;
     public Item _miniRacoonGameWon;
     public Item _racoonMad;
+    public Item _alreadyTalked;
 
 
     public override Dialogue GetActiveDialogue(){
@@ -23,6 +24,10 @@ public class RacoonCuteDialogue :  DialogueTrigger{
         if(Inventory.Instance.HasItem(_miniRacoonGamePlayed)){
             return new MiniGameLostDia();
         }
+        if(Inventory.Instance.HasItem(_alreadyTalked)){
+            return new NewChoiceDialogue();
+        }
+        
         return new RacoonCuteDefaultDialogue();
     }
 
@@ -75,6 +80,17 @@ public class ChoiceDialogue : Dialogue {
     }
 }
 
+public class NewChoiceDialogue : Dialogue {
+    public NewChoiceDialogue(){
+        Say("Please I need my medicine")
+            .Choice(
+                new ItemOption(RacoonCuteDialogue.t.snack)
+                .IfChosen(new TriggerDialogueAction<SnackDialogue>()))
+            .Choice(
+                new TextOption("no!"));    
+    }
+}
+
 
 public class MiniGameFinishedDia : Dialogue {
     public MiniGameFinishedDia(){
@@ -94,6 +110,7 @@ public class SnackDialogue : Dialogue {
         Say("Since you helped me I will gift you this beautiful coin!")
             .DoAfter(GiveItem(RacoonCuteDialogue.t.coin))
             .DoAfter(GiveItem(RacoonCuteDialogue.t._racoonMad))
+            .DoAfter(RemoveItem(RacoonCuteDialogue.t._alreadyTalked))
             .DoAfter(new DialogueAction(()=> {
                 RacoonCuteDialogue.t.transform.position = new Vector3(8.4f,-2.2f,1f);
 
@@ -111,6 +128,7 @@ public class SickRacoonDia : Dialogue {
     public SickRacoonDia(){
         Say("i swear, i really need some of that sweet medicine...and by that I mean candy");
         Say("dont you want my little suprise that I have for you?")
-            .DoAfter(new TriggerDialogueAction<ChoiceDialogue>());
+            .DoAfter(new TriggerDialogueAction<NewChoiceDialogue>())
+            .DoAfter(GiveItem(RacoonCuteDialogue.t._alreadyTalked));
     }
 }
