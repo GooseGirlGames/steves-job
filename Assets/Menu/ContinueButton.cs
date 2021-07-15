@@ -1,3 +1,4 @@
+#define DISABLE_SAVE_LOADING
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class ContinueButton : MonoBehaviour {
     private TextMeshProUGUI text;
     public Portal enterPortal;
     private SaveGame s;
+#if !DISABLE_SAVE_LOADING
+
     private void Awake() {
         Debug.Log("Good morning, I am a continue butyton");
         text = GetComponentInChildren<TextMeshProUGUI>();
@@ -27,4 +30,5 @@ public class ContinueButton : MonoBehaviour {
                 = playerPos + new Vector3(0, 0.1f, 0);
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+#endif
 }
