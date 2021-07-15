@@ -23,11 +23,13 @@ Remember:  You're the janitor, and you'll have to do your job.
 |------------------------|---------------------------------------------|
 | W A S D or arrow keys  | Move Steve around; Navigate menus           |
 | E or Enter             | Use elevators and escalators Press buttons; |
-|                        | Use portals; Start and advance conversations|
+| Enter or E             | Use portals; Start and advance conversations|
 | Tab or I               | Open and close inventory                    |
 | Shift or Ctrl          | Crouch                                      |
 | Space                  | Jump                                        |
 | Escape                 | Pause & Quit                                |
+
+__There is also a cool "cheat code" but you'll likely have to look into the source files to get it__
 
 That's about it, have fun!
 
