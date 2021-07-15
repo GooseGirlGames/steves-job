@@ -20,6 +20,9 @@ public class RacoonCuteDialogue :  DialogueTrigger{
         if(Inventory.Instance.HasItem(_racoonMad)){
             return new DestructionNoise();
         }
+        if(Inventory.Instance.HasItem(_miniRacoonGamePlayed)){
+            return new MiniGameLostDia();
+        }
         return new RacoonCuteDefaultDialogue();
     }
 

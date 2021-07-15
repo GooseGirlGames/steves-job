@@ -14,8 +14,11 @@ public class StoreOwnerDialogue : DialogueTrigger {
     public Animator animator;
     public Sprite avatar_happy;
     public Sprite avatar_sad;
+    public Sprite sad_storeowner;
+    public Sprite happy_storeowner;
     public Transform hint_happy;
     public Transform hint_sad;
+
 
     public void EnterMiniGame() {
         portalToMiniGame.TriggerTeleport();
@@ -57,6 +60,10 @@ public class StoreOwnerDialogue : DialogueTrigger {
     {
         UpdateAnimator();
         Instance = this;
+/*         if(Inventory.Instance.HasItem(_racoonMad) || Inventory.Instance.HasItem(_miniRacoonGamePlayed)){
+            StoreOwnerDialogue.Instance.GetComponent<SpriteRenderer>().sprite = sad_storeowner;
+        }
+        else StoreOwnerDialogue.Instance.GetComponent<SpriteRenderer>().sprite = happy_storeowner; */
     }
 
 
