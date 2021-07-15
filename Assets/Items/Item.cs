@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "Item", menuName = "Inventory/Item", order = 0)]
 public class Item : ScriptableObject {
-
     new public string name = "";
     public string description = "";
     public bool visible = false;

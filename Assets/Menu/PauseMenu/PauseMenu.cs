@@ -65,7 +65,8 @@ public class PauseMenu : MonoBehaviour
         optionsMenu.SetActive(false);
         StartCoroutine(UIUtility.SelectButtonLater(button));
     }
-    public void QuitGame(){
+    public void QuitGame() {
+        SaveLoadSystem.Save();
         Continue();
         mainMenu.TriggerTeleport();
     }
