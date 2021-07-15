@@ -74,7 +74,7 @@ MonoBehaviour:
   playerInTrigger: 0
   hintPosition: {fileID: 4450540528483554627}
   background: {fileID: 0}
-  avatar: {fileID: 0}
+  avatar: {fileID: 21300000, guid: b3493b45c4de36888a53b9f7103c9de8, type: 3}
   name: Fionn
   world: 1
   joined: {fileID: 11400000, guid: a1fe25008740907328cf0ef87c45ee8a, type: 2}
@@ -408,8 +408,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 144849827
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 651853cbd4d5e8e6ab58388cd2f1d834, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -810,7 +810,7 @@ MonoBehaviour:
   playerInTrigger: 0
   hintPosition: {fileID: 6149643621579063207}
   background: {fileID: 0}
-  avatar: {fileID: 0}
+  avatar: {fileID: 21300000, guid: 5148fc39a874ccc4fb71d41ea4594c47, type: 3}
   name: Fionn
   world: 1
   joined: {fileID: 11400000, guid: a1fe25008740907328cf0ef87c45ee8a, type: 2}
