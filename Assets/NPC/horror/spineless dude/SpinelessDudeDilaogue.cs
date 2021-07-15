@@ -19,6 +19,7 @@ public class SpinelessDudeDilaogue : DialogueTrigger
     public Item _got_spine;
     public Animator animator;
     public Sprite ava_bloody;
+    public Sprite ava_bloody_nospine;
     public Sprite ava_norm;
 
     public static SpinelessDudeDilaogue s;
@@ -36,8 +37,8 @@ public class SpinelessDudeDilaogue : DialogueTrigger
         }
         if (Inventory.Instance.HasItem(_got_spine)) {
             animator.SetTrigger("Removed");
-            avatar = ava_bloody;
-            name = "Dude";
+            avatar = ava_bloody_nospine;
+            name = "Despined Fionn";
         }
     }
 
@@ -57,9 +58,10 @@ public class SpinelessDudeDilaogue : DialogueTrigger
     public class SpinelessDudeHi : Dialogue {
         public SpinelessDudeHi() {
             Say("Hey there!");
-            Say("As you can see they are getting properly tortured");
-            Say("However the same can't be said for me");
-            Say("This machine is ancient and the mechanism is rusty");
+            Say("I'm in dire need for a nice stretching routine");
+            //Say("As you can see they are getting properly tortured");
+            //Say("However the same can't be said for me");
+            Say("However, this machine is ancient and the mechanism is rusty");
             Say("And the customer service is abysmal, I don't want to be tortured *that* way");
             Say("If only there was a way to make it work again")
             .DoAfter(new TriggerDialogueAction<SpinelessDudeChoice>());
@@ -187,7 +189,14 @@ public class SpinelessDudeDilaogue : DialogueTrigger
             Say("Aeugh *huff* Aaaaaaah *gasps* YESSSSS")
             .Do(s.UpdateSpineyness);
             Say("Thaaaanks ssso muchhh");
-            Say("I have no use for that spine anymore..just take it if you need some courage");
+            Say("I have no use for that spine anymore..just take it if you need some courage")
+            .Choice(
+                new TextOption("Umm, maybe later")
+            )
+            .Choice(
+                new TextOption("Take Spine")
+                .IfChosen(new TriggerDialogueAction<SpinelessDudeHappy>())
+            );
         }
     }
 
@@ -203,7 +212,7 @@ public class SpinelessDudeDilaogue : DialogueTrigger
 
     public class SpinelessDudeDead : Dialogue {
         public SpinelessDudeDead() {
-            Say("");
+            Say("...");
         }
     }
 }
