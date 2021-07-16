@@ -18,6 +18,17 @@ public class ContinueButton : MonoBehaviour {
         if (SaveLoadSystem.SaveExists()) {
             s = SaveLoadSystem.LoadFromFile();
             enterPortal.targetSceneName = s.scene;
+            switch (s.scene) {
+                case "mall_horror":
+                    enterPortal.targetWorld = World.Horror;
+                    break;
+                case "mall_void":
+                    enterPortal.targetWorld = World.Void;
+                    break;
+                case "mall_cute":
+                    enterPortal.targetWorld = World.Cute;
+                    break;
+            }
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
     }
