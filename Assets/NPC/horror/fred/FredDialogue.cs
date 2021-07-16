@@ -23,7 +23,7 @@ public class FredDialogue : DialogueTrigger
     public Item clean_dress;
     public Item dirty_dress;
     public Item dirty_shirt;
-    public Item finished;
+    public Item _finished;
     public Item bucket;
     public Item bucketfull;
     public Item bucketcute;
@@ -52,7 +52,7 @@ public class FredDialogue : DialogueTrigger
         ){
             return new FredNakedDialog();
         }
-        else if (Inventory.Instance.HasItem(finished)){
+        else if (Inventory.Instance.HasItem(_finished)){
             return new FredFinishedDialogue();
         }
         return new FredDefaultDialoge();
@@ -182,7 +182,7 @@ public class FredDialogue : DialogueTrigger
             Say("Ah thats it, just as yucky as I love it!");
             Say("Good on ya Mate!!")
                 .DoAfter(RemoveItem(t.dirty_shirt))
-                .DoAfter(GiveItem(t.finished));
+                .DoAfter(GiveItem(t._finished));
             Say("Alright me ‘ol cobber, for ya work here's Something from tha kitchtn");
             Say("My dishy Mary made this for ya")
                 .DoAfter(GiveItem(t.disgusting_cocktail));
@@ -196,7 +196,7 @@ public class FredDialogue : DialogueTrigger
             Say("...AND it's cute. I love it!");
             Say("Good on ya Mate!!")
                 .DoAfter(GiveItem(t._fred_has_maiddress))
-                .DoAfter(GiveItem(t.finished))
+                .DoAfter(GiveItem(t._finished))
                 .DoAfter(RemoveItem(t.dirty_dress));
             Say("Alright me ‘ol cobber, for ya work here's Something from tha kitchtn");
             Say("My dishy Mary made this for ya")

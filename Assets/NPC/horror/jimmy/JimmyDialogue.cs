@@ -173,8 +173,8 @@ public class JimmyDialogue : DialogueTrigger
             Say("Urgh");
             Say("This looks disgusting!!!");
             Say("Don't mind me laundering that money for ya!")
-                .DoAfter(GiveItem(t.horrorcoin))
-                .DoAfter(RemoveItem(t.cutecoin));
+                .DoAfter(RemoveItem(t.cutecoin))
+                .DoAfter(GiveItem(t.horrorcoin));
         }
     }
 
@@ -183,8 +183,8 @@ public class JimmyDialogue : DialogueTrigger
             Say("Urgh");
             Say("This looks disgusting!!!");
             Say("Don't mind me laundering that money for ya!")
-                .DoAfter(GiveItem(t.horrorcoin))
-                .DoAfter(RemoveItem(t.startcoin));
+                .DoAfter(RemoveItem(t.startcoin))
+                .DoAfter(GiveItem(t.horrorcoin));
         }
     }
 

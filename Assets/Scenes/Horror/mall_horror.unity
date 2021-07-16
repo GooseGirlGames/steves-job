@@ -899,7 +899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.6994888
+      value: 1.6978933
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1514,6 +1514,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fred
       objectReference: {fileID: 0}
+    - target: {fileID: 4595133865181592481, guid: 8b5b4ac1ce3a95caf8a70d8593b8b995, type: 3}
+      propertyPath: bucketcute
+      value: 
+      objectReference: {fileID: 11400000, guid: b4df9cc4ab97817dea6dd500737fb275, type: 2}
     - target: {fileID: 4595133865181592483, guid: 8b5b4ac1ce3a95caf8a70d8593b8b995, type: 3}
       propertyPath: m_RootOrder
       value: 5

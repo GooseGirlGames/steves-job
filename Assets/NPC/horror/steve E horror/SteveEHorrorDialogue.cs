@@ -122,9 +122,9 @@ public class SteveEHorrorDialogue : DialogueTrigger
 
             Say(Uwu.Uwufy("Oh, what is this?"));
             Say(Uwu.Uwufy("*crunch* *chomp*"))
+            .DoAfter(RemoveItem(s.babelfisch))
             .DoAfter(GiveItem(s._restored_steve_e_horror))
-            .DoAfter(s.UpdateUwu)
-            .DoAfter(RemoveItem(s.babelfisch));
+            .DoAfter(s.UpdateUwu);
     
             Say("Mmh, delicious");
             Say("WAIT A MINUTE");
