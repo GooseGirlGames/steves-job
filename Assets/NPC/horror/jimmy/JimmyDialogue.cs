@@ -44,7 +44,7 @@ public class JimmyDialogue : DialogueTrigger
         if (Inventory.Instance.HasItem(bucket)) {
             return new JimmyWinDialogue();
         }
-        else if (Inventory.Instance.HasItem(empty)){
+        else if (Inventory.Instance.HasItem(empty) || Inventory.Instance.HasItem(bucket_empty_cute)){
             return new JimmyHasBucketDialogue();
         }
         return new JimmyDefaultDialogue();
