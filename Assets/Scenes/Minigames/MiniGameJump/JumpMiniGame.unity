@@ -844,7 +844,7 @@ SpriteRenderer:
   m_SortingLayerID: 324653559
   m_SortingLayer: 3
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: f55287463ac21700087d010f2765b831, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 017ee1618be154e368c9ba76e29b7de5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1122,8 +1122,8 @@ MonoBehaviour:
   raccApproachSpeed: 0.1
   raccoonRenderer: {fileID: 544683672}
   raccoonAnimator: {fileID: 544683675}
-  raccoonHighThrowSprite: {fileID: 21300000, guid: 0fd142503a28b73feb37e230ea3d66b3, type: 3}
-  raccoonLowThrowSprite: {fileID: 21300000, guid: 0fd142503a28b73feb37e230ea3d66b3, type: 3}
+  raccoonHighThrowSprite: {fileID: 21300000, guid: fa2888e174579c133874e014fe718fc4, type: 3}
+  raccoonLowThrowSprite: {fileID: 21300000, guid: f3aa70513e094fc8482152171b4e06e3, type: 3}
 --- !u!114 &795791677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1693,7 +1693,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162680856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.076, y: 0.07, z: 0}
+  m_LocalPosition: {x: -0.028, y: 0.092, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 544683673}
@@ -1753,7 +1753,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172621314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.076, y: -0.31, z: 0}
+  m_LocalPosition: {x: 0.076, y: -0.293, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 544683673}
