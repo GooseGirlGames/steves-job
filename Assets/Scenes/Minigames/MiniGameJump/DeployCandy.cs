@@ -10,15 +10,10 @@ public class DeployCandy : MonoBehaviour
     private Vector3 racoon_pos;
     private float racoon_near = 10f;
     private Vector3 player_pos;
-    public RacoonHit racoonHit;
-
-    int rand_spawn;
     public GameObject[] candyPrefabs;
-    public GameObject spawns;
-    public Transform[] spawn_arr;
+    public Transform[] spawns;
     private Vector3 spawn_pos;
     private Vector2 candyPrefab_pos;
-    private GameObject tmp;
     private GameObject spawn;
 
     private GameObject bar;
@@ -52,15 +47,13 @@ public class DeployCandy : MonoBehaviour
         winSeconds = respawnTime*15;
     }
 
-    private void spawnCandy(){
-        racoonHit = racoon.GetComponent<RacoonHit>();
-               
-        int rand_spawn = Random.Range(0,spawn_arr.Length);
-        int random = Random.Range(0,candyPrefabs.Length);
-        Transform rand_transform = spawn_arr[rand_spawn];
-        candyPrefab_pos = new Vector2(rand_transform.position.x, rand_transform.position.y); 
-        tmp = candyPrefabs[random];
-        spawn = Instantiate(tmp, candyPrefab_pos, Quaternion.identity) as GameObject;   
+    private void spawnCandy() {
+        int spawnIdx = Random.Range(0,spawns.Length);
+        int prefabIdx = Random.Range(0,candyPrefabs.Length);
+        Transform rand_transform = spawns[spawnIdx];
+        var candyPrefab_pos = new Vector2(rand_transform.position.x, rand_transform.position.y); 
+        var candyPrefab = candyPrefabs[prefabIdx];
+        spawn = Instantiate(candyPrefab, candyPrefab_pos, Quaternion.identity) as GameObject;   
     }
 
 
@@ -114,7 +107,6 @@ public class DeployCandy : MonoBehaviour
             StopCoroutine(spawnCoroutine);
             healthbar.gameObject.SetActive(false);
         }
-        Debug.Log(racoon_near);
         racoon_near -= raccApproachSpeed * Time.deltaTime * speedUp;
         if (racoon_near < 1f) {
             GameWon();
@@ -154,14 +146,6 @@ public class DeployCandy : MonoBehaviour
         
         moveBar = new Vector3(player.position.x, player.position.y + 0.8f, 1);
         bar.transform.position = moveBar;
-/*         Vector2 bound_pos = new Vector2(stop.transform.position.x,player.position.y);
-        if(player.position.x > bound_pos.x + 1.0f){
-            bound_pos.x = player.position.x - 1.0f; 
-        }
-        stop.transform.position = bound_pos; */
-
-        spawn_pos = new Vector3(racoon_pos.x + 1.0f, spawns.transform.position.y, 1);
-        spawns.transform.position = spawn_pos;
 
     }
 
