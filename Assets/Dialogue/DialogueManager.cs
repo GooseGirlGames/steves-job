@@ -37,6 +37,7 @@ public class DialogueManager : MonoBehaviour
     private bool waitingForTextDisplay = false;
     private bool canFastForward = false;
     private const float TEXT_DISPLAY_LETTER_DELAY = 0.02f;
+    private const float TEXT_DISPLAY_PERIOD_DELAY = 0.18f;
     private float letterDelay = TEXT_DISPLAY_LETTER_DELAY;  // set to 0 for skipping
 
     public float lastKeyPress = -1.0f;
@@ -435,6 +436,9 @@ public class DialogueManager : MonoBehaviour
                 break;
             }
             text.text += c;
+            if (c == '.') {
+                yield return new WaitForSeconds(TEXT_DISPLAY_PERIOD_DELAY - letterDelay);
+            }
             yield return new WaitForSeconds(letterDelay);
             canFastForward = true;
         }
