@@ -14,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     public Button optionsButton;
     public Portal mainMenu;
     private Scene menu;
+    public Button retryMinigameButton;
 
     void Start(){
         pauseMenuUI.SetActive(false);
@@ -28,6 +29,9 @@ public class PauseMenu : MonoBehaviour
                 && !DialogueManager.Instance.IsDialogueActive()
                 && !InventoryCanvasSlots.Instance.IsShowing()
                 && Input.GetKeyDown(KeyCode.Escape)) {
+
+
+            retryMinigameButton.gameObject.SetActive(GameManager.Instance.IsInMinigame());
 
             if(paused){
                 Continue();
@@ -69,6 +73,10 @@ public class PauseMenu : MonoBehaviour
         SaveLoadSystem.Save();
         Continue();
         mainMenu.TriggerTeleport();
+    }
+    public void ReloadScene() {
+        Continue();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public static bool IsPausedOrJustUnpaused() {
