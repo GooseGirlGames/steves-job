@@ -862,6 +862,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7140228641589527238, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3136791745992653636, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
@@ -3235,6 +3239,7 @@ GameObject:
   - component: {fileID: 1783597965}
   - component: {fileID: 1783597964}
   - component: {fileID: 1783597967}
+  - component: {fileID: 1783597968}
   m_Layer: 5
   m_Name: Startbutton
   m_TagString: Untagged
@@ -3381,6 +3386,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1783597964}
+--- !u!114 &1783597968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783597962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f497a641a3ce78d6ae8b3b716f44e77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enterPortal: {fileID: 1947423550}
 --- !u!1 &1810083272
 GameObject:
   m_ObjectHideFlags: 0
@@ -3897,6 +3915,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1947423550 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4787009656741641142, guid: 3aa790f149e205ccc9762fd1fd0cfc22, type: 3}
+  m_PrefabInstance: {fileID: 1451489602}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860dadad14504505aa499103186cef8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1968699322
 GameObject:
   m_ObjectHideFlags: 0

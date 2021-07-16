@@ -25,12 +25,12 @@ public class Inventory : MonoBehaviour
         if (item.unique && HasItem(item)){
             return;
         }
-        ItemNotification.Instance.NotifyItem(item, recieved: true);
         foreach (Item conflict in item.conflictingItems){
             if (HasItem(conflict)){
                 RemoveItem(conflict);
             } 
         }
+        ItemNotification.Instance.NotifyItem(item, recieved: true);
         items.Add(item);
         InventoryChanged();    
     }

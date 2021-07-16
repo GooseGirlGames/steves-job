@@ -43,17 +43,11 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
         if (Inventory.Instance.HasItem(PeaseantSoakedCatHappy)) {
             return;
         }
-        Inventory.Instance.AddItem(PeaseantSoakedCatHappy);
-        if (cute) {
-            Inventory.Instance.AddItem(EmptyBucketCute);
-        } else {
-            Inventory.Instance.AddItem(EmptyBucket);
-        }
-        StartCoroutine(PourAnimation());
+        StartCoroutine(PourAnimation(cute));
     }
 
     
-    private IEnumerator PourAnimation() {
+    private IEnumerator PourAnimation(bool cute) {
         TargetCamera.Disable();
         stevecontroller player = GameObject.FindObjectOfType<stevecontroller>();
         Vector3 playerPos = player.gameObject.transform.position;
@@ -68,14 +62,21 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
         yield return new WaitForSeconds(5);
         TargetCamera.Disable();
         yield return new WaitForSeconds(2.6f);
+        yield return new WaitForSeconds(1);
         PourAnimator.SetTrigger("StartPouring");
-        yield return new WaitForSeconds(2);
+        if (cute) {
+            Inventory.Instance.AddItem(EmptyBucketCute);
+        } else {
+            Inventory.Instance.AddItem(EmptyBucket);
+        }
+        yield return new WaitForSeconds(1);
         transitionAnimation.SetTrigger("ExitScene");
         yield return new WaitForSeconds(1);
-        Peasants.GetComponent<PeasentsVisible>().UpdateVisibility();
-        BloodPeasents.GetComponent<SoakedPeasantsVisible>().UpdateVisibility();
         renderer.enabled = false;
         yield return new WaitForSeconds(2);
+        Inventory.Instance.AddItem(PeaseantSoakedCatHappy);
+        Peasants.GetComponent<PeasentsVisible>().UpdateVisibility();
+        BloodPeasents.GetComponent<SoakedPeasantsVisible>().UpdateVisibility();
         player.Unlock("BloodPouring");
         transitionAnimation.SetTrigger("EnterScene");
 
