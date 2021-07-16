@@ -12,10 +12,15 @@ public static class SaveLoadSystem {
     private static SaveGame CreateSave() {
         SaveGame s = new SaveGame();
         s.scene = SceneManager.GetActiveScene().name;
-        Vector3 pos = GameObject.FindObjectOfType<stevecontroller>().transform.position;
-        s.pos_x = pos.x;
-        s.pos_y = pos.y;
-        s.pos_z = pos.z;
+        stevecontroller steve = GameObject.FindObjectOfType<stevecontroller>();
+        if (steve) {
+            Vector3 pos = GameObject.FindObjectOfType<stevecontroller>().transform.position;
+            s.pos_x = pos.x;
+            s.pos_y = pos.y;
+            s.pos_z = pos.z;
+        } else if (s.scene != "BloodFalline") {
+            Debug.LogWarning("No steve found in " + s.scene);
+        }
         s.inventory = GameManager.Instance.itemManager.ToIdList(Inventory.Instance.items);
         return s;
     }

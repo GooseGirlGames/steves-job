@@ -6,7 +6,7 @@ using UnityEngine;
 public class SaveGame {
     public List<int> inventory = new List<int>();
     public string scene;
-    public float pos_x;
-    public float pos_y;
-    public float pos_z;
+    public float pos_x = 0;
+    public float pos_y = 0;
+    public float pos_z = 0;
 }

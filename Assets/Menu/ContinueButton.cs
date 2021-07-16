@@ -37,9 +37,14 @@ public class ContinueButton : MonoBehaviour {
         Debug.Log("ONSCENELOADED");
         var playerPos = new Vector3(s.pos_x, s.pos_y, s.pos_z);
         Inventory.Instance.items = GameManager.Instance.itemManager.FromIdList(s.inventory);
-        GameObject.FindObjectOfType<stevecontroller>().transform.position
-                = playerPos + new Vector3(0, 0.1f, 0);
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        stevecontroller steve = GameObject.FindObjectOfType<stevecontroller>();
+        if (steve) {
+            steve.transform.position = playerPos + new Vector3(0, 0.1f, 0);
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        } else if (scene.name != "BloodFalling") {
+            Debug.LogWarning("No steve found in " + s.scene);
+        }
     }
 #endif
 }
