@@ -32,10 +32,6 @@ public class ClawmachineDialogue : DialogueTrigger {
             return new Bye();
         }
 
-        if (Inventory.Instance.CoinBalance() == 0) {
-            return new NoCoins();
-        }
-
         return new Welcome();
     }
 
@@ -78,12 +74,6 @@ public class ClawmachineDialogue : DialogueTrigger {
                 .IfChosen(new TriggerDialogueAction<NotACoin>())
             )
             .DoAfter(new TriggerDialogueAction<Bye>());
-        }
-    }
-
-    public class NoCoins : Dialogue {
-        public NoCoins() {
-            Say("My goods are only available in exchange for legal tender!");
         }
     }
 
