@@ -166,6 +166,7 @@ MonoBehaviour:
   avatar: {fileID: 0}
   name: Kim
   world: 1
+  portalToMiniGame: {fileID: 3479531730777241744}
   crank: {fileID: 11400000, guid: b5330c7fcf8c7321faded7cd47cc726b, type: 2}
   _storeowner_later: {fileID: 11400000, guid: 236416539b483d448a66ef258c6b9d4b, type: 2}
   _racoonMad: {fileID: 11400000, guid: 1b69354948bf26b7bb2617f4459511b4, type: 2}
@@ -175,9 +176,11 @@ MonoBehaviour:
   animator: {fileID: 2326860574149116518}
   avatar_happy: {fileID: 21300000, guid: 3943fa75b4000167cabcab012416bbe1, type: 3}
   avatar_sad: {fileID: 21300000, guid: aa5ce903aa98a76c2abdd500a9b1925c, type: 3}
+  sad_storeowner: {fileID: 0}
+  happy_storeowner: {fileID: 0}
+  storeowner_wo_cane: {fileID: 0}
   hint_happy: {fileID: 8890898516391675624}
   hint_sad: {fileID: 7358652106863946030}
-  _talkToRaccoon: {fileID: 11400000, guid: c4d5ae312176a63e2a6c98a47239c6b7, type: 2}
 --- !u!95 &2326860574149116518
 Animator:
   serializedVersion: 3

@@ -9,24 +9,50 @@ public class RacoonCuteDialogue :  DialogueTrigger{
     public Item crank;
     public Item _miniRacoonGamePlayed;
     public Item _miniRacoonGameWon;
+    public Item _restored_candyman;
     public Item _racoonMad;
     public Item _alreadyTalked;
-    public Item _talkToRaccoon;
-    public Portal portalToMiniGame;
+    public Sprite ava_sleepy;
+    public Sprite ava_angy;
+    public Sprite ava_normal;
+    private Animator animatior;
+    public SpriteRenderer windowRaccoon;
+    public StoreOwnerDialogue storeowner;
 
-    public void EnterMiniGame() {
-        portalToMiniGame.TriggerTeleport();  
+    private const string LOCK_TAG = "Cute Raccoon";
+    public Animator fadeToBlack;
+
+    public void UpdateState() {
+        if (Inventory.Instance.HasItem(_restored_candyman)
+            || Inventory.Instance.HasItem(_miniRacoonGameWon)) {
+            // sleepy
+            avatar = ava_sleepy;
+            animatior.SetBool("Sleepy", true);
+            GetComponent<SpriteRenderer>().enabled = true;
+            windowRaccoon.enabled = false;
+        } else if (Inventory.Instance.HasItem(_racoonMad)) {
+            // angy
+            avatar = ava_angy;
+            GetComponent<SpriteRenderer>().enabled = false;
+            windowRaccoon.enabled = true;
+        } else {
+            // normal
+            avatar = ava_normal;
+            animatior.SetBool("Sleepy", false);
+            GetComponent<SpriteRenderer>().enabled = true;
+            windowRaccoon.enabled = false;
+        }
+        storeowner.UpdateAnimator();
     }
-    public override Dialogue GetActiveDialogue(){
 
-        if(Inventory.Instance.HasItem(_miniRacoonGameWon)){
+    public override Dialogue GetActiveDialogue(){
+        UpdateState();
+
+        if(Inventory.Instance.HasItem(_restored_candyman)){
             return new MiniGameFinishedDia();
         } 
-        if(Inventory.Instance.HasItem(_racoonMad) && !Inventory.Instance.HasItem(_talkToRaccoon)){
+        if(Inventory.Instance.HasItem(_racoonMad)){
             return new DestructionNoise();
-        }
-        if(Inventory.Instance.HasItem(_racoonMad) && Inventory.Instance.HasItem(_talkToRaccoon)){
-            return new TalkingToRaccoon();
         }
         if(Inventory.Instance.HasItem(_miniRacoonGamePlayed)){
             return new MiniGameLostDia();
@@ -35,16 +61,26 @@ public class RacoonCuteDialogue :  DialogueTrigger{
             return new NewChoiceDialogue();
         }
         
-        
         return new RacoonCuteDefaultDialogue();
     }
 
     void Awake(){
         t = this;
-        if(Inventory.Instance.HasItem(_racoonMad) || Inventory.Instance.HasItem(_miniRacoonGamePlayed)){
-            RacoonCuteDialogue.t.transform.position = new Vector3(8.4f,-2.2f,1f);
-        }
-        
+        animatior = GetComponent<Animator>();
+        UpdateState();
+    }
+
+    public void FadeOut() {
+        stevecontroller player = GameObject.FindObjectOfType<stevecontroller>();
+        player.Lock(LOCK_TAG);
+        fadeToBlack.SetFloat("Speed", 1.8f);
+        fadeToBlack.SetTrigger("ExitScene");
+    }
+    public void FadeIn() {
+        stevecontroller player = GameObject.FindObjectOfType<stevecontroller>();
+        player.Unlock(LOCK_TAG);
+        fadeToBlack.SetTrigger("EnterScene");
+        fadeToBlack.SetFloat("Speed", 1);
     }
 
     
@@ -65,16 +101,6 @@ public class RacoonCuteDefaultDialogue : Dialogue {
 public class MiniGameLostDia : Dialogue {
     public MiniGameLostDia(){
         Say("LOSER!..");
-        Say("Try to stop me!")
-            .Choice(
-                new TextOption("Oh i will")
-                .IfChosen(new DialogueAction(() => {
-                        RacoonCuteDialogue.t.EnterMiniGame();
-                    }))
-            )
-            .Choice(
-                new TextOption("no")
-            );
     }
 }
 
@@ -109,21 +135,6 @@ public class NewChoiceDialogue : Dialogue {
     }
 }
 
-public class TalkingToRaccoon : Dialogue {
-    public TalkingToRaccoon() {
-        Say("HAHA you fool! come and catch me!")
-            .Choice(
-                new TextOption("oh i will")
-                .IfChosen(new DialogueAction(() => {
-                        RacoonCuteDialogue.t.EnterMiniGame();
-                    }))
-            )
-            .Choice(
-                new TextOption("I'll pass")
-                .IfChosen(new TriggerDialogueAction<DestructionNoise>())
-            );
-    }
-}
 
 public class MiniGameFinishedDia : Dialogue {
     public MiniGameFinishedDia(){
@@ -139,22 +150,19 @@ public class MiniGameFinishedDia : Dialogue {
 public class SnackDialogue : Dialogue {
     public SnackDialogue(){
         Say("Thank you sooooo much my dear janitor")
-            .DoAfter(RemoveItem(RacoonCuteDialogue.t.snack));
+            .Do(RemoveItem(RacoonCuteDialogue.t.snack));
         Say("Since you helped me I will gift you this beautiful coin!")
-            .DoAfter(GiveItem(RacoonCuteDialogue.t.coin))
+            .Do(GiveItem(RacoonCuteDialogue.t.coin));
+        Say("Aaaaaa... I feel *alive* again!")
+        .DoAfter(RacoonCuteDialogue.t.FadeOut);
+        Say("...")
             .DoAfter(GiveItem(RacoonCuteDialogue.t._racoonMad))
             .DoAfter(RemoveItem(RacoonCuteDialogue.t._alreadyTalked))
             .DoAfter(new DialogueAction(()=> {
-                RacoonCuteDialogue.t.transform.position = new Vector3(8.4f,-2.2f,1f);
-
-                // temporary, while we don't have a cutscene thing yet
-                StoreOwnerDialogue candyPerson = GameObject.FindObjectOfType<StoreOwnerDialogue>();
-                if (candyPerson != null) {
-                    candyPerson.UpdateAnimator();
-                }
-                
+                RacoonCuteDialogue.t.UpdateState();                       
             }));
-
+        Say("...... *rumble*")
+            .DoAfter(RacoonCuteDialogue.t.FadeIn);
     }
 }
 public class SickRacoonDia : Dialogue {

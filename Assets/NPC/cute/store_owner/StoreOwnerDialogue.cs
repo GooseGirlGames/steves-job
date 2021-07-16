@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StoreOwnerDialogue : DialogueTrigger {
+    public Portal portalToMiniGame;
     new public static StoreOwnerDialogue Instance = null;
     public Item crank;
     public Item _storeowner_later;
@@ -13,10 +14,16 @@ public class StoreOwnerDialogue : DialogueTrigger {
     public Animator animator;
     public Sprite avatar_happy;
     public Sprite avatar_sad;
+    public Sprite sad_storeowner;
+    public Sprite happy_storeowner;
+    public Sprite storeowner_wo_cane;
     public Transform hint_happy;
     public Transform hint_sad;
-    public Item _talkToRaccoon;
 
+
+    public void EnterMiniGame() {
+        portalToMiniGame.TriggerTeleport();
+    }
 
     public override Dialogue GetActiveDialogue(){
         UpdateAnimator();
@@ -87,21 +94,15 @@ public class StoreOwnerDialogue : DialogueTrigger {
             Say("..you promised you'll help");
             Say("..please just save the kid!")
                 .Choice(
-                    new TextOption("sure")
-                    .IfChosen(new TriggerDialogueAction<TalkToRacoon>())
-                )
+                    new TextOption("okay")
+                    .IfChosen(new DialogueAction(() => {
+                        StoreOwnerDialogue.Instance.EnterMiniGame();
+                })))
                 .Choice(
                     new TextOption("later")
                     .IfChosen(new TriggerDialogueAction<CriesDia>())
                     .IfChosen(GiveItem(StoreOwnerDialogue.Instance._storeowner_later))
                 );
-        }
-    }
-
-    public class TalkToRacoon : Dialogue {
-        public TalkToRacoon() {
-            Say("please just try to talk to the raccoon")
-            .Do(GiveItem(StoreOwnerDialogue.Instance._talkToRaccoon));
         }
     }
 
@@ -145,13 +146,15 @@ public class StoreOwnerDialogue : DialogueTrigger {
             Say("...say, could you please help me to stop him?")
                 .Choice(
                     new TextOption("of course")
-                    .IfChosen(new TriggerDialogueAction<TalkToRacoon>())
+                        .IfChosen(new DialogueAction(() => {
+                            StoreOwnerDialogue.Instance.EnterMiniGame();
+                    }))
+                    //.IfChosen(new TriggerDialogueAction<WarningDia>())
                 )
                 .Choice(
                     new TextOption("wait..what?")
                     .IfChosen(new TriggerDialogueAction<RacoonStoryDia>())
                 )
-                
                 .Choice(
                     new TextOption("later")
                     .IfChosen(new TriggerDialogueAction<CriesDia>())
@@ -165,11 +168,15 @@ public class StoreOwnerDialogue : DialogueTrigger {
             Say("YOU CAME BACK! Will you help?")
                 .Choice(
                     new TextOption("..I guess")
-                        .IfChosen(new TriggerDialogueAction<TalkToRacoon>()))
+                    .IfChosen(new DialogueAction(() => {
+                        StoreOwnerDialogue.Instance.EnterMiniGame();
+                    }))) 
+                    //.IfChosen(new TriggerDialogueAction<WarningDia>()))
                 .Choice(
                     new TextOption("maybe later")
                     .IfChosen(new TriggerDialogueAction<CriesDia>())
-                    .IfChosen(GiveItem(StoreOwnerDialogue.Instance._storeowner_later)));  
+                    .IfChosen(GiveItem(StoreOwnerDialogue.Instance._storeowner_later))
+                );  
         }   
     }
     public class CriesDia : Dialogue {
@@ -184,7 +191,7 @@ public class StoreOwnerDialogue : DialogueTrigger {
 
     //temporary as the minigame isn't finished yet
 
-/*     public class WarningDia : Dialogue {
+    public class WarningDia : Dialogue {
         public WarningDia() {
             Say("Be careful, there are many dangers such as unfinished minigames up ahead");
             Say("Are you sure you want to continue")
@@ -195,5 +202,5 @@ public class StoreOwnerDialogue : DialogueTrigger {
                 })))
             .Choice(new TextOption("Ah, think I'll pass"));
         }
-    } */
+    }
 }
