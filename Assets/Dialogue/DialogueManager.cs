@@ -429,9 +429,9 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator ShowSentenceOnScreen(TextMeshProUGUI text, Sentence sentence) {
         waitingForTextDisplay = true;
         letterDelay = TEXT_DISPLAY_LETTER_DELAY;
-        foreach (char c in sentence.text) {
+        foreach (char c in Uwu.OptionalUwufy(sentence.text)) {
             if (letterDelay <= 0.001f) {
-                text.text = sentence.text;
+                text.text = Uwu.OptionalUwufy(sentence.text);
                 break;
             }
             text.text += c;
