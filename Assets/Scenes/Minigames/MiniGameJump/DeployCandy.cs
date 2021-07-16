@@ -11,7 +11,8 @@ public class DeployCandy : MonoBehaviour
     private float racoon_near = 10f;
     private Vector3 player_pos;
     public GameObject[] candyPrefabs;
-    public Transform[] spawns;
+    public Transform spawn_low;
+    public Transform spawn_high;
     private Vector3 spawn_pos;
     private Vector2 candyPrefab_pos;
     private GameObject spawn;
@@ -35,6 +36,11 @@ public class DeployCandy : MonoBehaviour
     private float health;
     public float raccApproachSpeed = 0.15f;
     private Coroutine spawnCoroutine = null;
+    public SpriteRenderer raccoonRenderer;
+    public Animator raccoonAnimator;
+
+    public Sprite raccoonHighThrowSprite;
+    public Sprite raccoonLowThrowSprite;
 
     void Start()
     {
@@ -47,11 +53,10 @@ public class DeployCandy : MonoBehaviour
         winSeconds = respawnTime*15;
     }
 
-    private void spawnCandy() {
-        int spawnIdx = Random.Range(0,spawns.Length);
+    private void spawnCandy(bool high) {
+        Transform spawn_transform = high ? spawn_high : spawn_low;
         int prefabIdx = Random.Range(0,candyPrefabs.Length);
-        Transform rand_transform = spawns[spawnIdx];
-        var candyPrefab_pos = new Vector2(rand_transform.position.x, rand_transform.position.y); 
+        var candyPrefab_pos = new Vector2(spawn_transform.position.x, spawn_transform.position.y); 
         var candyPrefab = candyPrefabs[prefabIdx];
         spawn = Instantiate(candyPrefab, candyPrefab_pos, Quaternion.identity) as GameObject;   
     }
@@ -60,7 +65,15 @@ public class DeployCandy : MonoBehaviour
     IEnumerator timedSpawn(){
         while(true){
             yield return new WaitForSeconds(Random.Range(3.0f,4.0f));
-            spawnCandy();
+            bool high = Random.Range(0.0f, 1.0f) > 0.5;
+            raccoonAnimator.SetTrigger(high ? "ThrowHigh" : "ThrowLow");
+
+            // Wait for correct throw sprite
+            while (raccoonRenderer.sprite != raccoonHighThrowSprite
+                   && raccoonRenderer.sprite != raccoonLowThrowSprite) {
+                       yield return new WaitForEndOfFrame();
+            }
+            spawnCandy(high);
         }
     }
 
