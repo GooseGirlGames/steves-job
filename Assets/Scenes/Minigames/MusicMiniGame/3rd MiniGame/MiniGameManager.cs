@@ -25,7 +25,6 @@ public class MiniGameManager : MonoBehaviour{
     void Start(){
         instance = this;
         scoreText.text = "Score: 0";
-        StartCoroutine(musicFinishing());
         Debug.Log(theMusic.clip.length);
     }
     
@@ -35,6 +34,7 @@ public class MiniGameManager : MonoBehaviour{
                 startPlaying = true;
                 ddr.started = true;
                 theMusic.Play();
+                StartCoroutine(musicFinishing());
                 instruction.SetActive(false);
             }
         }
