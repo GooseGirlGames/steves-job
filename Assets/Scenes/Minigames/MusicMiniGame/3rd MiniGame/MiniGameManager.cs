@@ -12,6 +12,12 @@ public class MiniGameManager : MonoBehaviour{
     public static MiniGameManager instance;
     public int score;
     public int arrowScore = 100;
+    private float hp = 115.0f;
+    private static float MAX_HP = 120.0f;
+    private static float HP_PER_SEC = -6.0f;
+    private static float HP_PER_MISS =  -15.0f;
+    private static float HP_PER_WRONG_PRESS = -10.0f;
+    private static float HP_PER_HIT = 10.0f;
     public Text scoreText;
     public GameObject instruction;
     public Portal winPortal;
@@ -78,8 +84,26 @@ public class MiniGameManager : MonoBehaviour{
             
         }    
     }
+    private void FixedUpdate() {
+        if (!startPlaying || pause) return;
+        hp += HP_PER_SEC * Time.fixedDeltaTime;
+        UpdateScore();
+    }
+    private void UpdateScore() {
+        if (hp > MAX_HP) hp = MAX_HP;
+        scoreText.text = "HP:" + Mathf.Clamp((int)hp, 0, 100);
+    }
     public void NoteHit(){
         score += arrowScore;
-        scoreText.text = "Score: " + score;
+        hp += HP_PER_HIT;
+        UpdateScore();
+    }
+    public void NoteMissed() {
+        hp += HP_PER_MISS;
+        UpdateScore();
+    }
+    public void WrongPress() {
+        hp += HP_PER_WRONG_PRESS;
+        UpdateScore();
     }
 }

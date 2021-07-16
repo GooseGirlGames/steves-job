@@ -11,7 +11,7 @@ public class ArrowHitKey : MonoBehaviour
     public KeyCode altKey;
     public Sprite pressed;
     private SpriteRenderer sprite;
-
+    private bool hit_registered_with_minigame_manager = false;
 
     void Start(){
         sprite = gameObject.GetComponent<SpriteRenderer>();
@@ -21,6 +21,7 @@ public class ArrowHitKey : MonoBehaviour
         if(Input.GetKeyDown(keyToPress) || Input.GetKeyDown(altKey)){
             
             if(pressable){
+                hit_registered_with_minigame_manager = true;
                 MiniGameManager.instance.NoteHit();
                 gameObject.SetActive(false);
             }
@@ -36,6 +37,8 @@ public class ArrowHitKey : MonoBehaviour
         if(other.tag == "button"){
             pressable = false;
             sprite.color = Color.red;
+            if (!hit_registered_with_minigame_manager)
+                MiniGameManager.instance.NoteMissed();
         }
     }
 }
