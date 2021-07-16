@@ -195,6 +195,7 @@ MonoBehaviour:
   crouch: 0
   always_walking: 0
   jumpDetectionThreshold: 0.6
+  honkControl: {fileID: 22100000, guid: 100cae48783f3931ca9eebe5acce474d, type: 2}
 --- !u!95 &211158497393610317
 Animator:
   serializedVersion: 3
@@ -259,6 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buddyPrefab: {fileID: 1088700645067137867, guid: 081e6999540f5bf26acc2a94f4d55587, type: 3}
+  delaySeconds: 0.8
   goose: {fileID: 11400000, guid: 198dc408a7afc11f7ba17208cfc0bbd2, type: 2}
 --- !u!1 &3284434861213316918
 GameObject:

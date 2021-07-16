@@ -47,6 +47,7 @@ public class stevecontroller : MonoBehaviour {
     // Only if all lock tags are cleared, Steve will be unlocked.
     private List<string> lockTags = new List<string>();
     private static bool steveTheGoose = false;
+    public RuntimeAnimatorController honkControl;
 
 
 //Methoden
@@ -239,7 +240,7 @@ public class stevecontroller : MonoBehaviour {
     private void Gooseify() {
         m_facing_right = !m_facing_right;
         steveTheGoose = true;
-        m_animator.runtimeAnimatorController = GetComponent<BuddySpawner>().Goose();
+        m_animator.runtimeAnimatorController = honkControl;
         GetComponent<BuddySpawner>().CenterBuddy();
         foreach (var c in GetComponents<CircleCollider2D>()) {
             c.enabled = false;
