@@ -792,6 +792,7 @@ GameObject:
   - component: {fileID: 544683671}
   - component: {fileID: 544683670}
   - component: {fileID: 544683674}
+  - component: {fileID: 544683675}
   m_Layer: 0
   m_Name: racoon
   m_TagString: Untagged
@@ -812,8 +813,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.15, y: 0.04}
-  m_Size: {x: 1.99, y: 5.14}
+  m_Offset: {x: 0.058402985, y: -0.06270142}
+  m_Size: {x: 0.46338204, y: 0.90433073}
   m_Direction: 0
 --- !u!50 &544683671
 Rigidbody2D:
@@ -876,7 +877,7 @@ SpriteRenderer:
   m_SortingLayerID: 324653559
   m_SortingLayer: 3
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: 27f770847fbaa3551b74994d3084470f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f55287463ac21700087d010f2765b831, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -895,8 +896,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 544683669}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -37.6847, y: -6.9361, z: 0}
-  m_LocalScale: {x: 0.5159113, y: 0.45126095, z: 1}
+  m_LocalPosition: {x: -37.6847, y: -6.72, z: 0}
+  m_LocalScale: {x: 3.75, y: 3.75, z: 1}
   m_Children:
   - {fileID: 1163556607}
   - {fileID: 1620424719}
@@ -918,6 +919,25 @@ MonoBehaviour:
   hit: 0
   rancoonThrow: {fileID: 21300000, guid: b22737c2da61472b98126da611d5b6e7, type: 3}
   runningRacoon: {fileID: 21300000, guid: 27f770847fbaa3551b74994d3084470f, type: 3}
+--- !u!95 &544683675
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544683669}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cbdf7478f94aa50429d960dc8ec62b80, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &739030582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,7 +1785,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163556606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.23, z: 0}
+  m_LocalPosition: {x: 0.162, y: 0.163, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 544683673}
@@ -2049,11 +2069,11 @@ PrefabInstance:
       objectReference: {fileID: 2020002383}
     - target: {fileID: 2102405378911567631, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -33.892353
+      value: -33.588604
       objectReference: {fileID: 0}
     - target: {fileID: 2102405378911567631, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.335882
+      value: -8.158751
       objectReference: {fileID: 0}
     - target: {fileID: 2102405378911567631, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2065,15 +2085,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284514, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: orthographic size
-      value: 3.0979486
+      value: 3.3095567
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -33.892353
+      value: -33.588604
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.335882
+      value: -8.158751
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2391,7 +2411,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620424718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.47, z: 0}
+  m_LocalPosition: {x: 0, y: -0.333, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 544683673}
@@ -2711,7 +2731,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2020002381}
   m_LocalRotation: {x: -0.00002258795, y: 0.99975187, z: 0.02225395, w: 0.001014757}
-  m_LocalPosition: {x: -41.69235, y: -7.215882, z: 0}
+  m_LocalPosition: {x: -41.3886, y: -7.0387497, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
