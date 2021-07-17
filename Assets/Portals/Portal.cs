@@ -104,6 +104,7 @@ public class Portal : MonoBehaviour
         if (elevator && animateAsElevator) {
             if (elevatorAnimationCoroutine == null) {
                 elevatorAnimationCoroutine = StartCoroutine(ElevatorAnimation());
+                GetComponent<AudioSource>().Play();
             }
         } else {
              StartCoroutine(WaitForTransitionAnimation());
