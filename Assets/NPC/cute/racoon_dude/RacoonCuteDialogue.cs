@@ -16,7 +16,7 @@ public class RacoonCuteDialogue :  DialogueTrigger{
     public Sprite ava_angy;
     public Sprite ava_normal;
     private Animator animatior;
-    public SpriteRenderer windowRaccoon;
+    public Animator windowRaccoon;
     public StoreOwnerDialogue storeowner;
 
     private const string LOCK_TAG = "Cute Raccoon";
@@ -29,18 +29,18 @@ public class RacoonCuteDialogue :  DialogueTrigger{
             avatar = ava_sleepy;
             animatior.SetBool("Sleepy", true);
             GetComponent<SpriteRenderer>().enabled = true;
-            windowRaccoon.enabled = false;
+            windowRaccoon.SetBool("Angy", false);
         } else if (Inventory.Instance.HasItem(_racoonMad)) {
             // angy
             avatar = ava_angy;
             GetComponent<SpriteRenderer>().enabled = false;
-            windowRaccoon.enabled = true;
+            windowRaccoon.SetBool("Angy", true);
         } else {
             // normal
             avatar = ava_normal;
             animatior.SetBool("Sleepy", false);
             GetComponent<SpriteRenderer>().enabled = true;
-            windowRaccoon.enabled = false;
+            windowRaccoon.SetBool("Angy", false);
         }
         storeowner.UpdateAnimator();
     }

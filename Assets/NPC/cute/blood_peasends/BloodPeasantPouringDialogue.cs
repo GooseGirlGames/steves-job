@@ -56,15 +56,13 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
         TargetCamera.Disable();
         stevecontroller player = GameObject.FindObjectOfType<stevecontroller>();
         Vector3 playerPos = player.gameObject.transform.position;
-        this.gameObject.transform.position = new Vector3(
-            playerPos.x,
-            FLOOR_Y,
-            0
-        );
-        renderer.enabled = true;
-        player.Lock("BloodPouring", hide: true);
+        
+        player.Lock("BloodPouring", hide: false);
         TargetCamera.Target(Peasants.gameObject.transform, blendTime: 5.0f);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3.5f);
+        player.Lock("BloodPouring", hide: true);
+        renderer.enabled = true;
+        yield return new WaitForSeconds(1.5f);
         TargetCamera.Disable();
         yield return new WaitForSeconds(2.6f);
         yield return new WaitForSeconds(1);
