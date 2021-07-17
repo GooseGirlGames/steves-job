@@ -279,7 +279,6 @@ GameObject:
   - component: {fileID: 2255763277771022178}
   - component: {fileID: 2255763277771022179}
   - component: {fileID: 2255763277771022177}
-  - component: {fileID: 2255763277771022190}
   - component: {fileID: 2255763277771022191}
   - component: {fileID: 2255763277771022176}
   m_Layer: 0
@@ -297,7 +296,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2255763277771022180}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.34, y: 5.92, z: -12.571866}
+  m_LocalPosition: {x: 0.34, y: 5.92, z: 0}
   m_LocalScale: {x: 3.708066, y: 3.708066, z: 1}
   m_Children:
   - {fileID: 2255763277807598124}
@@ -358,20 +357,6 @@ MonoBehaviour:
   transitionAnimation: {fileID: 7425811656243083218}
   Peasants: {fileID: 2255763277559055425}
   BloodPeasents: {fileID: 6863536443188629572}
---- !u!114 &2255763277771022190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2255763277771022180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d279ac86cacd677b86d49bb090e4b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Peasants: {fileID: 2255763277559055425}
-  soaked: {fileID: 11400000, guid: d5a67855783c61e8cac251e773ae1430, type: 2}
 --- !u!212 &2255763277771022191
 SpriteRenderer:
   m_ObjectHideFlags: 0
