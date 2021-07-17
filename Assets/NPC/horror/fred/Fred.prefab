@@ -128,7 +128,7 @@ MonoBehaviour:
   clean_dress: {fileID: 11400000, guid: 2b4050f9a23fa289d9242de4e365c15d, type: 2}
   dirty_dress: {fileID: 11400000, guid: ddaa1a742fa1cc9eebefa13f28c50b7c, type: 2}
   dirty_shirt: {fileID: 11400000, guid: 68f5019aedda0061a831b85a013d06a4, type: 2}
-  finished: {fileID: 11400000, guid: eee82d59fdf9a280c98bc77e4531c23a, type: 2}
+  _finished: {fileID: 11400000, guid: eee82d59fdf9a280c98bc77e4531c23a, type: 2}
   bucket: {fileID: 11400000, guid: 448a6a4fcc2e48c18b84fbf3a73198bb, type: 2}
   bucketfull: {fileID: 11400000, guid: c6bda5fcc9dd714eab3a965a7c36b8f2, type: 2}
   bucketcute: {fileID: 11400000, guid: b4df9cc4ab97817dea6dd500737fb275, type: 2}
