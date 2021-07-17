@@ -51,6 +51,7 @@ public class ClawmachineDialogue : DialogueTrigger {
                 .IfChosen(new DialogueAction(() => t.SetAnimatorTrigger("Dispense")))
                 .IfChosen(GiveItem(t.item_for_sale))
                 .IfChosen(GiveItem(t.machine_used))
+                .IfChosen(new DialogueAction(() => t.GetComponent<AudioSource>().Play()))
             )
             .Choice(
                 new ItemOption(t.horrorcoin)
@@ -58,6 +59,7 @@ public class ClawmachineDialogue : DialogueTrigger {
                 .IfChosen(new DialogueAction(() => t.SetAnimatorTrigger("Dispense")))
                 .IfChosen(GiveItem(t.item_for_sale))
                 .IfChosen(GiveItem(t.machine_used))
+                .IfChosen(new DialogueAction(() => t.GetComponent<AudioSource>().Play()))
             )
             .Choice(
                 new ItemOption(t.cutecoin)
@@ -65,6 +67,7 @@ public class ClawmachineDialogue : DialogueTrigger {
                 .IfChosen(new DialogueAction(() => t.SetAnimatorTrigger("Dispense")))
                 .IfChosen(GiveItem(t.item_for_sale))
                 .IfChosen(GiveItem(t.machine_used))
+                .IfChosen(new DialogueAction(() => t.GetComponent<AudioSource>().Play()))
             )
             .Choice(
                 new TextOption("No")
