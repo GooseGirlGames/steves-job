@@ -30,7 +30,7 @@ public class ContinueButton : MonoBehaviour {
                     enterPortal.targetWorld = World.Void;
                     break;
                 case "mall_cute":
-                    enterPortal.targetWorld = World.Cute;
+                    //enterPortal.targetWorld = World.Cute;
                     break;
             }
             SceneManager.sceneLoaded += OnSceneLoaded;
