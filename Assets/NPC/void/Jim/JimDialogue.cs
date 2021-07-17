@@ -137,7 +137,7 @@ public class JimDialogue : VoidNPCDiaTrigger {
     }
     public class BloodyMaryDialogue : Dialogue{
         public BloodyMaryDialogue(){
-            Say("Sorry but, no, no I really dont want to have something to do with that thing.")
+            Say("Sorry but, no, no I really don't want to have anything to do with *that* thing.")
                 .DoAfter(new TriggerDialogueAction<CleanItem>());
         }
     }

@@ -1,4 +1,3 @@
-//#define DISABLE_SAVE_LOADING
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,15 +9,10 @@ public class ContinueButton : MonoBehaviour {
     public Portal enterPortal;
     private SaveGame s;
 
-    public void UpdateText() {
+    public void UpdateSave() {
         text = GetComponentInChildren<TextMeshProUGUI>();
         text.text = SaveLoadSystem.SaveExists() ? "Continue" : "Go to Work";
-    }
-#if !DISABLE_SAVE_LOADING
 
-    private void Awake() {
-        Debug.Log("Good morning, I am a continue butyton");
-        UpdateText();
         if (SaveLoadSystem.SaveExists()) {
             s = SaveLoadSystem.LoadFromFile();
             enterPortal.targetSceneName = s.scene;
@@ -37,6 +31,10 @@ public class ContinueButton : MonoBehaviour {
         }
     }
 
+    private void Awake() {
+        UpdateSave();
+    }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         Debug.Log("ONSCENELOADED");
         var playerPos = new Vector3(s.pos_x, s.pos_y, s.pos_z);
@@ -50,5 +48,4 @@ public class ContinueButton : MonoBehaviour {
             Debug.LogWarning("No steve found in " + s.scene);
         }
     }
-#endif
 }
