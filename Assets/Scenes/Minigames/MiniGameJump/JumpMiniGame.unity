@@ -1117,7 +1117,6 @@ MonoBehaviour:
   _miniRacoonGameWon: {fileID: 11400000, guid: 23ade54d48ab4f4aebd99446f2116f6f, type: 2}
   _racoonMad: {fileID: 11400000, guid: 1b69354948bf26b7bb2617f4459511b4, type: 2}
   _storeowner_later: {fileID: 11400000, guid: 236416539b483d448a66ef258c6b9d4b, type: 2}
-  _talkToRaccoon: {fileID: 11400000, guid: c4d5ae312176a63e2a6c98a47239c6b7, type: 2}
   healthbar: {fileID: 1244539}
   raccApproachSpeed: 0.1
   raccoonRenderer: {fileID: 544683672}
@@ -2041,7 +2040,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2102405378911567631, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.770126
+      value: -7.9910007
       objectReference: {fileID: 0}
     - target: {fileID: 2102405378911567631, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2053,7 +2052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284514, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: orthographic size
-      value: 3.371899
+      value: 3.3719351
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2061,7 +2060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.770126
+      value: -7.9910007
       objectReference: {fileID: 0}
     - target: {fileID: 8166448267601284515, guid: ab01bd58acb1ffa99a9ec6c688a911df, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2379,7 +2378,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620424718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.092, y: -0.318, z: 0}
+  m_LocalPosition: {x: 0.092, y: -0.411, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 544683673}
@@ -2652,7 +2651,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2020002381}
   m_LocalRotation: {x: -0.00002258795, y: 0.99975187, z: 0.02225395, w: 0.001014757}
-  m_LocalPosition: {x: -41.307602, y: -6.6501255, z: 0}
+  m_LocalPosition: {x: -41.307602, y: -6.8710003, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
