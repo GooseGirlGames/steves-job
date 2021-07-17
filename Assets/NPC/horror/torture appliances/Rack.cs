@@ -38,7 +38,7 @@ public class Rack : DialogueTrigger
         public RackDescription() {
             Say("This is another top-seller, an original torture rack from the middle ages");
             Say("It is not only effective for torturing other people;");
-            Say("You can also use it yourself to reach that magical 6'' mark");
+            Say("You can also use it yourself to reach that magical 6\" mark");
             Say("The design has barely changed over the centuries");
             Say("A true testament to its excellent architecture");
             Say("and it is still in pristine condition")
