@@ -9,12 +9,16 @@ public class ContinueButton : MonoBehaviour {
     private TextMeshProUGUI text;
     public Portal enterPortal;
     private SaveGame s;
+
+    public void UpdateText() {
+        text = GetComponentInChildren<TextMeshProUGUI>();
+        text.text = SaveLoadSystem.SaveExists() ? "Continue" : "Go to Work";
+    }
 #if !DISABLE_SAVE_LOADING
 
     private void Awake() {
         Debug.Log("Good morning, I am a continue butyton");
-        text = GetComponentInChildren<TextMeshProUGUI>();
-        text.text = SaveLoadSystem.SaveExists() ? "Continue" : "Go to Work";
+        UpdateText();
         if (SaveLoadSystem.SaveExists()) {
             s = SaveLoadSystem.LoadFromFile();
             enterPortal.targetSceneName = s.scene;

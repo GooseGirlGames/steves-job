@@ -31,6 +31,7 @@ public class MainMenu : MonoBehaviour
         optionsMenu.SetActive(false);
         mainMenu.SetActive(true);
         StartCoroutine(UIUtility.SelectButtonLater(button));
+        GameObject.FindObjectOfType<ContinueButton>().UpdateText();
     }
     
     public void LoadOptions(){
