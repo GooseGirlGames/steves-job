@@ -1180,11 +1180,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &447398110 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6661882498269455674, guid: 44301c185d3b3afdf8abae4ecf64aba1, type: 3}
-  m_PrefabInstance: {fileID: 121995602}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &481298370
 GameObject:
   m_ObjectHideFlags: 0
@@ -2443,10 +2438,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PeasantBloodStuff (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 2255763277771022177, guid: 50402adf3a1aa75a09ee2a41ccf50320, type: 3}
-      propertyPath: transitionAnimation
-      value: 
-      objectReference: {fileID: 447398110}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50402adf3a1aa75a09ee2a41ccf50320, type: 3}
 --- !u!1 &1949433528
