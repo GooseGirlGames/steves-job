@@ -194,7 +194,7 @@ public class stevecontroller : MonoBehaviour {
         if (Input.GetButtonUp("Crouch")){
             crouch = false; 
         }  
-        if (Input.GetButtonDown("Jump") && ((Mathf.Abs(m_rigitbody.velocity.y) < 0.001f) || steveTheGoose))
+        if (!crouch && Input.GetButtonDown("Jump") && ((Mathf.Abs(m_rigitbody.velocity.y) < 0.001f) || steveTheGoose))
         {   
             crouch = false;
             m_rigitbody.AddForce(new Vector2(0, jump_height), ForceMode2D.Impulse);
