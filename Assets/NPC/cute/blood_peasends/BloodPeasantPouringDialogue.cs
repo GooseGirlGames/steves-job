@@ -16,17 +16,20 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
     public GameObject BloodPeasents;
     // public Animator PeasantAnimator;  TODO even Needed?
     new private SpriteRenderer renderer;
-        public override Dialogue GetActiveDialogue() {
+    public static BloodPeasantPouringDialogue t;
+
+    public override Dialogue GetActiveDialogue() {
         if (Inventory.Instance.HasItem(PeaseantSoakedCatHappy)) {
             return null;
         }
 
-        return new PourDia(this);
+        return new PourDia();
     }
 
     public const float FLOOR_Y = 7.95f;
 
     private void Awake() {
+        t = this;
         renderer = GetComponent<SpriteRenderer>();
         renderer.enabled = Inventory.Instance.HasItem(PeaseantSoakedCatHappy);
         if (transitionAnimation) {
@@ -84,7 +87,8 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
 }
 
 public class PourDia : Dialogue {
-    public PourDia(BloodPeasantPouringDialogue trigger) {
+    public PourDia() {
+        BloodPeasantPouringDialogue trigger = BloodPeasantPouringDialogue.t;
 
         Say("...")
         .Choice(
@@ -98,6 +102,9 @@ public class PourDia : Dialogue {
         )
         .Choice(
             new ItemOption(trigger.EmptyBucketCute).IfChosen(new TriggerDialogueAction<EmptyBucketDia>())
+        )
+        .Choice(
+            new OtherItemOption().IfChosen(new TriggerDialogueAction<WontPourThis>())
         )
         .Choice(
             new TextOption("Do nothing")
@@ -127,7 +134,9 @@ public class PourDia : Dialogue {
             new ItemOption(trigger.EmptyBucketCute)
             .IfChosen(new TriggerDialogueAction<EmptyBucketDia>())
         )
-
+        .Choice(
+            new OtherItemOption().IfChosen(new TriggerDialogueAction<WontPourThis>())
+        )
         .Choice(
             new TextOption("Do nothing")
         )
@@ -137,6 +146,13 @@ public class PourDia : Dialogue {
         .If(DoesNotHaveItem(trigger.Cranked));
 
 
+    }
+}
+
+public class WontPourThis : Dialogue {
+    public WontPourThis() {
+        Say("Nope, not gonna throw this down here!")
+        .DoAfter(new TriggerDialogueAction<PourDia>());
     }
 }
 

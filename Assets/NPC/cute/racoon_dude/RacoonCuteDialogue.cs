@@ -131,7 +131,20 @@ public class NewChoiceDialogue : Dialogue {
                 new ItemOption(RacoonCuteDialogue.t.snack)
                 .IfChosen(new TriggerDialogueAction<SnackDialogue>()))
             .Choice(
-                new TextOption("no!"));    
+                new OtherItemOption()
+                .IfChosen(new TriggerDialogueAction<WrongSnack>())
+            )
+            .Choice(
+                new TextOption("no!")
+            );    
+    }
+}
+
+public class WrongSnack : Dialogue {
+    public WrongSnack() {
+        string item = DialogueManager.Instance.currentItem.name;
+        Say("Dude, I need something way sweeter to snack than a " + item + "... Please!")
+        .DoAfter(new TriggerDialogueAction<NewChoiceDialogue>());
     }
 }
 
