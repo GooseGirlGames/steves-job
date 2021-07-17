@@ -60,6 +60,7 @@ public class PauseMenu : MonoBehaviour
         paused = true;
     }
     public void LoadOptions(){
+        pauseMenuUI.SetActive(false);
         optionsMenu.SetActive(true);
         Time.timeScale = 0.0f;
         StartCoroutine(UIUtility.SelectButtonLater(optionsButton));
@@ -67,6 +68,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void OptionBack(){
         optionsMenu.SetActive(false);
+        pauseMenuUI.SetActive(true);
         StartCoroutine(UIUtility.SelectButtonLater(button));
     }
     public void QuitGame() {
