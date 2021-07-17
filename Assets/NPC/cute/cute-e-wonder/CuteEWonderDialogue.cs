@@ -215,7 +215,7 @@ public class CuteEWonderDialogue : DialogueTrigger {
     public class Thanks : Dialogue {
         public Thanks() {
             Say(
-                "Thanks again! \n"
+                "Thanks again! "
                 + "My back kinda hurts, but I'm super glad we got that whole spinelessness-"
                 + "thing resolved!"
             ).Do(GiveItem(t.spineGiven));
@@ -236,7 +236,7 @@ public class CuteEWonderDialogue : DialogueTrigger {
             Say("...")
             .Do(t.CuteeEnter);
 
-            Say("...AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHH!!!")
+            Say("......AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHH!!!")
             .DoAfter(t.CuteeExit);
 
             Say("Okay okay, that did not work out. God, why am I so easily scared?");

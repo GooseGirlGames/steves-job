@@ -55,7 +55,7 @@ public class HangmanDialogue : DialogueTrigger
             Say("My father");
             Say("told me to be careful with keys");
             Say("And never loose them");
-            Say("But guess what happened ...")
+            Say("But guess what happened...")
             .DoAfter(GiveItem(h._hangman_story))
             .DoAfter(new TriggerDialogueAction<DefaultDialogue>());
         }
@@ -65,7 +65,7 @@ public class HangmanDialogue : DialogueTrigger
         public Key() {
             HangmanDialogue h = HangmanDialogue.h;
 
-            Say("Oh wow, that is actually my key")
+            Say("Oh wow, that is actually my key.")
             .DoAfter(RemoveItem(h.key))
             .DoAfter(GiveItem(h._key_given));
             Say("Where did you find it?")
@@ -73,17 +73,17 @@ public class HangmanDialogue : DialogueTrigger
             .Choice(new TextOption("It fell from the sky"))
             .Choice(new TextOption("You wouldn't believe it"));
             Say("Huh...");
-            Say("but thank you so much");
-            Say("now i can finally enter my shop again");
-            Say("and i am not a disgrace to my father anymore");
-            Say("well at least not in that aspect");
+            Say("but thank you so much.");
+            Say("now i can finally enter my shop again.");
+            Say("and i am not a disgrace to my father anymore.");
+            Say("well at least not in that aspect.");
         }
     }
 
     public class Bye : Dialogue {
         public Bye() {
-            Say("See you soon");
-            Say("and keep an eye out for my key");
+            Say("See you soon!");
+            Say("...and keep an eye out for my key.");
         }
     }
 
@@ -97,9 +97,9 @@ public class HangmanDialogue : DialogueTrigger
     public class HangmanFinishedDialogue : Dialogue {
         public HangmanFinishedDialogue() {
             Say("*humm* *humm*");
-            Say("I got my key back");
+            Say("I got my key back.");
             Say("*humm* *humm*");
-            Say("I'll take good care, I promise");
+            Say("I'll take good care, I promise.");
             Say("*humm* *humm*");
         }
     }

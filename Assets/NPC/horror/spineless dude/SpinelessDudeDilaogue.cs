@@ -58,12 +58,12 @@ public class SpinelessDudeDilaogue : DialogueTrigger
     public class SpinelessDudeHi : Dialogue {
         public SpinelessDudeHi() {
             Say("Hey there!");
-            Say("I'm in dire need for a nice stretching routine");
+            Say("I'm in dire need for a nice stretching routine.");
             //Say("As you can see they are getting properly tortured");
             //Say("However the same can't be said for me");
-            Say("However, this machine is ancient and the mechanism is rusty");
+            Say("However, this machine is ancient and the mechanism is rusty.");
             Say("And the customer service is abysmal, I don't want to be tortured *that* way");
-            Say("If only there was a way to make it work again")
+            Say("If only there was a way to make it work again...")
             .DoAfter(new TriggerDialogueAction<SpinelessDudeChoice>());
         }
     }
@@ -95,8 +95,8 @@ public class SpinelessDudeDilaogue : DialogueTrigger
     public class SpinelessDudeBye : Dialogue {
         public SpinelessDudeBye() {
             Say("See you");
-            Say("But please find something, I want to be tortured like them");
-            Say("It's a real torture to only see and not feel it");
+            Say("But please find something, I want to be tortured *properly*.");
+            //Say("It's a real torture to only see and not feel it");
         }
     }
 
@@ -105,7 +105,7 @@ public class SpinelessDudeDilaogue : DialogueTrigger
             Say("Yeah?");
             Say("Is something wrong?");
             Say("Is it not natural wanting to get tortured?");
-            Say("What a strange question")
+            Say("What a strange question...")
             .DoAfter(new TriggerDialogueAction<SpinelessDudeChoice>());
         }
     }
@@ -121,8 +121,8 @@ public class SpinelessDudeDilaogue : DialogueTrigger
             .DoAfter(RemoveItem(s.bloodbucket))
             .DoAfter(GiveItem(s.emptybucket));
             Say("*creaaaak* *screeeeeeeeetch*");
-            Say("Aaaah my poor ears");
-            Say("That didn't seem to work")
+            Say("Aaaah my poor ears!");
+            Say("That didn't seem to work.")
             .DoAfter(new TriggerDialogueAction<SpinelessDudeChoice>());
         }
     }
@@ -138,15 +138,15 @@ public class SpinelessDudeDilaogue : DialogueTrigger
             .DoAfter(RemoveItem(s.cute_bucket_full))
             .DoAfter(GiveItem(s.cute_bucket_empty));
             Say("*creaaaak* *screeeeeeeeetch*");
-            Say("Aaaah my poor ears");
-            Say("That didn't seem to work")
+            Say("Aaaah my poor ears!");
+            Say("That didn't seem to work.")
             .DoAfter(new TriggerDialogueAction<SpinelessDudeChoice>());
         }
     }
 
     public class SpinelessDudeItem : Dialogue {
         public SpinelessDudeItem() {
-            Say("Hm this doesn't look useful at all")
+            Say("Hm this doesn't look useful at all.")
             .DoAfter(new TriggerDialogueAction<SpinelessDudeChoice>());
         }
     }
@@ -155,12 +155,12 @@ public class SpinelessDudeDilaogue : DialogueTrigger
         public SpinelessDudeMaiddress() {
             SpinelessDudeDilaogue s = SpinelessDudeDilaogue.s;
 
-            Say("Hm that's an interesting idea; maybe cleaning it will help")
+            Say("Hm that's an interesting idea; maybe cleaning it will help.")
             .DoAfter(RemoveItem(s.maiddress))
             .DoAfter(GiveItem(s.dirty_maiddress));
             Say("*screeeeeeeeetch* *creaaaak* *screeeeeeeeetch*");
             Say("Nooooo my ears!");
-            Say("Well that didn't work and only made the dress dirty")
+            Say("Well that didn't work and only made the dress dirty.")
             .DoAfter(new TriggerDialogueAction<SpinelessDudeChoice>());
         }
     }
@@ -169,12 +169,12 @@ public class SpinelessDudeDilaogue : DialogueTrigger
         public SpinelessDudeApron() {
             SpinelessDudeDilaogue s = SpinelessDudeDilaogue.s;
 
-            Say("Hm that's an interesting idea; maybe cleaning it will help")
+            Say("Hm that's an interesting idea; maybe cleaning it will help.")
             .DoAfter(RemoveItem(s.clean_apron))
             .DoAfter(GiveItem(s.dirty_apron));
             Say(" *creaaaak* *screeeeeeeeetch*  *screeeeeeeeetch* *creaaaak*");
             Say("Ugh what a horrible noise!");
-            Say("It still doesn't work and only made the apron dirty")
+            Say("It still doesn't work and only made the apron dirty.")
             .DoAfter(new TriggerDialogueAction<SpinelessDudeChoice>());
         }
     }
@@ -188,14 +188,14 @@ public class SpinelessDudeDilaogue : DialogueTrigger
             .DoAfter(GiveItem(s._spineless_and_lifeless));
             Say("Aeugh *huff* Aaaaaaah *gasps* YESSSSS")
             .Do(s.UpdateSpineyness);
-            Say("Thaaaanks ssso muchhh");
-            Say("I have no use for that spine anymore..just take it if you need some courage")
-            .Choice(
-                new TextOption("Umm, maybe later")
-            )
+            Say("Thaaaanks ssso muchhh~");
+            Say("I have no use for that spine anymore... just take it if you need some courage.")
             .Choice(
                 new TextOption("Take Spine")
                 .IfChosen(new TriggerDialogueAction<SpinelessDudeHappy>())
+            )
+            .Choice(
+                new TextOption("Umm, maybe later")
             );
         }
     }

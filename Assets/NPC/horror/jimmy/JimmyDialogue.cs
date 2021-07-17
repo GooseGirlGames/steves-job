@@ -76,15 +76,15 @@ public class JimmyDialogue : DialogueTrigger
 
     public class BucketMissing : Dialogue {
         public BucketMissing() {
-            Say("ummm..I think you need a bucket for this");
-            Say("You should look for one");
+            Say("ummm... I think you need a bucket for this.");
+            Say("You should look for one.");
         }
     }
 
     public class CantDoAnythingWithIt : Dialogue {
         public CantDoAnythingWithIt() {
-            Say("uhhh...this...uhh..well that is awkward");
-            Say("I just dont know what to do with it")
+            Say("uhhh... this... uhh... well that is awkward.");
+            Say("I just don't know what to do with it.")
                 .Choice(new TextOption("..."));
         }
     }
@@ -137,7 +137,7 @@ public class JimmyDialogue : DialogueTrigger
         public ShirtDia() {
             Say("Urgh");
             Say("This looks disgusting!!!");
-            Say("Let me clean that for you")
+            Say("Let me clean that for you.")
                 .DoAfter(GiveItem(t.dirty_shirt));
         }
     }
@@ -145,7 +145,7 @@ public class JimmyDialogue : DialogueTrigger
         public CleanDressDia() {
             Say("Urgh");
             Say("This looks disgusting!!!");
-            Say("Let me clean that for you")
+            Say("Let me clean that for you.")
                 .DoAfter(GiveItem(t.dirty_dress));
         }
     }
@@ -154,7 +154,7 @@ public class JimmyDialogue : DialogueTrigger
         public GooseDia() {
             Say("Urgh");
             Say("This looks disgoosting!!!");
-            Say("Let me clean that for you")
+            Say("Let me clean that for you.")
                 .DoAfter(GiveItem(t.goose_bloody));
         }
     }
@@ -163,7 +163,7 @@ public class JimmyDialogue : DialogueTrigger
         public GooseBowDia() {
             Say("Yikes");
             Say("This looks disgoosting!!!");
-            Say("Let me clean that for you")
+            Say("Let me clean that for you.")
                 .DoAfter(GiveItem(t.goose_bloody_bow));
         }
     }
@@ -192,15 +192,15 @@ public class JimmyDialogue : DialogueTrigger
         public BloodifySwitch() {
             Say("Oof");
             Say("These parts look disgusting!!!");
-            Say("There you go, much better now")
+            Say("There you go, much better now.")
                 .DoAfter(GiveItem(t.switch_broken_horror));
         }
     }
 
     public class DirtyShirtDia : Dialogue {
         public DirtyShirtDia() {
-            Say("Looks completely fine to me");
-            Say("I dont know what you want me to do with that")
+            Say("Looks completely fine to me.");
+            Say("I don't know what you want me to do with that.")
                 .Choice(new TextOption("..."));
         }
     }
@@ -209,8 +209,8 @@ public class JimmyDialogue : DialogueTrigger
     /*----------------------- Bucket Dialogue ----------------------------------------------------------*/
     public class BucketFilledUp : Dialogue {
         public BucketFilledUp() {
-            Say("There you go");
-            Say("Your bucket is all filled up again")
+            Say("There you go.");
+            Say("Your bucket is all filled up again.")
             .Choice(new TextOption("..."));
         }
     }
@@ -218,7 +218,7 @@ public class JimmyDialogue : DialogueTrigger
         public NothingToDoHere() {
             Say("Huh...?");
             Say("All good with that?");
-            Say("Give me something to work with")
+            Say("Give me something to work with.")
             .Choice(new TextOption("..."));
         }
     }
@@ -235,7 +235,7 @@ public class JimmyDialogue : DialogueTrigger
                     BloodFalling.splatCount == 2
                 );
 
-            Say("Thank for the help!")
+            Say("Thanks for the help!")
                 .Do(GiveItem(t.gamePlayed));
 
             Say("You can keep the bucket, and here, have some of my spare change.")

@@ -42,15 +42,15 @@ public class HorrorRacoonDialogue : DialogueTrigger
     public class HorrorRacoonFinishedDilaogue : Dialogue {
         public HorrorRacoonFinishedDilaogue() {
             Say("zZzzZzzzZZZzzzZZ");
-            Say("Hm? I am taking an after-food nap, don't disturb me");
+            Say("Hm? I am taking an after-food nap, don't disturb me.");
             Say("zZZzzZZZzzzzzzZzZ");
         }
     }
 
     public class HorrorRacoonHi : Dialogue {
         public HorrorRacoonHi() {
-            Say("Hi there");
-            Say("I am a bit leached out beacuse I forgot to stay hydrated")
+            Say("Hi there!");
+            Say("I am a bit leached out beacuse I forgot to stay hydrated.")
             .DoAfter(new TriggerDialogueAction<HorrorRacoonDefaultDialogue>());
         }
     }
@@ -96,31 +96,31 @@ public class HorrorRacoonDialogue : DialogueTrigger
             HorrorRacoonDialogue h = HorrorRacoonDialogue.h;
             World bucketOrigin = DialogueManager.Instance.currentItem.originWorld;
 
-            Say("Oh that doesn't look half bad")
+            Say("Oh that doesn't look half bad!")
             .DoAfter(GiveItem(h.emptybucketcute))
             .If(() => bucketOrigin == World.Cute);
-            Say("Oh that doesn't look half bad")
+            Say("Oh that doesn't look half bad!")
             .DoAfter(GiveItem(h.emptybucket))
             .If(() => bucketOrigin != World.Cute);
 
             Say("*glug* *glug* *glug*");
-            Say("Aaaaaah");
-            Say("It isn't half bad but I'd like something more refined")
+            Say("Aaaaaah.");
+            Say("It isn't half bad but I'd like something more refined.")
             .DoAfter(new TriggerDialogueAction<HorrorRacoonDefaultDialogue>());
         }
     }
 
     public class HorrorRacoonGoose : Dialogue {
         public HorrorRacoonGoose() {
-            Say("That's very nice of you, however recently I've started eating only free flying birds");
-            Say("I like the challenge and now eating birds just given to me feels wrong")
+            Say("That's very nice of you, however recently I've started eating only free flying birds.");
+            Say("I like the challenge and now eating birds just given to me feels wrong.")
             .DoAfter(new TriggerDialogueAction<HorrorRacoonDefaultDialogue>());
         }
     }
 
     public class HorrorRacoonGrease : Dialogue {
         public HorrorRacoonGrease() {
-            Say("I don't know, I am not a machine");
+            Say("I don't know, I am not a machine.");
             Say("Think I'll pass...")
             .DoAfter(new TriggerDialogueAction<HorrorRacoonDefaultDialogue>());
         }
@@ -168,7 +168,7 @@ public class HorrorRacoonDialogue : DialogueTrigger
 
     public class HorrorRacoonItem : Dialogue {
         public HorrorRacoonItem() {
-            Say("Hm, looks interesting but it can't quench my thirst");
+            Say("Hm, looks interesting but it can't quench my thirst.");
         }
     }
 

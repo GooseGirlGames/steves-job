@@ -33,7 +33,7 @@ public class GTGDialogue : DialogueTrigger
         public GTGactiveDialogue() {
             GTGDialogue g = GTGDialogue.g;
 
-            Say("This is a activated 'Geese to Grease' machine")
+            Say("This is an activated \"Geese to Grease\" machine.")
             .Choice(new ItemOption(g.horrorcoin)
                 .IfChosen(new TriggerDialogueAction<Coin_Again>()))
             .Choice(new ItemOption(g.startcoin)
@@ -58,7 +58,7 @@ public class GTGDialogue : DialogueTrigger
         public GTGpassiveDialogue() {
             GTGDialogue g = GTGDialogue.g;
 
-            Say("This is a 'Geese to Grease' machine which is not activated yet")
+            Say("This is a \"Geese to Grease\" machine which is not activated.")
                 .Choice(new ItemOption(g.horrorcoin)
                     .IfChosen(RemoveItem(g.horrorcoin))
                     .IfChosen(new TriggerDialogueAction<Coin>()))
@@ -89,7 +89,7 @@ public class GTGDialogue : DialogueTrigger
         public Coin() {
             GTGDialogue g = GTGDialogue.g;
 
-            Say("*rumble* *rumble* you have successfully activated the machine")
+            Say("*rumble* *rumble* you have successfully activated the machine.")
             .DoAfter(GiveItem(g._gtg_active))
             .DoAfter(new TriggerDialogueAction<GTGactiveDialogue>());
         }
@@ -97,14 +97,14 @@ public class GTGDialogue : DialogueTrigger
 
     public class Goose_Coin : Dialogue {
         public Goose_Coin() {
-            Say("This machine transforms geese, however it can't be activated by one")
+            Say("This machine transforms geese, however it can't be activated by one.")
             .DoAfter(new TriggerDialogueAction<GTGpassiveDialogue>());
         }
     }
 
     public class Inspect_GTG : Dialogue {
         public Inspect_GTG() {
-            Say("There seems to be a coin slot on the side of the machine")
+            Say("There seems to be a coin slot on the side of the machine.")
             .DoAfter(new TriggerDialogueAction<GTGpassiveDialogue>());
         }
     }
@@ -113,7 +113,7 @@ public class GTGDialogue : DialogueTrigger
         public No_Coin() {
             Say(
                 DialogueManager.Instance.currentItem.name +
-                " does not seem to be able to activate the machine"
+                " does not seem to be able to activate the machine."
             )
             .DoAfter(new TriggerDialogueAction<GTGpassiveDialogue>());
         }
@@ -121,7 +121,7 @@ public class GTGDialogue : DialogueTrigger
 
     public class Coin_Again : Dialogue {
         public Coin_Again() {
-            Say("the machine is already activated, no need for that")
+            Say("the machine is already activated, no need for that.")
             .DoAfter(new TriggerDialogueAction<GTGactiveDialogue>());
         }
     }
@@ -137,7 +137,7 @@ public class GTGDialogue : DialogueTrigger
         public Gooose_Action() {
             GTGDialogue g = GTGDialogue.g;
             
-            Say("the machine screetches a bit and the goose makes some unusual sounds")
+            Say("the machine screetches a bit and the goose makes some unusual sounds...")
             .DoAfter(RemoveItem(DialogueManager.Instance.currentItem))
             .DoAfter(GiveItem(g.grease));
         }

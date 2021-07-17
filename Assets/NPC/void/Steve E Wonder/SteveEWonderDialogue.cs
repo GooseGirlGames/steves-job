@@ -55,23 +55,23 @@ public class SteveEWonderDialogue : VoidNPCDiaTrigger {
     public override Dialogue NewGoneDia() => new GoneDia();  // Dialogue1
     public class MinigameComplete : Dialogue {
         public MinigameComplete() {  // Dialogue5
-            Say("♪ Tell me something good♪ this is ♪ so amazing ♪");
-            Say("this just ♪ knocks me of my feet ♪ you did good kiddo, well done!");
+            Say("♪Tell me something good♪ this is ♪so amazing♪");
+            Say("this just ♪knocks me of my feet♪ you did good kiddo, well done!");
         }
     }
     public class OfferMinigame : Dialogue {
         public OfferMinigame() {  // Dialogue4
-            Say("this light switch? ♪ it ain't no use ♪ ♪ look around ♪ see this machine over there?");
-            Say("this will give us the power we need you should go over there and use it ♪ get it ♪?");
+            Say("this light switch? ♪it ain't no use♪ ♪look around♪ see this machine over there?");
+            Say("this will give us the power we need you should go over there and use it ♪get it♪?");
         }
     }
     public class Thanks : Dialogue {
         public Thanks() {  // Dialogue3
-            Say("♪ It's you ♪");
-            Say("♪ from the bottom of my heart ♪ Thank you so much for saving me");
-            Say(" but ♪ That's what friends are for ♪ right?");
-            Say("this void felt like.. ♪ something out of the blue ♪");
-            Say("now ♪ for once in my life ♪ I know that ♪ we can work it out ♪")
+            Say("♪It's you♪");
+            Say("♪from the bottom of my heart♪ Thank you so much for saving me");
+            Say(" but ♪That's what friends are for♪ right?");
+            Say("this void felt like.. ♪something out of the blue♪");
+            Say("now ♪for once in my life♪ I know that ♪we can work it out♪")
                 .DoAfter(new TriggerDialogueAction<Thanks2>())
                 .Do(GiveItem(t._said_thanks));
 
@@ -80,12 +80,12 @@ public class SteveEWonderDialogue : VoidNPCDiaTrigger {
     public class MinigameLost : Dialogue {
         public MinigameLost() {
             Say("Your vibe was off...");
-            Say("you should talk to the machine again! ♪ get it ♪?");
+            Say("you should talk to the machine again! ♪get it♪?");
         }
     }
     public class Thanks2 : Dialogue {
         public Thanks2() {  // Dialogue3 pt. 2
-            Say("♪ look around ♪ there is no electricity. You must be the janitor! ♪ do yourself a favour ♪ and help me to get it back")
+            Say("♪look around♪ there is no electricity. You must be the janitor! ♪do yourself a favour♪ and help me to get it back")
                 .Choice(
                     new TextOption("Sure!")
                     .IfChosen(GiveItem(t._can_use_ddr))
@@ -99,7 +99,7 @@ public class SteveEWonderDialogue : VoidNPCDiaTrigger {
     }
     public class HalfRestoredDia : Dialogue {
         public HalfRestoredDia() {  // Dialogue2
-            Say("♪ I'm wondering ♪");
+            Say("♪I'm wondering♪");
         }
     }
     public class GoneDia : Dialogue {

@@ -63,11 +63,11 @@ public class FredDialogue : DialogueTrigger
     public class FredDefaultDialoge : Dialogue{
         public FredDefaultDialoge(){
             Say("Oink Mate");
-            Say("Whatever its in that bloody bucket, it smells ace. anyway...")
+            Say("Whatever is in that bloody bucket, it smells ace. Anyway...")
                 .If(HasItem(t.bucketfull));
-            Say("Whatever its in that bloody bucket, it smells ace. anyway...")
+            Say("Whatever is in that bloody bucket, it smells ace. Anyway...")
                 .If(HasItem(t.bucketfullcute));
-            Say("Me bloody apron's fucked. Newly bought and already super disgusting");
+            Say("Me bloody apron's fucked. Newly bought and already super disgusting.");
             Say("Could you clean it for me, if ya know what I mean?");
             EmptySentence().DoAfter(new TriggerDialogueAction<Choose_Default>());
             Say("Bye");
@@ -101,15 +101,15 @@ public class FredDialogue : DialogueTrigger
 
     public class Thanks_Mate : Dialogue{
         public Thanks_Mate(){
-            Say("Cheers ... glug ... glug ... glug ... *hicc*");
-            Say("Thanks, Mate").DoAfter(new TriggerDialogueAction<Choose_Default>());
+            Say("Cheers... *glug* *glug* *glug* ... *hicc*");
+            Say("Thanks, Mate.").DoAfter(new TriggerDialogueAction<Choose_Default>());
         }
     }
     public class Yes_Default : Dialogue{
         public Yes_Default(){
-            Say("Here ya go")
+            Say("Here ya go.")
                 .DoAfter(GiveItem(t.shirt));
-            Say("Catch ya l8er, alligator");
+            Say("Catch ya l8er, alligator.");
         }
     }
 
@@ -127,7 +127,7 @@ public class FredDialogue : DialogueTrigger
     }*/
     public class Default_Usless_Dialogue : Dialogue{
         public Default_Usless_Dialogue(){
-            Say("This s fuckn useless")
+            Say("This is fuck'n useless!")
             .DoAfter(new TriggerDialogueAction<Choose_Default>());
         }
     }
@@ -136,7 +136,7 @@ public class FredDialogue : DialogueTrigger
 
     public class FredNakedDialog : Dialogue{
         public FredNakedDialog(){
-            Say("Whatever its in that bloody bucket, it smells ace. Anyway...")
+            Say("Whatever is in that bloody bucket, it smells ace. Anyway...")
                 .If(HasItem(t.bucketfull));
             EmptySentence().DoAfter(new TriggerDialogueAction<FredChosenNakedDialog>());
         }
@@ -166,13 +166,13 @@ public class FredDialogue : DialogueTrigger
 
     public class Naked_Bucked_Dialogue : Dialogue{
         public Naked_Bucked_Dialogue(){
-            Say("Cheers ... glug ... glug ... glug ... *hicc*");
+            Say("Cheers... *glug* *glug* *glug* ... *hicc*");
             Say("Thanks, Mate").DoAfter(new TriggerDialogueAction<FredChosenNakedDialog>());
         }
     }
     public class Naked_Shirt_Dialogue : Dialogue{
         public Naked_Shirt_Dialogue(){
-            Say("Ey, That thinks still fucked, try harder")
+            Say("Ey, That thing's still fucked, try harder.")
             .DoAfter(new TriggerDialogueAction<FredChosenNakedDialog>());
         }
     }
@@ -183,10 +183,10 @@ public class FredDialogue : DialogueTrigger
             Say("Good on ya Mate!!")
                 .DoAfter(RemoveItem(t.dirty_shirt))
                 .DoAfter(GiveItem(t._finished));
-            Say("Alright me ‘ol cobber, for ya work here's Something from tha kitchtn");
-            Say("My dishy Mary made this for ya")
+            Say("Alright me 'ol cobber, for ya work here's something from tha kitchen.");
+            Say("My dishy Mary made this for ya.")
                 .DoAfter(GiveItem(t.disgusting_cocktail));
-            Say("Goodbye krokodyle");
+            Say("Goodbye crocodile.");
         }
     }
 
@@ -198,17 +198,17 @@ public class FredDialogue : DialogueTrigger
                 .DoAfter(GiveItem(t._fred_has_maiddress))
                 .DoAfter(GiveItem(t._finished))
                 .DoAfter(RemoveItem(t.dirty_dress));
-            Say("Alright me ‘ol cobber, for ya work here's Something from tha kitchtn");
-            Say("My dishy Mary made this for ya")
+            Say("Alright me 'ol cobber, for ya work here's Something from tha kitchen.");
+            Say("My dishy Mary made this for ya.")
                 .DoAfter(GiveItem(t.disgusting_cocktail));
-            Say("Goodbye krokodyle");
+            Say("Goodbye crocodile.");
         }
     }
 
     public class Naked_CleanDress_Dialogue : Dialogue{
         public Naked_CleanDress_Dialogue(){
-            Say("*UHRG* DISGUSTING! Whats wrong with ya, your fuckin wanker!");
-            Say("That's gonna ruin my fucking reputation, ya cunt");
+            Say("*UHRG* DISGUSTING! What's wrong with ya, you fuckin' wanker?");
+            Say("That's gonna ruin my fucking reputation, ya cunt.");
             Say("Get Stuffed!")
                 .DoAfter(new TriggerDialogueAction<FredChosenNakedDialog>());
         }
@@ -216,7 +216,7 @@ public class FredDialogue : DialogueTrigger
 
     public class Naked_Usless_Dialogue : Dialogue{
         public Naked_Usless_Dialogue(){
-            Say("This s Fuckn useless")
+            Say("This is fuck'n useless.")
                 .DoAfter(new TriggerDialogueAction<FredChosenNakedDialog>());
         }
     }
@@ -225,9 +225,9 @@ public class FredDialogue : DialogueTrigger
 
     public class FinishedDialogue : Dialogue{
         public FinishedDialogue(){
-            Say("Whatever its in that bloody bucket, it smelles Ace. anyway...")
+            Say("Whatever is in that bloody bucket, it smelles Ace. anyway...")
                 .If(HasItem(t.bucketfull));
-            Say("Whatever its in that bloody bucket, it smelles Ace. anyway...")
+            Say("Whatever is in that bloody bucket, it smelles Ace. anyway...")
                 .If(HasItem(t.bucketfullcute));
             EmptySentence().DoAfter(new TriggerDialogueAction<FredFinishedDialogue>());
         }
@@ -235,7 +235,7 @@ public class FredDialogue : DialogueTrigger
 
     public class FredFinishedDialogue : Dialogue{
         public FredFinishedDialogue(){
-            Say("Oink Mate, were done, fuck off")
+            Say("Oink Mate, we're done, fuck off")
                 .Choice(new TextOption("Ok..."))
                 .Choice(new ItemOption(t.bucketfull)
                     .IfChosen(GiveItem(t.bucket))
@@ -252,20 +252,20 @@ public class FredDialogue : DialogueTrigger
 
     public class UselessDialogue : Dialogue{
         public UselessDialogue(){
-            Say("This is fuckn useless")
+            Say("This is fuck'n useless.")
                 .DoAfter(new TriggerDialogueAction<FredFinishedDialogue>());
         }
     }
     public class Bucked_Dialogue : Dialogue{
         public Bucked_Dialogue(){
-            Say("Cheers... glug... glug... glug... *hicc*");
+            Say("Cheers... *glug* *glug* *glug* ... *hicc*");
             Say("Thanks, Mate")
                 .DoAfter(new TriggerDialogueAction<FredFinishedDialogue>());
         }
     }
     public class Cocktail_Dialogue : Dialogue{
         public Cocktail_Dialogue(){
-            Say("Oi! Thanks but... I'll pass")
+            Say("Oi! Thanks but... I'll pass.")
                 .DoAfter(new TriggerDialogueAction<FredFinishedDialogue>());
         }
     }

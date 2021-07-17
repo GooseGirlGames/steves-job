@@ -58,14 +58,15 @@ public class JimDialogue : VoidNPCDiaTrigger {
             Say("...");
             Say("Anyway, now I'm back.");
             Say("Well... At least in what is left of the mall.");
-            Say("If I can help your with anything, just ask. My store is back in business.")
-            .Do(GiveItem(t._said_thanks));
+            Say("If I can help you with anything, just ask. My store is back in business.")
+                .Do(GiveItem(t._said_thanks))
+                .DoAfter(new TriggerDialogueAction<CleanItem>());
         }
     }
     public class CleanItem : Dialogue {
         public CleanItem() {
             // Newlines within the same stetement, sue me
-            Say("Should I clean something for you? And I mean for real this time, haha")
+            Say("Should I clean something for you? And I mean for real this time, haha.")
                 .Choice(new TextOption("No Thanks"))
 
                 .Choice(new ItemOption(t.dirtyBrokenSwitch)
@@ -130,7 +131,7 @@ public class JimDialogue : VoidNPCDiaTrigger {
         public BrokenSwitchDialogue(){
             Say("It's clean, sadly I can't do more.");
             Say("If you find a way to talk to Billie, they'll probably help you out.");
-            Say("Good luck, I belive in you")
+            Say("Good luck, I belive in you.")
                 .DoAfter(new TriggerDialogueAction<CleanItem>());    
         }
     }

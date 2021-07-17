@@ -51,6 +51,10 @@ public class SwitchDialogue : DialogueTrigger {
         }
     }
 
+    private void TriggerEnding() {
+        // TODO
+    }
+
     private void Awake() {
         renderer = GetComponent<SpriteRenderer>();
         UpdateState();
@@ -81,21 +85,23 @@ public class SwitchDialogue : DialogueTrigger {
 
     public class FirstDialogue : Dialogue {
         public FirstDialogue(){
+            Say("...");
+            Say("......");
             Say(
                 "Geez, everything that's left of that stupid switch "
                 + "are some broken parts..."
             );
-            Say("...with strange rust all over them")
+            Say("...with strange rust all over them.")
                 .DoAfter(GiveItem(t.switch_dirty_broken));
             Say("It should probably be cleaned... And repaired...");
-            Say("...And the power is out") //, I think Steve E Wonder may have a spare generator")
+            Say("...And the power is out.") //, I think Steve E Wonder may have a spare generator")
                 .DoAfter(RemoveItem(t._not_pickedup_with_switch));
         }
     }
 
     public class EmptyHoleNoPower : Dialogue{
         public EmptyHoleNoPower() {
-            Say("It's not yet powered, but something might fit in here...")
+            Say("It's not powered yet, but something might fit in here...")
             .Choice(new ItemOption(t.switch_final)
                 .IfChosen(new TriggerDialogueAction<InsertSwitch>())
             )
@@ -159,9 +165,8 @@ public class SwitchDialogue : DialogueTrigger {
 
     public class SwitchInstalledAndPowered : Dialogue{
         public SwitchInstalledAndPowered(){
-            Say("ggwp");
-            Say("thanks for playing steve's job <3");
-            // TODO Trigger final switch flick sequence
+            Say("*click*")
+            .DoAfter(t.TriggerEnding);
         }
     }
     public class InsertSwitch : Dialogue {

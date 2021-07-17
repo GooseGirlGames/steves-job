@@ -47,7 +47,8 @@ public class HandymanDialogue : VoidNPCDiaTrigger {
 
             Say("But hey, I'm kind of good at fixing electrical stuff, so just let me know "
                     + "if there's anything I can fix for you.")
-            .DoAfter(GiveItem(t._said_thanks));
+            .DoAfter(GiveItem(t._said_thanks))
+            .DoAfter(new TriggerDialogueAction<FixItem>());
         }
     }
     public class FixItem : Dialogue {
