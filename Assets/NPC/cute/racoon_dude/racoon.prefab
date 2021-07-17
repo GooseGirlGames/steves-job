@@ -144,7 +144,7 @@ MonoBehaviour:
   ava_sleepy: {fileID: 21300000, guid: 2dc5262f2153bb07c99fe18d82369881, type: 3}
   ava_angy: {fileID: 21300000, guid: b843255a0ac2e33769f73f331eed0a6c, type: 3}
   ava_normal: {fileID: 21300000, guid: b843255a0ac2e33769f73f331eed0a6c, type: 3}
-  windowRaccoon: {fileID: 7091463377263521699}
+  windowRaccoon: {fileID: 5330203160423516348}
   storeowner: {fileID: 0}
   fadeToBlack: {fileID: 5383605182938722729}
 --- !u!114 &8860906378103704575
