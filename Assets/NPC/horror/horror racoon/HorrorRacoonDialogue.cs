@@ -26,10 +26,15 @@ public class HorrorRacoonDialogue : DialogueTrigger
     private bool animationInProgress = false;
     private bool keysCanBeGrabbed = false;
     public const string LOCK_TAG = "Hungry horrible raccoon";
-
+    public Sprite ava_small;
+    public Sprite ava_big;
+    public Sprite ava_crunch;
+    public Transform hint_big;
+    public Transform hint_small;
     void Awake() {
         Instance = this;
         animator = GetComponent<Animator>();
+        UpdateAvatar();
 
         animator.SetBool("Big", Inventory.Instance.HasItem(_horror_racoon_drink));
         if (Inventory.Instance.HasItem(_horror_racoon_done)) {
@@ -37,8 +42,22 @@ public class HorrorRacoonDialogue : DialogueTrigger
         }
     }
 
+    void UpdateAvatar() {
+        if (Inventory.Instance.HasItem(_horror_racoon_done)) {
+            avatar = ava_crunch;
+            hintPosition = hint_small;
+        } else if (Inventory.Instance.HasItem(_horror_racoon_drink)) {
+            avatar = ava_big;
+            hintPosition = hint_big;
+        } else {
+            avatar = ava_small;
+            hintPosition = hint_small;
+        }
+    }
+
     public override Dialogue GetActiveDialogue() {
         HorrorRacoonDialogue.h = this;
+        UpdateAvatar();
 
         if (animationInProgress)
             return null;
@@ -84,6 +103,7 @@ public class HorrorRacoonDialogue : DialogueTrigger
         //yield return new WaitForSeconds(2.0f);
         animationInProgress = false;
         steve.Unlock(LOCK_TAG);
+        UpdateAvatar();
         DialogueManager.Instance.SetInstantTrue();
     }
 
@@ -215,8 +235,11 @@ public class HorrorRacoonDialogue : DialogueTrigger
             Say("What's that?");
             Say("It smells amazing!");
             Say("*slurp* *slurp*")
-            .Do(() => {h.animator.SetBool("Big", true);})
-            .Do(GiveItem(h._horror_racoon_drink));
+            .Do(GiveItem(h._horror_racoon_drink))
+            .Do(() => {
+                h.animator.SetBool("Big", true);
+                h.UpdateAvatar();
+            });
             Say("delicious!");
             Say("I feel energized again!");
                         Say("Thanks!")
