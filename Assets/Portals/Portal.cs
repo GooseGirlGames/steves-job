@@ -68,6 +68,7 @@ public class Portal : MonoBehaviour
                                              // so we need to cache its position
     private Coroutine destinationHintCoroutine = null;
     private Coroutine elevatorAnimationCoroutine = null;
+    private Coroutine sceneTransitionCoroutine = null;
 
     private void Awake() {
         if (animateTransition) {
@@ -106,7 +107,8 @@ public class Portal : MonoBehaviour
                 elevatorAnimationCoroutine = StartCoroutine(ElevatorAnimation());
             }
         } else {
-             StartCoroutine(WaitForTransitionAnimation());
+            if (sceneTransitionCoroutine == null)
+                sceneTransitionCoroutine = StartCoroutine(WaitForTransitionAnimation());
         }
     }
 
@@ -146,7 +148,7 @@ public class Portal : MonoBehaviour
             // Wait for FadeOut animation plus additional delay
             yield return new WaitForSeconds(
                 ANIMATION_DURATION / transitionAnimationSpeedFactor
-            );   
+            ); 
         }
 
         if (destinationType == DestinationType.ChangeScene) {
@@ -165,6 +167,8 @@ public class Portal : MonoBehaviour
                 transitionAnimationManager.black.SetTrigger("EnterScene");
             }
         }
+
+        sceneTransitionCoroutine = null;
     }
 
     IEnumerator WaitWithDestinationHint() {
