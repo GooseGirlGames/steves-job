@@ -30,7 +30,6 @@ public class DdrDialogue : DialogueTrigger {
     public override Dialogue GetActiveDialogue() {
         t = this;
         if(Inventory.Instance.HasItem(_can_use_ddr)){
-            t.GetComponent<AudioSource>().Play();
             return new IntroDia();
         }
         if(Inventory.Instance.HasItem(_powered)){
