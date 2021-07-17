@@ -1641,10 +1641,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fred
       objectReference: {fileID: 0}
-    - target: {fileID: 4595133865181592481, guid: 8b5b4ac1ce3a95caf8a70d8593b8b995, type: 3}
-      propertyPath: bucketcute
-      value: 
-      objectReference: {fileID: 11400000, guid: b4df9cc4ab97817dea6dd500737fb275, type: 2}
     - target: {fileID: 4595133865181592483, guid: 8b5b4ac1ce3a95caf8a70d8593b8b995, type: 3}
       propertyPath: m_RootOrder
       value: 5
