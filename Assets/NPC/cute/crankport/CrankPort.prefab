@@ -157,12 +157,14 @@ MonoBehaviour:
   playerInTrigger: 0
   hintPosition: {fileID: 4492475109184746066}
   background: {fileID: 0}
-  avatar: {fileID: 0}
+  avatar: {fileID: 21300000, guid: 5d4947f2f023ed0a4a8fc8b6bdbd99ca, type: 3}
   name: Crank Port
   world: 1
   candyCrank: {fileID: 11400000, guid: b5330c7fcf8c7321faded7cd47cc726b, type: 2}
   cranked: {fileID: 11400000, guid: 62c2e79f29dbd909bba31c242cb60f6b, type: 2}
   animator: {fileID: 3945656444163777956}
+  ava_cranked: {fileID: 21300000, guid: 1a020c72c102fd67bb9bc9a70f2f9b81, type: 3}
+  ava_uncranked: {fileID: 21300000, guid: 5d4947f2f023ed0a4a8fc8b6bdbd99ca, type: 3}
 --- !u!95 &3945656444163777956
 Animator:
   serializedVersion: 3

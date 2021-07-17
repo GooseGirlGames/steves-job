@@ -8,10 +8,16 @@ public class CrankPortDialogue : DialogueTrigger {
     public Item candyCrank;
     public Item cranked;
     public Animator animator;
+    public Sprite ava_cranked;
+    public Sprite ava_uncranked;
 
     private void Awake() {
-        if (Inventory.Instance.HasItem(cranked))
+        if (Inventory.Instance.HasItem(cranked)) {
+            avatar = ava_cranked;
             animator.SetTrigger("RetractInstant");
+        } else {
+            avatar = ava_uncranked;
+        }
     }
 
     public override Dialogue GetActiveDialogue() {
@@ -25,9 +31,11 @@ public class CrankPortDialogue : DialogueTrigger {
         if (Inventory.Instance.HasItem(cranked)) {
             Inventory.Instance.RemoveItem(cranked);
             animator.SetTrigger("Extend");
+            avatar = ava_uncranked;
         } else {
             Inventory.Instance.AddItem(cranked);
             animator.SetTrigger("Retract");
+            avatar = ava_cranked;
         }
     }
 
@@ -49,7 +57,8 @@ public class CrankPortDialogue : DialogueTrigger {
     public class Crank : Dialogue {
         public Crank() {
             CrankPortDialogue t = CrankPortDialogue.t;
-            Say("*squeak*").Do(t.CrankMarquee);
+            EmptySentence().DoAfter(t.CrankMarquee);
+            Say("*squeak*");
         }
     }
 
