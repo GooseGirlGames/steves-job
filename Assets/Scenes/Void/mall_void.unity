@@ -1779,6 +1779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d077eeb83780b363ada272333b95735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _switch_not_picked_up: {fileID: 11400000, guid: fa49013038d0321088f409d9bcac2ab8, type: 2}
 --- !u!1 &1036826970
 GameObject:
   m_ObjectHideFlags: 0
