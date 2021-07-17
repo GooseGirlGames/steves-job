@@ -21,20 +21,26 @@ public class SteveEHorrorDialogue : DialogueTrigger
     public const string UwuName = "Steve E Howwow";
 
     public static SteveEHorrorDialogue s;
+    new private SpriteRenderer renderer;
+    private Animator animator;
 
     void Awake() {
-        UpdateUwu();
         Instance = this;
+        renderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        UpdateUwu();
     }
 
     private void UpdateUwu() {
         if (Inventory.Instance.HasItem(_restored_steve_e_horror)) {
             name  = DefName;
             avatar = ava_norm;
-            GetComponent<SpriteRenderer>().sprite = sprite_norm;
+            renderer.sprite = sprite_norm;
+            animator.SetBool("uwu", false);
         } else {
             avatar = ava_uwu;
-            GetComponent<SpriteRenderer>().sprite = sprite_uwu;
+            renderer.sprite = sprite_uwu;
+            animator.SetBool("uwu", true);
         }
     }
 
