@@ -17,9 +17,10 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
     // public Animator PeasantAnimator;  TODO even Needed?
     new private SpriteRenderer renderer;
     public static BloodPeasantPouringDialogue t;
+    private bool isPouring = false;
 
     public override Dialogue GetActiveDialogue() {
-        if (Inventory.Instance.HasItem(PeaseantSoakedCatHappy)) {
+        if (Inventory.Instance.HasItem(PeaseantSoakedCatHappy) || isPouring) {
             return null;
         }
 
@@ -51,6 +52,7 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
 
     
     private IEnumerator PourAnimation(bool cute) {
+        isPouring = true;
         TargetCamera.Disable();
         stevecontroller player = GameObject.FindObjectOfType<stevecontroller>();
         Vector3 playerPos = player.gameObject.transform.position;
@@ -82,7 +84,7 @@ public class BloodPeasantPouringDialogue : DialogueTrigger {
         BloodPeasents.GetComponent<SoakedPeasantsVisible>().UpdateVisibility();
         player.Unlock("BloodPouring");
         transitionAnimation.SetTrigger("EnterScene");
-
+        isPouring = false;
     }
 }
 
