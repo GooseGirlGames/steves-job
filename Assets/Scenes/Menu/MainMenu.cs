@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public Button optionsButton;
     public GameObject optionsMenu;
     public GameObject mainMenu;
+    public Slider volumeSlider;
     
     void Awake(){
         StartCoroutine(UIUtility.SelectButtonLater(button));
@@ -19,6 +20,13 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    public void DeleteSave() {
+        SaveLoadSystem.DeleteSave();
+    }
+
+    public void OnVolumeChanged() {
+        AudioListener.volume = volumeSlider.value;
+    }
     public void OptionBackButton(){
         optionsMenu.SetActive(false);
         mainMenu.SetActive(true);
@@ -28,12 +36,16 @@ public class MainMenu : MonoBehaviour
     public void LoadOptions(){
         optionsMenu.SetActive(true);
         mainMenu.SetActive(false);
-        
+        volumeSlider.value = AudioListener.volume;
         StartCoroutine(UIUtility.SelectButtonLater(optionsButton));
     }
-    
-    public void close_game(){
+
+    private IEnumerator Bye() {
+        yield return new WaitForSeconds(2);
         Application.Quit();
+    }    
+    public void close_game(){
+        StartCoroutine(Bye());
         Debug.Log("Quit");
     }
 }

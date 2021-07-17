@@ -20,7 +20,10 @@ public class menucontroller : MonoBehaviour {
 //Methoden
 //===================================================================================================================================
 
-
+    public void bye() {
+        horizontal_move *= -1;
+        set_active();
+    }
     private void Flip(){
         // Switch the way the player is labelled as facing.
         m_facing_right = !m_facing_right;

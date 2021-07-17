@@ -9,6 +9,11 @@ using System.Runtime.Serialization.Formatters.Binary;
 public static class SaveLoadSystem {
     public const string DEFAULT_SAVE_FILE = "steve";
     private static Vector3 playerPos;
+    public static void DeleteSave(string relpath = DEFAULT_SAVE_FILE) {
+        string path = Application.persistentDataPath + "/" + relpath;
+        if (File.Exists(path))
+            File.Delete(path);
+    }
     private static SaveGame CreateSave() {
         SaveGame s = new SaveGame();
         s.scene = SceneManager.GetActiveScene().name;
