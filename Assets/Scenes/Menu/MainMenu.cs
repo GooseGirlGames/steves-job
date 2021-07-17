@@ -22,6 +22,8 @@ public class MainMenu : MonoBehaviour
 
     public void DeleteSave() {
         SaveLoadSystem.DeleteSave();
+        GameObject.FindObjectOfType<menucontroller>().bye();
+        Bye();
     }
 
     public void OnVolumeChanged() {
@@ -31,7 +33,7 @@ public class MainMenu : MonoBehaviour
         optionsMenu.SetActive(false);
         mainMenu.SetActive(true);
         StartCoroutine(UIUtility.SelectButtonLater(button));
-        GameObject.FindObjectOfType<ContinueButton>().UpdateText();
+        GameObject.FindObjectOfType<ContinueButton>().UpdateSave();
     }
     
     public void LoadOptions(){
