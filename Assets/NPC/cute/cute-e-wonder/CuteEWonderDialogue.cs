@@ -42,9 +42,12 @@ public class CuteEWonderDialogue : DialogueTrigger {
                                    // _restored item (the latter of which triggers the restore
                                    // notification, which we want to happen during "Thanks")
     public Transform hintPosRestored;
+    public GameObject chick;
+    public List<Transform> chickPositions;
     private void Awake() {
         renderer = GetComponent<Renderer>();
         animator = GetComponent<Animator>();
+        chick.GetComponent<SpriteRenderer>().enabled = false;
         UpdateState();
     }
 
@@ -53,9 +56,15 @@ public class CuteEWonderDialogue : DialogueTrigger {
             avatar = ava_restored;
             animator.SetBool("Restored", true);
             hintPosition = hintPosRestored;
+                if (!chick.GetComponent<SpriteRenderer>().enabled) {
+                int posIdx = Random.Range(0, chickPositions.Count - 1);
+                chick.transform.position = chickPositions[posIdx].position;
+                chick.GetComponent<SpriteRenderer>().enabled = true;
+            }
         } else {
             avatar = ava_initial;
             animator.SetBool("Restored", false);
+            chick.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 
