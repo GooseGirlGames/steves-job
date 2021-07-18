@@ -55,7 +55,8 @@ public class HangmanDialogue : DialogueTrigger
             Say("My father");
             Say("told me to be careful with keys");
             Say("And never loose them");
-            Say("But guess what happened...")
+            Say("But guess what happened...");
+            Say("Keeping track of them is a real noose-ance")
             .DoAfter(GiveItem(h._hangman_story))
             .DoAfter(new TriggerDialogueAction<DefaultDialogue>());
         }

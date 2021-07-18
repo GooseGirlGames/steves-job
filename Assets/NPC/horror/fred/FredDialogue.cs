@@ -115,7 +115,7 @@ public class FredDialogue : DialogueTrigger
 
     public class No_Default : Dialogue{
         public No_Default(){
-            Say("Then fuck off cunt!!!");
+            Say("What are you? A idiot sandwich? Then fuck off cunt!!!");
         }
     }
 
@@ -172,7 +172,7 @@ public class FredDialogue : DialogueTrigger
     }
     public class Naked_Shirt_Dialogue : Dialogue{
         public Naked_Shirt_Dialogue(){
-            Say("Ey, That thing's still fucked, try harder.")
+            Say("Oy, That thing's still fucked, try harder.")
             .DoAfter(new TriggerDialogueAction<FredChosenNakedDialog>());
         }
     }
@@ -186,7 +186,7 @@ public class FredDialogue : DialogueTrigger
             Say("Alright me 'ol cobber, for ya work here's something from tha kitchen.");
             Say("My dishy Mary made this for ya.")
                 .DoAfter(GiveItem(t.disgusting_cocktail));
-            Say("Goodbye crocodile.");
+            Say("In a while crocodile.");
         }
     }
 
@@ -201,7 +201,7 @@ public class FredDialogue : DialogueTrigger
             Say("Alright me 'ol cobber, for ya work here's Something from tha kitchen.");
             Say("My dishy Mary made this for ya.")
                 .DoAfter(GiveItem(t.disgusting_cocktail));
-            Say("Goodbye crocodile.");
+            Say("In a while crocodile.");
         }
     }
 
