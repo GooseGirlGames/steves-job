@@ -146,6 +146,9 @@ MonoBehaviour:
   ava_bloody: {fileID: 21300000, guid: b58759098b51e1442962808840863d73, type: 3}
   ava_bloody_nospine: {fileID: 21300000, guid: bc096fa24618fb4dfbdb5c076e95f820, type: 3}
   ava_norm: {fileID: 21300000, guid: 5099fbc0ffef8b8bc836d4179a6b27dd, type: 3}
+  audioSource: {fileID: 0}
+  ahhh: {fileID: 8300000, guid: 1542b6170e8a63ecebcdc8a2fb7a1a21, type: 3}
+  screetch: {fileID: 8300000, guid: 1b1590d2f601aba88b504a6a4a383c98, type: 3}
 --- !u!95 &740587555019720747
 Animator:
   serializedVersion: 3
