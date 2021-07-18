@@ -108,8 +108,10 @@ public class Portal : MonoBehaviour
         if (elevator && animateAsElevator) {
             if (elevatorAnimationCoroutine == null) {
                 elevatorAnimationCoroutine = StartCoroutine(ElevatorAnimation());
-                audioSource.clip = ding;
-                audioSource.Play();
+                if (ding && audioSource) {
+                    audioSource.clip = ding;
+                    audioSource.Play();
+                }
             }
         } else {
             if (sceneTransitionCoroutine == null)
@@ -128,8 +130,10 @@ public class Portal : MonoBehaviour
                 yield return new WaitForSeconds(
                     ANIMATION_DURATION / transitionAnimationSpeedFactor
                 );
-                audioSource.clip = hui;
-                audioSource.Play();
+                if (hui && audioSource) {
+                    audioSource.clip = hui;
+                    audioSource.Play();
+                }
                 if (steve) {
                     Debug.Log("Stev!" + steve);
                     steve.SetTrigger("Wheeeeee");
