@@ -175,6 +175,7 @@ MonoBehaviour:
   switch_broken_cute: {fileID: 11400000, guid: c7868393276619bcab6b2c798c5d7aa3, type: 2}
   switch_broken: {fileID: 11400000, guid: 02201874d20345cc4a81721b09010eff, type: 2}
   switch_broken_horror: {fileID: 11400000, guid: f4c53fdac8403b72e91dba556812760d, type: 2}
+  _restored_horror_jim: {fileID: 11400000, guid: 65c432402cc0fbc5087c8d230594304d, type: 2}
 --- !u!61 &1300187296440827177
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -213,6 +214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860dadad14504505aa499103186cef8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  hui: {fileID: 0}
+  ding: {fileID: 0}
   triggerType: 2
   destinationType: 1
   targetSceneName: BloodFalling
@@ -220,12 +224,14 @@ MonoBehaviour:
   elevator: 0
   targetName: 
   teleportAfterSceneChange: 0
-  transitionAnimation: {fileID: 0}
   portalAnimator: {fileID: 0}
   transitionAnimationSpeedFactor: 1
   animationDelay: 0
+  animationDelayChangeScene: 2
+  animateTransition: 1
   hintPosition: {fileID: 0}
   animateAsElevator: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
+  targetWorld: 0

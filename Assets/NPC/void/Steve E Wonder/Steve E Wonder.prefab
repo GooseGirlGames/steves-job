@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1036289319
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8598016a3b4302737972a34b9387ebde, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -131,6 +131,7 @@ MonoBehaviour:
   world: 3
   _restored_cute: {fileID: 11400000, guid: 6d22034e2ed7d7af38c284fbb262c66d, type: 2}
   _restored_horror: {fileID: 11400000, guid: 75cd7eb90e2e1b18ab246ecff6367a82, type: 2}
+  additionalAnimators: []
   avatar_normal: {fileID: 21300000, guid: ae2d345bc3a9b12238c18abf9f735b9e, type: 3}
   avatar_half: {fileID: 21300000, guid: 152d388feed3785dab3fe8e603468a66, type: 3}
   avatar_gone: {fileID: 21300000, guid: 4424676c0b6aafdefa1323f4773d7b24, type: 3}

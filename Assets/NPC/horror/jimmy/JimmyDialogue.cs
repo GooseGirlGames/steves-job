@@ -14,7 +14,6 @@ public class JimmyDialogue : DialogueTrigger
     public Item bucket_empty_cute;
     public Item bucket_full_cute;
     public Item gameLost;
-    public Item gamePlayed;
     public Item goose_clean;
     public Item goose_bloody;
     public Item goose_bloody_bow;
@@ -26,6 +25,7 @@ public class JimmyDialogue : DialogueTrigger
     public Item switch_broken_cute;
     public Item switch_broken;
     public Item switch_broken_horror;
+    public Item _restored_horror_jim;
     public static JimmyDialogue t = null;
 
 
@@ -35,7 +35,7 @@ public class JimmyDialogue : DialogueTrigger
 
     public override Dialogue GetActiveDialogue() {
         t = this;
-        if (Inventory.Instance.HasItem(gamePlayed)) {
+        if (Inventory.Instance.HasItem(_restored_horror_jim)) {
             return new NoBigAnswer();
         }
         else if (Inventory.Instance.HasItem(gameLost)){
@@ -235,11 +235,12 @@ public class JimmyDialogue : DialogueTrigger
                     BloodFalling.splatCount == 2
                 );
 
-            Say("Thanks for the help!")
-                .Do(GiveItem(t.gamePlayed));
+            Say("Thanks for the help!");
 
             Say("You can keep the bucket, and here, have some of my spare change.")
-                .Do(GiveItem(t.horrorcoin));
+                .Do(GiveItem(t.horrorcoin))
+                .DoAfter(GiveItem(t._restored_horror_jim));
+
         }
     }
 
