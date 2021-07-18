@@ -965,8 +965,16 @@ MonoBehaviour:
   goosepics:
   - {fileID: 6131062182725327011}
   - {fileID: 9137275688321211223}
+  gooseSprites:
+  - {fileID: 21300000, guid: c32cc2b0d992ef7c48f1ea79b7cfef84, type: 3}
+  - {fileID: 21300000, guid: 1883ef06bd5027d3992101ca8ebf2f0a, type: 3}
+  - {fileID: 21300000, guid: 6613c30a79051bb02a4f526cab74a5d9, type: 3}
+  - {fileID: 21300000, guid: 71f882c8c14370b189e9ce814de4bd62, type: 3}
   geese:
   - {fileID: 11400000, guid: 198dc408a7afc11f7ba17208cfc0bbd2, type: 2}
+  - {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
+  - {fileID: 11400000, guid: c35d8409472c06b41a3bdcbdf7d82177, type: 2}
+  - {fileID: 11400000, guid: 410fdc347b6862748b32dfb464117bbc, type: 2}
   black: {fileID: 6661882498269455674}
   horrorAnim: {fileID: 510337878753656571}
   cuteAnim: {fileID: 7208682195289641725}

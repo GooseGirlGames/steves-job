@@ -6,15 +6,25 @@ using UnityEngine.UI;
 public class SceneTransitionManagement : MonoBehaviour {
     public static SceneTransitionManagement Instance = null;
     public List<Image> goosepics;
+    public List<Sprite> gooseSprites;
     public List<Item> geese;
     private void UpdateGoose() {
-        bool hasGoose = false;
-        foreach (var item in Inventory.Instance.items) {
-            if (geese.Contains(item))
-                hasGoose = true;
+
+        for (int gooseIdx = 0; gooseIdx < geese.Count; ++gooseIdx) {
+            Debug.Log(gooseIdx);
+            if (Inventory.Instance.HasItem(geese[gooseIdx])) {
+                Debug.Log("Found goose");
+                foreach (var pic in goosepics) {   
+                    pic.sprite = gooseSprites[gooseIdx];
+                    pic.color = Color.white;
+                }
+                return;
+            }
         }
-        foreach (var pic in goosepics)
-            pic.color = hasGoose ? Color.white : Color.clear;
+        Debug.Log("nogoose");
+        foreach (var pic in goosepics) {   
+            pic.color = Color.clear;
+        }
     }
     private void Awake() {
         if (Instance != null) {
