@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,5 +30,14 @@ public class GameManager : MonoBehaviour
     public bool IsInMinigame() {
         string activeScene = SceneManager.GetActiveScene().name;
         return MINIGAME_SCENE_NAMES.Contains(activeScene);
+    }
+    private void Update() {
+        
+        if (Input.GetKeyDown(KeyCode.F2)) {
+            string fileName = "stevesjob-screenshot-"
+                    + DateTime.Now.ToString("s")
+                    + ".png";
+            ScreenCapture.CaptureScreenshot(fileName, 1);
+        }
     }
 }
