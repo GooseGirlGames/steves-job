@@ -13,10 +13,12 @@ public class BloodFalling : MonoBehaviour {
     private Vector2 screenbounds;
     public Item lostItem;
     public Item winItem;
+    private AudioSource audioSource;
 
     public static int splatCount;
 
     void Start() {
+        audioSource = GetComponent<AudioSource>();
         //progressbar.minBlood(counter);
         //rigidbody2D = this.GetComponent<Rigidbody2D> ();
         screenbounds = Camera.main.ScreenToWorldPoint(transform.position);
@@ -32,7 +34,8 @@ public class BloodFalling : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision2D) {
         if(collision2D.gameObject.name.Equals("Background")){
             this.gameObject.GetComponent<SpriteRenderer>().sprite = splatter;
-            this.gameObject.tag = "splatter";            
+            this.gameObject.tag = "splatter";   
+            audioSource.Play();         
             Debug.Log("R.I.P");
         }
         else if(collision2D.gameObject.name.Equals("Player") && this.gameObject.transform.position.y > -3.8f){
@@ -41,6 +44,7 @@ public class BloodFalling : MonoBehaviour {
         }
         else if(collision2D.gameObject.name.Equals("blood(Clone)")){
             this.gameObject.tag = "splatter";
+            audioSource.Play();
         }
         Debug.Log(collision2D.gameObject.name);
 
