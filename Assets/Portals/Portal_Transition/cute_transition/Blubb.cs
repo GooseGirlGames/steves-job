@@ -16,11 +16,11 @@ public class Blubb : MonoBehaviour {
     private int spriteIdx;
     public const float POPP_TIME = 0.1f;
 
-    void Start() {
+    public void BubbleStart(RectTransform r1, RectTransform r2) {
         spriteIdx = Random.Range(0, intactBubbles.Count - 1);
         image.sprite = intactBubbles[spriteIdx];
 
-        rect.position = RandPos();
+        rect.position = RandPos(r1, r2);
         float angle = Random.Range(0.0f, 2 * Mathf.PI);
         Vector3 direction = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle), 0);
         direction_normalized = Vector3.Normalize(direction);
@@ -49,9 +49,9 @@ public class Blubb : MonoBehaviour {
         timeToLive -= Time.fixedDeltaTime;
     }
 
-    private static Vector2 RandPos() {
-        float x = Random.Range(-SPAWN_BOX_SIZE * 0.1f, SPAWN_BOX_SIZE);
-        float y = Random.Range(-SPAWN_BOX_SIZE * 0.1f, SPAWN_BOX_SIZE);
+    private static Vector2 RandPos(RectTransform r1, RectTransform r2) {
+        float x = Random.Range(r1.position.x, r2.position.x);
+        float y = Random.Range(r1.position.y, r2.position.y);
         return new Vector2(x, y);
     }
 
