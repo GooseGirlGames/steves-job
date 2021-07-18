@@ -9,7 +9,9 @@ public class InventoryCanvasSlots : MonoBehaviour {
         "MenuScene",
         "BloodFalling",
         "JumpMiniGame",
-        "MusicMiniGame"
+        "MusicMiniGame",
+        "IntroScene",
+        "OutroScene"
     };
 
     public List<InventorySlot> slots;

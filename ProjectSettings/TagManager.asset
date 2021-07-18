@@ -10,6 +10,8 @@ TagManager:
   - floor
   - spawn
   - button
+  - music
+  - Jeremias
   layers:
   - Default
   - TransparentFX

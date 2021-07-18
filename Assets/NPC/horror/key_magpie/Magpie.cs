@@ -7,6 +7,7 @@ public class Magpie : MonoBehaviour {
     private Transform currentTarget = null;
     private Vector3 startPos;
     private float speed = 0.17f;
+    public float speedFactor = 1.0f;
     private float distanceTarget = float.PositiveInfinity;
     private float totalDistance;
     public SpriteRenderer magpieRenderer;
@@ -19,25 +20,26 @@ public class Magpie : MonoBehaviour {
     private bool taunting = false;
     private Animator animator;
     private bool facingRight = false;
+    public bool spawnOnAwake = false;
     private void Awake() {
         animator = GetComponent<Animator>();
-        keyRenderer.enabled = false;
+        if(keyRenderer) keyRenderer.enabled = false;
         magpieRenderer.enabled = false;
         player = GameObject.FindObjectOfType<stevecontroller>();
-        if (Inventory.Instance.HasItem(_magpie_released)) {
+        if (spawnOnAwake || Inventory.Instance.HasItem(_magpie_released)) {
             Spawn();
         }
     }
     public void Spawn() {
-        taunting = Inventory.Instance.HasItem(_magpie_taunting);
+        taunting = !spawnOnAwake && Inventory.Instance.HasItem(_magpie_taunting);
         if (taunting) {
-            keyRenderer.enabled = true;
+            if(keyRenderer) keyRenderer.enabled = true;
             speed *= 1000.0f;
             targetIdx = targetPositions.Count - 1;
             SetTarget(targetPositions[targetIdx]);
             speed /= 1000.0f;
         } else {
-            keyRenderer.enabled = false;
+            if(keyRenderer) keyRenderer.enabled = false;
             SetTarget(keyTarget);
         }
         magpieRenderer.enabled = true;
@@ -58,9 +60,11 @@ public class Magpie : MonoBehaviour {
 
         if (currentTarget == keyTarget) {
             keyRenderer.enabled = true;
-            keyInWorldRenderer.enabled = false;
-            SetTarget(targetPositions[0]);
-            targetIdx = 0;
+            if(keyInWorldRenderer) {
+                keyInWorldRenderer.enabled = false;
+                SetTarget(targetPositions[0]);
+                targetIdx = 0;
+            }
         } else {
             float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
             if (distanceToPlayer < 3.4f) {
@@ -78,7 +82,7 @@ public class Magpie : MonoBehaviour {
         Vector3 direction_norm = Vector3.Normalize(direction);
         float progress = distanceTarget / totalDistance;
         float ease = (Mathf.Sin(progress * Mathf.PI) + 1) / 2;
-        Vector3 moveDelta = direction_norm * speed * ease;
+        Vector3 moveDelta = direction_norm * speed * speedFactor * ease;
         gameObject.transform.position += moveDelta;
         animator.SetFloat("Speed", 2 - ((Vector2) moveDelta).magnitude);
 

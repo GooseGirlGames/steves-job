@@ -14,6 +14,13 @@ public class BuddySpawner : MonoBehaviour {
     private Vector3 localScaleLeft;
     private Vector3 localScaleRight;
     public Item goose;
+    public RuntimeAnimatorController goose_ctrl;
+    public Item goose_cute;
+    public RuntimeAnimatorController goose_cute_ctrl;
+    public Item goose_blood;
+    public RuntimeAnimatorController goose_blood_ctrl;
+    public Item goose_both;
+    public RuntimeAnimatorController goose_both_ctrl;
     
     void Start() {
         if (SceneManager.GetActiveScene().name == "JumpMiniGame") {
@@ -33,7 +40,21 @@ public class BuddySpawner : MonoBehaviour {
             return;
         }
 
-        buddyRenderer.enabled = Inventory.Instance.HasItem(goose);
+        if (Inventory.Instance.HasItem(goose)) {
+            buddyAnimator.runtimeAnimatorController = goose_ctrl;
+            buddyRenderer.enabled = true;
+        } else if (Inventory.Instance.HasItem(goose_cute)) {
+            buddyAnimator.runtimeAnimatorController = goose_cute_ctrl;
+            buddyRenderer.enabled = true;
+        } else if (Inventory.Instance.HasItem(goose_blood)) {
+            buddyAnimator.runtimeAnimatorController = goose_blood_ctrl;
+            buddyRenderer.enabled = true;
+        } else if (Inventory.Instance.HasItem(goose_both)) {
+            buddyAnimator.runtimeAnimatorController = goose_both_ctrl;
+            buddyRenderer.enabled = true;
+        } else {
+            buddyRenderer.enabled = false;
+        }
 
         states.Enqueue(following.GetMovementState());
         

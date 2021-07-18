@@ -76,16 +76,25 @@ public class VendingDialogue : DialogueTrigger {
                 new ItemOption(t.startcoin)
                 .IfChosen(RemoveItem(t.startcoin))
                 .IfChosen(new DialogueAction(t.GiveSnack))
+                .IfChosen(new DialogueAction(() => {
+                                t.GetComponent<AudioSource>().Play();
+                            }))
             )
             .Choice(
                 new ItemOption(t.horrorcoin)
                 .IfChosen(RemoveItem(t.horrorcoin))
                 .IfChosen(new DialogueAction(t.GiveSnack))
+                .IfChosen(new DialogueAction(() => {
+                                t.GetComponent<AudioSource>().Play();
+                            }))
             )
             .Choice(
                 new ItemOption(t.cutecoin)
                 .IfChosen(RemoveItem(t.cutecoin))
                 .IfChosen(new DialogueAction(t.GiveSnack))
+                .IfChosen(new DialogueAction(() => {
+                                t.GetComponent<AudioSource>().Play();
+                            }))
             )
             .Choice(
                 new OtherItemOption()

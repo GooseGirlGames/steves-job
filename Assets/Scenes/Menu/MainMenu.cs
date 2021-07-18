@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
     public void DeleteSave() {
         SaveLoadSystem.DeleteSave();
         GameObject.FindObjectOfType<menucontroller>().bye();
-        Bye();
+        StartCoroutine(Bye());
     }
 
     public void OnVolumeChanged() {

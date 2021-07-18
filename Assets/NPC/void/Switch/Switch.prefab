@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 6102461149753109621}
   - component: {fileID: 6102461149753109620}
   - component: {fileID: 6102461149753109611}
+  - component: {fileID: 5536320554827833932}
   m_Layer: 0
   m_Name: Switch
   m_TagString: Untagged
@@ -203,3 +204,34 @@ MonoBehaviour:
   ava_start: {fileID: 21300000, guid: 3dc08d97a394f4fba91931982a2eb1f9, type: 3}
   ava_empty: {fileID: 21300000, guid: 3dc08d97a394f4fba91931982a2eb1f9, type: 3}
   ava_complete: {fileID: 21300000, guid: 60bdc1626604fd3e6808756fc126916b, type: 3}
+  outroPortal: {fileID: 5536320554827833932}
+--- !u!114 &5536320554827833932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6102461149753109609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860dadad14504505aa499103186cef8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerType: 2
+  destinationType: 1
+  targetSceneName: OutroScene
+  target: {fileID: 0}
+  elevator: 0
+  targetName: 
+  teleportAfterSceneChange: 0
+  portalAnimator: {fileID: 0}
+  transitionAnimationSpeedFactor: 0.4
+  animationDelay: 0
+  animationDelayChangeScene: 2
+  animateTransition: 1
+  hintPosition: {fileID: 0}
+  animateAsElevator: 0
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  targetWorld: 3
