@@ -1221,7 +1221,7 @@ Transform:
   - {fileID: 756232678}
   - {fileID: 622309527}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &756232677
 PrefabInstance:
@@ -1432,7 +1432,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8460753749089428368, guid: df98ed2bbf7e935969fcacff6bb053b2, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8460753749089428368, guid: df98ed2bbf7e935969fcacff6bb053b2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2095,7 +2095,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3136791745992653637, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3136791745992653637, guid: 2e384854539a05bb89bbd81e72aa48b4, type: 3}
       propertyPath: m_LocalScale.x
@@ -2234,21 +2234,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'using sound effects by:
+  m_text: 'soundeffects obtained from: zapsplat.com
 
-    blubb dubelidu
+    music obrained from: zapsplat.com
 
-    blubb dubelidu
-
-    blubb
-    dubelidu
-
-
-    and music by:
-
-    blubb dubelidu
-
-    blubb dubelidu'
+    brd
+    game music: FesliyanStudios.com'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 894fac7457692c3bb9e721ab08cdf8b6, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: 894fac7457692c3bb9e721ab08cdf8b6, type: 2}
@@ -3427,22 +3418,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'thanks a bunch to:
 
-    blubb dubelidu
+    steve, lotte, gianluca, tom,
 
-    blubb dubelidu
+    david, emil,
+    and kirsten
 
-    blubb
-    dubelidu
+    for playtesting and feedback!
 
-    blubb dubelidu
-
-
-    for helping with development
-
-    and playtesting
-
-    much
-    appreciated :3'
+    much appreciated :3'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 894fac7457692c3bb9e721ab08cdf8b6, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: 894fac7457692c3bb9e721ab08cdf8b6, type: 2}
@@ -3540,7 +3523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7211118173032282576, guid: 14774366dbbe4dc3689054b460b068ab, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7211118173032282576, guid: 14774366dbbe4dc3689054b460b068ab, type: 3}
       propertyPath: m_LocalScale.x
@@ -3843,7 +3826,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
