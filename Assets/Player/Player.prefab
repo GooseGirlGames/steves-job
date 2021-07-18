@@ -262,6 +262,13 @@ MonoBehaviour:
   buddyPrefab: {fileID: 1088700645067137867, guid: 081e6999540f5bf26acc2a94f4d55587, type: 3}
   delaySeconds: 0.8
   goose: {fileID: 11400000, guid: 198dc408a7afc11f7ba17208cfc0bbd2, type: 2}
+  goose_ctrl: {fileID: 22100000, guid: 100cae48783f3931ca9eebe5acce474d, type: 2}
+  goose_cute: {fileID: 11400000, guid: c35d8409472c06b41a3bdcbdf7d82177, type: 2}
+  goose_cute_ctrl: {fileID: 22100000, guid: 57b8f839f14a218f2a7bc8320b93064f, type: 2}
+  goose_blood: {fileID: 11400000, guid: 46a45ac3a97c697a783cacbbc16b8ba1, type: 2}
+  goose_blood_ctrl: {fileID: 22100000, guid: 1e2ab979db9353d438cf2caad7d65948, type: 2}
+  goose_both: {fileID: 11400000, guid: 410fdc347b6862748b32dfb464117bbc, type: 2}
+  goose_both_ctrl: {fileID: 22100000, guid: 97103044759054dbaa11a8d1352b522e, type: 2}
 --- !u!1 &3284434861213316918
 GameObject:
   m_ObjectHideFlags: 0
