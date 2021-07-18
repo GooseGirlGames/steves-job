@@ -37,6 +37,7 @@ public class SwitchDialogue : DialogueTrigger {
     public Sprite ava_empty;
     public Sprite ava_complete;
     new private SpriteRenderer renderer;
+    public Portal outroPortal;
 
     public void UpdateState() {
         if(Inventory.Instance.HasItem(_not_pickedup_with_switch)) {
@@ -52,7 +53,7 @@ public class SwitchDialogue : DialogueTrigger {
     }
 
     private void TriggerEnding() {
-        // TODO
+        outroPortal.TriggerTeleport();
     }
 
     private void Awake() {

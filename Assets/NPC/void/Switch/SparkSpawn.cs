@@ -5,14 +5,14 @@ using UnityEngine;
 public class SparkSpawn : MonoBehaviour {
     public GameObject sparkPrefab;
     public Item powered;
-    private AudioSource sparkle;
+    private AudioSource sparkle = null;
     private void Start() {
         StartCoroutine(SparkSpawnLoop());
         sparkle = GetComponent<AudioSource>();
     }
     public void SpawnSpark() {
         Instantiate(sparkPrefab, parent: this.gameObject.transform);
-        sparkle.Play();
+        if(sparkle) sparkle.Play();
     }
 
     private IEnumerator SparkSpawnLoop() {

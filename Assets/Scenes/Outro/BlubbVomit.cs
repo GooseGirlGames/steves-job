@@ -56,6 +56,7 @@ public class BlubbVomit : MonoBehaviour {
 
         if (timeToLive < POPP_TIME) {
             image.sprite = poppedBubbles[spriteIdx];
+            velocity = 0;
         }
         if (distanceFromOrigin > KILL_DISTANCE || timeToLive < 0.0f) {
             Destroy(this.gameObject);
@@ -74,5 +75,6 @@ public class BlubbVomit : MonoBehaviour {
     }
     public void Kill() {
         timeToLive = POPP_TIME;
+        velocity = 0;
     }
 }
