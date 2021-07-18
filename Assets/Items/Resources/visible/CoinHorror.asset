@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CoinHorror
   m_EditorClassIdentifier: 
   name: Quarter Dollar
-  description: 
+  description: Wish this smelled only one fourth as bad.
   visible: 1
   icon: {fileID: -6338023803479276477, guid: 02a409d2b4eec1197bdf907861dc3b6f, type: 3}
   originWorld: 2
