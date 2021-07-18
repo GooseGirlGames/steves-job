@@ -40,6 +40,7 @@ public class DeployCandy : MonoBehaviour
 
     public Sprite raccoonHighThrowSprite;
     public Sprite raccoonLowThrowSprite;
+    public GameObject instructions;
 
     void Start()
     {
@@ -112,6 +113,9 @@ public class DeployCandy : MonoBehaviour
     public void FixedUpdate(){
         
         float speedUp = 0.75f;
+        if (racoon_near < 9.4f) {
+            instructions.SetActive(false);
+        }
         if (racoon_near < 5.0f) {
             // Let Steve catch up
             speedUp = 7.0f;
