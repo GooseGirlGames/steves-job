@@ -678,8 +678,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '(no birds were harmed during the making of this game)
 
-    (but *you*
-    killed that poor goose. monser.)'
+    (but you did
+    kill that poor goose. monster.)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 894fac7457692c3bb9e721ab08cdf8b6, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: 894fac7457692c3bb9e721ab08cdf8b6, type: 2}

@@ -11,6 +11,8 @@ public class CrankPortDialogue : DialogueTrigger {
     public Sprite ava_cranked;
     public Sprite ava_uncranked;
     public GameObject marqeePhysics;
+    public AudioSource audioSource;
+
     private void Awake() {
         if (Inventory.Instance.HasItem(cranked)) {
             avatar = ava_cranked;
@@ -31,11 +33,13 @@ public class CrankPortDialogue : DialogueTrigger {
         if (Inventory.Instance.HasItem(cranked)) {
             Inventory.Instance.RemoveItem(cranked);
             animator.SetTrigger("Extend");
+            t.audioSource.Play();
             avatar = ava_uncranked;
             marqeePhysics.SetActive(true);
         } else {
             Inventory.Instance.AddItem(cranked);
             animator.SetTrigger("Retract");
+            t.audioSource.Play();
             avatar = ava_cranked;
             marqeePhysics.SetActive(false);
         }
