@@ -23,7 +23,7 @@ public static class SaveLoadSystem {
             s.pos_x = pos.x;
             s.pos_y = pos.y;
             s.pos_z = pos.z;
-        } else if (s.scene != "BloodFalline") {
+        } else if (s.scene != "BloodFalling") {
             Debug.LogWarning("No steve found in " + s.scene);
         }
         s.inventory = GameManager.Instance.itemManager.ToIdList(Inventory.Instance.items);
