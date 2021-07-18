@@ -169,5 +169,5 @@ MonoBehaviour:
   horrorcoin: {fileID: 11400000, guid: 95471e06a7c17fbf7808e9594c76c508, type: 2}
   _gtg_active: {fileID: 11400000, guid: 10ae56c0bc457f54c87c3ecbb6007f26, type: 2}
   audioSource: {fileID: 0}
-  microRumble: {fileID: 8300000, guid: accb8b21da5631a53a5c7518d9c0ef3c, type: 3}
+  microRumble: {fileID: 8300000, guid: 784c2addb58a3c430ac4674f26fdf717, type: 3}
   microDing: {fileID: 8300000, guid: bcb7ad8c13c77775d81eaf957a8e352b, type: 3}
