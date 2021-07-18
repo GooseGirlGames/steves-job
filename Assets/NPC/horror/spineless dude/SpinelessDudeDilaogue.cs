@@ -22,6 +22,10 @@ public class SpinelessDudeDilaogue : DialogueTrigger
     public Sprite ava_bloody_nospine;
     public Sprite ava_norm;
 
+    public AudioSource audioSource;
+    public AudioClip ahhh;
+    public AudioClip screetch;
+
     public static SpinelessDudeDilaogue s;
 
     void Awake() {
@@ -120,7 +124,13 @@ public class SpinelessDudeDilaogue : DialogueTrigger
             Say("Anyway... do you think we can use the blood as lubricant for the mechanism?")
             .DoAfter(RemoveItem(s.bloodbucket))
             .DoAfter(GiveItem(s.emptybucket));
-            Say("*creaaaak* *screeeeeeeeetch*");
+            Say("*creaaaak* *screeeeeeeeetch*")
+            .Do(new DialogueAction(() => {
+                                s.audioSource.clip = s.screetch;
+                            }))
+            .Do(new DialogueAction(() => {
+                                s.audioSource.Play();
+                            }));
             Say("Aaaah my poor ears!");
             Say("That didn't seem to work.")
             .DoAfter(new TriggerDialogueAction<SpinelessDudeChoice>());
@@ -137,7 +147,13 @@ public class SpinelessDudeDilaogue : DialogueTrigger
             Say("Anyway... do you think we can use the blood as lubricant for the mechanism?")
             .DoAfter(RemoveItem(s.cute_bucket_full))
             .DoAfter(GiveItem(s.cute_bucket_empty));
-            Say("*creaaaak* *screeeeeeeeetch*");
+            Say("*creaaaak* *screeeeeeeeetch*")
+            .Do(new DialogueAction(() => {
+                            s.audioSource.clip = s.screetch;
+                        }))
+            .Do(new DialogueAction(() => {
+                                s.audioSource.Play();
+                            }));
             Say("Aaaah my poor ears!");
             Say("That didn't seem to work.")
             .DoAfter(new TriggerDialogueAction<SpinelessDudeChoice>());
@@ -158,7 +174,13 @@ public class SpinelessDudeDilaogue : DialogueTrigger
             Say("Hm that's an interesting idea; maybe cleaning it will help.")
             .DoAfter(RemoveItem(s.maiddress))
             .DoAfter(GiveItem(s.dirty_maiddress));
-            Say("*screeeeeeeeetch* *creaaaak* *screeeeeeeeetch*");
+            Say("*screeeeeeeeetch* *creaaaak* *screeeeeeeeetch*")
+            .Do(new DialogueAction(() => {
+                                s.audioSource.clip = s.screetch;
+                            }))
+            .Do(new DialogueAction(() => {
+                                s.audioSource.Play();
+                            }));
             Say("Nooooo my ears!");
             Say("Well that didn't work and only made the dress dirty.")
             .DoAfter(new TriggerDialogueAction<SpinelessDudeChoice>());
@@ -172,7 +194,13 @@ public class SpinelessDudeDilaogue : DialogueTrigger
             Say("Hm that's an interesting idea; maybe cleaning it will help.")
             .DoAfter(RemoveItem(s.clean_apron))
             .DoAfter(GiveItem(s.dirty_apron));
-            Say(" *creaaaak* *screeeeeeeeetch*  *screeeeeeeeetch* *creaaaak*");
+            Say(" *creaaaak* *screeeeeeeeetch*  *screeeeeeeeetch* *creaaaak*")
+            .Do(new DialogueAction(() => {
+                                s.audioSource.clip = s.screetch;
+                            }))
+            .Do(new DialogueAction(() => {
+                                s.audioSource.Play();
+                            }));
             Say("Ugh what a horrible noise!");
             Say("It still doesn't work and only made the apron dirty.")
             .DoAfter(new TriggerDialogueAction<SpinelessDudeChoice>());
@@ -187,6 +215,12 @@ public class SpinelessDudeDilaogue : DialogueTrigger
             .DoAfter(RemoveItem(s.grease))
             .DoAfter(GiveItem(s._spineless_and_lifeless));
             Say("Aeugh *huff* Aaaaaaah *gasps* YESSSSS")
+            .Do(new DialogueAction(() => {
+                                s.audioSource.clip = s.ahhh;
+                            }))
+            .Do(new DialogueAction(() => {
+                                s.audioSource.Play();
+                            }))
             .Do(s.UpdateSpineyness);
             Say("Thaaaanks ssso muchhh~");
             Say("I have no use for that spine anymore... just take it if you need some courage.")

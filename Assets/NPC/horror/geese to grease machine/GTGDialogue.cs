@@ -13,6 +13,9 @@ public class GTGDialogue : DialogueTrigger
     public Item cutecoin;
     public Item horrorcoin;
     public Item _gtg_active;
+    public AudioSource audioSource;
+    public AudioClip microRumble;
+    public AudioClip microDing;
     public static GTGDialogue g;
 
     void Awake() {
@@ -90,6 +93,12 @@ public class GTGDialogue : DialogueTrigger
             GTGDialogue g = GTGDialogue.g;
 
             Say("*rumble* *rumble* you have successfully activated the machine.")
+            .Do(new DialogueAction(() => {
+                                g.audioSource.clip = g.microRumble;
+                            }))
+            .Do(new DialogueAction(() => {
+                                g.audioSource.Play();
+                            }))
             .DoAfter(GiveItem(g._gtg_active))
             .DoAfter(new TriggerDialogueAction<GTGactiveDialogue>());
         }
@@ -138,8 +147,15 @@ public class GTGDialogue : DialogueTrigger
             GTGDialogue g = GTGDialogue.g;
             
             Say("the machine screetches a bit and the goose makes some unusual sounds...")
+            .Do(new DialogueAction(() => {
+                                g.audioSource.clip = g.microDing;
+                            }))
+            .Do(new DialogueAction(() => {
+                                g.audioSource.Play();
+                            }))
             .DoAfter(RemoveItem(DialogueManager.Instance.currentItem))
             .DoAfter(GiveItem(g.grease));
+            
         }
     }
 }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8119379149461662970}
   - component: {fileID: 8119379149461662969}
   - component: {fileID: 8940451053746552948}
+  - component: {fileID: -7559877064306884877}
   m_Layer: 0
   m_Name: blood
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8119379149461662919}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.470232, y: 5.2, z: 0}
+  m_LocalPosition: {x: 2.5078068, y: 5.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -166,7 +167,7 @@ MonoBehaviour:
   progressbar: {fileID: 0}
   splatter: {fileID: 21300000, guid: a0ab56d1db9825871ac9e8683312c85b, type: 3}
   lostItem: {fileID: 11400000, guid: 7067d8b8b07f27bc3b40963e02ad51aa, type: 2}
-  winItem: {fileID: 11400000, guid: 2349e6f6715f8121cbcf96f01efd5c88, type: 2}
+  winItem: {fileID: 0}
 --- !u!114 &8940451053746552948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,16 +184,113 @@ MonoBehaviour:
   destinationType: 1
   targetSceneName: mall_horror
   target: {fileID: 0}
-  targetUp: {fileID: 0}
-  targetDown: {fileID: 0}
+  elevator: 0
   targetName: Jimmy
   teleportAfterSceneChange: 0
-  transitionAnimation: {fileID: 0}
   portalAnimator: {fileID: 0}
   transitionAnimationSpeedFactor: 1
   animationDelay: 0
+  animationDelayChangeScene: 2
+  animateTransition: 1
   hintPosition: {fileID: 0}
   animateAsElevator: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
+  targetWorld: 0
+--- !u!82 &-7559877064306884877
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8119379149461662919}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b069e55b6e3db410a8532533ec713626, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
