@@ -598,7 +598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745bf09d5db07ab01965f4f598e80c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normal: {fileID: 21300000, guid: 190b3153bb9f78147983447b2556b17c, type: 3}
+  normal: {fileID: 21300000, guid: 6bc6f68a9a1c5344e87c0b41f823240f, type: 3}
   glitched:
   - {fileID: 21300000, guid: f98f64fb3098f9c8086a29f0070dc0d4, type: 3}
   - {fileID: 21300000, guid: e4b5605cc7501a5bea7199f2dbdcd340, type: 3}
