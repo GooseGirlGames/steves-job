@@ -26,12 +26,12 @@ public class BlubbVomit : MonoBehaviour {
         startPos = transform.position;
 
 
-        sideways_force = Random.Range(-4f, 3f);
+        sideways_force = Random.Range(-4f, 2.5f);
 
         spriteIdx = Random.Range(0, intactBubbles.Count - 1);
         image.sprite = intactBubbles[spriteIdx];
 
-        float angle = 2 * Mathf.PI * (90f + Random.Range(0f, 0f)) / 360.0f;
+        float angle = 2 * Mathf.PI * (105f + Random.Range(0f, 0f)) / 360.0f;
         Vector3 direction = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle), 0);
         direction_normalized = Vector3.Normalize(direction);
         velocity = Random.Range(0.15f, 0.3f);
