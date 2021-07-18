@@ -9,6 +9,9 @@ using UnityEngine.SceneManagement;
  */
 public class Portal : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip hui;
+    public AudioClip ding;
     public const string TRIGGER_BUTTON_NAME = "Submit";
     public const string TRIGGER_BUTTON_STR = "E";
     public const float DOOR_ANIMATION_MIN_DISTANCE = 3.0f;
@@ -105,11 +108,15 @@ public class Portal : MonoBehaviour
         if (elevator && animateAsElevator) {
             if (elevatorAnimationCoroutine == null) {
                 elevatorAnimationCoroutine = StartCoroutine(ElevatorAnimation());
-                GetComponent<AudioSource>().Play();
+                if (ding && audioSource) {
+                    audioSource.clip = ding;
+                    audioSource.Play();
+                }
             }
         } else {
             if (sceneTransitionCoroutine == null)
                 sceneTransitionCoroutine = StartCoroutine(WaitForTransitionAnimation());
+                
         }
     }
 
@@ -123,6 +130,10 @@ public class Portal : MonoBehaviour
                 yield return new WaitForSeconds(
                     ANIMATION_DURATION / transitionAnimationSpeedFactor
                 );
+                if (hui && audioSource) {
+                    audioSource.clip = hui;
+                    audioSource.Play();
+                }
                 if (steve) {
                     Debug.Log("Stev!" + steve);
                     steve.SetTrigger("Wheeeeee");

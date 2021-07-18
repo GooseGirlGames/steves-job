@@ -23,6 +23,14 @@ public class PauseMenu : MonoBehaviour
         StartCoroutine(UIUtility.SelectButtonLater(button));
     }
 
+    private void PauseAudio() {
+        AudioListener.pause = true;
+    }
+
+    private void PlayAudio() {
+        AudioListener.pause = false;
+    }
+
     void Update(){
         if (SceneManager.GetActiveScene().name != "MenuScene"
                 && SceneManager.GetActiveScene().name != "IntroScene"
@@ -45,6 +53,7 @@ public class PauseMenu : MonoBehaviour
         lastUnpaused = Time.fixedTime;
         pauseMenuUI.SetActive(false);
         optionsMenu.SetActive(false);
+        PlayAudio();
         Time.timeScale = 1.0f;
         paused = false;
     }
@@ -56,6 +65,7 @@ public class PauseMenu : MonoBehaviour
         }
 
         pauseMenuUI.SetActive(true);
+        PauseAudio();
         StartCoroutine(UIUtility.SelectButtonLater(button));
         Time.timeScale = 0.0f;
         paused = true;
