@@ -6,6 +6,10 @@ using TMPro;
 public class Intro : MonoBehaviour {
     public Portal enterVoid;
     public TextMeshProUGUI textUI;
+
+    public TextMeshProUGUI contentWarningUI;
+    private const string contentWarning = "(features gore and strong language)";
+    private const float CONTENT_WARNING_TIME = 2.0f;
     private const float LETTER_DELAY = 0.03f;
     private const float SENTENCE_DELAY = 3f;
     private List<string> texts = new List<string>{
@@ -24,6 +28,19 @@ public class Intro : MonoBehaviour {
     }
     
     IEnumerator IntroSequence() {
+        textUI.text = "";
+        contentWarningUI.text = "";
+        foreach (char c in contentWarning) {
+            contentWarningUI.text += c;
+            yield return new WaitForSeconds(LETTER_DELAY);
+        }
+        yield return new WaitForSeconds(CONTENT_WARNING_TIME);
+        foreach (char c in contentWarning) {
+            contentWarningUI.text = contentWarningUI.text.Substring(1);
+            yield return new WaitForSeconds(LETTER_DELAY);
+        }
+        yield return new WaitForSeconds(SENTENCE_DELAY / 4.0f);
+
         foreach (string text in texts) {
             textUI.text = "";
             foreach (char c in text) {
