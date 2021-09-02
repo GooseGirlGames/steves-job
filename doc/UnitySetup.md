@@ -63,6 +63,12 @@ if using the AppImage, or, if Unity Hub is installed from AUR:
 unityhub unityhub://2020.3.6f1/338bb68529b2
 ```
 
+The correct version should now install.  You might still be unable to
+add the project.  In that case, create a new project with the Unity
+version you just installed and let the Editor open that project.
+Close the Editor (perhaps restart Unity Hub too), and now you should be
+able to add the existing project.
+
 ### ...if Unity Hub just absolutely hates you
 
 If Unity Hub throws a "Not enough space" error during installation,
