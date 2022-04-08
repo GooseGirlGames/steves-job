@@ -92,8 +92,12 @@ like this:
 pacman -U /var/cache/pacman/pkg/mesa-20.3.4-3-x86_64.pkg.tar.zst /var/cache/pacman/pkg/lib32-mesa-20.3.4-3-x86_64.pkg.tar.zst
 ```
 
+There may be a better solution, and the issue might be fixed in the
+future.  See [Unity bug tracker][mesabug] for more info.
+
 [hubaur]: https://aur.archlinux.org/packages/unityhub/
 [hubappimg]: https://docs.unity3d.com/Manual/GettingStartedInstallingHub.html
 [key]: https://id.unity.com/en/subscriptions
 [archive]: https://unity3d.com/get-unity/download/archive
 [vscodeguide]: https://gist.github.com/jakobbbb/a15d2505a37ca632601d147fd5d91836
+[mesabug]: https://issuetracker.unity3d.com/issues/linux-editor-crashes-at-assert-fail-base-dot-cold-when-opening-a-project
