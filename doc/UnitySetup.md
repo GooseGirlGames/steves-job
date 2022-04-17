@@ -83,6 +83,11 @@ TEMP=$HOME/cool_directory unityhub
 Note that the environment variable only needs to be passed for
 installation.  After that, you can launch Unity Hub without it.
 
+### Nice to know if Unity just fucking wants to ruin your day:
+
+If Unity just gives you two empty errors, set the envvar
+`DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1`.
+
 ### some more useful hints:
 
 If Unity Editor just keeps on crashing, esp. when opening Package
