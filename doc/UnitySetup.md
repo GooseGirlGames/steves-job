@@ -87,6 +87,8 @@ installation.  After that, you can launch Unity Hub without it.
 
 If Unity just gives you two empty errors, set the envvar
 `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1`.
+On most systems, this can be done, by appending the line above to
+`/etc/environment`.
 
 ### some more useful hints:
 
