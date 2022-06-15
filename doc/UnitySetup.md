@@ -24,7 +24,7 @@ to properly set everything up after the Unity Editor is installed.
 
 Clone the `steves-job` repository:
 ```
-git clone https://github.com/finnmito/steves-job
+git clone https://github.com/GooseGirlGames/steves-job
 ```
 
 In Unity Hub, under *Projects* click *Add* and select the

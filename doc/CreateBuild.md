@@ -26,6 +26,6 @@ Step-by-step guide on how to do a release.
      zips.
 15.  Hit *Update Release* and you're good to go!
 
-[release]: https://github.com/finnmito/steves-job/releases/new
+[release]: https://github.com/GooseGirlGames/steves-job/releases/new
 [lindir]: https://user-images.githubusercontent.com/26824491/124400632-24bf2580-dd24-11eb-98fd-27df1b14ddfa.png
 [windir]: https://user-images.githubusercontent.com/26824491/124400806-99df2a80-dd25-11eb-8b08-17ebf1602613.png

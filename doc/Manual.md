@@ -3,7 +3,7 @@
 ## Running the Game
 
 Download the latest Windows zip
-[here](https://github.com/finnmito/steves-job/releases/latest),
+[here](https://github.com/GooseGirlGames/steves-job/releases/latest),
 extract the zip and run `steves-job.exe`.
 If Windows "protects you", click "more information"
 and then "run anyway".

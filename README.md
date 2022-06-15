@@ -4,9 +4,9 @@ A janitor game.
 
 find us on [itch.io](https://goosegirlgames.itch.io/)
 
-Download the game on [github](https://github.com/finnmito/steves-job/releases/latest) or [itch](https://goosegirlgames.itch.io/steves-job)!
+Download the game on [github](https://github.com/GooseGirlGames/steves-job/releases/latest) or [itch](https://goosegirlgames.itch.io/steves-job)!
 
-[Hintbook](https://finnmito.github.io/)
+[Hintbook](https://goosegirlgames.github.io/)
 
 [Development Setup Instructions](doc/UnitySetup.md)
 
